@@ -1,0 +1,27 @@
+# Approved SRS source sections
+
+Extracted from `RuleSphere_SRS_v1.0_Final.docx`, RS-SRS-001, v1.0 Final / B3. The first file is document metadata; subsequent files retain source headings and tables.
+
+- [00-rulespheresoftware-requirements-specificationenterprise-business-decision-management-platf](00-rulespheresoftware-requirements-specificationenterprise-business-decision-management-platf.md)
+- [Document Control](01-document-control.md)
+- [1. Introduction](02-1-introduction.md)
+- [2. Scope and Boundaries](03-2-scope-and-boundaries.md)
+- [3. System Goals](04-3-system-goals.md)
+- [4. Stakeholders and Actors](05-4-stakeholders-and-actors.md)
+- [5. Conceptual Domain Model](06-5-conceptual-domain-model.md)
+- [6. Core Use Case Catalog](07-6-core-use-case-catalog.md)
+- [7. Functional Requirements](08-7-functional-requirements.md)
+- [8. Non-Functional Requirements](09-8-non-functional-requirements.md)
+- [9. Lifecycle and State Semantics](10-9-lifecycle-and-state-semantics.md)
+- [10. Runtime and Consistency Semantics](11-10-runtime-and-consistency-semantics.md)
+- [11. Audit, Privacy and Retention](12-11-audit-privacy-and-retention.md)
+- [12. External Interface Requirements](13-12-external-interface-requirements.md)
+- [13. Architecture Constraints](14-13-architecture-constraints.md)
+- [14. Error and Failure Semantics](15-14-error-and-failure-semantics.md)
+- [15. Requirements Traceability Matrix](16-15-requirements-traceability-matrix.md)
+- [16. Verification and Acceptance Strategy](17-16-verification-and-acceptance-strategy.md)
+- [17. Open Implementation Decisions (ADR Backlog)](18-17-open-implementation-decisions-adr-backlog.md)
+- [18. Final Baseline Statement](19-18-final-baseline-statement.md)
+- [Appendix A - Glossary](20-appendix-a-glossary.md)
+- [Appendix B - Requirement Counts](21-appendix-b-requirement-counts.md)
+- [DOCX supplementary part: word/header1.xml](22-docx-supplementary-part-word-header1-xml.md)

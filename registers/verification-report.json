@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "checks": {
+    "original_files_unchanged": 245,
+    "byte_preserved_textual_sources": 112,
+    "functional-requirements": 64,
+    "nonfunctional-requirements": 14,
+    "core-use-cases": 27,
+    "architecture-constraints": 7,
+    "actors": 8,
+    "goals": 10,
+    "business-outcomes": 5,
+    "adr-backlog": 10,
+    "proposed-use-cases": 177,
+    "data-flows": 57,
+    "recovered_sessions": 8,
+    "recovered_attachments": 6,
+    "authored_links_checked": 552
+  },
+  "errors": [],
+  "limits": [
+    "No UML semantic certification or fresh image rendering",
+    "No runtime implementation or performance testing",
+    "PNG sources indexed without OCR or independent visual verification",
+    "Historical source claims retain original authority/status"
+  ]
+}

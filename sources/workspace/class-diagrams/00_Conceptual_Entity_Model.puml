@@ -1,0 +1,251 @@
+@startuml
+title RuleSphere - Entity / Conceptual Static Model\nProblem Domain Analysis Model (F-03)
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam classBackgroundColor #EAF6F8
+skinparam classBorderColor #177E8D
+skinparam ArrowColor #527183
+skinparam packageStyle rectangle
+skinparam nodesep 30
+skinparam ranksep 45
+hide empty members
+
+' Domain Entity Stereotype
+' Pure domain concepts representing persistent state, business rules and domain invariants
+
+package "Tenant & Identity Domain" #EAF6F8 {
+  class Tenant <<entity>> {
+    -tenantId: UUID
+    -name: String
+    -subscriptionTier: String
+    -createdAt: DateTime
+  }
+  
+  class Workspace <<entity>> {
+    -workspaceId: UUID
+    -name: String
+    -environment: String
+  }
+  
+  class User <<entity>> {
+    -userId: UUID
+    -email: String
+    -status: UserStatus
+  }
+  
+  class SharedLibraryVersion <<entity>> {
+    -assetKey: String
+    -version: String
+    -immutableContent: Binary
+    -publishedAt: DateTime
+  }
+}
+
+package "Decision & Schema Modeling Domain" #EDF5FF {
+  class Decision <<entity>> {
+    -decisionId: UUID
+    -name: String
+    -key: String
+    -description: String
+  }
+  
+  class DecisionVersion <<entity>> {
+    -versionId: UUID
+    -versionNumber: String
+    -revision: Integer
+    -isFrozen: Boolean
+    -createdAt: DateTime
+  }
+  
+  class DecisionGraph <<entity>> {
+    -graphId: UUID
+    -dagValidationStamp: Hash
+  }
+  
+  abstract class DecisionNode <<entity>> {
+    -nodeId: UUID
+    -nodeName: String
+    -nodeType: NodeType
+  }
+  
+  class DecisionTable <<entity>> {
+    -hitPolicy: HitPolicy
+    -rules: List<TableRow>
+  }
+  
+  class DecisionTree <<entity>> {
+    -rootCondition: TreeCondition
+  }
+  
+  class ScriptedExpression <<entity>> {
+    -language: ScriptLang
+    -expressionBody: String
+  }
+  
+  class RuleSet <<entity>> {
+    -rules: List<RuleItem>
+  }
+  
+  class NodeDependency <<entity>> {
+    -dependencyId: UUID
+    -condition: Expression [0..1]
+  }
+  
+  class TypedFallback <<value object>> {
+    -dataType: String
+    -fallbackValue: Value
+  }
+  
+  class SchemaVersion <<entity>> {
+    -schemaId: UUID
+    -versionNumber: String
+    -isCompatible: Boolean
+  }
+  
+  class SchemaField <<entity>> {
+    -fieldName: String
+    -dataType: DataType
+    -isRequired: Boolean
+    -isSensitive: Boolean
+  }
+}
+
+package "Governance & Release Domain" #FFF6DF {
+  class Release <<entity>> {
+    -releaseId: UUID
+    -riskTier: Integer
+    -status: GovernanceStatus
+    -effectiveTier: Integer
+    -createdAt: DateTime
+  }
+  
+  class GovernancePolicy <<entity>> {
+    -policyId: UUID
+    -tierRules: List<TierRule>
+    -makerCheckerEnforced: Boolean
+  }
+  
+  class ApprovalEvidence <<entity>> {
+    -evidenceId: UUID
+    -reviewerRole: ReviewerRole
+    -outcome: ReviewOutcome
+    -reason: String
+    -timestamp: DateTime
+    -digitalSignature: String
+  }
+  
+  class ExecutableArtifact <<entity>> {
+    -artifactId: UUID
+    -checksumSha256: String
+    -bytePayload: Binary
+    -builtAt: DateTime
+  }
+}
+
+package "Deployment & Runtime Distribution Domain" #F0ECFF {
+  class Deployment <<entity>> {
+    -deploymentId: UUID
+    -shadowEnabled: Boolean
+    -canaryEnabled: Boolean
+    -canaryPercentage: Integer
+    -cohortRule: CohortDefinition
+  }
+  
+  class DesiredActiveState <<entity>> {
+    -stateId: UUID
+    -desiredVersion: String
+    -desiredGeneration: Long
+    -updatedAt: DateTime
+  }
+  
+  class RuntimeNode <<entity>> {
+    -nodeId: String
+    -nodeHost: String
+    -healthStatus: NodeHealth
+    -lastReportedGeneration: Long
+  }
+  
+  class LoadedArtifact <<entity>> {
+    -loadedVersion: String
+    -loadedGeneration: Long
+    -isEligible: Boolean
+    -loadedAt: DateTime
+  }
+}
+
+package "Audit & Trace Evidence Domain" #FFF0ED {
+  class ExecutionTraceTree <<entity>> {
+    -executionId: UUID
+    -traceTreeJson: String
+    -maskedSensitiveValues: Boolean
+    -retentionDays: Integer
+    -capturedAt: DateTime
+  }
+  
+  class ComplianceRecord <<entity>> {
+    -recordId: UUID
+    -executionId: UUID
+    -decisionVersion: String
+    -inputHash: String
+    -protectedOutput: String
+    -matchedNodeIds: List<UUID>
+    -governanceRef: UUID
+    -timestamp: DateTime
+  }
+}
+
+' Domain Relationships
+Tenant "1" *-- "0..*" Workspace
+Tenant "1" *-- "0..*" User
+Tenant "1" *-- "0..*" SharedLibraryVersion : owns library assets
+
+Workspace "1" *-- "0..*" Decision
+Workspace "1" *-- "0..*" SchemaVersion
+
+Decision "1" *-- "1..*" DecisionVersion
+DecisionVersion "1" *-- "1" DecisionGraph
+DecisionVersion "0..*" --> "1" SchemaVersion : inputSchema
+DecisionVersion "0..*" --> "1" SchemaVersion : outputSchema
+DecisionVersion "0..*" --> "0..*" SharedLibraryVersion : pins
+
+DecisionGraph "1" *-- "1..*" DecisionNode
+DecisionGraph "1" *-- "0..*" NodeDependency
+NodeDependency "0..*" --> "1" DecisionNode : source
+NodeDependency "0..*" --> "1" DecisionNode : target
+
+DecisionNode <|-- DecisionTable
+DecisionNode <|-- DecisionTree
+DecisionNode <|-- ScriptedExpression
+DecisionNode <|-- RuleSet
+DecisionNode "1" *-- "0..1" TypedFallback
+
+SchemaVersion "1" *-- "1..*" SchemaField
+
+Release "0..*" --> "1" DecisionVersion : candidate
+Release "0..*" --> "1" GovernancePolicy : evaluates
+Release "0..*" --> "1" User : maker
+Release "1" *-- "0..*" ApprovalEvidence : records
+Release "1" -- "0..1" ExecutableArtifact : packages
+
+Deployment "0..*" --> "1" ExecutableArtifact : targets
+Deployment "1" -- "1" DesiredActiveState : sets active version
+
+RuntimeNode "1" *-- "0..*" LoadedArtifact : holds in memory
+LoadedArtifact "0..*" --> "1" ExecutableArtifact : references
+
+ComplianceRecord "0..*" --> "1" Release : references evidence
+ComplianceRecord "1" -- "0..1" ExecutionTraceTree : references detail
+
+note bottom of DecisionVersion
+  **Domain Invariant:**
+  - DecisionVersion is mutable only while in Draft state.
+  - Upon governance submission and approval, it becomes permanently frozen and immutable.
+  - Published executable artifacts are immutable (AC-02).
+end note
+
+legend bottom
+  <<entity>>: Domain Entity with persistent identity and lifecycle.
+  <<value object>>: Immutable value object characterized by its attributes.
+  This model represents pure domain concepts, separated from application/adapter services.
+endlegend
+@enduml

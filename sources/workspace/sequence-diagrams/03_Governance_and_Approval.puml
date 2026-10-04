@@ -1,0 +1,143 @@
+@startuml
+title RuleSphere - Submit, Review and Build\nUC-10..14
+autonumber
+skinparam shadowing false
+skinparam sequenceLifeLineBorderColor #177E8D
+skinparam sequenceLifeLineBackgroundColor #EAF6F8
+
+actor "Decision Author" as Author
+actor "Authorized Reviewer(s)" as Reviewer
+boundary "Management API" as API
+participant AuthorizationService as Auth
+participant Release
+participant DecisionValidator as Validator
+participant GovernancePolicy as Policy
+database "Approval / Audit Evidence" as Evidence
+participant ArtifactBuilder as Builder
+database "Artifact Store" as Artifacts
+
+Author -> API: Submit candidate revision
+activate API
+
+API -> Auth: authorize(author, submit, scope)
+activate Auth
+Auth --> API: Access decision
+deactivate Auth
+
+break Unauthorized submit
+  API --> Author: Access denied
+end
+
+API -> Validator: Validate exact candidate revision
+activate Validator
+Validator --> API: Validity and breaking-change status
+deactivate Validator
+
+break Required validation failed
+  API --> Author: Validation errors; retain Draft
+end
+
+API -> Release: submit(candidate revision)
+activate Release
+
+Release -> Policy: calculateRisk(change scope, breaking, previous 30-day traffic)
+activate Policy
+Policy --> Release: Calculated tier and required stages
+deactivate Policy
+
+Release -> Release: Enter In Review; bind candidate revision
+Release --> API: Release ID and risk tier
+deactivate Release
+
+API --> Author: Submission accepted
+deactivate API
+
+note over Reviewer,Release
+  Tier 1: one Domain Approver.
+  Tier 2: Domain Peer, then Workspace Owner.
+  Tier 3: Domain Owner AND Compliance Officer.
+  Maker is excluded from every approval role.
+end note
+
+loop While In Review; each review/override command
+  Reviewer -> API: Approve / Reject / Increase risk tier
+  activate API
+  
+  API -> Auth: Check scope and required review role
+  activate Auth
+  Auth --> API: Access decision
+  deactivate Auth
+  
+  API -> Release: Check actor != maker, stage and candidate revision
+  activate Release
+  
+  alt Unauthorized, maker, stale revision or invalid stage
+    Release --> API: Reject command without counting approval
+    API --> Reviewer: Review not accepted
+  else Eligible reviewer
+    alt Risk override
+      API -> Release: overruleRiskUpward(newTier)
+      alt newTier > effectiveTier
+        Release -> Policy: Re-evaluate required approvals
+        activate Policy
+        Policy --> Release: New requirements
+        deactivate Policy
+        Release -> Evidence: Append override actor, tiers, reason and time
+        activate Evidence
+        Evidence --> Release: Recorded
+        deactivate Evidence
+      else Same or lower tier
+        Release --> API: Reject override
+      end
+    else Reject
+      API -> Release: recordReview(reject, reason)
+      Release -> Evidence: Append immutable rejection for revision
+      activate Evidence
+      Evidence --> Release: Recorded
+      deactivate Evidence
+      Release -> Release: Return candidate to Draft
+    else Approve
+      API -> Release: recordReview(approve, reason)
+      Release -> Evidence: Append immutable approval for revision
+      activate Evidence
+      Evidence --> Release: Recorded
+      deactivate Evidence
+      Release -> Policy: Check current stages / quorum
+      activate Policy
+      Policy --> Release: Satisfied or pending
+      deactivate Policy
+      opt All required approvals satisfied
+        Release -> Release: Set Approved; freeze version
+      end
+    end
+    Release --> API: Current governance status / command outcome
+    API --> Reviewer: Review result
+  end
+  deactivate Release
+  deactivate API
+end
+
+opt Approved and required validation remains satisfied
+  Release -> Builder: build(approved exact revision)
+  activate Release
+  activate Builder
+  Builder -> Builder: Bind graph, schemas, dependencies and library versions
+  alt Build succeeds
+    Builder -> Artifacts: Store immutable artifact, manifest and integrity metadata
+    activate Artifacts
+    Artifacts --> Builder: Stored
+    deactivate Artifacts
+    Builder --> Release: Artifact reference; eligible for delivery
+  else Build fails
+    Builder --> Release: Observable build error; no deliverable artifact
+  end
+  deactivate Builder
+  deactivate Release
+end
+
+note over Release,Builder
+  Approved does not mean Active.
+  Approval reuse after upward override needs a policy/ADR decision.
+  Old evidence never implicitly approves an edited revision.
+end note
+@enduml

@@ -1,0 +1,79 @@
+@startuml
+set namespaceSeparator none
+title RuleSphere - Class Diagram by Functional Group\nConceptual design derived from SRS RS-SRS-001 v1.0 Final
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam nodesep 35
+skinparam ranksep 55
+hide empty members
+package "01. Administration" #EAF6F8 {
+  class Tenant
+  class Workspace
+  class User
+  class SharedLibraryVersion
+}
+package "02. Decision Modeling" #EDF5FF {
+  class Decision
+  class DecisionVersion
+  class DecisionGraph
+  abstract class DecisionNode
+  class SchemaVersion
+}
+package "03. Governance and Approval" #FFF6DF {
+  class Release
+  class GovernancePolicy
+  class ApprovalEvidence
+  class ExecutableArtifact
+}
+package "04. Deployment and Distribution" #F0ECFF {
+  class Deployment
+  class DesiredActiveState
+  class RuntimeNode
+  class LoadedArtifact
+}
+package "05. Runtime and Integration" #E9F8ED {
+  class Execution
+  class AtomicSnapshot
+}
+package "06. Audit and Observability" #FFF0ED {
+  class ExecutionTraceTree
+  class ComplianceRecord
+  class AuditEvent
+  class FleetConvergenceView
+}
+Tenant "1" *-- "0..*" Workspace
+Tenant "1" *-- "0..*" User
+Tenant "1" -- "0..*" SharedLibraryVersion : owns via library
+Workspace "1" -- "0..*" Decision
+Workspace "1" -- "0..*" SchemaVersion
+Decision "1" *-- "1..*" DecisionVersion
+DecisionVersion "1" *-- "1" DecisionGraph
+DecisionGraph "1" *-- "1..*" DecisionNode
+DecisionVersion "0..*" --> "1..2" SchemaVersion : input/output
+DecisionVersion "0..*" --> "0..*" SharedLibraryVersion : pinned reuse
+Release "0..*" --> "1" DecisionVersion
+Release "0..*" --> "1" GovernancePolicy
+Release "0..*" --> "1" User : maker
+Release "1" -- "0..*" ApprovalEvidence : via stages
+Release "1" -- "0..1" ExecutableArtifact
+Release "1" -- "0..*" Deployment
+Deployment "0..*" --> "1" ExecutableArtifact
+DesiredActiveState "0..*" --> "0..1" ExecutableArtifact
+Decision "1" -- "0..*" DesiredActiveState
+RuntimeNode "1" *-- "0..*" LoadedArtifact
+LoadedArtifact "0..*" --> "1" ExecutableArtifact
+Execution "0..*" --> "1" AtomicSnapshot
+AtomicSnapshot "0..*" --> "1..*" ExecutableArtifact
+Execution "1" -- "0..1" ExecutionTraceTree
+Execution "1" -- "0..1" ComplianceRecord
+ComplianceRecord "0..*" --> "1" Release : evidence
+AuditEvent ..> Tenant : scoped evidence
+FleetConvergenceView ..> DesiredActiveState
+FleetConvergenceView ..> LoadedArtifact
+legend bottom
+  Overview omits attributes, operations and supporting classes.
+  Each numbered diagram expands its own group.
+  Associations describe conceptual ownership/references, not database foreign keys.
+endlegend
+@enduml

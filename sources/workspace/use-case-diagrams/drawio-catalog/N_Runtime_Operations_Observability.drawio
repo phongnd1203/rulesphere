@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" agent="Codex" version="26.0.0" type="device" compressed="false">
+  <diagram name="RuleSphere - Business Rule Management Platform | N Runtime Operations Observability" id="N_Runtime_Operations_Observability">
+    <mxGraphModel grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1850" pageHeight="1422" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="n1" value="RuleSphere - Business Rule Management Platform" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=19;fontFamily=Helvetica;fontColor=#334155;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="21.6" y="12.96" width="1807.2" height="28.8" />
+        </mxCell>
+        <mxCell id="n2" value="N Runtime Operations Observability | Proposed baseline" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=15;fontFamily=Helvetica;fontColor=#334155;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="21.6" y="46.08" width="1807.2" height="28.8" />
+        </mxCell>
+        <mxCell id="n3" value="RuleSphere - Business Rule Management Platform" style="swimlane;html=0;startSize=29;fillColor=#eff6ff;swimlaneFillColor=#ffffff;strokeColor=#94a3b8;fontSize=17;fontStyle=1;align=left;spacingLeft=20;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="334.8" y="100.8" width="1288.8" height="1180.8" />
+        </mxCell>
+        <mxCell id="n4" value="Monitor Decision Runtime" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;" vertex="1" parent="1" catalogId="OPS-01">
+          <mxGeometry as="geometry" x="381.6" y="338.76" width="240" height="90" />
+        </mxCell>
+        <mxCell id="n5" value="View Runtime Health" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;" vertex="1" parent="1" catalogId="OPS-02">
+          <mxGeometry as="geometry" x="871.2" y="205.56" width="240" height="90" />
+        </mxCell>
+        <mxCell id="n6" value="View Decision Metrics" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;" vertex="1" parent="1" catalogId="OPS-03">
+          <mxGeometry as="geometry" x="871.2" y="471.96" width="240" height="90" />
+        </mxCell>
+        <mxCell id="n7" value="Receive Runtime Alert" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;" vertex="1" parent="1" catalogId="OPS-11">
+          <mxGeometry as="geometry" x="871.2" y="338.76" width="240" height="90" />
+        </mxCell>
+        <mxCell id="n8" value="View Request Volume" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;" vertex="1" parent="1" catalogId="OPS-04">
+          <mxGeometry as="geometry" x="1360.8" y="205.56" width="240" height="90" />
+        </mxCell>
+        <mxCell id="n9" value="View Decision Latency" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;" vertex="1" parent="1" catalogId="OPS-05">
+          <mxGeometry as="geometry" x="1360.8" y="338.76" width="240" height="90" />
+        </mxCell>
+        <mxCell id="n10" value="View Error Rate" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;" vertex="1" parent="1" catalogId="OPS-06">
+          <mxGeometry as="geometry" x="1360.8" y="471.96" width="240" height="90" />
+        </mxCell>
+        <mxCell id="n11" value="Diagnose Execution Failure" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;" vertex="1" parent="1" catalogId="OPS-10">
+          <mxGeometry as="geometry" x="381.6" y="761.76" width="240" height="90" />
+        </mxCell>
+        <mxCell id="n12" value="View Runtime Logs" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;" vertex="1" parent="1" catalogId="OPS-08">
+          <mxGeometry as="geometry" x="871.2" y="695.16" width="240" height="90" />
+        </mxCell>
+        <mxCell id="n13" value="View Runtime Traces" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;" vertex="1" parent="1" catalogId="OPS-09">
+          <mxGeometry as="geometry" x="871.2" y="828.36" width="240" height="90" />
+        </mxCell>
+        <mxCell id="n14" value="View Runtime Version" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;" vertex="1" parent="1" catalogId="OPS-07">
+          <mxGeometry as="geometry" x="381.6" y="1051.56" width="240" height="90" />
+        </mxCell>
+        <mxCell id="n15" value="Export Telemetry" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;" vertex="1" parent="1" catalogId="OPS-12">
+          <mxGeometry as="geometry" x="871.2" y="1051.56" width="240" height="90" />
+        </mxCell>
+        <mxCell id="e16" value="«include»" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;dashed=1;endArrow=open;endFill=0;exitX=0.9047109239814569;exitY=0.20638619240560968;exitPerimeter=0;entryX=0.09528907601854351;entryY=0.7936138075943903;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n4" target="n5" routing="straight">
+          <mxGeometry as="geometry" relative="1" x="0.0" y="0">
+            <mxPoint as="offset" x="0.0" y="0.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e17" value="«include»" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;dashed=1;endArrow=open;endFill=0;exitX=0.9047109239814565;exitY=0.7936138075943903;exitPerimeter=0;entryX=0.09528907601854351;entryY=0.20638619240561032;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n4" target="n6" routing="straight">
+          <mxGeometry as="geometry" relative="1" x="0.0" y="0">
+            <mxPoint as="offset" x="0.0" y="0.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e18" value="«extend»" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;dashed=1;endArrow=open;endFill=0;exitX=0.0;exitY=0.5;exitPerimeter=0;entryX=1.0;entryY=0.5;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n7" target="n4" routing="straight">
+          <mxGeometry as="geometry" relative="1" x="0.0" y="0">
+            <mxPoint as="offset" x="0.0" y="0.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e19" value="«include»" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;dashed=1;endArrow=open;endFill=0;exitX=0.7837364554119736;exitY=0.08830396665713604;exitPerimeter=0;entryX=0.21626354458802646;entryY=0.9116960333428646;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n6" target="n8" routing="straight">
+          <mxGeometry as="geometry" relative="1" x="0.0" y="0">
+            <mxPoint as="offset" x="0.0" y="0.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e20" value="«include»" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;dashed=1;endArrow=open;endFill=0;exitX=0.9047109239814565;exitY=0.20638619240561032;exitPerimeter=0;entryX=0.09528907601854351;entryY=0.7936138075943903;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n6" target="n9" routing="straight">
+          <mxGeometry as="geometry" relative="1" x="0.0" y="0">
+            <mxPoint as="offset" x="0.0" y="0.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e21" value="«include»" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;dashed=1;endArrow=open;endFill=0;exitX=1.0;exitY=0.5000000000000007;exitPerimeter=0;entryX=0.0;entryY=0.5000000000000007;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n6" target="n10" routing="straight">
+          <mxGeometry as="geometry" relative="1" x="0.0" y="0">
+            <mxPoint as="offset" x="0.0" y="0.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e22" value="«include»" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;dashed=1;endArrow=open;endFill=0;exitX=0.9700311105473318;exitY=0.3294985187230269;exitPerimeter=0;entryX=0.02996888945266818;entryY=0.6705014812769731;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n11" target="n12" routing="straight">
+          <mxGeometry as="geometry" relative="1" x="0.0" y="0">
+            <mxPoint as="offset" x="0.0" y="0.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e23" value="«include»" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;dashed=1;endArrow=open;endFill=0;exitX=0.9700311105473318;exitY=0.6705014812769731;exitPerimeter=0;entryX=0.02996888945266818;entryY=0.3294985187230269;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n11" target="n13" routing="straight">
+          <mxGeometry as="geometry" relative="1" x="0.0" y="0">
+            <mxPoint as="offset" x="0.0" y="0.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n24" value="Operations / SRE" style="shape=umlActor;html=0;whiteSpace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fontSize=12;fontFamily=Helvetica;strokeColor=#334155;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="90.0" y="717.36" width="100" height="70" />
+        </mxCell>
+        <mxCell id="e25" value="" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;endArrow=none;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.3273715250789081;entryY=0.9692540992324072;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n24" target="n4" routing="straight">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e26" value="" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;endArrow=none;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.03595070514750631;entryY=0.31383273126861644;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n24" target="n11" routing="straight">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e27" value="" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;endArrow=none;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.3167306500592967;entryY=0.03479859697942326;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n24" target="n14" routing="straight">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="n28" value="Observability Platform" style="shape=umlActor;html=0;whiteSpace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fontSize=12;fontFamily=Helvetica;strokeColor=#334155;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1702.8" y="1051.56" width="100" height="70" />
+        </mxCell>
+        <mxCell id="e29" value="" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;endArrow=none;exitX=0.0;exitY=0.5;exitPerimeter=0;entryX=0.9996937863831363;entryY=0.4825037189641762;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n28" target="n15" routing="straight">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="n30" value="Solid line: association | Hollow triangle: specialized → general | «include»: base → required behavior | «extend»: conditional behavior → base" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=12;fontFamily=Helvetica;fontColor=#334155;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="21.6" y="1314.0" width="1807.2" height="32.4" />
+        </mxCell>
+        <mxCell id="n31" value="Each actor and catalog use case appears once in this module. Cross-module IDs reference reusable behavior. Actor inheritance: 01_Actor_Model.&#10;Conditions, permissions and UML clarifications: module-notes.md. Proposed baseline; runtime is inside RuleSphere - Business Rule Management Platform." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=12;fontFamily=Helvetica;fontColor=#334155;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="21.6" y="1353.6" width="1807.2" height="54.0" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

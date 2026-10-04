@@ -1,0 +1,83 @@
+@startuml
+title RuleSphere - Integrated Communication Diagram\nEnd-to-End System Collaboration (COMET Analysis Model F-02)
+skinparam shadowing false
+skinparam objectBackgroundColor #EAF6F8
+skinparam objectBorderColor #177E8D
+skinparam ArrowColor #496477
+skinparam defaultFontName Segoe UI
+skinparam nodesep 50
+skinparam ranksep 60
+
+' Actors
+object "author : DecisionAuthor" as Author <<actor>>
+object "approver : GovernanceReviewer" as Approver <<actor>>
+object "client : ConsumerApplication" as Client <<actor>>
+
+' Control Plane Boundaries & Controllers
+object "mgmtAPI : ManagementAPI" as MgmtAPI <<boundary>>
+object "decisionMgr : DecisionManager" as DecMgr <<service>>
+object "validator : DecisionValidator" as Validator <<service>>
+object "govCtrl : GovernanceController" as GovCtrl <<state dependent control>>
+object "builder : ArtifactBuilder" as Builder <<service>>
+
+' Delivery Plane
+object "publisher : DesiredStatePublisher" as Publisher <<service>>
+
+' Data Plane
+object "runtimeAPI : RuntimeAdapter" as RunAPI <<boundary>>
+object "evalSvc : EvaluationCoordinator" as EvalSvc <<coordinator>>
+object "resolver : SnapshotResolver" as Resolver <<service>>
+object "executor : GraphExecutor" as Executor <<service>>
+object "traceSvc : TraceCaptureService" as TraceSvc <<service>>
+
+' Stores / Entities
+object "artifactRepo : ArtifactRepository" as ArtifactRepo <<entity>>
+object "complianceStore : ComplianceLedger" as ComplianceStore <<entity>>
+
+' Collaborations & Messages
+
+' 1. Authoring & Validation Flow
+Author --> MgmtAPI : 1: authorDraft(draftGraph, schema)
+MgmtAPI --> DecMgr : 1.1: saveDraftRevision()
+DecMgr --> Validator : 1.2: validateDAGAndContracts()
+Validator --> DecMgr : 1.3: validationReport
+
+' 2. Governance Flow
+Author --> MgmtAPI : 2: submitCandidate(version)
+MgmtAPI --> GovCtrl : 2.1: submitReleaseCandidate()
+Approver --> MgmtAPI : 3: recordReview(approve, reason)
+MgmtAPI --> GovCtrl : 3.1: applyApprovalEvidence()
+GovCtrl --> Builder : 3.2 [all approvals satisfied]: buildApprovedArtifact()
+Builder --> ArtifactRepo : 3.3: storeImmutableBytecode()
+
+' 3. Distribution Flow
+GovCtrl --> Publisher : 4: publishDesiredState(targetVersion)
+Publisher --> Resolver : 4.1 <<async event>>: notifyDesiredState()
+Resolver --> ArtifactRepo : 4.2: fetchImmutableArtifact()
+
+' 4. Runtime Evaluation Flow
+Client --> RunAPI : 5: evaluate(request, context, optionalPin)
+RunAPI --> EvalSvc : 5.1: evaluateRequest()
+EvalSvc --> Resolver : 5.2: resolveAtomicSnapshot()
+EvalSvc --> Executor : 5.3: executeDAG(snapshot, input)
+Executor --> EvalSvc : 5.4: executionResult
+EvalSvc --> TraceSvc : 5.5 <<async>>: captureTrace(result, executionId)
+TraceSvc --> ComplianceStore : 5.6: persistProtectedEvidence()
+RunAPI ..> Client : 5.7: evaluationOutcome
+
+note bottom of GovCtrl
+  Enforces Maker-Checker and Tier 1..3 quorums.
+  Rejection returns candidate to Draft state.
+end note
+
+note bottom of EvalSvc
+  Evaluates from local in-memory cache.
+  Zero synchronous dependency on Control Plane (AC-04).
+  Trace handoff is asynchronous.
+end note
+
+legend bottom
+  Integrated COMET Communication Diagram synthesizing subsystems (Authoring, Governance, Distribution, Runtime, Audit).
+  Stereotypes: <<actor>>, <<boundary>>, <<service>>, <<coordinator>>, <<state dependent control>>, <<entity>>.
+endlegend
+@enduml

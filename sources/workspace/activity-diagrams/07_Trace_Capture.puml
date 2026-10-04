@@ -1,0 +1,49 @@
+@startuml
+title RuleSphere - Activity Diagram\n07. Protected Execution Evidence | UC-24
+skinparam shadowing false
+skinparam activityBackgroundColor #FFF0ED
+skinparam activityBorderColor #496477
+|Trace Capture|
+start
+:Receive asynchronous auditable execution evidence;
+:Identify sensitive fields using bound schema metadata;
+:Mask, tokenize or hash sensitive values\nincluding intermediate outcomes, output and errors;
+if (Protection succeeded?) then (yes)
+else (no)
+  :Block unprotected persistence;
+  :Report capture degradation and apply failure policy;
+  stop
+endif
+fork
+  :Attempt to persist full protected trace tree;
+  :Collect hot-store success / failure / timeout;
+  note right
+Hot trace retention: configured 30-90 days.
+end note
+fork again
+  :Build immutable compliance metadata;
+  note right
+ExecutionID, DecisionVersion, InputHash,
+protected Output, MatchedNodeIDs, Timestamp,
+approval/release evidence reference.
+end note
+  :Attempt to persist compliance metadata;
+  :Collect ledger success / failure / timeout;
+  note right
+Ledger retention: configured 5-7 years.
+end note
+end fork
+if (Both persistence attempts succeeded?) then (yes)
+  :Record capture success;
+else (no)
+  :Report affected execution, failed store and degradation;
+  :Apply operational retry / backpressure policy;
+endif
+stop
+legend bottom
+  This activity runs independently of the consumer response; its join only joins capture tasks.
+  Persistence failure must not silently change the business decision outcome.
+  Retry, timeouts, reliable delivery and backpressure details require ADR.
+  Never store plaintext sensitive fields in execution traces.
+endlegend
+@enduml

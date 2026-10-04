@@ -1,0 +1,44 @@
+@startuml
+title RuleSphere - Activity Diagram\n08. Historical Explanation and Audit | UC-25..26
+skinparam shadowing false
+skinparam activityBackgroundColor #FFF0ED
+skinparam activityBorderColor #496477
+|Authorized User / Auditor|
+start
+:Request explanation by ExecutionID\nor audit inspection by filter;
+|Evidence Query Service|
+:Authenticate and authorize action within Tenant/Workspace;
+if (Authorized?) then (yes)
+else (no)
+  :Return access error without disclosing evidence;
+  stop
+endif
+if (Historical explanation requested?) then (yes)
+  :Read scoped retained hot trace\nand compliance metadata;
+  if (Full trace retained?) then (yes)
+    :Include protected node, branch and outcome details;
+  else (no)
+    :Mark full trace unavailable;
+  endif
+  if (Accessible approval/release reference exists?) then (yes)
+    :Read referenced evidence within authorized scope;
+  endif
+  :Assemble available execution, version\nand release evidence;
+else (audit inspection)
+  :Read scoped governance, deployment\nand security audit records;
+endif
+:Record attributable evidence-access audit event;
+if (Requested evidence available?) then (yes)
+  :Return protected evidence with retention limitations;
+else (no)
+  :Return explicit not-found / no-retained-evidence result;
+endif
+|Authorized User / Auditor|
+:View explanation / audit records or authorized export;
+stop
+legend bottom
+  Full trace may expire before compliance metadata.
+  Return only retained evidence; never invent missing intermediate decisions.
+  Queries and referenced evidence must remain within authorized scope.
+endlegend
+@enduml

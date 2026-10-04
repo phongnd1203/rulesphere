@@ -1,0 +1,52 @@
+[
+  {
+    "ID": "G1",
+    "Goal": "Business Decision Autonomy",
+    "Description": "Model/test governed decisions without consumer release."
+  },
+  {
+    "ID": "G2",
+    "Goal": "Enterprise Governance",
+    "Description": "Control decision change using risk-aware approval and separation of duties."
+  },
+  {
+    "ID": "G3",
+    "Goal": "Decision Composition",
+    "Description": "Compose deterministic finite decisions from reusable decision nodes."
+  },
+  {
+    "ID": "G4",
+    "Goal": "Explainability & Compliance",
+    "Description": "Reconstruct why and how a decision was produced."
+  },
+  {
+    "ID": "G5",
+    "Goal": "High-performance Distributed Execution",
+    "Description": "Execute decisions at enterprise latency/throughput scale."
+  },
+  {
+    "ID": "G6",
+    "Goal": "Safe Decision Delivery",
+    "Description": "Publish, shadow, canary, promote and rollback safely."
+  },
+  {
+    "ID": "G7",
+    "Goal": "Tenant & Security Isolation",
+    "Description": "Prevent unauthorized cross-tenant/workspace access."
+  },
+  {
+    "ID": "G8",
+    "Goal": "Contract Evolution",
+    "Description": "Version and evolve data contracts with compatibility controls."
+  },
+  {
+    "ID": "G9",
+    "Goal": "Reliability & Fault Tolerance",
+    "Description": "Keep Data Plane serving through node/control-plane failures."
+  },
+  {
+    "ID": "G10",
+    "Goal": "Integration Interoperability",
+    "Description": "Provide stable REST/gRPC integration contracts."
+  }
+]

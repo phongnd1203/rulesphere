@@ -1,0 +1,19 @@
+# SRS source section
+
+Source: `RuleSphere_SRS_v1.0_Final.docx`. Requirements retain their original status; extraction is not a new approval.
+
+## 3. System Goals
+
+| ID | Goal | Description |
+| --- | --- | --- |
+| G1 | Business Decision Autonomy | Model/test governed decisions without consumer release. |
+| G2 | Enterprise Governance | Control decision change using risk-aware approval and separation of duties. |
+| G3 | Decision Composition | Compose deterministic finite decisions from reusable decision nodes. |
+| G4 | Explainability & Compliance | Reconstruct why and how a decision was produced. |
+| G5 | High-performance Distributed Execution | Execute decisions at enterprise latency/throughput scale. |
+| G6 | Safe Decision Delivery | Publish, shadow, canary, promote and rollback safely. |
+| G7 | Tenant & Security Isolation | Prevent unauthorized cross-tenant/workspace access. |
+| G8 | Contract Evolution | Version and evolve data contracts with compatibility controls. |
+| G9 | Reliability & Fault Tolerance | Keep Data Plane serving through node/control-plane failures. |
+| G10 | Integration Interoperability | Provide stable REST/gRPC integration contracts. |
+

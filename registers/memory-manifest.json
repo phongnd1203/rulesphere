@@ -1,0 +1,91 @@
+{
+  "persistent_memory": "0 RuleSphere matches in persistent memory database (read-only snapshot).",
+  "sessions": [
+    {
+      "session_id": "01a0ed7f-2191-7370-bcc7-ed14466c4181",
+      "source": "C:\\Users\\Phong\\.codex\\sessions\\2026\\09\\29\\rollout-2026-09-29T21-08-47-01a0ed7f-2191-7370-bcc7-ed14466c4181.jsonl",
+      "extracted": "memory/sessions/rollout-2026-09-29T21-08-47-01a0ed7f-2191-7370-bcc7-ed14466c4181.md",
+      "messages": 23
+    },
+    {
+      "session_id": "01a0ed98-d078-7021-a7bf-ea79372639da",
+      "source": "C:\\Users\\Phong\\.codex\\sessions\\2026\\09\\29\\rollout-2026-09-29T21-36-50-01a0ed98-d078-7021-a7bf-ea79372639da.jsonl",
+      "extracted": "memory/sessions/rollout-2026-09-29T21-36-50-01a0ed98-d078-7021-a7bf-ea79372639da.md",
+      "messages": 5
+    },
+    {
+      "session_id": "01a0eda0-7323-76d3-b897-526ef47a8adc",
+      "source": "C:\\Users\\Phong\\.codex\\sessions\\2026\\09\\29\\rollout-2026-09-29T21-45-10-01a0eda0-7323-76d3-b897-526ef47a8adc.jsonl",
+      "extracted": "memory/sessions/rollout-2026-09-29T21-45-10-01a0eda0-7323-76d3-b897-526ef47a8adc.md",
+      "messages": 5
+    },
+    {
+      "session_id": "01a0edb7-28fb-72e1-8d42-190c7ee95dc0",
+      "source": "C:\\Users\\Phong\\.codex\\sessions\\2026\\09\\29\\rollout-2026-09-29T22-09-58-01a0edb7-28fb-72e1-8d42-190c7ee95dc0.jsonl",
+      "extracted": "memory/sessions/rollout-2026-09-29T22-09-58-01a0edb7-28fb-72e1-8d42-190c7ee95dc0.md",
+      "messages": 23
+    },
+    {
+      "session_id": "01a0efe3-533e-7d93-bb92-7390c3791f75",
+      "source": "C:\\Users\\Phong\\.codex\\sessions\\2026\\09\\30\\rollout-2026-09-30T08-17-27-01a0efe3-533e-7d93-bb92-7390c3791f75.jsonl",
+      "extracted": "memory/sessions/rollout-2026-09-30T08-17-27-01a0efe3-533e-7d93-bb92-7390c3791f75.md",
+      "messages": 22
+    },
+    {
+      "session_id": "01a0effe-136d-7f41-ace0-4fc5da8defc1",
+      "source": "C:\\Users\\Phong\\.codex\\sessions\\2026\\09\\30\\rollout-2026-09-30T08-46-40-01a0effe-136d-7f41-ace0-4fc5da8defc1.jsonl",
+      "extracted": "memory/sessions/rollout-2026-09-30T08-46-40-01a0effe-136d-7f41-ace0-4fc5da8defc1.md",
+      "messages": 26
+    },
+    {
+      "session_id": "01a0f034-7598-7fe3-95f4-0b1fdd7bc35f",
+      "source": "C:\\Users\\Phong\\.codex\\sessions\\2026\\09\\30\\rollout-2026-09-30T09-46-05-01a0f034-7598-7fe3-95f4-0b1fdd7bc35f.jsonl",
+      "extracted": "memory/sessions/rollout-2026-09-30T09-46-05-01a0f034-7598-7fe3-95f4-0b1fdd7bc35f.md",
+      "messages": 3
+    },
+    {
+      "session_id": "01a106fe-2c77-7170-bf48-51fe0efa3ded",
+      "source": "C:\\Users\\Phong\\.codex\\sessions\\2026\\10\\04\\rollout-2026-10-04T19-58-03-01a106fe-2c77-7170-bf48-51fe0efa3ded.jsonl",
+      "extracted": "memory/sessions/rollout-2026-10-04T19-58-03-01a106fe-2c77-7170-bf48-51fe0efa3ded.md",
+      "messages": 18
+    }
+  ],
+  "attachments": [
+    {
+      "source": "C:\\Users\\Phong\\.codex\\attachments\\2cb03736-48a8-4eb3-a940-5a7e2f8fcaaf\\Pasted text.txt",
+      "sha256": "ea527e4256a7daa5ae21dba6e68ad8596c627b5f6e4b31a343b5a5902be06e1e",
+      "extracted": "memory/attachments/2cb03736-48a8-4eb3-a940-5a7e2f8fcaaf.md",
+      "characters": 26693
+    },
+    {
+      "source": "C:\\Users\\Phong\\.codex\\attachments\\3eb187d5-da72-4da3-ae8d-421a44267f3a\\Pasted text.txt",
+      "sha256": "eba0539387a16b0b9c4ddcd79a9a78181037c13829138b670f437cc8696b4e28",
+      "extracted": "memory/attachments/3eb187d5-da72-4da3-ae8d-421a44267f3a.md",
+      "characters": 17743
+    },
+    {
+      "source": "C:\\Users\\Phong\\.codex\\attachments\\4b9c0b88-e79f-42df-bd71-b3cac0126b25\\Pasted text.txt",
+      "sha256": "1bd829b5c181086d7990d2b11f3910ecaf59fde0abf8e7ab1f122fd1a3706b16",
+      "extracted": "memory/attachments/4b9c0b88-e79f-42df-bd71-b3cac0126b25.md",
+      "characters": 5506
+    },
+    {
+      "source": "C:\\Users\\Phong\\.codex\\attachments\\aafef8a9-7aa9-4875-9251-9d32bf51f6c0\\Pasted text.txt",
+      "sha256": "3416ef9c9d2fcd77c0c8ed6dc3c836bcdab46cbe2e8ee5351f6dbd76a96edda0",
+      "extracted": "memory/attachments/aafef8a9-7aa9-4875-9251-9d32bf51f6c0.md",
+      "characters": 30307
+    },
+    {
+      "source": "C:\\Users\\Phong\\.codex\\attachments\\d4a34c19-0bc4-41a4-acab-7043c5e5dcb6\\Pasted text.txt",
+      "sha256": "80483ecec97c9e4aa77226d2f6c295502bf79a2d6d313d7478e0acef0a376eaf",
+      "extracted": "memory/attachments/d4a34c19-0bc4-41a4-acab-7043c5e5dcb6.md",
+      "characters": 8642
+    },
+    {
+      "source": "C:\\Users\\Phong\\.codex\\attachments\\fdda4c66-6c59-478c-8808-76f029d0d6c3\\Pasted text.txt",
+      "sha256": "4483721f47dc0e3cce1f968d05168398f030a41dc5b40fc98ae31ee5933ad0b9",
+      "extracted": "memory/attachments/fdda4c66-6c59-478c-8808-76f029d0d6c3.md",
+      "characters": 10067
+    }
+  ]
+}

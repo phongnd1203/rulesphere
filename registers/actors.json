@@ -1,0 +1,50 @@
+[
+  {
+    "ID": "A01",
+    "Actor": "Decision Author / Domain Expert",
+    "Type": "Human",
+    "Primary responsibility": "Create/edit/test Decisions and schemas; submit releases."
+  },
+  {
+    "ID": "A02",
+    "Actor": "Domain Approver / Decision Owner",
+    "Type": "Human",
+    "Primary responsibility": "Review domain changes; approve according to risk policy; may overrule risk upward."
+  },
+  {
+    "ID": "A03",
+    "Actor": "Workspace Owner",
+    "Type": "Human",
+    "Primary responsibility": "Workspace governance participant for Tier-2+ approvals."
+  },
+  {
+    "ID": "A04",
+    "Actor": "Compliance Officer",
+    "Type": "Human",
+    "Primary responsibility": "Mandatory regulated/high-risk approval participant; audit/compliance review."
+  },
+  {
+    "ID": "A05",
+    "Actor": "Enterprise Administrator",
+    "Type": "Human",
+    "Primary responsibility": "Tenant/workspace/users/roles/credentials/shared-library administration."
+  },
+  {
+    "ID": "A06",
+    "Actor": "Security Auditor",
+    "Type": "Human",
+    "Primary responsibility": "Independent inspection of access, audit and security evidence."
+  },
+  {
+    "ID": "A07",
+    "Actor": "Application Developer / Integrator",
+    "Type": "Human",
+    "Primary responsibility": "Discover contracts and integrate consumer applications."
+  },
+  {
+    "ID": "A08",
+    "Actor": "Consumer Application",
+    "Type": "External system",
+    "Primary responsibility": "Invoke REST/gRPC evaluation, provide subject key/cohort/version pin."
+  }
+]

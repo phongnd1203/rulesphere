@@ -1,0 +1,92 @@
+@startuml
+title RuleSphere - System Context Class Diagram\nOMG UML 2.5.1 System Context Model (F-01)
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam classBackgroundColor #EAF6F8
+skinparam classBorderColor #177E8D
+skinparam ArrowColor #527183
+skinparam packageStyle rectangle
+skinparam nodesep 50
+skinparam ranksep 60
+
+' System under design
+class "RuleSphere" as System <<software system>> {
+  +evaluateDecision(request: EvaluationRequest): EvaluationResponse
+  +authorDecision(draft: DecisionDraft): DraftResult
+  +validateContracts(version: VersionId): ValidationReport
+  +governRelease(candidate: ReleaseCandidate): GovernanceStatus
+  +deployRollout(policy: RolloutPolicy): DeploymentStatus
+  +queryTraceAndAudit(filter: AuditFilter): AuditRecords
+}
+
+' External Human Actors
+class "A01: Decision Author" as A01 <<external, human>> {
+  +authors decision graphs
+  +defines schema contracts
+  +executes sandbox simulations
+}
+
+class "A02: Workspace Owner" as A02 <<external, human>> {
+  +manages workspace members
+  +approves Tier 2 governance reviews
+}
+
+class "A03: Enterprise Admin" as A03 <<external, human>> {
+  +provisions tenants & workspaces
+  +issues/revokes API credentials
+  +manages shared library assets
+}
+
+class "A04: Release Manager" as A04 <<external, human>> {
+  +submits release candidates
+  +configures shadow & canary rollouts
+  +triggers promote and rollback
+}
+
+class "A05: Compliance Officer" as A05 <<external, human>> {
+  +reviews Tier 3 high-risk decisions
+  +inspects compliance ledger records
+}
+
+class "A06: Security Auditor" as A06 <<external, human>> {
+  +inspects immutable audit logs
+  +reviews tenant boundary isolation
+}
+
+class "A07: Application Developer" as A07 <<external, human>> {
+  +discovers REST / gRPC API contracts
+  +integrates consumer applications
+}
+
+' External System Actor
+class "A08: Consumer Application" as A08 <<external, system>> {
+  +submits runtime evaluation requests
+  +sends version pinning headers
+  +consumes evaluation outcomes
+}
+
+' System Boundaries & Associations with Multiplicity and Interactions
+A01 "1..*" -- "1" System : interacts via Web UI / Management API\n(model, test, validate) >
+A02 "1..*" -- "1" System : interacts via Management API\n(workspace config, peer review) >
+A03 "1..*" -- "1" System : interacts via Management API\n(tenant admin, credentials, libraries) >
+A04 "1..*" -- "1" System : interacts via Management API\n(release, shadow/canary, rollback) >
+A05 "1..*" -- "1" System : interacts via Compliance Portal / API\n(Tier 3 approval, audit export) >
+A06 "1..*" -- "1" System : interacts via Audit API\n(compliance and security logs) >
+A07 "1..*" -- "1" System : interacts via Developer Portal\n(schema & contract discovery) >
+A08 "1..*" -- "1" System : invokes via REST/HTTPS & gRPC/HTTP2\n(sub-10ms decision evaluation) >
+
+note bottom of System
+  **OMG UML 2.5.1 Context Semantics:**
+  - RuleSphere is the software system at the core.
+  - External human actors (A01-A07) interact through Control Plane interfaces.
+  - External system actors (A08) execute high-throughput evaluations through Data Plane.
+  - Replaces Yourdon-DeMarco DFD context diagram with formal UML 2.5.1 context class model.
+end note
+
+legend bottom
+  <<software system>>: System under specification
+  <<external, human>>: Human user roles
+  <<external, system>>: External software client
+  All associations define multiplicity and interaction intent.
+endlegend
+@enduml

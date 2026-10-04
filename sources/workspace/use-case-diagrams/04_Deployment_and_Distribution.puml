@@ -1,0 +1,104 @@
+@startuml
+left to right direction
+skinparam shadowing false
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Segoe UI
+skinparam defaultFontSize 13
+skinparam nodesep 35
+skinparam ranksep 50
+skinparam ArrowColor #527183
+skinparam actor {
+  BorderColor #274D64
+  FontColor #17354A
+  BackgroundColor #FFFFFF
+}
+skinparam usecase {
+  BorderColor #177E8D
+  BackgroundColor #EAF6F8
+  FontColor #143047
+}
+skinparam rectangle {
+  BorderColor #64748B
+  BackgroundColor #F8FAFC
+}
+skinparam note {
+  BorderColor #B99A48
+  BackgroundColor #FFF9E8
+  FontColor #594D2D
+}
+' UC-xx: official SRS catalog. Dxx.xx: derived decomposition, not a new SRS ID.
+' Fxx: feature from RuleSphere_Context_Diagram_Detailed.mmd.
+' Include: mandatory sub-behavior. Extend: conditional behavior at a named base.
+' Generalization: specialized actor/use case points to its general parent.
+
+' Sources: UC-15..20; FR-REL-003..011; FR-DIST-001..005.
+actor "Approver / Release Manager" as RM
+actor "Authorized User" as AU
+
+rectangle "RuleSphere - Deployment and Distribution" as SYSTEM {
+  usecase "D04.01\nDeploy Approved Candidate" as D0401 <<abstract>>
+  usecase "D04.02\nVerify Candidate Governance and Eligibility" as D0402
+  usecase "UC-15\nShadow Deploy\n[F24]" as UC15
+  usecase "D04.03\nEvaluate Mirrored Production Traffic" as D0403
+  usecase "D04.04\nIsolate Shadow Result from Production Response" as D0404
+  usecase "UC-16\nAnalyze Shadow Diff\n[F25]" as UC16
+  usecase "D04.14\nCompare Active and Shadow Outcomes" as D0414
+
+  usecase "UC-17\nCanary Deploy" as UC17 <<abstract>>
+  usecase "D04.05\nDeploy Sticky Percentage Canary\n[F26]" as D0405
+  usecase "D04.06\nDeploy Targeted Cohort Canary\n[F27]" as D0406
+  usecase "D04.07\nConfigure Deterministic Subject-Key Routing" as D0407
+
+  usecase "D04.08\nChange Desired Active Version" as D0408 <<abstract>>
+  usecase "UC-18\nPromote Active\n[F28]" as UC18
+  usecase "UC-19\nRollback\n[F29]" as UC19
+  usecase "D04.09\nPublish Desired-State Change" as D0409
+  usecase "D04.10\nRecord Deployment Audit Evidence" as D0410
+  usecase "D04.11\nVerify Target Version Eligibility" as D0411
+
+  usecase "UC-20\nSynchronize Runtime Fleet" as UC20
+  usecase "D04.12\nEnsure Artifact Loaded and Validated" as D0412
+  usecase "D04.13\nReport Loaded Artifact Version" as D0413
+
+  note as N17
+    Percentage and targeted-cohort routing are supported variants.
+    Their specializations are not declared mutually exclusive.
+    Fixed percentage configuration maps the same subject to the same cohort.
+  end note
+  note as N20
+    UC-20 is automatic on publication / rollback events.
+    Propagation is asynchronous with bounded eventual consistency.
+    Activation follows successful artifact load and validation.
+    Event triggering is not modeled as a synchronous include.
+  end note
+  note as N16
+    UC-16 requires existing Shadow data and authorized access.
+    It can be invoked independently of the deployment interaction.
+  end note
+}
+
+RM -- D0401
+RM -- D0408
+AU -- UC16
+RM -- UC16 : when authorized
+UC15 --|> D0401
+UC17 --|> D0401
+D0405 --|> UC17
+D0406 --|> UC17
+UC18 --|> D0408
+UC19 --|> D0408
+D0401 ..> D0402 : <<include>>
+UC15 ..> D0403 : <<include>>
+UC15 ..> D0404 : <<include>>
+UC16 ..> D0414 : <<include>>
+D0405 ..> D0407 : <<include>>
+D0408 ..> D0411 : <<include>>
+D0408 ..> D0409 : <<include>>
+D0408 ..> D0410 : <<include>>
+UC20 ..> D0412 : <<include>>
+UC20 ..> D0413 : <<include>>
+N17 .. UC17
+N20 .. UC20
+N16 .. UC16
+
+@enduml

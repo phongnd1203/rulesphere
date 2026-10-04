@@ -1,0 +1,99 @@
+@startuml
+title RuleSphere - Release Candidate Governance (UC-10..14)
+hide empty description
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam stateBackgroundColor #EAF6F8
+skinparam stateBorderColor #177E8D
+skinparam ArrowColor #527183
+
+' Classifier: ReleaseCandidate (COMET State-Dependent Object)
+' Target: Lifecycle of a Release Candidate under Governance (SRS 9.1, 9.3)
+
+state "Calculating risk tier" as Calculate {
+  Calculate : entry / computeRiskTier(scope, compatibility, traffic)
+}
+
+state "Awaiting required approvals" as Review {
+  state Route <<choice>>
+  state "Tier 1: Domain Approver pending" as T1
+  state "Tier 2: Domain Peer Review pending" as T2Peer
+  state "Tier 2: Workspace Owner pending" as T2Owner
+  state "Tier 3: Both approvals pending" as T3Both
+  state "Tier 3: Compliance pending" as T3Compliance
+  state "Tier 3: Domain Owner pending" as T3Domain
+  
+  [*] --> Route
+  Route --> T1 : [effectiveTier = 1]
+  Route --> T2Peer : [effectiveTier = 2]
+  Route --> T3Both : [effectiveTier = 3]
+  
+  T2Peer --> T2Owner : approve [authorized domain peer; not maker]\n/ recordEvidence()
+  T3Both --> T3Compliance : approve [authorized domain owner; not maker]\n/ recordDomainApproval()
+  T3Both --> T3Domain : approve [authorized compliance officer; not maker]\n/ recordComplianceApproval()
+}
+
+state "Governance approved" as Approved {
+  Approved : entry / freezeApprovedSnapshot()
+}
+
+state "Release rejected" as Rejected {
+  Rejected : entry / recordRejectionAudit(); notifyAuthor()
+}
+
+state "Building executable artifact" as Building {
+  Building : entry / packageImmutableArtifact()
+}
+
+state "Artifact build failed" as BuildFailed {
+  BuildFailed : entry / recordBuildDiagnostics()
+}
+
+state "Immutable artifact ready" as Ready {
+  Ready : entry / registerArtifactInRegistry()
+}
+
+' F-04: Initial transition has no trigger or guard per UML 2.5.1
+[*] --> Calculate : / initCandidateRevision()
+
+Calculate --> Review : riskCalculated / setEffectiveTier()
+Review --> Review : overruleRisk [authorized; newTier > effectiveTier]\n/ recordOverride(); re-evaluateRequiredApprovals()
+Review : approve [maker or unauthorized] / denyAction(); keepState()
+Review : overruleRisk [newTier <= effectiveTier] / denyDowngrade()
+
+' F-06: Per SRS 9.1, Reject returns candidate to Draft
+Review --> Rejected : reject [authorized reviewer; not maker]\n/ recordDecision(reason)
+Rejected --> [*] : / returnToDraftState(reason)
+
+T1 --> Approved : approve [authorized domain approver; not maker]\n/ recordEvidence()
+T2Owner --> Approved : approve [authorized workspace owner; not maker]\n/ recordEvidence()
+T3Compliance --> Approved : approve [authorized compliance officer; not maker]\n/ recordEvidence()
+T3Domain --> Approved : approve [authorized domain owner; not maker]\n/ recordEvidence()
+
+Approved --> Building : buildArtifact [governance satisfied]
+Building --> Ready : buildSucceeded / storeImmutableExecutableArtifact()
+Building --> BuildFailed : buildFailed / retainDiagnostics()
+BuildFailed --> Building : retryBuild [same approved revision]
+
+Ready --> [*] : handOffToDeployment / referenceArtifact (diagram 03)
+
+note right of Review
+  All approval actions are scoped and auditable.
+  Maker-Checker rule strictly enforced: maker cannot approve.
+  Tier 2 is sequential; Tier 3 requires BOTH roles
+  and accepts their approvals in either order.
+end note
+
+note left of Rejected
+  SRS 9.1: Draft -> In Review -> Approved,
+  with Reject returning candidate to Draft.
+  Rejection evidence is permanently logged in Compliance Ledger;
+  draft becomes editable again for corrections.
+end note
+
+legend bottom
+  Transition: event [guard] / effect | entry / action
+  Classifier: ReleaseCandidate (COMET State-Dependent Object)
+  Complies with UML 2.5.1 initial transition rules and SRS 9.1 Reject-to-Draft lifecycle.
+endlegend
+@enduml

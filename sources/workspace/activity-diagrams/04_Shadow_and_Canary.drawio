@@ -1,0 +1,696 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net">
+  <diagram id="workflow-0" name="Rollout Configuration">
+    <mxGraphModel grid="1" gridSize="10" page="0" pageWidth="770" pageHeight="1725" arrows="1" connect="1">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="23" value="Release Manager" style="swimlane;html=1;horizontal=1;startSize=55;container=1;collapsible=0;recursiveResize=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontStyle=1;fillColor=#DCE8F4;swimlaneFillColor=#FAFCFF;strokeColor=#8B9DAF;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="50" y="140" width="495" height="1265" as="geometry" />
+        </mxCell>
+        <mxCell id="24" value="Control / Delivery Plane" style="swimlane;html=1;horizontal=1;startSize=55;container=1;collapsible=0;recursiveResize=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontStyle=1;fillColor=#DCE8F4;swimlaneFillColor=#FAFCFF;strokeColor=#8B9DAF;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="545" y="140" width="495" height="1265" as="geometry" />
+        </mxCell>
+        <mxCell id="25" value="Delivery Coordinator" style="swimlane;html=1;horizontal=1;startSize=55;container=1;collapsible=0;recursiveResize=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontStyle=1;fillColor=#DCE8F4;swimlaneFillColor=#FAFCFF;strokeColor=#8B9DAF;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="140" width="495" height="1265" as="geometry" />
+        </mxCell>
+        <mxCell id="2" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;ellipse;fillColor=#243746;strokeColor=#243746;" vertex="1" parent="23">
+          <mxGeometry x="234.5" y="105" width="26" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="Configure Shadow and/or Canary settings for candidate" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rounded=1;arcSize=14;fillColor=#EDF5FF;strokeColor=#496477;spacing=9;" vertex="1" parent="23">
+          <mxGeometry x="97.5" y="205" width="300" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="2" target="3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="297.5" y="308.0" />
+              <mxPoint x="297.5" y="308.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5" value="Authorize rollout command and verify candidate eligibility" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rounded=1;arcSize=14;fillColor=#EDF5FF;strokeColor=#496477;spacing=9;" vertex="1" parent="24">
+          <mxGeometry x="97.5" y="330" width="300" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="3" target="5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="297.5" y="451.5" />
+              <mxPoint x="792.5" y="451.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7" value="Authorized and eligible?" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rhombus;fillColor=#FFF4D9;strokeColor=#AD8B3A;fontSize=12;spacing=5;" vertex="1" parent="24">
+          <mxGeometry x="102.5" y="455" width="290" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rhombus;fillColor=#FFF4D9;strokeColor=#AD8B3A;" vertex="1" parent="24">
+          <mxGeometry x="229.5" y="977" width="36" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="Distribute artifact and rollout configuration" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rounded=1;arcSize=14;fillColor=#EDF5FF;strokeColor=#496477;spacing=9;" vertex="1" parent="25">
+          <mxGeometry x="97.5" y="580" width="300" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="Notify active Runtime nodes (see Activity 05)&lt;br&gt;&lt;i&gt;Sub-activity 05 / Fleet Synchronization&lt;/i&gt;&lt;div style=&quot;text-align:right&quot;&gt;&amp;#9282;&lt;/div&gt;" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rounded=1;arcSize=14;fillColor=#EDF5FF;strokeColor=#496477;spacing=9;" vertex="1" parent="25">
+          <mxGeometry x="97.5" y="705" width="300" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="9" target="10">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1287.5" y="826.5" />
+              <mxPoint x="1287.5" y="826.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="12" value="Return rollout confirmation" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rounded=1;arcSize=14;fillColor=#EDF5FF;strokeColor=#496477;spacing=9;" vertex="1" parent="24">
+          <mxGeometry x="97.5" y="830" width="300" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="10" target="12">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1287.5" y="951.5" />
+              <mxPoint x="792.5" y="951.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="14" value="[Authorized and eligible]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="7" target="9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="792.5" y="707.5" />
+              <mxPoint x="1287.5" y="707.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="12" target="8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="792.5" y="1087.5" />
+              <mxPoint x="792.5" y="1087.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="16" value="Return access / release policy error" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rounded=1;arcSize=14;fillColor=#EDF5FF;strokeColor=#496477;spacing=9;" vertex="1" parent="24">
+          <mxGeometry x="97.5" y="580" width="300" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value="[not (Authorized and eligible)]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="7" target="16">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="792.5" y="707.5" />
+              <mxPoint x="792.5" y="707.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="16" target="8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="792.5" y="826" />
+              <mxPoint x="1015" y="826" />
+              <mxPoint x="1015" y="1097" />
+              <mxPoint x="792.5" y="1097" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="5" target="7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="792.5" y="576.5" />
+              <mxPoint x="792.5" y="576.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="20" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;ellipse;fillColor=#FFFFFF;strokeColor=#243746;" vertex="1" parent="24">
+          <mxGeometry x="231.5" y="1105" width="32" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="21" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;ellipse;fillColor=#243746;strokeColor=none;" vertex="1" parent="20">
+          <mxGeometry x="6" y="6" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="8" target="20">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="792.5" y="1199.0" />
+              <mxPoint x="792.5" y="1199.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="26" value="RuleSphere - Activity Diagram — 04. Shadow and Canary Rollout | UC-15..17 — Rollout Configuration" style="text;html=1;whiteSpace=wrap;fontSize=22;fontStyle=1;fontColor=#243746;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="20" width="1485" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="27" value="Swimlanes identify responsibility. Diamonds: decision / merge. Bars: parallel fork / join." style="text;html=1;whiteSpace=wrap;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="85" width="1485" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="28" value="&lt;b&gt;Note 1&lt;/b&gt;&lt;br&gt;F-14 Resolution: Rollout configuration, production evaluation, and diff querying are decoupled.&lt;br&gt;Shadow processing is dispatched asynchronously without blocking or mutating the production response.&lt;br&gt;Canary uses deterministic sticky hash or approved cohort routing." style="shape=note;html=1;whiteSpace=wrap;align=left;spacing=12;fillColor=#FFF9E8;strokeColor=#D5BD72;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="50" y="1430" width="1485" height="101" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="workflow-1" name="Production Evaluation and Shadow">
+    <mxGraphModel grid="1" gridSize="10" page="0" pageWidth="1880" pageHeight="3975" arrows="1" connect="1">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="72" value="Consumer Application" style="swimlane;html=1;horizontal=1;startSize=55;container=1;collapsible=0;recursiveResize=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontStyle=1;fillColor=#DCE8F4;swimlaneFillColor=#FAFCFF;strokeColor=#8B9DAF;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="50" y="140" width="495" height="3515" as="geometry" />
+        </mxCell>
+        <mxCell id="73" value="Runtime Engine" style="swimlane;html=1;horizontal=1;startSize=55;container=1;collapsible=0;recursiveResize=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontStyle=1;fillColor=#DCE8F4;swimlaneFillColor=#FAFCFF;strokeColor=#8B9DAF;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="545" y="140" width="876" height="3515" as="geometry" />
+        </mxCell>
+        <mxCell id="74" value="Shadow Worker" style="swimlane;html=1;horizontal=1;startSize=55;container=1;collapsible=0;recursiveResize=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontStyle=1;fillColor=#DCE8F4;swimlaneFillColor=#FAFCFF;strokeColor=#8B9DAF;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="1421" y="140" width="860" height="3515" as="geometry" />
+        </mxCell>
+        <mxCell id="2" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;ellipse;fillColor=#243746;strokeColor=#243746;" vertex="1" parent="72">
+          <mxGeometry x="234.5" y="105" width="26" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="Submit unpinned production evaluation request" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rounded=1;arcSize=14;fillColor=#EDF5FF;strokeColor=#496477;spacing=9;" vertex="1" parent="72">
+          <mxGeometry x="97.5" y="205" width="300" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="2" target="3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="297.5" y="308.0" />
+              <mxPoint x="297.5" y="308.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5" value="Authorize runtime scope and resolve routing context" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rounded=1;arcSize=14;fillColor=#EDF5FF;strokeColor=#496477;spacing=9;" vertex="1" parent="73">
+          <mxGeometry x="105.5" y="330" width="300" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="3" target="5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="297.5" y="451.5" />
+              <mxPoint x="800.5" y="451.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7" value="Request admitted?" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rhombus;fillColor=#FFF4D9;strokeColor=#AD8B3A;fontSize=12;spacing=5;" vertex="1" parent="73">
+          <mxGeometry x="110.5" y="455" width="290" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rhombus;fillColor=#FFF4D9;strokeColor=#AD8B3A;" vertex="1" parent="73">
+          <mxGeometry x="602.5" y="3227" width="36" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="Apply deterministic sticky percentage / cohort policy" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rounded=1;arcSize=14;fillColor=#EDF5FF;strokeColor=#496477;spacing=9;" vertex="1" parent="73">
+          <mxGeometry x="105.5" y="580" width="300" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="Selected for Canary?" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rhombus;fillColor=#FFF4D9;strokeColor=#AD8B3A;fontSize=12;spacing=5;" vertex="1" parent="73">
+          <mxGeometry x="110.5" y="705" width="290" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rhombus;fillColor=#FFF4D9;strokeColor=#AD8B3A;" vertex="1" parent="73">
+          <mxGeometry x="237.5" y="977" width="36" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="Bind eligible loaded Canary snapshot" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rounded=1;arcSize=14;fillColor=#EDF5FF;strokeColor=#496477;spacing=9;" vertex="1" parent="73">
+          <mxGeometry x="105.5" y="830" width="300" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="[Selected for Canary]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="10" target="12">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="800.5" y="957.5" />
+              <mxPoint x="800.5" y="957.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="12" target="11">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="800.5" y="1087.5" />
+              <mxPoint x="800.5" y="1087.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="15" value="Bind node-local loaded Active snapshot" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rounded=1;arcSize=14;fillColor=#EDF5FF;strokeColor=#496477;spacing=9;" vertex="1" parent="73">
+          <mxGeometry x="470.5" y="830" width="300" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="[not (Selected for Canary)]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="10" target="15">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="800.5" y="957.5" />
+              <mxPoint x="1165.5" y="957.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="15" target="11">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1165.5" y="1087.5" />
+              <mxPoint x="800.5" y="1087.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="9" target="10">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="800.5" y="826.5" />
+              <mxPoint x="800.5" y="826.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="19" value="Bound snapshot available?" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rhombus;fillColor=#FFF4D9;strokeColor=#AD8B3A;fontSize=12;spacing=5;" vertex="1" parent="73">
+          <mxGeometry x="110.5" y="1080" width="290" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="20" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rhombus;fillColor=#FFF4D9;strokeColor=#AD8B3A;" vertex="1" parent="73">
+          <mxGeometry x="237.5" y="3102" width="36" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="21" value="Validate input and evaluate selected snapshot (see Diagram 06)&lt;br&gt;&lt;i&gt;Sub-activity 06 / Runtime Evaluation&lt;/i&gt;&lt;div style=&quot;text-align:right&quot;&gt;&amp;#9282;&lt;/div&gt;" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rounded=1;arcSize=14;fillColor=#EDF5FF;strokeColor=#496477;spacing=9;" vertex="1" parent="73">
+          <mxGeometry x="105.5" y="1205" width="300" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="22" value="Return production response to consumer" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rounded=1;arcSize=14;fillColor=#EDF5FF;strokeColor=#496477;spacing=9;" vertex="1" parent="73">
+          <mxGeometry x="105.5" y="1330" width="300" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="21" target="22">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="800.5" y="1451.5" />
+              <mxPoint x="800.5" y="1451.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="24" value="Receive production decision" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rounded=1;arcSize=14;fillColor=#EDF5FF;strokeColor=#496477;spacing=9;" vertex="1" parent="72">
+          <mxGeometry x="97.5" y="1455" width="300" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="25" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="22" target="24">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="800.5" y="1576.5" />
+              <mxPoint x="297.5" y="1576.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="26" value="Shadow enabled and mirrored traffic eligible?" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rhombus;fillColor=#FFF4D9;strokeColor=#AD8B3A;fontSize=12;spacing=5;" vertex="1" parent="73">
+          <mxGeometry x="110.5" y="1580" width="290" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="28" value="Dispatch async mirrored request" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rounded=1;arcSize=14;fillColor=#EDF5FF;strokeColor=#496477;spacing=9;" vertex="1" parent="73">
+          <mxGeometry x="105.5" y="1705" width="300" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="29" value="Production request executed Canary?" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rhombus;fillColor=#FFF4D9;strokeColor=#AD8B3A;fontSize=12;spacing=5;" vertex="1" parent="74">
+          <mxGeometry x="102.5" y="1830" width="290" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="30" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rhombus;fillColor=#FFF4D9;strokeColor=#AD8B3A;" vertex="1" parent="74">
+          <mxGeometry x="229.5" y="2102" width="36" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="31" value="Evaluate Active snapshot on mirrored input for baseline" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rounded=1;arcSize=14;fillColor=#EDF5FF;strokeColor=#496477;spacing=9;" vertex="1" parent="74">
+          <mxGeometry x="97.5" y="1955" width="300" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="32" value="[Production request executed Canary]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="29" target="31">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1668.5" y="2082.5" />
+              <mxPoint x="1668.5" y="2082.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="33" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="31" target="30">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1668.5" y="2212.5" />
+              <mxPoint x="1668.5" y="2212.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="34" value="Use captured Active outcome as baseline" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rounded=1;arcSize=14;fillColor=#EDF5FF;strokeColor=#496477;spacing=9;" vertex="1" parent="74">
+          <mxGeometry x="462.5" y="1955" width="300" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="35" value="[not (Production request executed Canary)]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="29" target="34">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1668.5" y="2082.5" />
+              <mxPoint x="2033.5" y="2082.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="34" target="30">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2033.5" y="2212.5" />
+              <mxPoint x="1668.5" y="2212.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="37" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="28" target="29">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="800.5" y="1951.5" />
+              <mxPoint x="1668.5" y="1951.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="38" value="Evaluate approved Shadow snapshot on mirrored input" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rounded=1;arcSize=14;fillColor=#EDF5FF;strokeColor=#496477;spacing=9;" vertex="1" parent="74">
+          <mxGeometry x="97.5" y="2205" width="300" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="39" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="30" target="38">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1668.5" y="2311.5" />
+              <mxPoint x="1668.5" y="2311.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="40" value="Protect sensitive fields (mask/tokenize)" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rounded=1;arcSize=14;fillColor=#EDF5FF;strokeColor=#496477;spacing=9;" vertex="1" parent="74">
+          <mxGeometry x="97.5" y="2330" width="300" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="41" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="38" target="40">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1668.5" y="2451.5" />
+              <mxPoint x="1668.5" y="2451.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="42" value="Both outcomes valid and protection succeeded?" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rhombus;fillColor=#FFF4D9;strokeColor=#AD8B3A;fontSize=12;spacing=5;" vertex="1" parent="74">
+          <mxGeometry x="102.5" y="2455" width="290" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="43" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rhombus;fillColor=#FFF4D9;strokeColor=#AD8B3A;" vertex="1" parent="74">
+          <mxGeometry x="229.5" y="2727" width="36" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="44" value="Persist correlated protected Active/Shadow diff" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rounded=1;arcSize=14;fillColor=#EDF5FF;strokeColor=#496477;spacing=9;" vertex="1" parent="74">
+          <mxGeometry x="97.5" y="2580" width="300" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="45" value="[Both outcomes valid and protection succeeded]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="42" target="44">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1668.5" y="2707.5" />
+              <mxPoint x="1668.5" y="2707.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="46" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="44" target="43">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1668.5" y="2837.5" />
+              <mxPoint x="1668.5" y="2837.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="47" value="Record comparison error without impacting production" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rounded=1;arcSize=14;fillColor=#EDF5FF;strokeColor=#496477;spacing=9;" vertex="1" parent="74">
+          <mxGeometry x="462.5" y="2580" width="300" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="48" value="[not (Both outcomes valid and protection succeeded)]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="42" target="47">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1668.5" y="2707.5" />
+              <mxPoint x="2033.5" y="2707.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="49" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="47" target="43">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2033.5" y="2837.5" />
+              <mxPoint x="1668.5" y="2837.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="50" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="40" target="42">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1668.5" y="2576.5" />
+              <mxPoint x="1668.5" y="2576.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="51" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;ellipse;fillColor=#FFFFFF;strokeColor=#243746;" vertex="1" parent="74">
+          <mxGeometry x="231.5" y="2855" width="32" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="52" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;ellipse;fillColor=#243746;strokeColor=none;" vertex="1" parent="51">
+          <mxGeometry x="6" y="6" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="53" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="43" target="51">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1668.5" y="2949.0" />
+              <mxPoint x="1668.5" y="2949.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="54" value="[Shadow enabled and mirrored traffic eligible]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="26" target="28">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="800.5" y="1832.5" />
+              <mxPoint x="800.5" y="1832.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="55" value="[not (Shadow enabled and mirrored traffic eligible)]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="26" target="20">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="800.5" y="1838" />
+              <mxPoint x="1396" y="1838" />
+              <mxPoint x="1396" y="3222" />
+              <mxPoint x="800.5" y="3222" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="56" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="24" target="26">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="297.5" y="1701.5" />
+              <mxPoint x="800.5" y="1701.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="57" value="[Bound snapshot available]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="19" target="21">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="800.5" y="1332.5" />
+              <mxPoint x="800.5" y="1332.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="59" value="Return explicit runtime availability error" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rounded=1;arcSize=14;fillColor=#EDF5FF;strokeColor=#496477;spacing=9;" vertex="1" parent="73">
+          <mxGeometry x="470.5" y="1205" width="300" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="60" value="[not (Bound snapshot available)]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="19" target="59">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="800.5" y="1332.5" />
+              <mxPoint x="1165.5" y="1332.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="61" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="59" target="20">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1165.5" y="1451" />
+              <mxPoint x="1386" y="1451" />
+              <mxPoint x="1386" y="3222" />
+              <mxPoint x="800.5" y="3222" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="62" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="11" target="19">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="800.5" y="1186.5" />
+              <mxPoint x="800.5" y="1186.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="63" value="[Request admitted]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="7" target="9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="800.5" y="707.5" />
+              <mxPoint x="800.5" y="707.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="64" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="20" target="8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="800.5" y="3322.5" />
+              <mxPoint x="1165.5" y="3322.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="65" value="Return protocol-appropriate error" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rounded=1;arcSize=14;fillColor=#EDF5FF;strokeColor=#496477;spacing=9;" vertex="1" parent="73">
+          <mxGeometry x="470.5" y="580" width="300" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="66" value="[not (Request admitted)]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="7" target="65">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="800.5" y="707.5" />
+              <mxPoint x="1165.5" y="707.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="67" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="65" target="8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1165.5" y="826" />
+              <mxPoint x="1376" y="826" />
+              <mxPoint x="1376" y="3347" />
+              <mxPoint x="1165.5" y="3347" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="68" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="5" target="7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="800.5" y="576.5" />
+              <mxPoint x="800.5" y="576.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="69" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;ellipse;fillColor=#FFFFFF;strokeColor=#243746;" vertex="1" parent="73">
+          <mxGeometry x="604.5" y="3355" width="32" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="70" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;ellipse;fillColor=#243746;strokeColor=none;" vertex="1" parent="69">
+          <mxGeometry x="6" y="6" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="71" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="8" target="69">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1165.5" y="3449.0" />
+              <mxPoint x="1165.5" y="3449.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="75" value="RuleSphere - Activity Diagram — 04. Shadow and Canary Rollout | UC-15..17 — Production Evaluation and Shadow" style="text;html=1;whiteSpace=wrap;fontSize=22;fontStyle=1;fontColor=#243746;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="20" width="2231" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="76" value="Swimlanes identify responsibility. Diamonds: decision / merge. Bars: parallel fork / join." style="text;html=1;whiteSpace=wrap;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="85" width="2231" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="77" value="&lt;b&gt;Note 1&lt;/b&gt;&lt;br&gt;F-14 Resolution: Rollout configuration, production evaluation, and diff querying are decoupled.&lt;br&gt;Shadow processing is dispatched asynchronously without blocking or mutating the production response.&lt;br&gt;Canary uses deterministic sticky hash or approved cohort routing." style="shape=note;html=1;whiteSpace=wrap;align=left;spacing=12;fillColor=#FFF9E8;strokeColor=#D5BD72;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="50" y="3680" width="2231" height="101" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="workflow-2" name="Diff Analysis Query">
+    <mxGraphModel grid="1" gridSize="10" page="0" pageWidth="770" pageHeight="1725" arrows="1" connect="1">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="23" value="Authorized User / Analyst" style="swimlane;html=1;horizontal=1;startSize=55;container=1;collapsible=0;recursiveResize=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontStyle=1;fillColor=#DCE8F4;swimlaneFillColor=#FAFCFF;strokeColor=#8B9DAF;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="50" y="140" width="495" height="1265" as="geometry" />
+        </mxCell>
+        <mxCell id="24" value="Control / Delivery Plane" style="swimlane;html=1;horizontal=1;startSize=55;container=1;collapsible=0;recursiveResize=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontStyle=1;fillColor=#DCE8F4;swimlaneFillColor=#FAFCFF;strokeColor=#8B9DAF;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="545" y="140" width="495" height="1265" as="geometry" />
+        </mxCell>
+        <mxCell id="25" value="Diff Analysis" style="swimlane;html=1;horizontal=1;startSize=55;container=1;collapsible=0;recursiveResize=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontStyle=1;fillColor=#DCE8F4;swimlaneFillColor=#FAFCFF;strokeColor=#8B9DAF;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="140" width="495" height="1265" as="geometry" />
+        </mxCell>
+        <mxCell id="2" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;ellipse;fillColor=#243746;strokeColor=#243746;" vertex="1" parent="23">
+          <mxGeometry x="234.5" y="105" width="26" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="Submit query for Shadow comparison diffs" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rounded=1;arcSize=14;fillColor=#EDF5FF;strokeColor=#496477;spacing=9;" vertex="1" parent="23">
+          <mxGeometry x="97.5" y="205" width="300" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="2" target="3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="297.5" y="308.0" />
+              <mxPoint x="297.5" y="308.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5" value="Authorize query scope" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rounded=1;arcSize=14;fillColor=#EDF5FF;strokeColor=#496477;spacing=9;" vertex="1" parent="24">
+          <mxGeometry x="97.5" y="330" width="300" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="3" target="5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="297.5" y="451.5" />
+              <mxPoint x="792.5" y="451.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7" value="Authorized?" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rhombus;fillColor=#FFF4D9;strokeColor=#AD8B3A;fontSize=12;spacing=5;" vertex="1" parent="24">
+          <mxGeometry x="102.5" y="455" width="290" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rhombus;fillColor=#FFF4D9;strokeColor=#AD8B3A;" vertex="1" parent="24">
+          <mxGeometry x="229.5" y="977" width="36" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="Fetch protected diff records from store" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rounded=1;arcSize=14;fillColor=#EDF5FF;strokeColor=#496477;spacing=9;" vertex="1" parent="25">
+          <mxGeometry x="97.5" y="580" width="300" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="Assemble divergence metrics and node reports" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rounded=1;arcSize=14;fillColor=#EDF5FF;strokeColor=#496477;spacing=9;" vertex="1" parent="25">
+          <mxGeometry x="97.5" y="705" width="300" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="9" target="10">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1287.5" y="826.5" />
+              <mxPoint x="1287.5" y="826.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="12" value="Return diff analysis report" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rounded=1;arcSize=14;fillColor=#EDF5FF;strokeColor=#496477;spacing=9;" vertex="1" parent="25">
+          <mxGeometry x="97.5" y="830" width="300" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="10" target="12">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1287.5" y="951.5" />
+              <mxPoint x="1287.5" y="951.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="14" value="[Authorized]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="7" target="9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="792.5" y="707.5" />
+              <mxPoint x="1287.5" y="707.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="12" target="8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1287.5" y="1087.5" />
+              <mxPoint x="792.5" y="1087.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="16" value="Return access denied error" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;rounded=1;arcSize=14;fillColor=#EDF5FF;strokeColor=#496477;spacing=9;" vertex="1" parent="24">
+          <mxGeometry x="97.5" y="580" width="300" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value="[not (Authorized)]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="7" target="16">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="792.5" y="707.5" />
+              <mxPoint x="792.5" y="707.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="16" target="8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="792.5" y="826" />
+              <mxPoint x="1015" y="826" />
+              <mxPoint x="1015" y="1097" />
+              <mxPoint x="792.5" y="1097" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="5" target="7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="792.5" y="576.5" />
+              <mxPoint x="792.5" y="576.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="20" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;ellipse;fillColor=#FFFFFF;strokeColor=#243746;" vertex="1" parent="24">
+          <mxGeometry x="231.5" y="1105" width="32" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="21" value="" style="html=1;whiteSpace=wrap;fontFamily=Arial;fontSize=13;strokeWidth=1.5;ellipse;fillColor=#243746;strokeColor=none;" vertex="1" parent="20">
+          <mxGeometry x="6" y="6" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=8;html=1;endArrow=block;endFill=1;strokeColor=#526579;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="8" target="20">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="792.5" y="1199.0" />
+              <mxPoint x="792.5" y="1199.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="26" value="RuleSphere - Activity Diagram — 04. Shadow and Canary Rollout | UC-15..17 — Diff Analysis Query" style="text;html=1;whiteSpace=wrap;fontSize=22;fontStyle=1;fontColor=#243746;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="20" width="1485" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="27" value="Swimlanes identify responsibility. Diamonds: decision / merge. Bars: parallel fork / join." style="text;html=1;whiteSpace=wrap;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="85" width="1485" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="28" value="&lt;b&gt;Note 1&lt;/b&gt;&lt;br&gt;F-14 Resolution: Rollout configuration, production evaluation, and diff querying are decoupled.&lt;br&gt;Shadow processing is dispatched asynchronously without blocking or mutating the production response.&lt;br&gt;Canary uses deterministic sticky hash or approved cohort routing." style="shape=note;html=1;whiteSpace=wrap;align=left;spacing=12;fillColor=#FFF9E8;strokeColor=#D5BD72;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="50" y="1430" width="1485" height="101" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" agent="Codex" version="26.0.0" type="device" compressed="false">
+  <diagram name="RuleSphere - Business Rule Management Platform | L Explainability Decision Trace" id="L_Explainability_Decision_Trace">
+    <mxGraphModel grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1663" pageHeight="1332" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="n1" value="RuleSphere - Business Rule Management Platform" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=19;fontFamily=Helvetica;fontColor=#334155;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="21.6" y="12.96" width="1620.0" height="28.8" />
+        </mxCell>
+        <mxCell id="n2" value="L Explainability Decision Trace | Proposed baseline" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=15;fontFamily=Helvetica;fontColor=#334155;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="21.6" y="46.08" width="1620.0" height="28.8" />
+        </mxCell>
+        <mxCell id="n3" value="RuleSphere - Business Rule Management Platform" style="swimlane;html=0;startSize=29;fillColor=#eff6ff;swimlaneFillColor=#ffffff;strokeColor=#94a3b8;fontSize=17;fontStyle=1;align=left;spacingLeft=20;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="334.8" y="100.8" width="1288.8" height="1090.8" />
+        </mxCell>
+        <mxCell id="n4" value="Request Decision Explanation" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;" vertex="1" parent="1" catalogId="EXP-01">
+          <mxGeometry as="geometry" x="381.6" y="471.96" width="240" height="90" />
+        </mxCell>
+        <mxCell id="n5" value="Generate Decision Explanation" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;" vertex="1" parent="1" catalogId="EXP-02">
+          <mxGeometry as="geometry" x="871.2" y="638.46" width="240" height="90" />
+        </mxCell>
+        <mxCell id="n6" value="Resolve Decision Version" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#eff6ff;" vertex="1" parent="1" catalogId="UC-X04">
+          <mxGeometry as="geometry" x="871.2" y="305.46" width="240" height="90" />
+        </mxCell>
+        <mxCell id="n7" value="View Executed Decision Version" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;" vertex="1" parent="1" catalogId="EXP-07">
+          <mxGeometry as="geometry" x="1360.8" y="205.56" width="240" height="90" />
+        </mxCell>
+        <mxCell id="n8" value="View Matched Rules" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;" vertex="1" parent="1" catalogId="EXP-03">
+          <mxGeometry as="geometry" x="1360.8" y="338.76" width="240" height="90" />
+        </mxCell>
+        <mxCell id="n9" value="View Evaluation Trace" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;" vertex="1" parent="1" catalogId="EXP-04">
+          <mxGeometry as="geometry" x="1360.8" y="471.96" width="240" height="90" />
+        </mxCell>
+        <mxCell id="n10" value="View Input Values Used" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;" vertex="1" parent="1" catalogId="EXP-05">
+          <mxGeometry as="geometry" x="1360.8" y="605.16" width="240" height="90" />
+        </mxCell>
+        <mxCell id="n11" value="View Output Derivation" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;" vertex="1" parent="1" catalogId="EXP-06">
+          <mxGeometry as="geometry" x="1360.8" y="738.36" width="240" height="90" />
+        </mxCell>
+        <mxCell id="n12" value="Retrieve Execution Trace" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;" vertex="1" parent="1" catalogId="EXP-08">
+          <mxGeometry as="geometry" x="381.6" y="961.56" width="240" height="90" />
+        </mxCell>
+        <mxCell id="e13" value="«include»" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;dashed=1;endArrow=open;endFill=0;exitX=0.8703805279343086;exitY=0.835884302293369;exitPerimeter=0;entryX=0.12961947206569135;entryY=0.16411569770663165;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n4" target="n5" routing="straight">
+          <mxGeometry as="geometry" relative="1" x="0.0" y="0">
+            <mxPoint as="offset" x="0.0" y="0.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e14" value="«include»" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;dashed=1;endArrow=open;endFill=0;exitX=0.8703805279343086;exitY=0.16411569770663226;exitPerimeter=0;entryX=0.12961947206569135;entryY=0.8358843022933684;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n4" target="n6" routing="straight">
+          <mxGeometry as="geometry" relative="1" x="0.0" y="0">
+            <mxPoint as="offset" x="0.0" y="0.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e15" value="«include»" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;dashed=1;endArrow=open;endFill=0;exitX=0.6952257695688663;exitY=0.0396882590067422;exitPerimeter=0;entryX=0.3047742304311337;entryY=0.9603117409932578;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n5" target="n7" routing="straight">
+          <mxGeometry as="geometry" relative="1" x="0.0" y="0">
+            <mxPoint as="offset" x="0.0" y="0.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e16" value="«extend»" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;dashed=1;endArrow=open;endFill=0;exitX=0.23880904672070263;exitY=0.9263558207941482;exitPerimeter=0;entryX=0.7611909532792974;entryY=0.07364417920585235;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n8" target="n5" routing="straight">
+          <mxGeometry as="geometry" relative="1" x="-0.19999999999999996" y="0">
+            <mxPoint as="offset" x="0.0" y="0.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e17" value="«extend»" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;dashed=1;endArrow=open;endFill=0;exitX=0.12961947206569088;exitY=0.835884302293369;exitPerimeter=0;entryX=0.8703805279343091;entryY=0.16411569770663165;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n9" target="n5" routing="straight">
+          <mxGeometry as="geometry" relative="1" x="0.0" y="0">
+            <mxPoint as="offset" x="0.0" y="0.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e18" value="«extend»" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;dashed=1;endArrow=open;endFill=0;exitX=0.008026504570904081;exitY=0.5892304869160613;exitPerimeter=0;entryX=0.991973495429096;entryY=0.4107695130839387;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n10" target="n5" routing="straight">
+          <mxGeometry as="geometry" relative="1" x="0.0" y="0">
+            <mxPoint as="offset" x="0.0" y="0.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e19" value="«extend»" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;dashed=1;endArrow=open;endFill=0;exitX=0.060805615938124905;exitY=0.26102658514280264;exitPerimeter=0;entryX=0.939194384061875;entryY=0.7389734148571974;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n11" target="n5" routing="straight">
+          <mxGeometry as="geometry" relative="1" x="0.0" y="0">
+            <mxPoint as="offset" x="0.0" y="0.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n20" value="Platform User" style="shape=umlActor;html=0;whiteSpace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fontSize=12;fontFamily=Helvetica;strokeColor=#334155;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="90.0" y="234.0" width="100" height="70" />
+        </mxCell>
+        <mxCell id="e21" value="" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;endArrow=none;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.00033591815033181166;entryY=0.5183249913868495;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n20" target="n7" routing="straight">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="n22" value="Decision Consumer / Client Application" style="shape=umlActor;html=0;whiteSpace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fontSize=12;fontFamily=Helvetica;strokeColor=#334155;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="90.0" y="471.96" width="100" height="70" />
+        </mxCell>
+        <mxCell id="e23" value="" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;endArrow=none;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.0013541088952024438;entryY=0.46322670419581236;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n22" target="n4" routing="straight">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="n24" value="Rule / Decision Author" style="shape=umlActor;html=0;whiteSpace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fontSize=12;fontFamily=Helvetica;strokeColor=#334155;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="90.0" y="594.36" width="100" height="70" />
+        </mxCell>
+        <mxCell id="e25" value="" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;endArrow=none;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.012043867901632173;entryY=0.609081681081656;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n24" target="n9" routing="straight">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e26" value="" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;endArrow=none;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.05694314981201292;entryY=0.7317339584555959;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n24" target="n8" routing="diagonal-detour">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="227.6" y="629.5600000000001" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e27" value="" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;endArrow=none;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.007389601088620642;entryY=0.4143554153237258;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n24" target="n10" routing="diagonal-detour">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="841.2" y="608.46" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e28" value="" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;endArrow=none;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.00687466533586587;entryY=0.4173718915115084;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n24" target="n11" routing="diagonal-detour">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="1145.0" y="762.26" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n29" value="Operations / SRE" style="shape=umlActor;html=0;whiteSpace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fontSize=12;fontFamily=Helvetica;strokeColor=#334155;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="90.0" y="716.76" width="100" height="70" />
+        </mxCell>
+        <mxCell id="e30" value="" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;endArrow=none;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.046963690910830753;entryY=0.7115611085404484;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n29" target="n9" routing="straight">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e31" value="" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;endArrow=none;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.2651015862478668;entryY=0.05861271516192043;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n29" target="n12" routing="straight">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="n32" value="Solid line: association | Hollow triangle: specialized → general | «include»: base → required behavior | «extend»: conditional behavior → base" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=12;fontFamily=Helvetica;fontColor=#334155;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="21.6" y="1224.0" width="1620.0" height="32.4" />
+        </mxCell>
+        <mxCell id="n33" value="Each actor and catalog use case appears once in this module. Cross-module IDs reference reusable behavior. Actor inheritance: 01_Actor_Model.&#10;Conditions, permissions and UML clarifications: module-notes.md. Proposed baseline; runtime is inside RuleSphere - Business Rule Management Platform." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=12;fontFamily=Helvetica;fontColor=#334155;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="21.6" y="1263.6" width="1620.0" height="54.0" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

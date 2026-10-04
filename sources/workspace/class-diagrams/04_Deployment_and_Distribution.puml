@@ -1,0 +1,99 @@
+@startuml
+title RuleSphere - 04. Deployment and Distribution\nUC-15..20 | FR-REL-003..011, FR-DIST-*
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam classBackgroundColor #EAF6F8
+skinparam classBorderColor #177E8D
+hide empty members
+class Decision <<external>>
+class Release <<external>>
+class ExecutableArtifact <<external>>
+class Deployment {
+  -deploymentId: UUID
+  -environment: String
+  -shadowEnabled: Boolean
+  -canaryEnabled: Boolean
+  -lifecycle: DeploymentStatus
+  +startShadow()
+  +startCanary(policy: RolloutPolicy)
+  +stopCandidate()
+}
+enum DeploymentStatus {
+  Approved
+  RollingOut
+  Active
+  Superseded
+  Archived
+}
+class RolloutPolicy {
+  -configurationVersion: String
+  -percentage: Decimal
+  -cohortPredicate: Expression [0..1]
+  +selectCandidate(subjectKey, claims): Boolean
+}
+class DesiredActiveState {
+  -stateId: UUID
+  -environment: String
+  -generation: Long
+  -changedAt: DateTime
+  +promote(eligibleArtifact)
+  +rollback(priorEligibleArtifact)
+}
+class PublicationEvent <<immutable>> {
+  -eventId: UUID
+  -generation: Long
+  -emittedAt: DateTime
+}
+class RuntimeNode {
+  -nodeId: UUID
+  -health: String
+  -lastSeenAt: DateTime
+  +loadAndValidate(artifact)
+}
+class LoadedArtifact {
+  -loadedAt: DateTime
+  -eligible: Boolean
+  -loadStatus: String
+  -error: String [0..1]
+}
+class DistributionService <<service>> {
+  +publishDesiredState(state): PublicationEvent
+  +synchronize(node, state)
+}
+class ShadowComparison {
+  -comparisonId: UUID
+  -activeExecutionId: UUID
+  -shadowExecutionId: UUID
+  -protectedDiff: Value
+  -recordedAt: DateTime
+}
+Release "1" -- "0..*" Deployment
+Deployment "0..*" --> "1" ExecutableArtifact : candidate
+Deployment "1" *-- "0..1" RolloutPolicy
+Deployment "1" -- "0..*" ShadowComparison
+Decision "1" -- "0..*" DesiredActiveState
+DesiredActiveState "0..*" --> "0..1" ExecutableArtifact : desiredActive
+DesiredActiveState "1" -- "0..*" PublicationEvent
+PublicationEvent "0..*" --> "1" ExecutableArtifact : desired version
+RuntimeNode "1" *-- "0..*" LoadedArtifact
+LoadedArtifact "0..*" --> "1" ExecutableArtifact
+DistributionService ..> DesiredActiveState
+DistributionService ..> RuntimeNode
+DistributionService ..> PublicationEvent
+note bottom of Deployment
+  Shadow and Canary may coexist (SRS 9.2).
+  Shadow never changes the production response.
+  Canary selection is sticky for fixed rollout configuration.
+end note
+note bottom of DesiredActiveState
+  Unique per Decision + environment (proposed design).
+  Rollback switches pointer; never clones an artifact.
+  Audit records actor, old/new versions, time and reason.
+end note
+note bottom of RuntimeNode
+  Validate before serving; no restart required.
+  All active nodes converge within <=2s of event emission.
+  Failed artifacts are not eligible; already-loaded eligible
+  artifacts continue serving during Control Plane outage.
+end note
+@enduml

@@ -1,0 +1,117 @@
+@startuml
+left to right direction
+skinparam shadowing false
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Segoe UI
+skinparam defaultFontSize 13
+skinparam nodesep 35
+skinparam ranksep 50
+skinparam ArrowColor #527183
+skinparam actor {
+  BorderColor #274D64
+  FontColor #17354A
+  BackgroundColor #FFFFFF
+}
+skinparam usecase {
+  BorderColor #177E8D
+  BackgroundColor #EAF6F8
+  FontColor #143047
+}
+skinparam rectangle {
+  BorderColor #64748B
+  BackgroundColor #F8FAFC
+}
+skinparam note {
+  BorderColor #B99A48
+  BackgroundColor #FFF9E8
+  FontColor #594D2D
+}
+' UC-xx: official SRS catalog. Dxx.xx: derived decomposition, not a new SRS ID.
+' Fxx: feature from RuleSphere_Context_Diagram_Detailed.mmd.
+' Include: mandatory sub-behavior. Extend: conditional behavior at a named base.
+' Generalization: specialized actor/use case points to its general parent.
+
+' Sources: UC-21..24; FR-RUN-001..010; FR-DM-004..007; FR-SCH-005;
+' FR-SEC-002; FR-AUD-001..005,008; actor A07 and NFR-INT-001.
+actor "A08 - Consumer Application" as A08
+actor "A07 - Application Developer / Integrator" as A07
+
+rectangle "RuleSphere - Runtime and Integration" as SYSTEM {
+  ' F-16: Base use cases declare explicit extension points
+  usecase "D05.01\nEvaluate Business Decision\n--\nextension points:\n  version_pinning" as D0501 <<abstract>>
+  usecase "UC-21\nEvaluate Decision REST\n[F31]" as UC21
+  usecase "UC-22\nEvaluate Decision gRPC\n[F32]" as UC22
+  usecase "UC-23\nEvaluate Pinned Version\n[F33]\n--\nextension points:\n  pin_precondition_check" as UC23
+  usecase "D05.02\nAuthorize Scoped Runtime Credential" as D0502
+  usecase "D05.03\nResolve Eligible Version and Atomic Snapshot" as D0503
+  usecase "D05.04\nValidate Request against Bound Schema\n--\nextension points:\n  contract_validation" as D0504
+  usecase "D05.05\nExecute Decision Graph\n--\nextension points:\n  branch_activation" as D0505
+  usecase "D05.06\nReturn Decision Result and ExecutionID" as D0506
+  usecase "D05.07\nResolve Exact Pinned Version" as D0507
+  usecase "D05.08\nReturn Version Precondition Error" as D0508
+
+  usecase "D05.09\nEvaluate Activated Nodes in Dependency Order\n--\nextension points:\n  node_fallback\n  node_failure" as D0509
+  usecase "D05.10\nShort-Circuit Inactive Branches" as D0510
+  usecase "D05.11\nApply Typed Node Fallback" as D0511
+  usecase "D05.12\nFail Fast on Node Error" as D0512
+  usecase "D05.13\nReject Invalid Request Payload" as D0513
+
+  usecase "UC-24\nCapture Execution Trace" as UC24
+  usecase "D05.14\nBuild Decision Execution Trace Tree" as D0514
+  usecase "D05.15\nProtect Sensitive Trace Fields" as D0515
+  usecase "D05.16\nPersist Trace and Compliance Evidence\n--\nextension points:\n  persistence_degradation" as D0516
+  usecase "D05.17\nHandle Trace-Persistence Failure" as D0517
+
+  usecase "D05.18\nDiscover Versioned API Contracts\n[F34]" as D0518 <<abstract>>
+  usecase "D05.19\nDiscover REST Contract" as D0519
+  usecase "D05.20\nDiscover gRPC Contract" as D0520
+
+  note as N23
+    F-16 Extension Point Mapping:
+    - D05.01 owns: version_pinning (extended by UC-23).
+    - UC-23 owns: pin_precondition_check (extended by D05.08 for 412).
+    - D05.05 owns: branch_activation (extended by D05.10 for inactive skip).
+    - D05.09 owns: node_fallback, node_failure.
+    - D05.04 owns: contract_validation (extended by D05.13 for bad input).
+    - D05.16 owns: persistence_degradation (extended by D05.17).
+  end note
+  note as N24
+    Trace capture applies to auditable executions.
+    Sensitive fields are masked, tokenized or hashed (SRS 11.1).
+    Persistence failure handling is observable and policy-controlled;
+    it must not silently change the business result.
+    Contract discovery is derived from A07 / NFR-INT-001.
+  end note
+}
+
+A08 -- D0501
+A08 -- UC23
+A07 -- D0518
+UC21 --|> D0501
+UC22 --|> D0501
+D0519 --|> D0518
+D0520 --|> D0518
+D0501 ..> D0502 : <<include>>
+D0501 ..> D0503 : <<include>>
+D0501 ..> D0504 : <<include>>
+D0501 ..> D0505 : <<include>>
+D0501 ..> D0506 : <<include>>
+D0501 ..> UC24 : <<include>>
+
+' F-16: Explicit extension point mapping on extend relationships
+UC23 ..> D0501 : <<extend>>\n(point: version_pinning)\n[exact version requested]
+UC23 ..> D0507 : <<include>>
+D0508 ..> UC23 : <<extend>>\n(point: pin_precondition_check)\n[pinned version unavailable or ineligible]
+D0505 ..> D0509 : <<include>>
+D0510 ..> D0505 : <<extend>>\n(point: branch_activation)\n[branch condition is not activated]
+D0511 ..> D0509 : <<extend>>\n(point: node_fallback)\n[qualifying exception and configured fallback]
+D0512 ..> D0509 : <<extend>>\n(point: node_failure)\n[node error without eligible fallback]
+D0513 ..> D0504 : <<extend>>\n(point: contract_validation)\n[payload violates the bound schema]
+UC24 ..> D0514 : <<include>>
+UC24 ..> D0515 : <<include>>
+UC24 ..> D0516 : <<include>>
+D0517 ..> D0516 : <<extend>>\n(point: persistence_degradation)\n[persistence failure or backpressure]
+N23 .. UC23
+N24 .. UC24
+
+@enduml

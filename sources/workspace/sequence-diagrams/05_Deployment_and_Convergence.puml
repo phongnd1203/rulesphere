@@ -1,0 +1,109 @@
+@startuml
+title RuleSphere - Promote, Rollback and Synchronize Fleet\nUC-18..20, UC-27
+autonumber
+skinparam shadowing false
+skinparam sequenceLifeLineBorderColor #177E8D
+skinparam sequenceLifeLineBackgroundColor #EAF6F8
+
+actor "Release Manager / Authorized Operator" as User
+boundary "Management API" as API
+participant AuthorizationService as Auth
+participant DesiredActiveState as Desired
+database "Immutable Audit Evidence" as Audit
+participant DistributionService as Distribution
+database "Artifact Store" as Artifacts
+participant "RuntimeNode (each active node)" as Node
+participant FleetConvergenceView as Fleet
+
+' Phase 1: Promote / Rollback Request
+User -> API: Promote candidate / Roll back to prior version
+activate API
+
+API -> Auth: authorize(user, operation, scope)
+activate Auth
+Auth --> API: Access decision
+deactivate Auth
+
+break Unauthorized
+  API --> User: Access denied
+end
+
+API -> Desired: Check target eligibility and release policy
+activate Desired
+
+break Target ineligible
+  Desired --> API: Reject operation
+  API --> User: Policy error
+end
+
+API -> Desired: Switch desired Active pointer to target artifact
+Desired -> Audit: Record actor, from/to version, timestamp, reason
+activate Audit
+Audit --> Desired: Logged
+deactivate Audit
+
+Desired -> Distribution: Publish desired state change
+activate Distribution
+Distribution -> Fleet: Record desired version and event emission time
+activate Fleet
+Fleet --> Distribution: Recorded
+deactivate Fleet
+
+Desired --> API: Desired state committed
+deactivate Desired
+
+API --> User: Desired state updated; fleet convergence pending
+deactivate API
+
+' Phase 2: Per-Node Concurrent Synchronization
+loop Each active Runtime node
+  Distribution ->> Node: Desired state notification
+  activate Node
+  Node -> Artifacts: Fetch exact immutable artifact and dependencies
+  activate Artifacts
+  Artifacts --> Node: Artifact and integrity/version metadata
+  deactivate Artifacts
+  Node -> Node: Verify integrity; load and validate complete snapshot
+  alt Load succeeds
+    Node -> Node: Make snapshot eligible for new requests
+    Node ->> Fleet: Report loaded version, eligibility and health
+  else Fetch / integrity / load failure
+    Node ->> Fleet: Report load error and non-converged state
+    note right of Node
+      Never serve failed artifact.
+      Continue with already-loaded eligible artifacts (FR-DIST-004).
+      Retry/reconciliation strategy requires ADR.
+    end note
+  end
+  deactivate Node
+end
+deactivate Distribution
+
+note over Distribution,Fleet
+  SLA (NFR-CONS-001): 100% of active nodes loaded/eligible within <=2s
+  of publication-event emission; surface any lag or breach.
+  In-flight executions retain their original atomic snapshot.
+  Rollback reuses a prior artifact; no cloning or node restart.
+end note
+
+' Phase 3: Observe Convergence
+User -> API: Observe convergence
+activate API
+
+API -> Auth: authorize(user, observe fleet, scope)
+activate Auth
+Auth --> API: Access decision
+deactivate Auth
+
+alt Authorized
+  API -> Fleet: Get scoped desired / loaded state per node
+  activate Fleet
+  Fleet --> API: Versions, last observation, health, lag and errors
+  deactivate Fleet
+  API --> User: Fleet convergence view
+else Unauthorized
+  API --> User: Access denied
+end
+deactivate API
+
+@enduml

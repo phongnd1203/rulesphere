@@ -1,0 +1,35 @@
+@startuml
+title RuleSphere - Communication Diagram\n01. Administration | UC-01..04
+left to right direction
+skinparam shadowing false
+skinparam objectBackgroundColor #EDF5FF
+skinparam objectBorderColor #496477
+skinparam ArrowColor #496477
+skinparam nodesep 45
+skinparam ranksep 60
+object "admin : EnterpriseAdmin" as User <<actor>>
+object "api : ManagementAPI" as API <<boundary>>
+object "auth : AuthorizationService" as Auth
+object "adminService : AdministrationService" as Service
+object "resources : ScopedResourceStore" as Store
+object "audit : AuditEvidence" as Audit
+User --> API : 1: submit(operation, scope)
+API --> Auth : 1.1: authorize(principal, operation, scope)
+API --> Service : 1.2 [authorized]: apply(operation)
+Service --> Store : 1.2.1a [UC-01]: save Tenant/Workspace\n1.2.1b [UC-02]: update scoped roles\n1.2.1c [UC-03]: issue/revoke credential
+Service --> Service : 1.2.1d [UC-04]: validate asset and Tenant
+Service --> Store : 1.2.2 [UC-04 and valid]: publish immutable library version
+Service --> Audit : 1.2.3 [operation succeeded]: append attributable evidence
+API ..> User : 1.3: operation result / access or validation error
+note bottom of Service
+Branches a/b/c/d are alternatives, not consecutive operations.
+Invalid assets are not published.
+Direct cross-tenant/workspace references are prohibited;
+cross-workspace reuse requires a pinned Tenant library.
+end note
+legend bottom
+  Numbered arrows are messages between object roles, not package dependencies.
+  1.2 follows 1.1; 1.2.1 is nested in 1.2. [condition] is a guard.
+  Routine return messages are omitted; ..> marks the displayed reply.
+endlegend
+@enduml

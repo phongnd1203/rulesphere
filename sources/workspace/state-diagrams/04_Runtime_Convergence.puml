@@ -1,0 +1,89 @@
+@startuml
+title RuleSphere - Runtime Node Artifact Synchronization (UC-20, UC-27)
+hide empty description
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam stateBackgroundColor #EAF6F8
+skinparam stateBorderColor #177E8D
+skinparam ArrowColor #527183
+
+' Classifier: RuntimeNodeDeploymentSync (COMET State-Dependent Object)
+' Target: Single Runtime Node synchronization lifecycle & fleet convergence constraints (FR-DIST-001..005, NFR-CONS-001)
+
+state "Comparing desired and loaded versions" as Compare {
+  Compare : entry / inspectDesiredStateAndGeneration()
+}
+
+state Match <<choice>>
+
+state "Node Converged" as Converged {
+  Converged : entry / markNodeEligible(); reportNodeConverged(generation, version)
+}
+
+state "Synchronizing to desired artifact" as Sync {
+  state "Fetching artifact" as Fetch {
+    Fetch : entry / downloadImmutableArtifact(desiredVersion)
+  }
+  state "Checking integrity and contracts" as Check {
+    Check : entry / verifyChecksum(); validateCompatibility()
+  }
+  state "Loading into memory" as Load {
+    Load : entry / loadInMemoryZeroRestart(); prepareAtomicSnapshot()
+  }
+  
+  [*] --> Fetch
+  Fetch --> Check : fetchSucceeded
+  Check --> Load : checkSucceeded [checksumValid && contractsCompatible]
+}
+
+state "Synchronization failed" as Failed {
+  Failed : entry / retainPriorValidArtifact(); emitFailureAlert(); continueServing()
+}
+
+' F-04: Initial transition has no trigger or guard per UML 2.5.1
+[*] --> Compare : / initRuntimeNodeSync()
+
+Compare --> Match : stateInspected
+' F-10: Robust guard requiring matching version, current generation, and verified eligibility
+Match --> Converged : [loadedVersion = desiredVersion && loadedGeneration = desiredGeneration && isEligible = true]
+Match --> Sync : [loadedVersion != desiredVersion || loadedGeneration != desiredGeneration || !isEligible]
+
+Converged --> Compare : publicationOrRollbackObserved / updateDesiredTarget()
+Sync --> Compare : newerDesiredVersionObserved / discardObsoleteTarget()
+
+Load --> Compare : loadSucceeded / reportLoadedState(); recheckDesiredState()
+
+' F-10: FR-DIST-004 fallback policy on failed load: retain prior eligible artifact
+Fetch --> Failed : fetchFailed / recordDiagnostics()
+Check --> Failed : checkFailed / recordIntegrityMismatch()
+Load --> Failed : loadFailed / recordMemoryAllocationError()
+
+Failed --> Compare : retryScheduled / triggerReconciliation()
+Failed --> Compare : newerPublicationObserved / updateDesiredTarget()
+
+Converged : observeFleet / exposeDesiredAndLoaded(nodeId, version, generation, true)
+Sync : observeFleet / exposeSyncProgress(nodeId, desiredVersion, progress)
+Failed : observeFleet / exposeFailureState(nodeId, lastValidVersion, errorDetails)
+
+note right of Converged
+  **Fleet Convergence (NFR-CONS-001):**
+  Fleet convergence requires 100% of active Runtime nodes
+  to reach Node Converged within <=2.0 seconds
+  from publication/rollback event emission.
+  Zero-restart delivery ensures uninterrupted serving.
+end note
+
+note bottom of Failed
+  **FR-DIST-004 Serving Invariant:**
+  When synchronization fails, the node MUST NOT crash or halt.
+  It retains its previously loaded, eligible immutable artifact,
+  continues serving unpinned and valid pinned requests,
+  and raises an observable alert for operator reconciliation.
+end note
+
+legend bottom
+  Transition: event [guard] / effect | entry / action
+  Classifier: RuntimeNodeDeploymentSync (COMET State-Dependent Object)
+  Complies with UML 2.5.1, FR-DIST-001..005, and NFR-CONS-001 (<=2s fleet SLA, FR-DIST-004 safe retain).
+endlegend
+@enduml

@@ -1,0 +1,572 @@
+[
+  {
+    "label": "Rule Definition Data",
+    "flowId": "DF-01",
+    "dataFlowName": "Rule Definition Data",
+    "source": "Rule / Decision Author",
+    "destination": "RuleSphere",
+    "represents": "Rule definitions, decision models, decision tables, conditions, actions, metadata, data-contract references",
+    "tooltip": "Rule definitions, decision models, decision tables, conditions, actions, metadata, data-contract references",
+    "id": "DF-01"
+  },
+  {
+    "label": "Rule Validation Request",
+    "flowId": "DF-02",
+    "dataFlowName": "Rule Validation Request",
+    "source": "Rule / Decision Author",
+    "destination": "RuleSphere",
+    "represents": "Validation requests, validation options, target rule/version",
+    "tooltip": "Validation requests, validation options, target rule/version",
+    "id": "DF-02"
+  },
+  {
+    "label": "Rule Test Data",
+    "flowId": "DF-03",
+    "dataFlowName": "Rule Test Data",
+    "source": "Rule / Decision Author",
+    "destination": "RuleSphere",
+    "represents": "Test cases, test inputs, expected results, simulation inputs",
+    "tooltip": "Test cases, test inputs, expected results, simulation inputs",
+    "id": "DF-03"
+  },
+  {
+    "label": "Rule Lifecycle Request",
+    "flowId": "DF-04",
+    "dataFlowName": "Rule Lifecycle Request",
+    "source": "Rule / Decision Author",
+    "destination": "RuleSphere",
+    "represents": "Save, update, create version, submit for review, publish-related requests",
+    "tooltip": "Save, update, create version, submit for review, publish-related requests",
+    "id": "DF-04"
+  },
+  {
+    "label": "Rule Definition State",
+    "flowId": "DF-05",
+    "dataFlowName": "Rule Definition State",
+    "source": "RuleSphere",
+    "destination": "Rule / Decision Author",
+    "represents": "Current rule/model content, draft state, version information, lifecycle state",
+    "tooltip": "Current rule/model content, draft state, version information, lifecycle state",
+    "id": "DF-05"
+  },
+  {
+    "label": "Validation Result",
+    "flowId": "DF-06",
+    "dataFlowName": "Validation Result",
+    "source": "RuleSphere",
+    "destination": "Rule / Decision Author",
+    "represents": "Syntax errors, semantic errors, contract violations, dependency errors, validation status",
+    "tooltip": "Syntax errors, semantic errors, contract violations, dependency errors, validation status",
+    "id": "DF-06"
+  },
+  {
+    "label": "Test & Simulation Result",
+    "flowId": "DF-07",
+    "dataFlowName": "Test & Simulation Result",
+    "source": "RuleSphere",
+    "destination": "Rule / Decision Author",
+    "represents": "Test results, simulation results, matched rules, execution details",
+    "tooltip": "Test results, simulation results, matched rules, execution details",
+    "id": "DF-07"
+  },
+  {
+    "label": "Change Information",
+    "flowId": "DF-08",
+    "dataFlowName": "Change Information",
+    "source": "RuleSphere",
+    "destination": "Rule / Decision Author",
+    "represents": "Version differences, change history, modification status",
+    "tooltip": "Version differences, change history, modification status",
+    "id": "DF-08"
+  },
+  {
+    "label": "Review Decision",
+    "flowId": "DF-09",
+    "dataFlowName": "Review Decision",
+    "source": "Reviewer / Approver",
+    "destination": "RuleSphere",
+    "represents": "Approval, rejection, review comments, requested changes",
+    "tooltip": "Approval, rejection, review comments, requested changes",
+    "id": "DF-09"
+  },
+  {
+    "label": "Governance Action",
+    "flowId": "DF-10",
+    "dataFlowName": "Governance Action",
+    "source": "Reviewer / Approver",
+    "destination": "RuleSphere",
+    "represents": "Promotion authorization, lifecycle authorization, governance actions",
+    "tooltip": "Promotion authorization, lifecycle authorization, governance actions",
+    "id": "DF-10"
+  },
+  {
+    "label": "Review Package",
+    "flowId": "DF-11",
+    "dataFlowName": "Review Package",
+    "source": "RuleSphere",
+    "destination": "Reviewer / Approver",
+    "represents": "Rule version, change diff, metadata, author information",
+    "tooltip": "Rule version, change diff, metadata, author information",
+    "id": "DF-11"
+  },
+  {
+    "label": "Validation & Test Evidence",
+    "flowId": "DF-12",
+    "dataFlowName": "Validation & Test Evidence",
+    "source": "RuleSphere",
+    "destination": "Reviewer / Approver",
+    "represents": "Validation results, test results, simulation evidence",
+    "tooltip": "Validation results, test results, simulation evidence",
+    "id": "DF-12"
+  },
+  {
+    "label": "Governance Status",
+    "flowId": "DF-13",
+    "dataFlowName": "Governance Status",
+    "source": "RuleSphere",
+    "destination": "Reviewer / Approver",
+    "represents": "Approval status, lifecycle state, governance violations, review history",
+    "tooltip": "Approval status, lifecycle state, governance violations, review history",
+    "id": "DF-13"
+  },
+  {
+    "label": "Platform Configuration",
+    "flowId": "DF-14",
+    "dataFlowName": "Platform Configuration",
+    "source": "Platform Administrator",
+    "destination": "RuleSphere",
+    "represents": "Workspace, tenant, environment, platform settings",
+    "tooltip": "Workspace, tenant, environment, platform settings",
+    "id": "DF-14"
+  },
+  {
+    "label": "Access Control Configuration",
+    "flowId": "DF-15",
+    "dataFlowName": "Access Control Configuration",
+    "source": "Platform Administrator",
+    "destination": "RuleSphere",
+    "represents": "Users, roles, permissions, RBAC policies",
+    "tooltip": "Users, roles, permissions, RBAC policies",
+    "id": "DF-15"
+  },
+  {
+    "label": "Governance Configuration",
+    "flowId": "DF-16",
+    "dataFlowName": "Governance Configuration",
+    "source": "Platform Administrator",
+    "destination": "RuleSphere",
+    "represents": "Governance policies, lifecycle policies, retention policies",
+    "tooltip": "Governance policies, lifecycle policies, retention policies",
+    "id": "DF-16"
+  },
+  {
+    "label": "Platform Configuration State",
+    "flowId": "DF-17",
+    "dataFlowName": "Platform Configuration State",
+    "source": "RuleSphere",
+    "destination": "Platform Administrator",
+    "represents": "Current platform, workspace, environment and governance configuration",
+    "tooltip": "Current platform, workspace, environment and governance configuration",
+    "id": "DF-17"
+  },
+  {
+    "label": "Administration Result",
+    "flowId": "DF-18",
+    "dataFlowName": "Administration Result",
+    "source": "RuleSphere",
+    "destination": "Platform Administrator",
+    "represents": "Configuration result, validation errors, administrative action status",
+    "tooltip": "Configuration result, validation errors, administrative action status",
+    "id": "DF-18"
+  },
+  {
+    "label": "Access Control Information",
+    "flowId": "DF-19",
+    "dataFlowName": "Access Control Information",
+    "source": "RuleSphere",
+    "destination": "Platform Administrator",
+    "represents": "Users, roles, permissions, access-policy state",
+    "tooltip": "Users, roles, permissions, access-policy state",
+    "id": "DF-19"
+  },
+  {
+    "label": "Deployment Request",
+    "flowId": "DF-20",
+    "dataFlowName": "Deployment Request",
+    "source": "Operations / SRE",
+    "destination": "RuleSphere",
+    "represents": "Deploy, promote, activate, deactivate rule versions",
+    "tooltip": "Deploy, promote, activate, deactivate rule versions",
+    "id": "DF-20"
+  },
+  {
+    "label": "Rollout Configuration",
+    "flowId": "DF-21",
+    "dataFlowName": "Rollout Configuration",
+    "source": "Operations / SRE",
+    "destination": "RuleSphere",
+    "represents": "Canary settings, traffic allocation, shadow-mode settings",
+    "tooltip": "Canary settings, traffic allocation, shadow-mode settings",
+    "id": "DF-21"
+  },
+  {
+    "label": "Rollback Request",
+    "flowId": "DF-22",
+    "dataFlowName": "Rollback Request",
+    "source": "Operations / SRE",
+    "destination": "RuleSphere",
+    "represents": "Rollback target, previous version, rollback command",
+    "tooltip": "Rollback target, previous version, rollback command",
+    "id": "DF-22"
+  },
+  {
+    "label": "Operational Control Request",
+    "flowId": "DF-23",
+    "dataFlowName": "Operational Control Request",
+    "source": "Operations / SRE",
+    "destination": "RuleSphere",
+    "represents": "Pause, resume, retry, operational queries",
+    "tooltip": "Pause, resume, retry, operational queries",
+    "id": "DF-23"
+  },
+  {
+    "label": "Deployment Status",
+    "flowId": "DF-24",
+    "dataFlowName": "Deployment Status",
+    "source": "RuleSphere",
+    "destination": "Operations / SRE",
+    "represents": "Deployment progress, success/failure, active version",
+    "tooltip": "Deployment progress, success/failure, active version",
+    "id": "DF-24"
+  },
+  {
+    "label": "Rollout Status",
+    "flowId": "DF-25",
+    "dataFlowName": "Rollout Status",
+    "source": "RuleSphere",
+    "destination": "Operations / SRE",
+    "represents": "Canary status, shadow status, traffic distribution state",
+    "tooltip": "Canary status, shadow status, traffic distribution state",
+    "id": "DF-25"
+  },
+  {
+    "label": "Runtime Status",
+    "flowId": "DF-26",
+    "dataFlowName": "Runtime Status",
+    "source": "RuleSphere",
+    "destination": "Operations / SRE",
+    "represents": "Runtime health, availability, execution-node state",
+    "tooltip": "Runtime health, availability, execution-node state",
+    "id": "DF-26"
+  },
+  {
+    "label": "Distribution Status",
+    "flowId": "DF-27",
+    "dataFlowName": "Distribution Status",
+    "source": "RuleSphere",
+    "destination": "Operations / SRE",
+    "represents": "Artifact distribution state, synchronization/convergence status",
+    "tooltip": "Artifact distribution state, synchronization/convergence status",
+    "id": "DF-27"
+  },
+  {
+    "label": "Operational Alert",
+    "flowId": "DF-28",
+    "dataFlowName": "Operational Alert",
+    "source": "RuleSphere",
+    "destination": "Operations / SRE",
+    "represents": "Deployment failures, runtime failures, convergence problems",
+    "tooltip": "Deployment failures, runtime failures, convergence problems",
+    "id": "DF-28"
+  },
+  {
+    "label": "Decision Request",
+    "flowId": "DF-29",
+    "dataFlowName": "Decision Request",
+    "source": "Decision Consumer",
+    "destination": "RuleSphere",
+    "represents": "Decision identifier, requested operation, execution options",
+    "tooltip": "Decision identifier, requested operation, execution options",
+    "id": "DF-29"
+  },
+  {
+    "label": "Decision Input Data",
+    "flowId": "DF-30",
+    "dataFlowName": "Decision Input Data",
+    "source": "Decision Consumer",
+    "destination": "RuleSphere",
+    "represents": "Business facts, input attributes, decision context",
+    "tooltip": "Business facts, input attributes, decision context",
+    "id": "DF-30"
+  },
+  {
+    "label": "Request Context",
+    "flowId": "DF-31",
+    "dataFlowName": "Request Context",
+    "source": "Decision Consumer",
+    "destination": "RuleSphere",
+    "represents": "Correlation ID, trace context, request metadata",
+    "tooltip": "Correlation ID, trace context, request metadata",
+    "id": "DF-31"
+  },
+  {
+    "label": "Decision Result",
+    "flowId": "DF-32",
+    "dataFlowName": "Decision Result",
+    "source": "RuleSphere",
+    "destination": "Decision Consumer",
+    "represents": "Decision outcome, calculated outputs, returned business data",
+    "tooltip": "Decision outcome, calculated outputs, returned business data",
+    "id": "DF-32"
+  },
+  {
+    "label": "Decision Explanation",
+    "flowId": "DF-33",
+    "dataFlowName": "Decision Explanation",
+    "source": "RuleSphere",
+    "destination": "Decision Consumer",
+    "represents": "Matched rules, reason information, explanation metadata",
+    "tooltip": "Matched rules, reason information, explanation metadata",
+    "id": "DF-33"
+  },
+  {
+    "label": "Execution Metadata",
+    "flowId": "DF-34",
+    "dataFlowName": "Execution Metadata",
+    "source": "RuleSphere",
+    "destination": "Decision Consumer",
+    "represents": "Executed version, execution identifiers, timing/correlation information",
+    "tooltip": "Executed version, execution identifiers, timing/correlation information",
+    "id": "DF-34"
+  },
+  {
+    "label": "Decision Error",
+    "flowId": "DF-35",
+    "dataFlowName": "Decision Error",
+    "source": "RuleSphere",
+    "destination": "Decision Consumer",
+    "represents": "Validation failure, unavailable decision, execution failure, error details",
+    "tooltip": "Validation failure, unavailable decision, execution failure, error details",
+    "id": "DF-35"
+  },
+  {
+    "label": "Authentication Request",
+    "flowId": "DF-36",
+    "dataFlowName": "Authentication Request",
+    "source": "RuleSphere",
+    "destination": "Identity Provider",
+    "represents": "Login, federation, identity-authentication request",
+    "tooltip": "Login, federation, identity-authentication request",
+    "id": "DF-36"
+  },
+  {
+    "label": "Token Validation Request",
+    "flowId": "DF-37",
+    "dataFlowName": "Token Validation Request",
+    "source": "RuleSphere",
+    "destination": "Identity Provider",
+    "represents": "Token introspection, validation, identity lookup",
+    "tooltip": "Token introspection, validation, identity lookup",
+    "id": "DF-37"
+  },
+  {
+    "label": "Authentication Result",
+    "flowId": "DF-38",
+    "dataFlowName": "Authentication Result",
+    "source": "Identity Provider",
+    "destination": "RuleSphere",
+    "represents": "Authentication success/failure, identity assertion",
+    "tooltip": "Authentication success/failure, identity assertion",
+    "id": "DF-38"
+  },
+  {
+    "label": "Identity & Access Claims",
+    "flowId": "DF-39",
+    "dataFlowName": "Identity & Access Claims",
+    "source": "Identity Provider",
+    "destination": "RuleSphere",
+    "represents": "User identity, roles, groups, claims",
+    "tooltip": "User identity, roles, groups, claims",
+    "id": "DF-39"
+  },
+  {
+    "label": "Security Token",
+    "flowId": "DF-40",
+    "dataFlowName": "Security Token",
+    "source": "Identity Provider",
+    "destination": "RuleSphere",
+    "represents": "Access token, ID token, authentication token",
+    "tooltip": "Access token, ID token, authentication token",
+    "id": "DF-40"
+  },
+  {
+    "label": "Automated Validation Request",
+    "flowId": "DF-41",
+    "dataFlowName": "Automated Validation Request",
+    "source": "CI/CD & Automation",
+    "destination": "RuleSphere",
+    "represents": "Rule/model validation requests from pipelines",
+    "tooltip": "Rule/model validation requests from pipelines",
+    "id": "DF-41"
+  },
+  {
+    "label": "Automated Test Request",
+    "flowId": "DF-42",
+    "dataFlowName": "Automated Test Request",
+    "source": "CI/CD & Automation",
+    "destination": "RuleSphere",
+    "represents": "Test execution, regression test, simulation request",
+    "tooltip": "Test execution, regression test, simulation request",
+    "id": "DF-42"
+  },
+  {
+    "label": "Release Request",
+    "flowId": "DF-43",
+    "dataFlowName": "Release Request",
+    "source": "CI/CD & Automation",
+    "destination": "RuleSphere",
+    "represents": "Package, publish, promote or release commands",
+    "tooltip": "Package, publish, promote or release commands",
+    "id": "DF-43"
+  },
+  {
+    "label": "Automated Deployment Request",
+    "flowId": "DF-44",
+    "dataFlowName": "Automated Deployment Request",
+    "source": "CI/CD & Automation",
+    "destination": "RuleSphere",
+    "represents": "Deployment and rollback commands",
+    "tooltip": "Deployment and rollback commands",
+    "id": "DF-44"
+  },
+  {
+    "label": "Validation & Test Result",
+    "flowId": "DF-45",
+    "dataFlowName": "Validation & Test Result",
+    "source": "RuleSphere",
+    "destination": "CI/CD & Automation",
+    "represents": "Validation status, test status, error details",
+    "tooltip": "Validation status, test status, error details",
+    "id": "DF-45"
+  },
+  {
+    "label": "Release Result",
+    "flowId": "DF-46",
+    "dataFlowName": "Release Result",
+    "source": "RuleSphere",
+    "destination": "CI/CD & Automation",
+    "represents": "Artifact/version identifiers, package status, release status",
+    "tooltip": "Artifact/version identifiers, package status, release status",
+    "id": "DF-46"
+  },
+  {
+    "label": "Deployment Result",
+    "flowId": "DF-47",
+    "dataFlowName": "Deployment Result",
+    "source": "RuleSphere",
+    "destination": "CI/CD & Automation",
+    "represents": "Deployment status, rollout status, deployment errors",
+    "tooltip": "Deployment status, rollout status, deployment errors",
+    "id": "DF-47"
+  },
+  {
+    "label": "Metrics Data",
+    "flowId": "DF-48",
+    "dataFlowName": "Metrics Data",
+    "source": "RuleSphere",
+    "destination": "Observability Platform",
+    "represents": "Latency, throughput, error rate, rule evaluation metrics",
+    "tooltip": "Latency, throughput, error rate, rule evaluation metrics",
+    "id": "DF-48"
+  },
+  {
+    "label": "Log Data",
+    "flowId": "DF-49",
+    "dataFlowName": "Log Data",
+    "source": "RuleSphere",
+    "destination": "Observability Platform",
+    "represents": "Application logs, runtime logs, deployment logs",
+    "tooltip": "Application logs, runtime logs, deployment logs",
+    "id": "DF-49"
+  },
+  {
+    "label": "Trace Data",
+    "flowId": "DF-50",
+    "dataFlowName": "Trace Data",
+    "source": "RuleSphere",
+    "destination": "Observability Platform",
+    "represents": "Distributed traces, execution traces, correlation data",
+    "tooltip": "Distributed traces, execution traces, correlation data",
+    "id": "DF-50"
+  },
+  {
+    "label": "Health Data",
+    "flowId": "DF-51",
+    "dataFlowName": "Health Data",
+    "source": "RuleSphere",
+    "destination": "Observability Platform",
+    "represents": "Runtime health, component health, deployment health",
+    "tooltip": "Runtime health, component health, deployment health",
+    "id": "DF-51"
+  },
+  {
+    "label": "Monitoring Request",
+    "flowId": "DF-52",
+    "dataFlowName": "Monitoring Request",
+    "source": "Observability Platform",
+    "destination": "RuleSphere",
+    "represents": "Health checks, scrape requests, telemetry queries",
+    "tooltip": "Health checks, scrape requests, telemetry queries",
+    "id": "DF-52"
+  },
+  {
+    "label": "Audit Event Data",
+    "flowId": "DF-53",
+    "dataFlowName": "Audit Event Data",
+    "source": "RuleSphere",
+    "destination": "Audit / SIEM",
+    "represents": "Rule changes, approvals, deployments, configuration changes",
+    "tooltip": "Rule changes, approvals, deployments, configuration changes",
+    "id": "DF-53"
+  },
+  {
+    "label": "Security Event Data",
+    "flowId": "DF-54",
+    "dataFlowName": "Security Event Data",
+    "source": "RuleSphere",
+    "destination": "Audit / SIEM",
+    "represents": "Authentication, authorization, access and security events",
+    "tooltip": "Authentication, authorization, access and security events",
+    "id": "DF-54"
+  },
+  {
+    "label": "Governance Event Data",
+    "flowId": "DF-55",
+    "dataFlowName": "Governance Event Data",
+    "source": "RuleSphere",
+    "destination": "Audit / SIEM",
+    "represents": "Approval, rejection, promotion and lifecycle events",
+    "tooltip": "Approval, rejection, promotion and lifecycle events",
+    "id": "DF-55"
+  },
+  {
+    "label": "Audit Query",
+    "flowId": "DF-56",
+    "dataFlowName": "Audit Query",
+    "source": "Audit / SIEM",
+    "destination": "RuleSphere",
+    "represents": "Audit search, filtering, retrieval requests",
+    "tooltip": "Audit search, filtering, retrieval requests",
+    "id": "DF-56"
+  },
+  {
+    "label": "Audit Export Request",
+    "flowId": "DF-57",
+    "dataFlowName": "Audit Export Request",
+    "source": "Audit / SIEM",
+    "destination": "RuleSphere",
+    "represents": "Compliance exports, audit extraction requests",
+    "tooltip": "Compliance exports, audit extraction requests",
+    "id": "DF-57"
+  }
+]

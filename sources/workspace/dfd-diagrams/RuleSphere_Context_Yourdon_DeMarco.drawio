@@ -1,0 +1,622 @@
+<mxfile host="Electron">
+  <diagram id="rulesphere-context" name="Context DFD - All 57 Flows">
+    <mxGraphModel dx="2928" dy="1778" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="4600" pageHeight="3100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;text;strokeColor=none;align=center;fontSize=40;fontStyle=1;" value="RuleSphere - Context Data Flow Diagram" vertex="1">
+          <mxGeometry height="65" width="4460" x="70" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" parent="1" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;text;strokeColor=none;align=center;fontSize=24;" value="Yourdon-DeMarco notation | Process 0 | 9 external entities | 57 individual data flows" vertex="1">
+          <mxGeometry height="45" width="4460" x="70" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="process" parent="1" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;ellipse;perimeter=ellipsePerimeter;aspect=fixed;whiteSpace=wrap;fontSize=48;fontStyle=1;strokeWidth=3;" value="RuleSphere&#xa;Business Rule Management Platform " vertex="1">
+          <mxGeometry height="1200" width="1200" x="1700" y="940" as="geometry" />
+        </mxCell>
+        <mxCell id="entity-1" parent="1" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;rounded=0;whiteSpace=wrap;fontSize=26;strokeWidth=2;align=center;verticalAlign=middle;spacing=15;" value="Rule / Decision Author" vertex="1">
+          <mxGeometry height="440" width="360" x="70" y="330" as="geometry" />
+        </mxCell>
+        <object label="Rule Definition Data" flowId="DF-01" dataFlowName="Rule Definition Data" source="Rule / Decision Author" destination="RuleSphere" represents="Rule definitions, decision models, decision tables, conditions, actions, metadata, data-contract references" tooltip="Rule definitions, decision models, decision tables, conditions, actions, metadata, data-contract references" id="DF-01">
+          <mxCell edge="1" parent="1" source="entity-1" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=360.0;exitDy=45.0;exitPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="process">
+            <mxGeometry relative="1" x="-0.2378556069663299" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="2247.7065543514054" y="375" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Rule Validation Request" flowId="DF-02" dataFlowName="Rule Validation Request" source="Rule / Decision Author" destination="RuleSphere" represents="Validation requests, validation options, target rule/version" tooltip="Validation requests, validation options, target rule/version" id="DF-02">
+          <mxCell edge="1" parent="1" source="entity-1" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=360.0;exitDy=95.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=500.58662069661295;entryDy=8.293163791831034;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="process">
+            <mxGeometry relative="1" x="-0.22812580124312398" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="2200.586620696613" y="425" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Rule Test Data" flowId="DF-03" dataFlowName="Rule Test Data" source="Rule / Decision Author" destination="RuleSphere" represents="Test cases, test inputs, expected results, simulation inputs" tooltip="Test cases, test inputs, expected results, simulation inputs" id="DF-03">
+          <mxCell edge="1" parent="1" source="entity-1" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=360.0;exitDy=145.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=454.08979023140137;entryDy=18.011846610875068;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="process">
+            <mxGeometry relative="1" x="-0.2188444059612612" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="2154.0897902314014" y="475" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Rule Lifecycle Request" flowId="DF-04" dataFlowName="Rule Lifecycle Request" source="Rule / Decision Author" destination="RuleSphere" represents="Save, update, create version, submit for review, publish-related requests" tooltip="Save, update, create version, submit for review, publish-related requests" id="DF-04">
+          <mxCell edge="1" parent="1" source="entity-1" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=360.0;exitDy=195.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=408.5074957948036;entryDy=31.37831484085757;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="process">
+            <mxGeometry relative="1" x="-0.21007167190190001" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="2108.5074957948036" y="525" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Rule Definition State" flowId="DF-05" dataFlowName="Rule Definition State" source="RuleSphere" destination="Rule / Decision Author" represents="Current rule/model content, draft state, version information, lifecycle state" tooltip="Current rule/model content, draft state, version information, lifecycle state" id="DF-05">
+          <mxCell edge="1" parent="1" source="process" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=364.12543809683393;exitDy=48.30879013075662;exitPerimeter=0;entryX=0;entryY=0;entryDx=360.0;entryDy=245.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="entity-1">
+            <mxGeometry relative="1" x="0.20186669951715475" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="2064.125438096834" y="575" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Validation Result" flowId="DF-06" dataFlowName="Validation Result" source="RuleSphere" destination="Rule / Decision Author" represents="Syntax errors, semantic errors, contract violations, dependency errors, validation status" tooltip="Syntax errors, semantic errors, contract violations, dependency errors, validation status" id="DF-06">
+          <mxCell edge="1" parent="1" source="process" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=321.22179500354537;exitDy=68.69715564571402;exitPerimeter=0;entryX=0;entryY=0;entryDx=360.0;entryDy=295.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="entity-1">
+            <mxGeometry relative="1" x="0.1942850138328831" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="2021.2217950035454" y="625" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Test &amp; Simulation Result" flowId="DF-07" dataFlowName="Test &amp; Simulation Result" source="RuleSphere" destination="Rule / Decision Author" represents="Test results, simulation results, matched rules, execution details" tooltip="Test results, simulation results, matched rules, execution details" id="DF-07">
+          <mxCell edge="1" parent="1" source="process" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=280.0654779737715;exitDy=92.41562118614343;exitPerimeter=0;entryX=0;entryY=0;entryDx=360.0;entryDy=345.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="entity-1">
+            <mxGeometry relative="1" x="0.18737570786077784" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="1980.0654779737715" y="675" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Change Information" flowId="DF-08" dataFlowName="Change Information" source="RuleSphere" destination="Rule / Decision Author" represents="Version differences, change history, modification status" tooltip="Version differences, change history, modification status" id="DF-08">
+          <mxCell edge="1" parent="1" source="process" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=240.91444657585544;exitDy=119.31552415115812;exitPerimeter=0;entryX=0;entryY=0;entryDx=360.0;entryDy=395.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="entity-1">
+            <mxGeometry relative="1" x="0.18117824306714425" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="1940.9144465758554" y="725" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <mxCell id="entity-2" parent="1" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;rounded=0;whiteSpace=wrap;fontSize=26;strokeWidth=2;align=center;verticalAlign=middle;spacing=15;" value="Reviewer / Approver" vertex="1">
+          <mxGeometry height="290" width="360" x="70" y="855" as="geometry" />
+        </mxCell>
+        <object label="Review Decision" flowId="DF-09" dataFlowName="Review Decision" source="Reviewer / Approver" destination="RuleSphere" represents="Approval, rejection, review comments, requested changes" tooltip="Approval, rejection, review comments, requested changes" id="DF-09">
+          <mxCell edge="1" parent="1" source="entity-2" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=360.0;exitDy=45.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=204.01409164864003;entryDy=149.2282613260361;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="process">
+            <mxGeometry relative="1" x="-0.11377070875305995" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="1904.01409164864" y="900" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Governance Action" flowId="DF-10" dataFlowName="Governance Action" source="Reviewer / Approver" destination="RuleSphere" represents="Promotion authorization, lifecycle authorization, governance actions" tooltip="Promotion authorization, lifecycle authorization, governance actions" id="DF-10">
+          <mxCell edge="1" parent="1" source="entity-2" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=360.0;exitDy=95.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=169.59569724074026;entryDy=181.96634565346835;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="process">
+            <mxGeometry relative="1" x="-0.10670786545991962" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="1869.5956972407403" y="950" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Review Package" flowId="DF-11" dataFlowName="Review Package" source="RuleSphere" destination="Reviewer / Approver" represents="Rule version, change diff, metadata, author information" tooltip="Rule version, change diff, metadata, author information" id="DF-11">
+          <mxCell edge="1" parent="1" source="process" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=137.87499096835927;exitDy=217.3245813649562;exitPerimeter=0;entryX=0;entryY=0;entryDx=360.0;entryDy=145.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="entity-2">
+            <mxGeometry relative="1" x="0.10051407126979028" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="1837.8749909683593" y="1000" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Validation &amp; Test Evidence" flowId="DF-12" dataFlowName="Validation &amp; Test Evidence" source="RuleSphere" destination="Reviewer / Approver" represents="Validation results, test results, simulation evidence" tooltip="Validation results, test results, simulation evidence" id="DF-12">
+          <mxCell edge="1" parent="1" source="process" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=109.05079187771184;exitDy=255.08135010687215;exitPerimeter=0;entryX=0;entryY=0;entryDx=360.0;entryDy=195.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="entity-2">
+            <mxGeometry relative="1" x="0.09518948266385907" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="1809.0507918777118" y="1050" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Governance Status" flowId="DF-13" dataFlowName="Governance Status" source="RuleSphere" destination="Reviewer / Approver" represents="Approval status, lifecycle state, governance violations, review history" tooltip="Approval status, lifecycle state, governance violations, review history" id="DF-13">
+          <mxCell edge="1" parent="1" source="process" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=83.30376428698446;exitDy=295.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=360.0;entryDy=245.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="entity-2">
+            <mxGeometry relative="1" x="0.09070728922376659" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="1783.3037642869845" y="1100" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <mxCell id="entity-3" parent="1" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;rounded=0;whiteSpace=wrap;fontSize=26;strokeWidth=2;align=center;verticalAlign=middle;spacing=15;" value="Platform Administrator" vertex="1">
+          <mxGeometry height="340" width="360" x="70" y="1210" as="geometry" />
+        </mxCell>
+        <object label="Platform Configuration" flowId="DF-14" dataFlowName="Platform Configuration" source="Platform Administrator" destination="RuleSphere" represents="Workspace, tenant, environment, platform settings" tooltip="Workspace, tenant, environment, platform settings" id="DF-14">
+          <mxCell edge="1" parent="1" source="entity-3" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=360.0;exitDy=45.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=72.00852279605874;entryDy=315.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="process">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="1101.0042613980295" y="1255" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Access Control Configuration" flowId="DF-15" dataFlowName="Access Control Configuration" source="Platform Administrator" destination="RuleSphere" represents="Users, roles, permissions, RBAC policies" tooltip="Users, roles, permissions, RBAC policies" id="DF-15">
+          <mxCell edge="1" parent="1" source="entity-3" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=360.0;exitDy=95.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=47.93569215172056;entryDy=365.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="process">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="1088.9678460758603" y="1305" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Governance Configuration" flowId="DF-16" dataFlowName="Governance Configuration" source="Platform Administrator" destination="RuleSphere" represents="Governance policies, lifecycle policies, retention policies" tooltip="Governance policies, lifecycle policies, retention policies" id="DF-16">
+          <mxCell edge="1" parent="1" source="entity-3" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=360.0;exitDy=145.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=29.232972220714146;entryDy=415.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="process">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="1079.616486110357" y="1355" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Platform Configuration State" flowId="DF-17" dataFlowName="Platform Configuration State" source="RuleSphere" destination="Platform Administrator" represents="Current platform, workspace, environment and governance configuration" tooltip="Current platform, workspace, environment and governance configuration" id="DF-17">
+          <mxCell edge="1" parent="1" source="process" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=15.384741902847736;exitDy=465.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=360.0;entryDy=195.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="entity-3">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="1072.692370951424" y="1405" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Administration Result" flowId="DF-18" dataFlowName="Administration Result" source="RuleSphere" destination="Platform Administrator" represents="Configuration result, validation errors, administrative action status" tooltip="Configuration result, validation errors, administrative action status" id="DF-18">
+          <mxCell edge="1" parent="1" source="process" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=6.051349020809766;exitDy=515.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=360.0;entryDy=245.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="entity-3">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="1068.0256745104048" y="1455" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Access Control Information" flowId="DF-19" dataFlowName="Access Control Information" source="RuleSphere" destination="Platform Administrator" represents="Users, roles, permissions, access-policy state" tooltip="Users, roles, permissions, access-policy state" id="DF-19">
+          <mxCell edge="1" parent="1" source="process" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=1.0217032312439187;exitDy=565.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=360.0;entryDy=295.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="entity-3">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="1065.510851615622" y="1505" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <mxCell id="entity-4" parent="1" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;rounded=0;whiteSpace=wrap;fontSize=26;strokeWidth=2;align=center;verticalAlign=middle;spacing=15;" value="Operations / SRE" vertex="1">
+          <mxGeometry height="490" width="360" x="70" y="1635" as="geometry" />
+        </mxCell>
+        <object label="Deployment Request" flowId="DF-20" dataFlowName="Deployment Request" source="Operations / SRE" destination="RuleSphere" represents="Deploy, promote, activate, deactivate rule versions" tooltip="Deploy, promote, activate, deactivate rule versions" id="DF-20">
+          <mxCell edge="1" parent="1" source="entity-4" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=360.0;exitDy=45.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=16.561914167407167;entryDy=740.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="process">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="1073.2809570837035" y="1680" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Rollout Configuration" flowId="DF-21" dataFlowName="Rollout Configuration" source="Operations / SRE" destination="RuleSphere" represents="Canary settings, traffic allocation, shadow-mode settings" tooltip="Canary settings, traffic allocation, shadow-mode settings" id="DF-21">
+          <mxCell edge="1" parent="1" source="entity-4" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=360.0;exitDy=95.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=30.877868994712117;entryDy=790.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="process">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="1080.438934497356" y="1730" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Rollback Request" flowId="DF-22" dataFlowName="Rollback Request" source="Operations / SRE" destination="RuleSphere" represents="Rollback target, previous version, rollback command" tooltip="Rollback target, previous version, rollback command" id="DF-22">
+          <mxCell edge="1" parent="1" source="entity-4" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=360.0;exitDy=145.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=50.0909166052993;entryDy=840.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="process">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="1090.0454583026496" y="1780" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Operational Control Request" flowId="DF-23" dataFlowName="Operational Control Request" source="Operations / SRE" destination="RuleSphere" represents="Pause, resume, retry, operational queries" tooltip="Pause, resume, retry, operational queries" id="DF-23">
+          <mxCell edge="1" parent="1" source="entity-4" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=360.0;exitDy=195.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=74.73816053324413;entryDy=890.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="process">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="1102.369080266622" y="1830" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Deployment Status" flowId="DF-24" dataFlowName="Deployment Status" source="RuleSphere" destination="Operations / SRE" represents="Deployment progress, success/failure, active version" tooltip="Deployment progress, success/failure, active version" id="DF-24">
+          <mxCell edge="1" parent="1" source="process" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=105.63171622766913;exitDy=940.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=360.0;entryDy=245.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="entity-4">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="1117.8158581138346" y="1880" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Rollout Status" flowId="DF-25" dataFlowName="Rollout Status" source="RuleSphere" destination="Operations / SRE" represents="Canary status, shadow status, traffic distribution state" tooltip="Canary status, shadow status, traffic distribution state" id="DF-25">
+          <mxCell edge="1" parent="1" source="process" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=144.03947539288015;exitDy=990.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=360.0;entryDy=295.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="entity-4">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="1137.0197376964402" y="1930" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Runtime Status" flowId="DF-26" dataFlowName="Runtime Status" source="RuleSphere" destination="Operations / SRE" represents="Runtime health, availability, execution-node state" tooltip="Runtime health, availability, execution-node state" id="DF-26">
+          <mxCell edge="1" parent="1" source="process" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=192.0784389125772;exitDy=1040.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=360.0;entryDy=345.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="entity-4">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="1161.0392194562887" y="1980" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Distribution Status" flowId="DF-27" dataFlowName="Distribution Status" source="RuleSphere" destination="Operations / SRE" represents="Artifact distribution state, synchronization/convergence status" tooltip="Artifact distribution state, synchronization/convergence status" id="DF-27">
+          <mxCell edge="1" parent="1" source="process" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=253.73420613638427;exitDy=1090.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=360.0;entryDy=395.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="entity-4">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="1191.8671030681921" y="2030" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Operational Alert" flowId="DF-28" dataFlowName="Operational Alert" source="RuleSphere" destination="Operations / SRE" represents="Deployment failures, runtime failures, convergence problems" tooltip="Deployment failures, runtime failures, convergence problems" id="DF-28">
+          <mxCell edge="1" parent="1" source="process" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=338.46606338755964;exitDy=1140.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=360.0;entryDy=445.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="entity-4">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="1234.2330316937798" y="2080" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <mxCell id="entity-5" parent="1" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;rounded=0;whiteSpace=wrap;fontSize=26;strokeWidth=2;align=center;verticalAlign=middle;spacing=15;" value="Decision Consumer /&#xa;Client Application" vertex="1">
+          <mxGeometry height="390" width="360" x="70" y="2185" as="geometry" />
+        </mxCell>
+        <object label="Decision Request" flowId="DF-29" dataFlowName="Decision Request" source="Decision Consumer" destination="RuleSphere" represents="Decision identifier, requested operation, execution options" tooltip="Decision identifier, requested operation, execution options" id="DF-29">
+          <mxCell edge="1" parent="1" source="entity-5" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=360.0;exitDy=45.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=384.59340771461984;entryDy=1160.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="process">
+            <mxGeometry relative="1" x="-0.07284572465527606" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="2084.59340771462" y="2230" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Decision Input Data" flowId="DF-30" dataFlowName="Decision Input Data" source="Decision Consumer" destination="RuleSphere" represents="Business facts, input attributes, decision context" tooltip="Business facts, input attributes, decision context" id="DF-30">
+          <mxCell edge="1" parent="1" source="entity-5" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=360.0;exitDy=95.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=410.94622140889805;entryDy=1169.437150878327;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="process">
+            <mxGeometry relative="1" x="-0.09212099029728016" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="2110.946221408898" y="2280" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Request Context" flowId="DF-31" dataFlowName="Request Context" source="Decision Consumer" destination="RuleSphere" represents="Correlation ID, trace context, request metadata" tooltip="Correlation ID, trace context, request metadata" id="DF-31">
+          <mxCell edge="1" parent="1" source="entity-5" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=360.0;exitDy=145.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=437.7105057191866;entryDy=1177.63493665643;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="process">
+            <mxGeometry relative="1" x="-0.11060245063543583" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="2137.7105057191866" y="2330" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Decision Result" flowId="DF-32" dataFlowName="Decision Result" source="RuleSphere" destination="Decision Consumer" represents="Decision outcome, calculated outputs, returned business data" tooltip="Decision outcome, calculated outputs, returned business data" id="DF-32">
+          <mxCell edge="1" parent="1" source="process" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=464.8280088790616;exitDy=1184.5755150674727;exitPerimeter=0;entryX=0;entryY=0;entryDx=360.0;entryDy=195.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="entity-5">
+            <mxGeometry relative="1" x="0.1283377288694445" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="2164.8280088790616" y="2380" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Decision Explanation" flowId="DF-33" dataFlowName="Decision Explanation" source="RuleSphere" destination="Decision Consumer" represents="Matched rules, reason information, explanation metadata" tooltip="Matched rules, reason information, explanation metadata" id="DF-33">
+          <mxCell edge="1" parent="1" source="process" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=492.23971035048726;exitDy=1190.2437801236479;exitPerimeter=0;entryX=0;entryY=0;entryDx=360.0;entryDy=245.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="entity-5">
+            <mxGeometry relative="1" x="0.1453718775494266" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="2192.2397103504873" y="2430" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Execution Metadata" flowId="DF-34" dataFlowName="Execution Metadata" source="RuleSphere" destination="Decision Consumer" represents="Executed version, execution identifiers, timing/correlation information" tooltip="Executed version, execution identifiers, timing/correlation information" id="DF-34">
+          <mxCell edge="1" parent="1" source="process" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=519.8859492804818;exitDy=1194.6273949939664;exitPerimeter=0;entryX=0;entryY=0;entryDx=360.0;entryDy=295.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="entity-5">
+            <mxGeometry relative="1" x="0.16174744005249408" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="2219.885949280482" y="2480" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Decision Error" flowId="DF-35" dataFlowName="Decision Error" source="RuleSphere" destination="Decision Consumer" represents="Validation failure, unavailable decision, execution failure, error details" tooltip="Validation failure, unavailable decision, execution failure, error details" id="DF-35">
+          <mxCell edge="1" parent="1" source="process" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=547.7065543514036;exitDy=1197.7168188550472;exitPerimeter=0;entryX=0;entryY=0;entryDx=360.0;entryDy=345.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="entity-5">
+            <mxGeometry relative="1" x="0.1775045263080588" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="2247.7065543514036" y="2530" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <mxCell id="entity-6" parent="1" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;rounded=0;whiteSpace=wrap;fontSize=26;strokeWidth=2;align=center;verticalAlign=middle;spacing=15;" value="Identity Provider / IAM" vertex="1">
+          <mxGeometry height="290" width="360" x="4170" y="505" as="geometry" />
+        </mxCell>
+        <object label="Authentication Request" flowId="DF-36" dataFlowName="Authentication Request" source="RuleSphere" destination="Identity Provider" represents="Login, federation, identity-authentication request" tooltip="Login, federation, identity-authentication request" id="DF-36">
+          <mxCell edge="1" parent="1" source="process" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=652.2934456485946;exitDy=2.283181144952664;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=45.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="entity-6">
+            <mxGeometry relative="1" x="0.17750452630805857" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="2352.2934456485946" y="550" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Token Validation Request" flowId="DF-37" dataFlowName="Token Validation Request" source="RuleSphere" destination="Identity Provider" represents="Token introspection, validation, identity lookup" tooltip="Token introspection, validation, identity lookup" id="DF-37">
+          <mxCell edge="1" parent="1" source="process" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=760.0789400568333;exitDy=21.74855560035064;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=95.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="entity-6">
+            <mxGeometry relative="1" x="0.1746169142445253" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="2460.0789400568333" y="600" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Authentication Result" flowId="DF-38" dataFlowName="Authentication Result" source="Identity Provider" destination="RuleSphere" represents="Authentication success/failure, identity assertion" tooltip="Authentication success/failure, identity assertion" id="DF-38">
+          <mxCell edge="1" parent="1" source="entity-6" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=0;exitDy=145.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=862.5299756023974;entryDy=60.48353879589126;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="process">
+            <mxGeometry relative="1" x="-0.1790050312655218" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="2562.5299756023974" y="650" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Identity &amp; Access Claims" flowId="DF-39" dataFlowName="Identity &amp; Access Claims" source="Identity Provider" destination="RuleSphere" represents="User identity, roles, groups, claims" tooltip="User identity, roles, groups, claims" id="DF-39">
+          <mxCell edge="1" parent="1" source="entity-6" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=0;exitDy=195.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=956.2324814877038;entryDy=117.19732899132305;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="process">
+            <mxGeometry relative="1" x="-0.19091610912301338" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="2656.232481487704" y="700" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Security Token" flowId="DF-40" dataFlowName="Security Token" source="Identity Provider" destination="RuleSphere" represents="Access token, ID token, authentication token" tooltip="Access token, ID token, authentication token" id="DF-40">
+          <mxCell edge="1" parent="1" source="entity-6" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=0;exitDy=245.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=1038.0639222761902;entryDy=190.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="process">
+            <mxGeometry relative="1" x="-0.20972042263067225" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="2738.06392227619" y="750" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <mxCell id="entity-7" parent="1" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;rounded=0;whiteSpace=wrap;fontSize=26;strokeWidth=2;align=center;verticalAlign=middle;spacing=15;" value="CI/CD &amp; Automation" vertex="1">
+          <mxGeometry height="390" width="360" x="4170" y="1105" as="geometry" />
+        </mxCell>
+        <object label="Automated Validation Request" flowId="DF-41" dataFlowName="Automated Validation Request" source="CI/CD &amp; Automation" destination="RuleSphere" represents="Rule/model validation requests from pipelines" tooltip="Rule/model validation requests from pipelines" id="DF-41">
+          <mxCell edge="1" parent="1" source="entity-7" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=0;exitDy=45.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=1055.96052460712;entryDy=210.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="process">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="3462.9802623035603" y="1150" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Automated Test Request" flowId="DF-42" dataFlowName="Automated Test Request" source="CI/CD &amp; Automation" destination="RuleSphere" represents="Test execution, regression test, simulation request" tooltip="Test execution, regression test, simulation request" id="DF-42">
+          <mxCell edge="1" parent="1" source="entity-7" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=0;exitDy=95.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=1094.3682837723309;entryDy=260.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="process">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="3482.1841418861654" y="1200" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Release Request" flowId="DF-43" dataFlowName="Release Request" source="CI/CD &amp; Automation" destination="RuleSphere" represents="Package, publish, promote or release commands" tooltip="Package, publish, promote or release commands" id="DF-43">
+          <mxCell edge="1" parent="1" source="entity-7" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=0;exitDy=145.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=1125.261839466756;entryDy=310.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="process">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="3497.630919733378" y="1250" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Automated Deployment Request" flowId="DF-44" dataFlowName="Automated Deployment Request" source="CI/CD &amp; Automation" destination="RuleSphere" represents="Deployment and rollback commands" tooltip="Deployment and rollback commands" id="DF-44">
+          <mxCell edge="1" parent="1" source="entity-7" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=0;exitDy=195.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=1149.9090833947007;entryDy=360.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="process">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="3509.9545416973506" y="1300" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Validation &amp; Test Result" flowId="DF-45" dataFlowName="Validation &amp; Test Result" source="RuleSphere" destination="CI/CD &amp; Automation" represents="Validation status, test status, error details" tooltip="Validation status, test status, error details" id="DF-45">
+          <mxCell edge="1" parent="1" source="process" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=1169.1221310052879;exitDy=410.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=245.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="entity-7">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="3519.561065502644" y="1350" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Release Result" flowId="DF-46" dataFlowName="Release Result" source="RuleSphere" destination="CI/CD &amp; Automation" represents="Artifact/version identifiers, package status, release status" tooltip="Artifact/version identifiers, package status, release status" id="DF-46">
+          <mxCell edge="1" parent="1" source="process" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=1183.438085832593;exitDy=460.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=295.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="entity-7">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="3526.7190429162965" y="1400" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Deployment Result" flowId="DF-47" dataFlowName="Deployment Result" source="RuleSphere" destination="CI/CD &amp; Automation" represents="Deployment status, rollout status, deployment errors" tooltip="Deployment status, rollout status, deployment errors" id="DF-47">
+          <mxCell edge="1" parent="1" source="process" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=1193.2115979985556;exitDy=510.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=345.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="entity-7">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="3531.605798999278" y="1450" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <mxCell id="entity-8" parent="1" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;rounded=0;whiteSpace=wrap;fontSize=26;strokeWidth=2;align=center;verticalAlign=middle;spacing=15;" value="Observability Platform" vertex="1">
+          <mxGeometry height="290" width="360" x="4170" y="1805" as="geometry" />
+        </mxCell>
+        <object label="Metrics Data" flowId="DF-48" dataFlowName="Metrics Data" source="RuleSphere" destination="Observability Platform" represents="Latency, throughput, error rate, rule evaluation metrics" tooltip="Latency, throughput, error rate, rule evaluation metrics" id="DF-48">
+          <mxCell edge="1" parent="1" source="process" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=1113.711981561653;exitDy=910.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=45.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="entity-8">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="3491.8559907808267" y="1850" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Log Data" flowId="DF-49" dataFlowName="Log Data" source="RuleSphere" destination="Observability Platform" represents="Application logs, runtime logs, deployment logs" tooltip="Application logs, runtime logs, deployment logs" id="DF-49">
+          <mxCell edge="1" parent="1" source="process" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=1080.0;exitDy=960.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=95.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="entity-8">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="3475" y="1900" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Trace Data" flowId="DF-50" dataFlowName="Trace Data" source="RuleSphere" destination="Observability Platform" represents="Distributed traces, execution traces, correlation data" tooltip="Distributed traces, execution traces, correlation data" id="DF-50">
+          <mxCell edge="1" parent="1" source="process" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=1038.0639222761902;exitDy=1010.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=145.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="entity-8">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="3454.031961138095" y="1950" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Health Data" flowId="DF-51" dataFlowName="Health Data" source="RuleSphere" destination="Observability Platform" represents="Runtime health, component health, deployment health" tooltip="Runtime health, component health, deployment health" id="DF-51">
+          <mxCell edge="1" parent="1" source="process" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=985.2272056851643;exitDy=1060.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=195.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="entity-8">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="3427.613602842582" y="2000" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Monitoring Request" flowId="DF-52" dataFlowName="Monitoring Request" source="Observability Platform" destination="RuleSphere" represents="Health checks, scrape requests, telemetry queries" tooltip="Health checks, scrape requests, telemetry queries" id="DF-52">
+          <mxCell edge="1" parent="1" source="entity-8" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=0;exitDy=245.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=916.069612585582;entryDy=1110.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="process">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="3393.034806292791" y="2050" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <mxCell id="entity-9" parent="1" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;rounded=0;whiteSpace=wrap;fontSize=26;strokeWidth=2;align=center;verticalAlign=middle;spacing=15;" value="Audit / SIEM" vertex="1">
+          <mxGeometry height="290" width="360" x="4170" y="2355" as="geometry" />
+        </mxCell>
+        <object label="Audit Event Data" flowId="DF-53" dataFlowName="Audit Event Data" source="RuleSphere" destination="Audit / SIEM" represents="Rule changes, approvals, deployments, configuration changes" tooltip="Rule changes, approvals, deployments, configuration changes" id="DF-53">
+          <mxCell edge="1" parent="1" source="process" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=881.2472222085048;exitDy=1130.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=45.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="entity-9">
+            <mxGeometry relative="1" x="0.17198672169732765" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="2581.247222208505" y="2400" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Security Event Data" flowId="DF-54" dataFlowName="Security Event Data" source="RuleSphere" destination="Audit / SIEM" represents="Authentication, authorization, access and security events" tooltip="Authentication, authorization, access and security events" id="DF-54">
+          <mxCell edge="1" parent="1" source="process" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=826.8466514537472;exitDy=1155.464307335964;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=95.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="entity-9">
+            <mxGeometry relative="1" x="0.17747291262570197" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="2526.846651453747" y="2450" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Governance Event Data" flowId="DF-55" dataFlowName="Governance Event Data" source="RuleSphere" destination="Audit / SIEM" represents="Approval, rejection, promotion and lifecycle events" tooltip="Approval, rejection, promotion and lifecycle events" id="DF-55">
+          <mxCell edge="1" parent="1" source="process" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=770.1726657474755;exitDy=1175.3618546900707;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=145.0;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="entity-9">
+            <mxGeometry relative="1" x="0.18452603273174284" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="2470.1726657474755" y="2500" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Audit Query" flowId="DF-56" dataFlowName="Audit Query" source="Audit / SIEM" destination="RuleSphere" represents="Audit search, filtering, retrieval requests" tooltip="Audit search, filtering, retrieval requests" id="DF-56">
+          <mxCell edge="1" parent="1" source="entity-9" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=0;exitDy=195.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=711.7932412341042;entryDy=1189.4932325433206;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="process">
+            <mxGeometry relative="1" x="-0.1930069109112057" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="2411.7932412341042" y="2550" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Audit Export Request" flowId="DF-57" dataFlowName="Audit Export Request" source="Audit / SIEM" destination="RuleSphere" represents="Compliance exports, audit extraction requests" tooltip="Compliance exports, audit extraction requests" id="DF-57">
+          <mxCell edge="1" parent="1" source="entity-9" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;endSize=14;startArrow=none;strokeWidth=2;fontSize=22;labelBackgroundColor=#ffffff;exitX=0;exitY=0;exitDx=0;exitDy=245.0;exitPerimeter=0;entryX=0;entryY=0;entryDx=652.2934456485964;entryDy=1197.7168188550472;entryPerimeter=0;curved=0;orthogonalLoop=1;jettySize=0;" target="process">
+            <mxGeometry relative="1" x="-0.20275669400955143" as="geometry">
+              <mxPoint y="-16" as="offset" />
+              <Array as="points">
+                <mxPoint x="2352.2934456485964" y="2600" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <mxCell id="legend" parent="1" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;text;strokeColor=none;align=center;fontSize=24;" value="Circle = process | Rectangle = external entity | Named arrow = directional data flow" vertex="1">
+          <mxGeometry height="45" width="4460" x="70" y="2930" as="geometry" />
+        </mxCell>
+        <mxCell id="note" parent="1" style="html=0;fontFamily=Arial;fontColor=#111111;strokeColor=#111111;fillColor=#ffffff;text;strokeColor=none;align=center;fontSize=22;" value="57 separate data flows. Facing entities use horizontal connectors; upper and lower entities use one 90-degree bend. No diagonal connectors." vertex="1">
+          <mxGeometry height="40" width="4460" x="70" y="2990" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

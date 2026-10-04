@@ -1,0 +1,107 @@
+@startuml
+title RuleSphere - Artifact Deployment in One Environment (UC-15..20)
+hide empty description
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam stateBackgroundColor #EAF6F8
+skinparam stateBorderColor #177E8D
+skinparam ArrowColor #527183
+
+' Classifier: DeployedArtifactVersion (COMET State-Dependent Object)
+' Target: Deployment lifecycle per SRS 9.2 (Approved -> Shadow and/or Canary -> Active -> Superseded/Archived)
+
+state "Approved artifact available" as Ready {
+  Ready : entry / registerCandidateInEnvironment()
+}
+
+state "Pre-Release Candidate Testing" as TestingCandidate {
+  state "Shadow Only" as ShadowOnly {
+    ShadowOnly : entry / enableMirroredTraffic()
+    ShadowOnly : mirrorRequest / evaluate candidate asynchronously
+    ShadowOnly : analyzeDiff / compare with Active outcome
+  }
+  
+  state "Canary Only" as CanaryOnly {
+    CanaryOnly : entry / configureRouting(percentage, cohort)
+    CanaryOnly : evaluateRequest [selected] / route to candidate
+    CanaryOnly : updateRollout / update percentage or cohort
+  }
+  
+  state "Shadow and Canary Concurrent" as ShadowAndCanary {
+    ShadowAndCanary : entry / enableBothShadowAndCanary()
+    ShadowAndCanary : mirrorRequest / analyze candidate diff
+    ShadowAndCanary : evaluateRequest [selected] / route to candidate
+  }
+  
+  [*] --> ShadowOnly : [shadow requested]
+  [*] --> CanaryOnly : [canary requested]
+  [*] --> ShadowAndCanary : [both requested]
+  
+  ShadowOnly --> ShadowAndCanary : canaryDeploy [authorized; rollout policy permits]\n/ configureRouting()
+  CanaryOnly --> ShadowAndCanary : shadowDeploy [authorized]\n/ enableMirroredTraffic()
+  ShadowAndCanary --> ShadowOnly : disableCanary [authorized]\n/ removeCanaryRouting()
+  ShadowAndCanary --> CanaryOnly : disableShadow [authorized]\n/ stopMirroredTraffic()
+}
+
+state "Desired Active version" as Active {
+  Active : entry / setDesiredActivePointer(); emitPublicationEvent(); audit()
+}
+
+state "Superseded prior version" as Superseded {
+  Superseded : entry / retainImmutableArtifactAndHistory()
+}
+
+state "Archived version" as Archived {
+  Archived : entry / enforceRetentionPolicy(); moveToColdStorage()
+}
+
+' F-04: Initial transition has no trigger or guard per UML 2.5.1
+[*] --> Ready : / initApprovedArtifact()
+
+' Transitions into TestingCandidate
+Ready --> TestingCandidate : shadowDeploy [authorized]
+Ready --> TestingCandidate : canaryDeploy [authorized; rollout policy permits]
+Ready --> TestingCandidate : deployBoth [authorized]
+
+' F-05: Stop candidate before Active per SRS 9.2 without mutating immutable artifact
+TestingCandidate --> Ready : stopCandidate [authorized] / disableTesting(); retainArtifact()
+
+' Promotion to Active
+Ready --> Active : directPromote [authorized; policy permits]\n/ setDesiredActive()
+TestingCandidate --> Active : promote [authorized; promotion policy permits]\n/ setDesiredActive()
+
+' Superseded and Rollback
+Active --> Superseded : anotherVersionPromoted\n/ retainImmutableArtifact()
+Active --> Superseded : rollbackToOtherVersion [authorized; target eligible]\n/ setTargetAsDesiredActive(); emitRollbackEvent(); auditReason()
+Superseded --> Active : rollbackToThisVersion [authorized; this version eligible]\n/ setAsDesiredActive(); emitRollbackEvent(); auditReason()
+
+' Transition to Archived per SRS 9.2 & Section 11 retention policy
+Superseded --> Archived : retentionPeriodExpired [policy elapsed]\n/ archiveArtifact()
+Archived --> [*]
+
+note right of Active
+  Desired Active is a Control Plane state.
+  Convergence to Data Plane nodes occurs
+  within <=2s SLA (NFR-CONS-001, diagram 04).
+end note
+
+note left of TestingCandidate
+  SRS 9.2 explicitly allows:
+  "Shadow and/or Canary" simultaneously.
+  Shadow execution never alters production output.
+  Canary routing uses deterministic sticky
+  hash(subjectKey) or approved cohorts.
+end note
+
+note bottom of Superseded
+  Rollback changes the Desired Active pointer
+  to an eligible previously approved immutable version.
+  Prior artifacts are never mutated or re-compiled.
+end note
+
+legend bottom
+  Transition: event [guard] / effect | entry / action
+  Classifier: DeployedArtifactVersion (COMET State-Dependent Object)
+  Complies with UML 2.5.1 & SRS 9.2 (Shadow and/or Canary, Stop candidate, Rollback, Archive).
+endlegend
+@enduml

@@ -1,0 +1,222 @@
+{
+  "A_Identity_Access_Management": {
+    "before": [
+      2570.0,
+      2410.0
+    ],
+    "after": [
+      1850,
+      1735
+    ],
+    "use_case_font_size": 14
+  },
+  "B_Decision_Project_Asset_Management": {
+    "before": [
+      1890.0,
+      2160.0
+    ],
+    "after": [
+      1361,
+      1555
+    ],
+    "use_case_font_size": 14
+  },
+  "C_Decision_Modeling_Rule_Authoring": {
+    "before": [
+      2990.0,
+      2655.0
+    ],
+    "after": [
+      2153,
+      1912
+    ],
+    "use_case_font_size": 14
+  },
+  "D_Data_Contract_Management": {
+    "before": [
+      2310.0,
+      1605.0
+    ],
+    "after": [
+      1663,
+      1156
+    ],
+    "use_case_font_size": 14
+  },
+  "E_Validation_Testing": {
+    "before": [
+      3670.0,
+      2160.0
+    ],
+    "after": [
+      2642,
+      1555
+    ],
+    "use_case_font_size": 14
+  },
+  "F_Version_Change_Management": {
+    "before": [
+      2310.0,
+      1605.0
+    ],
+    "after": [
+      1663,
+      1156
+    ],
+    "use_case_font_size": 14
+  },
+  "G_Review_Approval_Governance": {
+    "before": [
+      2310.0,
+      2345.0
+    ],
+    "after": [
+      1663,
+      1688
+    ],
+    "use_case_font_size": 14
+  },
+  "H_Build_Artifact_Management": {
+    "before": [
+      2310.0,
+      1975.0
+    ],
+    "after": [
+      1663,
+      1422
+    ],
+    "use_case_font_size": 14
+  },
+  "I_Environment_Deployment_Management": {
+    "before": [
+      3670.0,
+      3210.0
+    ],
+    "after": [
+      2642,
+      2311
+    ],
+    "use_case_font_size": 14
+  },
+  "J_Progressive_Delivery": {
+    "before": [
+      2310.0,
+      2405.0
+    ],
+    "after": [
+      1663,
+      1732
+    ],
+    "use_case_font_size": 14
+  },
+  "K_Decision_Execution": {
+    "before": [
+      2570.0,
+      2465.0
+    ],
+    "after": [
+      1850,
+      1775
+    ],
+    "use_case_font_size": 14
+  },
+  "L_Explainability_Decision_Trace": {
+    "before": [
+      2310.0,
+      1850.0
+    ],
+    "after": [
+      1663,
+      1332
+    ],
+    "use_case_font_size": 14
+  },
+  "M_Simulation_Impact_Analysis": {
+    "before": [
+      2310.0,
+      1605.0
+    ],
+    "after": [
+      1663,
+      1156
+    ],
+    "use_case_font_size": 14
+  },
+  "N_Runtime_Operations_Observability": {
+    "before": [
+      2570.0,
+      1975.0
+    ],
+    "after": [
+      1850,
+      1422
+    ],
+    "use_case_font_size": 14
+  },
+  "O_Audit_Compliance": {
+    "before": [
+      2570.0,
+      2470.0
+    ],
+    "after": [
+      1850,
+      1778
+    ],
+    "use_case_font_size": 14
+  },
+  "P_Automation_CI_CD_Integration": {
+    "before": [
+      1750.0,
+      2970.0
+    ],
+    "after": [
+      1260,
+      2138
+    ],
+    "use_case_font_size": 14
+  },
+  "Q_Platform_Administration": {
+    "before": [
+      2310.0,
+      2345.0
+    ],
+    "after": [
+      1663,
+      1688
+    ],
+    "use_case_font_size": 14
+  },
+  "02_Cross_Cutting": {
+    "before": [
+      2310.0,
+      1480.0
+    ],
+    "after": [
+      1663,
+      1066
+    ],
+    "use_case_font_size": 14
+  },
+  "01_Actor_Model": {
+    "before": [
+      1800.0,
+      1250.0
+    ],
+    "after": [
+      1296,
+      900
+    ],
+    "use_case_font_size": 14
+  },
+  "00_System_Overview": {
+    "before": [
+      3450.0,
+      3260.0
+    ],
+    "after": [
+      2484,
+      2347
+    ],
+    "use_case_font_size": 14
+  }
+}

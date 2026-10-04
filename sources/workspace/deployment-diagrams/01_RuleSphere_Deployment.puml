@@ -1,0 +1,104 @@
+@startuml
+title RuleSphere - Deployment Diagram\nPhysical Architecture & Node Allocation (F-02, AC-01..AC-04)
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Segoe UI
+skinparam ArrowColor #527183
+skinparam nodeBackgroundColor #F8FAFC
+skinparam nodeBorderColor #64748B
+skinparam artifactBackgroundColor #EAF6F8
+skinparam artifactBorderColor #177E8D
+
+node "Client / Consumer Environment" as ClientEnv {
+  node "Enterprise Consumer Client" as ClientNode <<device>> {
+    artifact "Consumer Application / Microservice" as ClientApp <<artifact>>
+  }
+  node "Auditor / Admin Workstation" as AdminNode <<device>> {
+    artifact "Web Browser / Management Console" as AdminUI <<artifact>>
+  }
+}
+
+node "Control Plane Infrastructure" as ControlPlaneCluster {
+  node "Control Plane Service Node" as ControlHost <<execution environment>> {
+    artifact "rulesphere-management.jar" as MgmtArtifact <<artifact>> {
+      [Management API Service]
+      [Governance Engine]
+      [Artifact Compiler / Builder]
+    }
+  }
+  
+  node "Control Plane Database Server" as DBNode <<device>> {
+    database "PostgreSQL Relational DB" as ControlDB {
+      [Tenant & Workspace Config]
+      [Immutable Governance Audit Evidence]
+    }
+  }
+}
+
+node "Delivery / Distribution Plane" as DeliveryPlane {
+  node "Message Broker / Event Bus Cluster" as BrokerNode <<execution environment>> {
+    queue "Desired State Publication Topic" as PubTopic
+  }
+}
+
+node "Data Plane Runtime Cluster (Horizontally Scalable)" as DataPlaneCluster {
+  node "Runtime Node 1..N (Stateless Pod / Host)" as RuntimeNodeHost <<execution environment>> {
+    artifact "rulesphere-runtime-engine.jar" as RuntimeArtifact <<artifact>> {
+      [REST / gRPC Adapter]
+      [In-Memory Graph Execution Engine]
+      [Snapshot Resolver]
+      [Async Trace Dispatcher]
+    }
+    database "Local In-Memory Cache" as RAMCache {
+      [Loaded Immutable Snapshots]
+    }
+  }
+}
+
+node "Evidence & Storage Infrastructure" as StorageCluster {
+  node "Object Storage Cluster" as S3Node <<device>> {
+    storage "Immutable Artifact Bucket" as ArtifactBucket {
+      [Compiled Decision Packages (SHA-256)]
+    }
+  }
+  
+  node "Hot Trace Cluster" as HotNode <<device>> {
+    database "Hot Trace Store (30-90 Days)" as HotDB {
+      [Masked Execution Trace Trees]
+    }
+  }
+  
+  node "Compliance Storage Node" as LedgerNode <<device>> {
+    database "Compliance Ledger (5-7 Years)" as LedgerDB {
+      [Immutable Audit Metadata & Signatures]
+    }
+  }
+}
+
+' Communication Paths & Protocols
+AdminUI -- ControlHost : HTTPS / REST :443\n(Manage, Author, Approve, Rollout) >
+ControlHost -- ControlDB : TCP / JDBC :5432 >
+ControlHost -- ArtifactBucket : HTTPS / S3 API\n(Store Immutable Artifacts) >
+ControlHost -- PubTopic : TCP / TLS\n(Emit Desired State Event) >
+
+ClientApp -- RuntimeArtifact : HTTPS / REST :8443\nHTTP/2 gRPC :9090\n(sub-10ms Decision Evaluation) >
+
+PubTopic ..> RuntimeArtifact : TCP / PubSub (Zero Restart)\n(<=2s Fleet Convergence SLA) >
+RuntimeArtifact -- ArtifactBucket : HTTPS / S3 API\n(Fetch Immutable Target Artifact) >
+RuntimeArtifact -- HotDB : HTTPS / Async REST\n(Hot Trace Persistence) >
+RuntimeArtifact -- LedgerDB : HTTPS / Async gRPC\n(Compliance Ledger Logging) >
+
+note bottom of DataPlaneCluster
+  **AC-03 & AC-04 Architecture Invariants:**
+  - Runtime nodes are horizontally scalable and stateless.
+  - Runtime nodes evaluate requests directly from RAMCache.
+  - Zero synchronous dependency on Control Plane on the critical path.
+end note
+
+legend bottom
+  Physical topology mapping software components to execution nodes per AC-01.
+  Delivery broker is parameterized (per SRS 12.4).
+  Retention baselines: Hot Trace (30-90 days), Compliance Ledger (5-7 years) per SRS 11.
+endlegend
+@enduml

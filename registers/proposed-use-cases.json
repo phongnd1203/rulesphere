@@ -1,0 +1,1241 @@
+[
+  {
+    "Catalog ID": "IAM-01",
+    "Use case": "Sign In",
+    "Catalog actor": "Platform User",
+    "Status": "Proposed baseline",
+    "Diagram files": "A_Identity_Access_Management.drawio"
+  },
+  {
+    "Catalog ID": "IAM-02",
+    "Use case": "Sign Out",
+    "Catalog actor": "Platform User",
+    "Status": "Proposed baseline",
+    "Diagram files": "A_Identity_Access_Management.drawio"
+  },
+  {
+    "Catalog ID": "IAM-03",
+    "Use case": "Authenticate User",
+    "Catalog actor": "Identity Provider / IAM",
+    "Status": "Proposed baseline",
+    "Diagram files": "A_Identity_Access_Management.drawio"
+  },
+  {
+    "Catalog ID": "IAM-04",
+    "Use case": "Authorize Access",
+    "Catalog actor": "Platform User",
+    "Status": "Proposed baseline",
+    "Diagram files": "A_Identity_Access_Management.drawio; 02_Cross_Cutting.drawio"
+  },
+  {
+    "Catalog ID": "IAM-05",
+    "Use case": "Manage Role Mappings",
+    "Catalog actor": "Platform Administrator",
+    "Status": "Proposed baseline",
+    "Diagram files": "A_Identity_Access_Management.drawio"
+  },
+  {
+    "Catalog ID": "IAM-06",
+    "Use case": "Assign Platform Roles",
+    "Catalog actor": "Platform Administrator",
+    "Status": "Proposed baseline",
+    "Diagram files": "A_Identity_Access_Management.drawio"
+  },
+  {
+    "Catalog ID": "IAM-07",
+    "Use case": "Revoke Platform Roles",
+    "Catalog actor": "Platform Administrator",
+    "Status": "Proposed baseline",
+    "Diagram files": "A_Identity_Access_Management.drawio"
+  },
+  {
+    "Catalog ID": "IAM-08",
+    "Use case": "Manage Project Access",
+    "Catalog actor": "Platform Administrator",
+    "Status": "Proposed baseline",
+    "Diagram files": "A_Identity_Access_Management.drawio"
+  },
+  {
+    "Catalog ID": "IAM-09",
+    "Use case": "Manage Service / Client Identity",
+    "Catalog actor": "Platform Administrator",
+    "Status": "Proposed baseline",
+    "Diagram files": "A_Identity_Access_Management.drawio"
+  },
+  {
+    "Catalog ID": "IAM-10",
+    "Use case": "Validate Client Credential",
+    "Catalog actor": "Decision Consumer / Client Application",
+    "Status": "Proposed baseline",
+    "Diagram files": "A_Identity_Access_Management.drawio; K_Decision_Execution.drawio"
+  },
+  {
+    "Catalog ID": "DAM-01",
+    "Use case": "Manage Decision Project",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "B_Decision_Project_Asset_Management.drawio"
+  },
+  {
+    "Catalog ID": "DAM-02",
+    "Use case": "Create Decision Project",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "B_Decision_Project_Asset_Management.drawio"
+  },
+  {
+    "Catalog ID": "DAM-03",
+    "Use case": "View Decision Project",
+    "Catalog actor": "Platform User",
+    "Status": "Proposed baseline",
+    "Diagram files": "B_Decision_Project_Asset_Management.drawio"
+  },
+  {
+    "Catalog ID": "DAM-04",
+    "Use case": "Update Decision Project",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "B_Decision_Project_Asset_Management.drawio"
+  },
+  {
+    "Catalog ID": "DAM-05",
+    "Use case": "Archive Decision Project",
+    "Catalog actor": "Platform Administrator",
+    "Status": "Proposed baseline",
+    "Diagram files": "B_Decision_Project_Asset_Management.drawio"
+  },
+  {
+    "Catalog ID": "DAM-06",
+    "Use case": "Search Decision Assets",
+    "Catalog actor": "Platform User",
+    "Status": "Proposed baseline",
+    "Diagram files": "B_Decision_Project_Asset_Management.drawio"
+  },
+  {
+    "Catalog ID": "DAM-07",
+    "Use case": "View Asset Metadata",
+    "Catalog actor": "Platform User",
+    "Status": "Proposed baseline",
+    "Diagram files": "B_Decision_Project_Asset_Management.drawio"
+  },
+  {
+    "Catalog ID": "DAM-08",
+    "Use case": "Manage Asset Metadata",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "B_Decision_Project_Asset_Management.drawio"
+  },
+  {
+    "Catalog ID": "DAM-09",
+    "Use case": "View Asset Dependencies",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "B_Decision_Project_Asset_Management.drawio"
+  },
+  {
+    "Catalog ID": "AUT-01",
+    "Use case": "Author Decision Model",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "C_Decision_Modeling_Rule_Authoring.drawio"
+  },
+  {
+    "Catalog ID": "AUT-02",
+    "Use case": "Create Decision Model",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "C_Decision_Modeling_Rule_Authoring.drawio"
+  },
+  {
+    "Catalog ID": "AUT-03",
+    "Use case": "Edit Decision Model",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "C_Decision_Modeling_Rule_Authoring.drawio"
+  },
+  {
+    "Catalog ID": "AUT-04",
+    "Use case": "Clone Decision Model",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "C_Decision_Modeling_Rule_Authoring.drawio"
+  },
+  {
+    "Catalog ID": "AUT-05",
+    "Use case": "Define Business Rule",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "C_Decision_Modeling_Rule_Authoring.drawio"
+  },
+  {
+    "Catalog ID": "AUT-06",
+    "Use case": "Edit Business Rule",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "C_Decision_Modeling_Rule_Authoring.drawio"
+  },
+  {
+    "Catalog ID": "AUT-07",
+    "Use case": "Define Decision Table",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "C_Decision_Modeling_Rule_Authoring.drawio"
+  },
+  {
+    "Catalog ID": "AUT-08",
+    "Use case": "Edit Decision Table",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "C_Decision_Modeling_Rule_Authoring.drawio"
+  },
+  {
+    "Catalog ID": "AUT-09",
+    "Use case": "Define Decision Expression",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "C_Decision_Modeling_Rule_Authoring.drawio"
+  },
+  {
+    "Catalog ID": "AUT-10",
+    "Use case": "Configure Rule Priority",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "C_Decision_Modeling_Rule_Authoring.drawio"
+  },
+  {
+    "Catalog ID": "AUT-11",
+    "Use case": "Enable / Disable Rule",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "C_Decision_Modeling_Rule_Authoring.drawio"
+  },
+  {
+    "Catalog ID": "AUT-12",
+    "Use case": "Define Rule Metadata",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "C_Decision_Modeling_Rule_Authoring.drawio"
+  },
+  {
+    "Catalog ID": "AUT-13",
+    "Use case": "View Rule Dependencies",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "C_Decision_Modeling_Rule_Authoring.drawio"
+  },
+  {
+    "Catalog ID": "AUT-14",
+    "Use case": "Compare Decision Versions",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "C_Decision_Modeling_Rule_Authoring.drawio"
+  },
+  {
+    "Catalog ID": "AUT-15",
+    "Use case": "Delete Draft Asset",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "C_Decision_Modeling_Rule_Authoring.drawio"
+  },
+  {
+    "Catalog ID": "DCM-01",
+    "Use case": "Manage Decision Contract",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "D_Data_Contract_Management.drawio"
+  },
+  {
+    "Catalog ID": "DCM-02",
+    "Use case": "Define Input Contract",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "D_Data_Contract_Management.drawio"
+  },
+  {
+    "Catalog ID": "DCM-03",
+    "Use case": "Define Output Contract",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "D_Data_Contract_Management.drawio"
+  },
+  {
+    "Catalog ID": "DCM-04",
+    "Use case": "Define Data Types",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "D_Data_Contract_Management.drawio"
+  },
+  {
+    "Catalog ID": "DCM-05",
+    "Use case": "Define Validation Constraints",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "D_Data_Contract_Management.drawio"
+  },
+  {
+    "Catalog ID": "DCM-06",
+    "Use case": "Validate Decision Contract",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "D_Data_Contract_Management.drawio"
+  },
+  {
+    "Catalog ID": "DCM-07",
+    "Use case": "Validate Contract Compatibility",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "D_Data_Contract_Management.drawio"
+  },
+  {
+    "Catalog ID": "DCM-08",
+    "Use case": "View Decision Contract",
+    "Catalog actor": "Decision Consumer / Client Application",
+    "Status": "Proposed baseline",
+    "Diagram files": "D_Data_Contract_Management.drawio"
+  },
+  {
+    "Catalog ID": "DCM-09",
+    "Use case": "Export Decision Contract",
+    "Catalog actor": "Decision Consumer / Client Application",
+    "Status": "Proposed baseline",
+    "Diagram files": "D_Data_Contract_Management.drawio"
+  },
+  {
+    "Catalog ID": "VAL-01",
+    "Use case": "Validate Decision",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "C_Decision_Modeling_Rule_Authoring.drawio; E_Validation_Testing.drawio; F_Version_Change_Management.drawio; G_Review_Approval_Governance.drawio; H_Build_Artifact_Management.drawio; P_Automation_CI_CD_Integration.drawio"
+  },
+  {
+    "Catalog ID": "VAL-02",
+    "Use case": "Validate Rule Syntax",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "E_Validation_Testing.drawio"
+  },
+  {
+    "Catalog ID": "VAL-03",
+    "Use case": "Validate Decision Structure",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "E_Validation_Testing.drawio"
+  },
+  {
+    "Catalog ID": "VAL-04",
+    "Use case": "Validate References",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "E_Validation_Testing.drawio"
+  },
+  {
+    "Catalog ID": "VAL-05",
+    "Use case": "Detect Rule Conflicts",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "E_Validation_Testing.drawio"
+  },
+  {
+    "Catalog ID": "VAL-06",
+    "Use case": "Detect Redundant / Unreachable Rules",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "E_Validation_Testing.drawio"
+  },
+  {
+    "Catalog ID": "TST-01",
+    "Use case": "Manage Test Cases",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "E_Validation_Testing.drawio"
+  },
+  {
+    "Catalog ID": "TST-02",
+    "Use case": "Create Test Case",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "E_Validation_Testing.drawio"
+  },
+  {
+    "Catalog ID": "TST-03",
+    "Use case": "Execute Decision Test",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "E_Validation_Testing.drawio"
+  },
+  {
+    "Catalog ID": "TST-04",
+    "Use case": "Execute Test Suite",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "E_Validation_Testing.drawio; P_Automation_CI_CD_Integration.drawio"
+  },
+  {
+    "Catalog ID": "TST-05",
+    "Use case": "View Test Result",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "E_Validation_Testing.drawio; P_Automation_CI_CD_Integration.drawio"
+  },
+  {
+    "Catalog ID": "TST-06",
+    "Use case": "Compare Expected vs Actual Result",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "E_Validation_Testing.drawio"
+  },
+  {
+    "Catalog ID": "TST-07",
+    "Use case": "Run Regression Test",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "E_Validation_Testing.drawio"
+  },
+  {
+    "Catalog ID": "TST-08",
+    "Use case": "Validate Release Candidate",
+    "Catalog actor": "Reviewer / Approver",
+    "Status": "Proposed baseline",
+    "Diagram files": "E_Validation_Testing.drawio; F_Version_Change_Management.drawio"
+  },
+  {
+    "Catalog ID": "VER-01",
+    "Use case": "Manage Decision Version",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "F_Version_Change_Management.drawio"
+  },
+  {
+    "Catalog ID": "VER-02",
+    "Use case": "Create Decision Version",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "F_Version_Change_Management.drawio; G_Review_Approval_Governance.drawio"
+  },
+  {
+    "Catalog ID": "VER-03",
+    "Use case": "View Version History",
+    "Catalog actor": "Platform User",
+    "Status": "Proposed baseline",
+    "Diagram files": "F_Version_Change_Management.drawio"
+  },
+  {
+    "Catalog ID": "VER-04",
+    "Use case": "Compare Versions",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "F_Version_Change_Management.drawio"
+  },
+  {
+    "Catalog ID": "VER-05",
+    "Use case": "Restore Draft Version",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "F_Version_Change_Management.drawio"
+  },
+  {
+    "Catalog ID": "VER-06",
+    "Use case": "Create Release Version",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "F_Version_Change_Management.drawio"
+  },
+  {
+    "Catalog ID": "VER-07",
+    "Use case": "Deprecate Decision Version",
+    "Catalog actor": "Platform Administrator",
+    "Status": "Proposed baseline",
+    "Diagram files": "F_Version_Change_Management.drawio"
+  },
+  {
+    "Catalog ID": "VER-08",
+    "Use case": "View Version Lineage",
+    "Catalog actor": "Platform User",
+    "Status": "Proposed baseline",
+    "Diagram files": "F_Version_Change_Management.drawio; H_Build_Artifact_Management.drawio"
+  },
+  {
+    "Catalog ID": "GOV-01",
+    "Use case": "Submit Change for Review",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "G_Review_Approval_Governance.drawio"
+  },
+  {
+    "Catalog ID": "GOV-02",
+    "Use case": "Review Decision Change",
+    "Catalog actor": "Reviewer / Approver",
+    "Status": "Proposed baseline",
+    "Diagram files": "G_Review_Approval_Governance.drawio"
+  },
+  {
+    "Catalog ID": "GOV-03",
+    "Use case": "Approve Decision Change",
+    "Catalog actor": "Reviewer / Approver",
+    "Status": "Proposed baseline",
+    "Diagram files": "G_Review_Approval_Governance.drawio"
+  },
+  {
+    "Catalog ID": "GOV-04",
+    "Use case": "Reject Decision Change",
+    "Catalog actor": "Reviewer / Approver",
+    "Status": "Proposed baseline",
+    "Diagram files": "G_Review_Approval_Governance.drawio"
+  },
+  {
+    "Catalog ID": "GOV-05",
+    "Use case": "Request Rework",
+    "Catalog actor": "Reviewer / Approver",
+    "Status": "Proposed baseline",
+    "Diagram files": "G_Review_Approval_Governance.drawio"
+  },
+  {
+    "Catalog ID": "GOV-06",
+    "Use case": "Cancel Review Request",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "G_Review_Approval_Governance.drawio"
+  },
+  {
+    "Catalog ID": "GOV-07",
+    "Use case": "View Review Status",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "G_Review_Approval_Governance.drawio"
+  },
+  {
+    "Catalog ID": "GOV-08",
+    "Use case": "View Approval History",
+    "Catalog actor": "Reviewer / Approver",
+    "Status": "Proposed baseline",
+    "Diagram files": "G_Review_Approval_Governance.drawio"
+  },
+  {
+    "Catalog ID": "GOV-09",
+    "Use case": "Enforce Approval Policy",
+    "Catalog actor": "Platform Administrator",
+    "Status": "Proposed baseline",
+    "Diagram files": "G_Review_Approval_Governance.drawio"
+  },
+  {
+    "Catalog ID": "ART-01",
+    "Use case": "Build Decision Artifact",
+    "Catalog actor": "Rule / Decision Author / CI/CD",
+    "Status": "Proposed baseline",
+    "Diagram files": "H_Build_Artifact_Management.drawio; P_Automation_CI_CD_Integration.drawio"
+  },
+  {
+    "Catalog ID": "ART-02",
+    "Use case": "Validate Build Inputs",
+    "Catalog actor": "RuleSphere",
+    "Status": "Proposed baseline",
+    "Diagram files": "H_Build_Artifact_Management.drawio"
+  },
+  {
+    "Catalog ID": "ART-03",
+    "Use case": "Package Decision Artifact",
+    "Catalog actor": "RuleSphere",
+    "Status": "Proposed baseline",
+    "Diagram files": "H_Build_Artifact_Management.drawio"
+  },
+  {
+    "Catalog ID": "ART-04",
+    "Use case": "Generate Artifact Metadata",
+    "Catalog actor": "RuleSphere",
+    "Status": "Proposed baseline",
+    "Diagram files": "H_Build_Artifact_Management.drawio"
+  },
+  {
+    "Catalog ID": "ART-05",
+    "Use case": "Publish Decision Artifact",
+    "Catalog actor": "Rule / Decision Author / CI/CD",
+    "Status": "Proposed baseline",
+    "Diagram files": "H_Build_Artifact_Management.drawio; P_Automation_CI_CD_Integration.drawio"
+  },
+  {
+    "Catalog ID": "ART-06",
+    "Use case": "View Published Artifact",
+    "Catalog actor": "Platform User",
+    "Status": "Proposed baseline",
+    "Diagram files": "H_Build_Artifact_Management.drawio"
+  },
+  {
+    "Catalog ID": "ART-07",
+    "Use case": "Verify Artifact Integrity",
+    "Catalog actor": "Operations / SRE",
+    "Status": "Proposed baseline",
+    "Diagram files": "H_Build_Artifact_Management.drawio; I_Environment_Deployment_Management.drawio"
+  },
+  {
+    "Catalog ID": "ART-08",
+    "Use case": "View Artifact Provenance",
+    "Catalog actor": "Reviewer / Approver",
+    "Status": "Proposed baseline",
+    "Diagram files": "H_Build_Artifact_Management.drawio"
+  },
+  {
+    "Catalog ID": "ART-09",
+    "Use case": "Deprecate Artifact",
+    "Catalog actor": "Platform Administrator",
+    "Status": "Proposed baseline",
+    "Diagram files": "H_Build_Artifact_Management.drawio"
+  },
+  {
+    "Catalog ID": "DEP-01",
+    "Use case": "Manage Runtime Environment",
+    "Catalog actor": "Platform Administrator",
+    "Status": "Proposed baseline",
+    "Diagram files": "I_Environment_Deployment_Management.drawio"
+  },
+  {
+    "Catalog ID": "DEP-02",
+    "Use case": "Create Environment",
+    "Catalog actor": "Platform Administrator",
+    "Status": "Proposed baseline",
+    "Diagram files": "I_Environment_Deployment_Management.drawio"
+  },
+  {
+    "Catalog ID": "DEP-03",
+    "Use case": "Configure Environment",
+    "Catalog actor": "Platform Administrator",
+    "Status": "Proposed baseline",
+    "Diagram files": "I_Environment_Deployment_Management.drawio"
+  },
+  {
+    "Catalog ID": "DEP-04",
+    "Use case": "Configure Deployment Policy",
+    "Catalog actor": "Platform Administrator",
+    "Status": "Proposed baseline",
+    "Diagram files": "I_Environment_Deployment_Management.drawio"
+  },
+  {
+    "Catalog ID": "DEP-05",
+    "Use case": "Deploy Decision",
+    "Catalog actor": "Operations / SRE",
+    "Status": "Proposed baseline",
+    "Diagram files": "I_Environment_Deployment_Management.drawio; J_Progressive_Delivery.drawio; P_Automation_CI_CD_Integration.drawio"
+  },
+  {
+    "Catalog ID": "DEP-06",
+    "Use case": "Promote Decision",
+    "Catalog actor": "Operations / SRE",
+    "Status": "Proposed baseline",
+    "Diagram files": "I_Environment_Deployment_Management.drawio"
+  },
+  {
+    "Catalog ID": "DEP-07",
+    "Use case": "Roll Back Deployment",
+    "Catalog actor": "Operations / SRE",
+    "Status": "Proposed baseline",
+    "Diagram files": "I_Environment_Deployment_Management.drawio"
+  },
+  {
+    "Catalog ID": "DEP-08",
+    "Use case": "Redeploy Decision",
+    "Catalog actor": "Operations / SRE",
+    "Status": "Proposed baseline",
+    "Diagram files": "I_Environment_Deployment_Management.drawio"
+  },
+  {
+    "Catalog ID": "DEP-09",
+    "Use case": "Cancel Deployment",
+    "Catalog actor": "Operations / SRE",
+    "Status": "Proposed baseline",
+    "Diagram files": "I_Environment_Deployment_Management.drawio"
+  },
+  {
+    "Catalog ID": "DEP-10",
+    "Use case": "View Deployment Status",
+    "Catalog actor": "Operations / SRE",
+    "Status": "Proposed baseline",
+    "Diagram files": "I_Environment_Deployment_Management.drawio; P_Automation_CI_CD_Integration.drawio"
+  },
+  {
+    "Catalog ID": "DEP-11",
+    "Use case": "View Deployment History",
+    "Catalog actor": "Operations / SRE",
+    "Status": "Proposed baseline",
+    "Diagram files": "I_Environment_Deployment_Management.drawio"
+  },
+  {
+    "Catalog ID": "DEP-12",
+    "Use case": "Validate Deployment",
+    "Catalog actor": "RuleSphere",
+    "Status": "Proposed baseline",
+    "Diagram files": "I_Environment_Deployment_Management.drawio"
+  },
+  {
+    "Catalog ID": "DEP-13",
+    "Use case": "Distribute Artifact to Runtime",
+    "Catalog actor": "RuleSphere",
+    "Status": "Proposed baseline",
+    "Diagram files": "I_Environment_Deployment_Management.drawio"
+  },
+  {
+    "Catalog ID": "DEP-14",
+    "Use case": "Verify Runtime Convergence",
+    "Catalog actor": "Operations / SRE",
+    "Status": "Proposed baseline",
+    "Diagram files": "I_Environment_Deployment_Management.drawio"
+  },
+  {
+    "Catalog ID": "DEP-15",
+    "Use case": "Detect Version Drift",
+    "Catalog actor": "Operations / SRE",
+    "Status": "Proposed baseline",
+    "Diagram files": "I_Environment_Deployment_Management.drawio"
+  },
+  {
+    "Catalog ID": "DEP-16",
+    "Use case": "Reconcile Runtime State",
+    "Catalog actor": "Operations / SRE",
+    "Status": "Proposed baseline",
+    "Diagram files": "I_Environment_Deployment_Management.drawio"
+  },
+  {
+    "Catalog ID": "PRG-01",
+    "Use case": "Perform Progressive Deployment",
+    "Catalog actor": "Operations / SRE",
+    "Status": "Proposed baseline",
+    "Diagram files": "J_Progressive_Delivery.drawio"
+  },
+  {
+    "Catalog ID": "PRG-02",
+    "Use case": "Configure Canary Deployment",
+    "Catalog actor": "Operations / SRE",
+    "Status": "Proposed baseline",
+    "Diagram files": "J_Progressive_Delivery.drawio"
+  },
+  {
+    "Catalog ID": "PRG-03",
+    "Use case": "Adjust Canary Allocation",
+    "Catalog actor": "Operations / SRE",
+    "Status": "Proposed baseline",
+    "Diagram files": "J_Progressive_Delivery.drawio"
+  },
+  {
+    "Catalog ID": "PRG-04",
+    "Use case": "Promote Canary Version",
+    "Catalog actor": "Operations / SRE",
+    "Status": "Proposed baseline",
+    "Diagram files": "J_Progressive_Delivery.drawio"
+  },
+  {
+    "Catalog ID": "PRG-05",
+    "Use case": "Abort Canary Deployment",
+    "Catalog actor": "Operations / SRE",
+    "Status": "Proposed baseline",
+    "Diagram files": "J_Progressive_Delivery.drawio"
+  },
+  {
+    "Catalog ID": "PRG-06",
+    "Use case": "Configure Shadow Deployment",
+    "Catalog actor": "Operations / SRE",
+    "Status": "Proposed baseline",
+    "Diagram files": "J_Progressive_Delivery.drawio"
+  },
+  {
+    "Catalog ID": "PRG-07",
+    "Use case": "Execute Shadow Evaluation",
+    "Catalog actor": "Decision Consumer / Client Application",
+    "Status": "Proposed baseline",
+    "Diagram files": "J_Progressive_Delivery.drawio"
+  },
+  {
+    "Catalog ID": "PRG-08",
+    "Use case": "Compare Shadow Results",
+    "Catalog actor": "Operations / SRE",
+    "Status": "Proposed baseline",
+    "Diagram files": "J_Progressive_Delivery.drawio"
+  },
+  {
+    "Catalog ID": "PRG-09",
+    "Use case": "Stop Shadow Deployment",
+    "Catalog actor": "Operations / SRE",
+    "Status": "Proposed baseline",
+    "Diagram files": "J_Progressive_Delivery.drawio"
+  },
+  {
+    "Catalog ID": "EXE-01",
+    "Use case": "Execute Decision",
+    "Catalog actor": "Decision Consumer / Client Application",
+    "Status": "Proposed baseline",
+    "Diagram files": "J_Progressive_Delivery.drawio; K_Decision_Execution.drawio"
+  },
+  {
+    "Catalog ID": "EXE-02",
+    "Use case": "Authenticate Decision Request",
+    "Catalog actor": "Identity Provider / IAM",
+    "Status": "Proposed baseline",
+    "Diagram files": "K_Decision_Execution.drawio"
+  },
+  {
+    "Catalog ID": "EXE-03",
+    "Use case": "Validate Decision Request",
+    "Catalog actor": "Decision Consumer / Client Application",
+    "Status": "Proposed baseline",
+    "Diagram files": "K_Decision_Execution.drawio"
+  },
+  {
+    "Catalog ID": "EXE-04",
+    "Use case": "Resolve Active Decision Version",
+    "Catalog actor": "RuleSphere",
+    "Status": "Proposed baseline",
+    "Diagram files": "K_Decision_Execution.drawio; 02_Cross_Cutting.drawio"
+  },
+  {
+    "Catalog ID": "EXE-05",
+    "Use case": "Evaluate Decision Logic",
+    "Catalog actor": "RuleSphere",
+    "Status": "Proposed baseline",
+    "Diagram files": "K_Decision_Execution.drawio"
+  },
+  {
+    "Catalog ID": "EXE-06",
+    "Use case": "Evaluate Business Rules",
+    "Catalog actor": "RuleSphere",
+    "Status": "Proposed baseline",
+    "Diagram files": "K_Decision_Execution.drawio"
+  },
+  {
+    "Catalog ID": "EXE-07",
+    "Use case": "Evaluate Decision Table",
+    "Catalog actor": "RuleSphere",
+    "Status": "Proposed baseline",
+    "Diagram files": "K_Decision_Execution.drawio"
+  },
+  {
+    "Catalog ID": "EXE-08",
+    "Use case": "Produce Decision Result",
+    "Catalog actor": "RuleSphere",
+    "Status": "Proposed baseline",
+    "Diagram files": "K_Decision_Execution.drawio"
+  },
+  {
+    "Catalog ID": "EXE-09",
+    "Use case": "Return Execution Metadata",
+    "Catalog actor": "Decision Consumer / Client Application",
+    "Status": "Proposed baseline",
+    "Diagram files": "K_Decision_Execution.drawio"
+  },
+  {
+    "Catalog ID": "EXE-10",
+    "Use case": "Handle Invalid Request",
+    "Catalog actor": "Decision Consumer / Client Application",
+    "Status": "Proposed baseline",
+    "Diagram files": "K_Decision_Execution.drawio"
+  },
+  {
+    "Catalog ID": "EXE-11",
+    "Use case": "Handle Evaluation Failure",
+    "Catalog actor": "Decision Consumer / Client Application",
+    "Status": "Proposed baseline",
+    "Diagram files": "K_Decision_Execution.drawio"
+  },
+  {
+    "Catalog ID": "EXE-12",
+    "Use case": "Execute Specific Decision Version",
+    "Catalog actor": "Decision Consumer / Client Application",
+    "Status": "Proposed baseline",
+    "Diagram files": "K_Decision_Execution.drawio"
+  },
+  {
+    "Catalog ID": "EXP-01",
+    "Use case": "Request Decision Explanation",
+    "Catalog actor": "Decision Consumer / Client Application",
+    "Status": "Proposed baseline",
+    "Diagram files": "K_Decision_Execution.drawio; L_Explainability_Decision_Trace.drawio"
+  },
+  {
+    "Catalog ID": "EXP-02",
+    "Use case": "Generate Decision Explanation",
+    "Catalog actor": "RuleSphere",
+    "Status": "Proposed baseline",
+    "Diagram files": "L_Explainability_Decision_Trace.drawio"
+  },
+  {
+    "Catalog ID": "EXP-03",
+    "Use case": "View Matched Rules",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "L_Explainability_Decision_Trace.drawio"
+  },
+  {
+    "Catalog ID": "EXP-04",
+    "Use case": "View Evaluation Trace",
+    "Catalog actor": "Rule / Decision Author / Operations",
+    "Status": "Proposed baseline",
+    "Diagram files": "L_Explainability_Decision_Trace.drawio"
+  },
+  {
+    "Catalog ID": "EXP-05",
+    "Use case": "View Input Values Used",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "L_Explainability_Decision_Trace.drawio"
+  },
+  {
+    "Catalog ID": "EXP-06",
+    "Use case": "View Output Derivation",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "L_Explainability_Decision_Trace.drawio"
+  },
+  {
+    "Catalog ID": "EXP-07",
+    "Use case": "View Executed Decision Version",
+    "Catalog actor": "Platform User",
+    "Status": "Proposed baseline",
+    "Diagram files": "L_Explainability_Decision_Trace.drawio"
+  },
+  {
+    "Catalog ID": "EXP-08",
+    "Use case": "Retrieve Execution Trace",
+    "Catalog actor": "Operations / SRE",
+    "Status": "Proposed baseline",
+    "Diagram files": "L_Explainability_Decision_Trace.drawio"
+  },
+  {
+    "Catalog ID": "SIM-01",
+    "Use case": "Simulate Decision",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "M_Simulation_Impact_Analysis.drawio"
+  },
+  {
+    "Catalog ID": "SIM-02",
+    "Use case": "Simulate Draft Version",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "M_Simulation_Impact_Analysis.drawio"
+  },
+  {
+    "Catalog ID": "SIM-03",
+    "Use case": "Compare Decision Outputs",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "M_Simulation_Impact_Analysis.drawio"
+  },
+  {
+    "Catalog ID": "SIM-04",
+    "Use case": "Compare Decision Versions",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "M_Simulation_Impact_Analysis.drawio"
+  },
+  {
+    "Catalog ID": "SIM-05",
+    "Use case": "Analyze Rule Change Impact",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "M_Simulation_Impact_Analysis.drawio"
+  },
+  {
+    "Catalog ID": "SIM-06",
+    "Use case": "Identify Dependent Decisions",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "M_Simulation_Impact_Analysis.drawio"
+  },
+  {
+    "Catalog ID": "SIM-07",
+    "Use case": "Evaluate Decision against Dataset",
+    "Catalog actor": "Rule / Decision Author",
+    "Status": "Proposed baseline",
+    "Diagram files": "M_Simulation_Impact_Analysis.drawio"
+  },
+  {
+    "Catalog ID": "OPS-01",
+    "Use case": "Monitor Decision Runtime",
+    "Catalog actor": "Operations / SRE",
+    "Status": "Proposed baseline",
+    "Diagram files": "N_Runtime_Operations_Observability.drawio"
+  },
+  {
+    "Catalog ID": "OPS-02",
+    "Use case": "View Runtime Health",
+    "Catalog actor": "Operations / SRE",
+    "Status": "Proposed baseline",
+    "Diagram files": "N_Runtime_Operations_Observability.drawio"
+  },
+  {
+    "Catalog ID": "OPS-03",
+    "Use case": "View Decision Metrics",
+    "Catalog actor": "Operations / SRE",
+    "Status": "Proposed baseline",
+    "Diagram files": "N_Runtime_Operations_Observability.drawio"
+  },
+  {
+    "Catalog ID": "OPS-04",
+    "Use case": "View Request Volume",
+    "Catalog actor": "Operations / SRE",
+    "Status": "Proposed baseline",
+    "Diagram files": "N_Runtime_Operations_Observability.drawio"
+  },
+  {
+    "Catalog ID": "OPS-05",
+    "Use case": "View Decision Latency",
+    "Catalog actor": "Operations / SRE",
+    "Status": "Proposed baseline",
+    "Diagram files": "N_Runtime_Operations_Observability.drawio"
+  },
+  {
+    "Catalog ID": "OPS-06",
+    "Use case": "View Error Rate",
+    "Catalog actor": "Operations / SRE",
+    "Status": "Proposed baseline",
+    "Diagram files": "N_Runtime_Operations_Observability.drawio"
+  },
+  {
+    "Catalog ID": "OPS-07",
+    "Use case": "View Runtime Version",
+    "Catalog actor": "Operations / SRE",
+    "Status": "Proposed baseline",
+    "Diagram files": "N_Runtime_Operations_Observability.drawio"
+  },
+  {
+    "Catalog ID": "OPS-08",
+    "Use case": "View Runtime Logs",
+    "Catalog actor": "Operations / SRE",
+    "Status": "Proposed baseline",
+    "Diagram files": "N_Runtime_Operations_Observability.drawio"
+  },
+  {
+    "Catalog ID": "OPS-09",
+    "Use case": "View Runtime Traces",
+    "Catalog actor": "Operations / SRE",
+    "Status": "Proposed baseline",
+    "Diagram files": "N_Runtime_Operations_Observability.drawio"
+  },
+  {
+    "Catalog ID": "OPS-10",
+    "Use case": "Diagnose Execution Failure",
+    "Catalog actor": "Operations / SRE",
+    "Status": "Proposed baseline",
+    "Diagram files": "N_Runtime_Operations_Observability.drawio"
+  },
+  {
+    "Catalog ID": "OPS-11",
+    "Use case": "Receive Runtime Alert",
+    "Catalog actor": "Operations / SRE",
+    "Status": "Proposed baseline",
+    "Diagram files": "N_Runtime_Operations_Observability.drawio"
+  },
+  {
+    "Catalog ID": "OPS-12",
+    "Use case": "Export Telemetry",
+    "Catalog actor": "Observability Platform",
+    "Status": "Proposed baseline",
+    "Diagram files": "N_Runtime_Operations_Observability.drawio"
+  },
+  {
+    "Catalog ID": "AUD-01",
+    "Use case": "View Audit Trail",
+    "Catalog actor": "Reviewer / Approver",
+    "Status": "Proposed baseline",
+    "Diagram files": "O_Audit_Compliance.drawio"
+  },
+  {
+    "Catalog ID": "AUD-02",
+    "Use case": "Search Audit Events",
+    "Catalog actor": "Reviewer / Approver",
+    "Status": "Proposed baseline",
+    "Diagram files": "O_Audit_Compliance.drawio"
+  },
+  {
+    "Catalog ID": "AUD-03",
+    "Use case": "View Rule Change History",
+    "Catalog actor": "Reviewer / Approver",
+    "Status": "Proposed baseline",
+    "Diagram files": "O_Audit_Compliance.drawio"
+  },
+  {
+    "Catalog ID": "AUD-04",
+    "Use case": "View Approval History",
+    "Catalog actor": "Reviewer / Approver",
+    "Status": "Proposed baseline",
+    "Diagram files": "O_Audit_Compliance.drawio"
+  },
+  {
+    "Catalog ID": "AUD-05",
+    "Use case": "View Deployment History",
+    "Catalog actor": "Operations / SRE",
+    "Status": "Proposed baseline",
+    "Diagram files": "O_Audit_Compliance.drawio"
+  },
+  {
+    "Catalog ID": "AUD-06",
+    "Use case": "Trace Decision Provenance",
+    "Catalog actor": "Reviewer / Approver",
+    "Status": "Proposed baseline",
+    "Diagram files": "O_Audit_Compliance.drawio"
+  },
+  {
+    "Catalog ID": "AUD-07",
+    "Use case": "Trace Decision to Rule Version",
+    "Catalog actor": "Reviewer / Approver",
+    "Status": "Proposed baseline",
+    "Diagram files": "O_Audit_Compliance.drawio"
+  },
+  {
+    "Catalog ID": "AUD-08",
+    "Use case": "Trace Rule Version to Deployment",
+    "Catalog actor": "Reviewer / Approver",
+    "Status": "Proposed baseline",
+    "Diagram files": "O_Audit_Compliance.drawio"
+  },
+  {
+    "Catalog ID": "AUD-09",
+    "Use case": "Export Audit Events",
+    "Catalog actor": "Audit / SIEM",
+    "Status": "Proposed baseline",
+    "Diagram files": "O_Audit_Compliance.drawio"
+  },
+  {
+    "Catalog ID": "AUD-10",
+    "Use case": "Configure Audit Policy",
+    "Catalog actor": "Platform Administrator",
+    "Status": "Proposed baseline",
+    "Diagram files": "O_Audit_Compliance.drawio"
+  },
+  {
+    "Catalog ID": "CICD-01",
+    "Use case": "Validate Decision via API",
+    "Catalog actor": "CI/CD & Automation",
+    "Status": "Proposed baseline",
+    "Diagram files": "P_Automation_CI_CD_Integration.drawio"
+  },
+  {
+    "Catalog ID": "CICD-02",
+    "Use case": "Execute Tests via API",
+    "Catalog actor": "CI/CD & Automation",
+    "Status": "Proposed baseline",
+    "Diagram files": "P_Automation_CI_CD_Integration.drawio"
+  },
+  {
+    "Catalog ID": "CICD-03",
+    "Use case": "Build Artifact via API",
+    "Catalog actor": "CI/CD & Automation",
+    "Status": "Proposed baseline",
+    "Diagram files": "P_Automation_CI_CD_Integration.drawio"
+  },
+  {
+    "Catalog ID": "CICD-04",
+    "Use case": "Publish Artifact via API",
+    "Catalog actor": "CI/CD & Automation",
+    "Status": "Proposed baseline",
+    "Diagram files": "P_Automation_CI_CD_Integration.drawio"
+  },
+  {
+    "Catalog ID": "CICD-05",
+    "Use case": "Trigger Deployment",
+    "Catalog actor": "CI/CD & Automation",
+    "Status": "Proposed baseline",
+    "Diagram files": "P_Automation_CI_CD_Integration.drawio"
+  },
+  {
+    "Catalog ID": "CICD-06",
+    "Use case": "Query Deployment Status",
+    "Catalog actor": "CI/CD & Automation",
+    "Status": "Proposed baseline",
+    "Diagram files": "P_Automation_CI_CD_Integration.drawio"
+  },
+  {
+    "Catalog ID": "CICD-07",
+    "Use case": "Retrieve Test Result",
+    "Catalog actor": "CI/CD & Automation",
+    "Status": "Proposed baseline",
+    "Diagram files": "P_Automation_CI_CD_Integration.drawio"
+  },
+  {
+    "Catalog ID": "CICD-08",
+    "Use case": "Retrieve Validation Result",
+    "Catalog actor": "CI/CD & Automation",
+    "Status": "Proposed baseline",
+    "Diagram files": "P_Automation_CI_CD_Integration.drawio"
+  },
+  {
+    "Catalog ID": "ADM-01",
+    "Use case": "Manage Platform Configuration",
+    "Catalog actor": "Platform Administrator",
+    "Status": "Proposed baseline",
+    "Diagram files": "Q_Platform_Administration.drawio"
+  },
+  {
+    "Catalog ID": "ADM-02",
+    "Use case": "Configure Platform Policies",
+    "Catalog actor": "Platform Administrator",
+    "Status": "Proposed baseline",
+    "Diagram files": "Q_Platform_Administration.drawio"
+  },
+  {
+    "Catalog ID": "ADM-03",
+    "Use case": "Configure Execution Limits",
+    "Catalog actor": "Platform Administrator",
+    "Status": "Proposed baseline",
+    "Diagram files": "Q_Platform_Administration.drawio"
+  },
+  {
+    "Catalog ID": "ADM-04",
+    "Use case": "Configure Retention Policy",
+    "Catalog actor": "Platform Administrator",
+    "Status": "Proposed baseline",
+    "Diagram files": "Q_Platform_Administration.drawio"
+  },
+  {
+    "Catalog ID": "ADM-05",
+    "Use case": "Configure Audit Policy",
+    "Catalog actor": "Platform Administrator",
+    "Status": "Proposed baseline",
+    "Diagram files": "Q_Platform_Administration.drawio"
+  },
+  {
+    "Catalog ID": "ADM-06",
+    "Use case": "Configure Deployment Policy",
+    "Catalog actor": "Platform Administrator",
+    "Status": "Proposed baseline",
+    "Diagram files": "Q_Platform_Administration.drawio"
+  },
+  {
+    "Catalog ID": "ADM-07",
+    "Use case": "Manage Runtime Nodes",
+    "Catalog actor": "Platform Administrator",
+    "Status": "Proposed baseline",
+    "Diagram files": "Q_Platform_Administration.drawio"
+  },
+  {
+    "Catalog ID": "ADM-08",
+    "Use case": "Register Runtime Node",
+    "Catalog actor": "Platform Administrator",
+    "Status": "Proposed baseline",
+    "Diagram files": "Q_Platform_Administration.drawio"
+  },
+  {
+    "Catalog ID": "ADM-09",
+    "Use case": "Deregister Runtime Node",
+    "Catalog actor": "Platform Administrator",
+    "Status": "Proposed baseline",
+    "Diagram files": "Q_Platform_Administration.drawio"
+  },
+  {
+    "Catalog ID": "ADM-10",
+    "Use case": "View Runtime Node Status",
+    "Catalog actor": "Platform Administrator",
+    "Status": "Proposed baseline",
+    "Diagram files": "Q_Platform_Administration.drawio"
+  },
+  {
+    "Catalog ID": "ADM-11",
+    "Use case": "View Platform Health",
+    "Catalog actor": "Platform Administrator",
+    "Status": "Proposed baseline",
+    "Diagram files": "Q_Platform_Administration.drawio"
+  },
+  {
+    "Catalog ID": "ADM-12",
+    "Use case": "View Platform Usage",
+    "Catalog actor": "Platform Administrator",
+    "Status": "Proposed baseline",
+    "Diagram files": "Q_Platform_Administration.drawio"
+  }
+]

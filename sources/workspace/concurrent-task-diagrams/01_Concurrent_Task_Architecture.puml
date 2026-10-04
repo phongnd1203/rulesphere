@@ -1,0 +1,119 @@
+@startuml
+title RuleSphere - Concurrent Task Architecture\nCOMET Active & Passive Tasks in Data Plane (F-02, SWE 760)
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Segoe UI
+skinparam ArrowColor #527183
+
+' Active Task Style (Parallel execution with thread of control)
+skinparam class {
+  BackgroundColor<<active task>> #F0ECFF
+  BorderColor<<active task>> #6B46C1
+  BackgroundColor<<passive object>> #EAF6F8
+  BorderColor<<passive object>> #177E8D
+  BackgroundColor<<timer task>> #FFF6DF
+  BorderColor<<timer task>> #B99A48
+}
+
+package "Runtime Node Execution Environment (Data Plane)" {
+  ' Active Tasks (Active Objects)
+  class "RuntimeWorkerTask\n(Thread Pool: 1..N)" as RuntimeTask <<active task>> {
+    +run(): void
+    +handleEvaluationRequest(): void
+  }
+  
+  class "ArtifactSyncListenerTask" as SyncListenerTask <<active task>> {
+    +run(): void
+    +onDesiredStateEvent(event): void
+  }
+  
+  class "ArtifactLoaderTask" as LoaderTask <<active task>> {
+    +fetchAndValidateArtifact(): void
+    +promoteToEligible(): void
+  }
+  
+  class "TraceIngestionWorkerTask" as TraceWorkerTask <<active task>> {
+    +run(): void
+    +consumeAndPersist(): void
+  }
+  
+  class "ShadowEvaluationTask" as ShadowTask <<active task>> {
+    +run(): void
+    +evaluateMirroredInput(): void
+  }
+  
+  class "ConvergenceHeartbeatTask" as MonitorTask <<timer task>> {
+    +periodicHeartbeat(interval=500ms): void
+  }
+
+  ' Passive Objects & Thread-Safe Buffers
+  class "LocalArtifactCache" as CacheObj <<passive object>> {
+    -activeSnapshots: ConcurrentMap
+    +resolveEligible(pin): AtomicSnapshot
+    +putLoadedSnapshot(snapshot): void
+  }
+  
+  class "AtomicSnapshot" as SnapshotObj <<passive object>> {
+    -graph: DecisionGraph
+    -schemas: Map
+    -libraries: Map
+    +isEligible(): boolean
+  }
+  
+  class "TraceBufferQueue" as TraceQueue <<passive object>> {
+    -ringBuffer: BlockingQueue
+    +enqueue(traceItem): boolean
+    +dequeue(): TraceItem
+  }
+  
+  class "ShadowRequestQueue" as ShadowQueue <<passive object>> {
+    -boundedQueue: BlockingQueue
+    +offer(mirroredReq): boolean
+    +poll(): MirroredRequest
+  }
+}
+
+' External Systems & Channels
+class "Delivery Event Bus" as EventBus <<channel>>
+class "Consumer Application" as Client <<external actor>>
+class "Hot Trace Store" as HotDB <<database>>
+class "Compliance Ledger" as LedgerDB <<database>>
+class "Artifact Object Store" as ArtifactDB <<storage>>
+
+' Interactions & Task Communication
+Client --> RuntimeTask : 1: evaluate(req) [Demand-driven synchronous]
+RuntimeTask --> CacheObj : 2: resolveEligible() [Thread-safe read]
+CacheObj --> SnapshotObj : binds
+RuntimeTask --> TraceQueue : 3: enqueue(trace) [Non-blocking async handoff]
+RuntimeTask ..> ShadowQueue : 4 [if shadow]: offer(mirroredReq) [Non-blocking async handoff]
+RuntimeTask ..> Client : 5: return response (sub-10ms)
+
+TraceWorkerTask --> TraceQueue : consumes [FIFO worker]
+TraceWorkerTask --> HotDB : persists hot trace
+TraceWorkerTask --> LedgerDB : logs compliance metadata
+
+ShadowTask --> ShadowQueue : consumes [Background worker]
+ShadowTask --> CacheObj : gets shadow snapshot
+
+EventBus --> SyncListenerTask : emits publication event [Push notification]
+SyncListenerTask --> LoaderTask : triggers async load
+LoaderTask --> ArtifactDB : downloads bytecode
+LoaderTask --> CacheObj : registers loaded snapshot [Zero-restart update]
+
+MonitorTask --> CacheObj : inspects loaded vs desired
+MonitorTask --> EventBus : reports node health & generation
+
+note bottom of RuntimeTask
+  **Concurrency Invariant:**
+  RuntimeWorkerTask never blocks on TraceWorkerTask or ShadowTask.
+  Queues decouple the critical serving path from persistence I/O.
+end note
+
+legend bottom
+  COMET Concurrent Task Design (Hassan Gomaa SWE 760).
+  <<active task>>: Concurrent object with independent thread of control.
+  <<passive object>>: Thread-safe memory structure accessed by active tasks.
+  <<timer task>>: Periodic active task triggered by system timer.
+endlegend
+@enduml

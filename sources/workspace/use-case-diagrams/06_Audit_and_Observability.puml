@@ -1,0 +1,97 @@
+@startuml
+left to right direction
+skinparam shadowing false
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Segoe UI
+skinparam defaultFontSize 13
+skinparam nodesep 35
+skinparam ranksep 50
+skinparam ArrowColor #527183
+skinparam actor {
+  BorderColor #274D64
+  FontColor #17354A
+  BackgroundColor #FFFFFF
+}
+skinparam usecase {
+  BorderColor #177E8D
+  BackgroundColor #EAF6F8
+  FontColor #143047
+}
+skinparam rectangle {
+  BorderColor #64748B
+  BackgroundColor #F8FAFC
+}
+skinparam note {
+  BorderColor #B99A48
+  BackgroundColor #FFF9E8
+  FontColor #594D2D
+}
+' UC-xx: official SRS catalog. Dxx.xx: derived decomposition, not a new SRS ID.
+' Fxx: feature from RuleSphere_Context_Diagram_Detailed.mmd.
+' Include: mandatory sub-behavior. Extend: conditional behavior at a named base.
+' Generalization: specialized actor/use case points to its general parent.
+
+' Sources: UC-25..27; FR-AUD-001..007; FR-DIST-003; FR-GOV-008;
+' FR-REL-011; FR-SEC-003; NFR-AUD-001.
+actor "Authorized Evidence Reader" as ER <<abstract>>
+actor "A04 - Compliance Officer" as A04
+actor "A06 - Security Auditor" as A06
+actor "A05 - Enterprise Administrator" as A05
+actor "Authorized Operator" as OP
+
+rectangle "RuleSphere - Audit and Observability" as SYSTEM {
+  usecase "UC-25\nExplain Historical Decision\n[F35]" as UC25
+  usecase "D06.01\nAuthorize Evidence Access Scope" as D0601
+  usecase "D06.02\nRetrieve Retained Evidence by ExecutionID" as D0602
+  usecase "D06.03\nExplain Version and Masked Execution Tree" as D0603
+  usecase "D06.04\nRecord Evidence-Access Audit Event" as D0604
+
+  usecase "UC-26\nInspect Audit Evidence" as UC26 <<abstract>>
+  usecase "D06.05\nInspect Governance / Approval Evidence\n[F36]" as D0605
+  usecase "D06.06\nInspect Deployment / Rollback Evidence\n[F37]" as D0606
+  usecase "D06.07\nInspect Access / Security Evidence\n[F38]" as D0607
+  usecase "D06.08\nExport Audit Evidence" as D0608
+
+  usecase "UC-27\nObserve Fleet Convergence\n[F30]" as UC27
+  usecase "D06.09\nRead Desired Artifact State" as D0609
+  usecase "D06.10\nRead Loaded Artifact State per Runtime Node" as D0610
+  usecase "D06.11\nCompare Desired and Loaded Versions" as D0611
+
+  note as N25
+    Evidence-reader capabilities are subject to explicit scope and retention.
+    Actor inheritance grants no unrestricted access.
+    Retained evidence can explain the historical decision without replay.
+  end note
+  note as N26
+    Extension point: evidence presentation.
+    Export is optional and requires authorized retained evidence.
+    The three evidence types specialize the same inspection goal.
+  end note
+}
+
+A04 --|> ER
+A06 --|> ER
+ER -- UC25
+ER -- UC26
+A04 -- D0605
+A04 -- D0606
+A06 -- D0607
+A05 -- UC27
+OP -- UC27
+D0605 --|> UC26
+D0606 --|> UC26
+D0607 --|> UC26
+UC25 ..> D0601 : <<include>>
+UC25 ..> D0602 : <<include>>
+UC25 ..> D0603 : <<include>>
+UC25 ..> D0604 : <<include>>
+UC26 ..> D0601 : <<include>>
+UC26 ..> D0604 : <<include>>
+D0608 ..> UC26 : <<extend>>\n[authorized export requested]
+UC27 ..> D0609 : <<include>>
+UC27 ..> D0610 : <<include>>
+UC27 ..> D0611 : <<include>>
+N25 .. UC25
+N26 .. UC26
+
+@enduml

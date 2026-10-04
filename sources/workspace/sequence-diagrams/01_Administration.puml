@@ -1,0 +1,73 @@
+@startuml
+title RuleSphere - Administration and Shared Library\nUC-01..04
+autonumber
+skinparam shadowing false
+skinparam sequenceLifeLineBorderColor #177E8D
+skinparam sequenceLifeLineBackgroundColor #EAF6F8
+
+actor "Enterprise Admin / Authorized Owner" as User
+boundary "Management API" as API
+participant AuthorizationService as Auth
+participant "Administration Service" as Admin
+database "Scoped Resource Store" as Store
+database "Immutable Audit Evidence" as Audit
+
+User -> API: Submit administrative operation
+activate API
+
+API -> Auth: authorize(principal, action, tenant/workspace)
+activate Auth
+Auth --> API: Access decision
+deactivate Auth
+
+break Unauthorized or cross-tenant scope
+  API --> User: Access denied
+end
+
+API -> Admin: Apply authorized operation
+activate Admin
+
+alt UC-01: Manage Tenant / Workspace
+  Admin -> Store: Store configuration with Tenant ownership
+  activate Store
+  Store --> Admin: Updated tenant/workspace resource
+  deactivate Store
+else UC-02: Manage Membership / Roles
+  Admin -> Store: Store assignments within authorized scope
+  activate Store
+  Store --> Admin: Updated membership resource
+  deactivate Store
+else UC-03: Issue / Revoke Credential
+  Admin -> Store: Issue scoped credential or mark revoked
+  activate Store
+  Store --> Admin: Credential token / status
+  deactivate Store
+else UC-04: Publish Shared Library
+  Admin -> Admin: Validate asset and Tenant ownership
+  break Invalid asset or scope
+    Admin --> API: Validation failure
+    API --> User: Reject publication
+  end
+  Admin -> Store: Publish exact immutable library version
+  activate Store
+  Store --> Admin: Immutable library reference
+  deactivate Store
+end
+
+Admin -> Audit: Record actor, scope, action, time, resource
+activate Audit
+Audit --> Admin: Audit acknowledgement
+deactivate Audit
+
+Admin --> API: Operation result
+deactivate Admin
+
+API --> User: Configuration / credential / library result
+deactivate API
+
+note over Admin,Store
+  Cross-workspace reuse requires a pinned Tenant Shared Library.
+  Direct cross-workspace and cross-tenant references are prohibited.
+  Stores and service boundaries are proposed logical components.
+end note
+@enduml

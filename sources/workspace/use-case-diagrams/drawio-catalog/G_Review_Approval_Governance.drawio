@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" agent="Codex" version="26.0.0" type="device" compressed="false">
+  <diagram name="RuleSphere - Business Rule Management Platform | G Review Approval Governance" id="G_Review_Approval_Governance">
+    <mxGraphModel grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1663" pageHeight="1688" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="n1" value="RuleSphere - Business Rule Management Platform" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=19;fontFamily=Helvetica;fontColor=#334155;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="21.6" y="12.96" width="1620.0" height="28.8" />
+        </mxCell>
+        <mxCell id="n2" value="G Review Approval Governance | Proposed baseline" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=15;fontFamily=Helvetica;fontColor=#334155;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="21.6" y="46.08" width="1620.0" height="28.8" />
+        </mxCell>
+        <mxCell id="n3" value="RuleSphere - Business Rule Management Platform" style="swimlane;html=0;startSize=29;fillColor=#eff6ff;swimlaneFillColor=#ffffff;strokeColor=#94a3b8;fontSize=17;fontStyle=1;align=left;spacingLeft=20;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="334.8" y="100.8" width="1288.8" height="1447.2" />
+        </mxCell>
+        <mxCell id="n4" value="Submit Change for Review" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;" vertex="1" parent="1" catalogId="GOV-01">
+          <mxGeometry as="geometry" x="381.6" y="338.76" width="240" height="90" />
+        </mxCell>
+        <mxCell id="n5" value="Validate Decision" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;" vertex="1" parent="1" catalogId="VAL-01">
+          <mxGeometry as="geometry" x="871.2" y="205.56" width="240" height="90" />
+        </mxCell>
+        <mxCell id="n6" value="Create Decision Version" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;" vertex="1" parent="1" catalogId="VER-02">
+          <mxGeometry as="geometry" x="871.2" y="338.76" width="240" height="90" />
+        </mxCell>
+        <mxCell id="n7" value="Authorize Operation" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#eff6ff;" vertex="1" parent="1" catalogId="UC-X01">
+          <mxGeometry as="geometry" x="1360.8" y="272.16" width="240" height="90" />
+        </mxCell>
+        <mxCell id="n8" value="Review Decision Change" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;" vertex="1" parent="1" catalogId="GOV-02">
+          <mxGeometry as="geometry" x="381.6" y="738.36" width="240" height="90" />
+        </mxCell>
+        <mxCell id="n9" value="View Version Changes" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;" vertex="1" parent="1" catalogId="AUX-GOV-01">
+          <mxGeometry as="geometry" x="871.2" y="471.96" width="240" height="90" />
+        </mxCell>
+        <mxCell id="n10" value="Approve Decision Change" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;" vertex="1" parent="1" catalogId="GOV-03">
+          <mxGeometry as="geometry" x="871.2" y="871.56" width="240" height="90" />
+        </mxCell>
+        <mxCell id="n11" value="Reject Decision Change" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;" vertex="1" parent="1" catalogId="GOV-04">
+          <mxGeometry as="geometry" x="871.2" y="605.16" width="240" height="90" />
+        </mxCell>
+        <mxCell id="n12" value="Request Rework" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;" vertex="1" parent="1" catalogId="GOV-05">
+          <mxGeometry as="geometry" x="871.2" y="738.36" width="240" height="90" />
+        </mxCell>
+        <mxCell id="n13" value="Enforce Approval Policy" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;" vertex="1" parent="1" catalogId="GOV-09">
+          <mxGeometry as="geometry" x="1360.8" y="538.56" width="240" height="90" />
+        </mxCell>
+        <mxCell id="n14" value="Record Audit Event" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#eff6ff;" vertex="1" parent="1" catalogId="UC-X02">
+          <mxGeometry as="geometry" x="1360.8" y="804.96" width="240" height="90" />
+        </mxCell>
+        <mxCell id="n15" value="View Review Status" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;" vertex="1" parent="1" catalogId="GOV-07">
+          <mxGeometry as="geometry" x="381.6" y="1094.76" width="240" height="90" />
+        </mxCell>
+        <mxCell id="n16" value="Cancel Review Request" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;" vertex="1" parent="1" catalogId="GOV-06">
+          <mxGeometry as="geometry" x="871.2" y="1094.76" width="240" height="90" />
+        </mxCell>
+        <mxCell id="n17" value="View Approval History" style="ellipse;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=5;fontSize=14;fontFamily=Helvetica;strokeColor=#334155;strokeWidth=1.5;fillColor=#ffffff;" vertex="1" parent="1" catalogId="GOV-08">
+          <mxGeometry as="geometry" x="381.6" y="1317.96" width="240" height="90" />
+        </mxCell>
+        <mxCell id="e18" value="«include»" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;dashed=1;endArrow=open;endFill=0;exitX=0.9047109239814569;exitY=0.20638619240560968;exitPerimeter=0;entryX=0.09528907601854351;entryY=0.7936138075943903;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n4" target="n5" routing="straight">
+          <mxGeometry as="geometry" relative="1" x="0.0" y="0">
+            <mxPoint as="offset" x="0.0" y="0.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e19" value="«include»" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;dashed=1;endArrow=open;endFill=0;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.0;entryY=0.5;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n4" target="n6" routing="straight">
+          <mxGeometry as="geometry" relative="1" x="0.0" y="0">
+            <mxPoint as="offset" x="0.0" y="0.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e20" value="«include»" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;dashed=1;endArrow=open;endFill=0;exitX=0.9632049037933991;exitY=0.3117416214301525;exitPerimeter=0;entryX=0.0010829979029798173;entryY=0.5328911085024818;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n4" target="n7" routing="diagonal-detour">
+          <mxGeometry as="geometry" relative="1" x="0.30000000000000004" y="0">
+            <Array as="points">
+              <mxPoint x="833.6" y="333.15999999999997" />
+            </Array>
+            <mxPoint as="offset" x="0.0" y="0.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e21" value="«include»" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;dashed=1;endArrow=open;endFill=0;exitX=0.783736455411974;exitY=0.08830396665713604;exitPerimeter=0;entryX=0.216263544588026;entryY=0.9116960333428646;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n8" target="n9" routing="straight">
+          <mxGeometry as="geometry" relative="1" x="0.0" y="0">
+            <mxPoint as="offset" x="0.0" y="0.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e22" value="«extend»" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;dashed=1;endArrow=open;endFill=0;exitX=0.09528907601854304;exitY=0.20638619240561032;exitPerimeter=0;entryX=0.9047109239814569;entryY=0.7936138075943897;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n10" target="n8" routing="straight">
+          <mxGeometry as="geometry" relative="1" x="0.0" y="0">
+            <mxPoint as="offset" x="0.0" y="0.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e23" value="«extend»" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;dashed=1;endArrow=open;endFill=0;exitX=0.09528907601854351;exitY=0.7936138075943897;exitPerimeter=0;entryX=0.9047109239814565;entryY=0.20638619240561032;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n11" target="n8" routing="straight">
+          <mxGeometry as="geometry" relative="1" x="0.0" y="0">
+            <mxPoint as="offset" x="0.0" y="0.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e24" value="«extend»" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;dashed=1;endArrow=open;endFill=0;exitX=0.0;exitY=0.5;exitPerimeter=0;entryX=1.0;entryY=0.5;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n12" target="n8" routing="straight">
+          <mxGeometry as="geometry" relative="1" x="0.0" y="0">
+            <mxPoint as="offset" x="0.0" y="0.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e25" value="«include»" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;dashed=1;endArrow=open;endFill=0;exitX=0.7414135254375319;exitY=0.06214213523584881;exitPerimeter=0;entryX=0.258586474562468;entryY=0.9378578647641512;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n10" target="n13" routing="straight">
+          <mxGeometry as="geometry" relative="1" x="0.30000000000000004" y="0">
+            <mxPoint as="offset" x="0.0" y="0.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e26" value="«include»" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;dashed=1;endArrow=open;endFill=0;exitX=0.8718013917420933;exitY=0.165689178908844;exitPerimeter=0;entryX=0.38841247195377754;entryY=0.9873891910829924;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n10" target="n7" routing="diagonal-detour">
+          <mxGeometry as="geometry" relative="1" x="0.0" y="0">
+            <Array as="points">
+              <mxPoint x="1146.9" y="864.0600000000001" />
+            </Array>
+            <mxPoint as="offset" x="0.0" y="0.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e27" value="«include»" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;dashed=1;endArrow=open;endFill=0;exitX=0.9700311105473314;exitY=0.3294985187230269;exitPerimeter=0;entryX=0.029968889452668655;entryY=0.6705014812769731;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n10" target="n14" routing="straight">
+          <mxGeometry as="geometry" relative="1" x="0.0" y="0">
+            <mxPoint as="offset" x="0.0" y="0.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e28" value="«extend»" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;dashed=1;endArrow=open;endFill=0;exitX=0.0;exitY=0.5;exitPerimeter=0;entryX=1.0;entryY=0.5;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n16" target="n15" routing="straight">
+          <mxGeometry as="geometry" relative="1" x="0.0" y="0">
+            <mxPoint as="offset" x="0.0" y="0.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n29" value="Rule / Decision Author" style="shape=umlActor;html=0;whiteSpace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fontSize=12;fontFamily=Helvetica;strokeColor=#334155;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="90.0" y="716.76" width="100" height="70" />
+        </mxCell>
+        <mxCell id="e30" value="" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;endArrow=none;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.32712368853048635;entryY=0.9691628511857004;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n29" target="n4" routing="straight">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e31" value="" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;endArrow=none;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.3350415547601853;entryY=0.02799500919580977;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n29" target="n15" routing="straight">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="n32" value="Reviewer / Approver" style="shape=umlActor;html=0;whiteSpace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fontSize=12;fontFamily=Helvetica;strokeColor=#334155;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="90.0" y="1028.16" width="100" height="70" />
+        </mxCell>
+        <mxCell id="e33" value="" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;endArrow=none;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.2819421603904857;entryY=0.9499453062149125;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n32" target="n8" routing="straight">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e34" value="" style="html=0;fontSize=12;fontFamily=Helvetica;labelBackgroundColor=#ffffff;strokeColor=#475569;strokeWidth=1.3;endArrow=none;exitX=1.0;exitY=0.5;exitPerimeter=0;entryX=0.29394609940467425;entryY=0.0444324528135793;entryPerimeter=0;edgeStyle=none;rounded=0;whiteSpace=wrap;labelWidth=270;" edge="1" parent="1" source="n32" target="n17" routing="straight">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="n35" value="Solid line: association | Hollow triangle: specialized → general | «include»: base → required behavior | «extend»: conditional behavior → base" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=12;fontFamily=Helvetica;fontColor=#334155;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="21.6" y="1580.4" width="1620.0" height="32.4" />
+        </mxCell>
+        <mxCell id="n36" value="Each actor and catalog use case appears once in this module. Cross-module IDs reference reusable behavior. Actor inheritance: 01_Actor_Model.&#10;Conditions, permissions and UML clarifications: module-notes.md. Proposed baseline; runtime is inside RuleSphere - Business Rule Management Platform." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=12;fontFamily=Helvetica;fontColor=#334155;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="21.6" y="1620.0" width="1620.0" height="54.0" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

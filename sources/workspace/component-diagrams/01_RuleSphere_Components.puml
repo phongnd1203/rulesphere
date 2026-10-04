@@ -1,0 +1,102 @@
+@startuml
+title RuleSphere - Component Diagram\nThree-Plane Architecture (AC-01) with Provided & Required Interfaces
+skinparam componentStyle uml2
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Segoe UI
+skinparam ArrowColor #527183
+
+' Interfaces
+() "IManagementAPI" as IAdminAPI
+() "IAuthoringService" as IAuthor
+() "IDecisionValidator" as IValidator
+() "IGovernanceService" as IGovern
+() "IArtifactBuilder" as IBuilder
+() "IDistributionControl" as IDistribution
+() "IPublicationTopic" as IPubTopic
+() "IRestEvaluation" as IREST
+() "IGrpcEvaluation" as IGRPC
+() "ISnapshotResolver" as IResolver
+() "IGraphExecutor" as IExecutor
+() "ITraceCapture" as ITrace
+() "IArtifactStore" as IArtifactStore
+() "IComplianceStore" as IComplianceStore
+
+package "Control Plane (Decision Management)" #FFFDF5 {
+  component [Tenant & Workspace Administration] as AdminComp
+  component [Decision Authoring & Sandbox] as AuthorComp
+  component [Contract & DAG Validator] as ValidatorComp
+  component [Governance & Release Manager] as GovComp
+  component [Artifact Builder] as BuilderComp
+  
+  AdminComp -up- IAdminAPI
+  AuthorComp -right- IAuthor
+  ValidatorComp -down- IValidator
+  GovComp -down- IGovern
+  BuilderComp -down- IBuilder
+  
+  AuthorComp ..> IValidator : <<requires>>
+  GovComp ..> IValidator : <<requires>>
+  BuilderComp ..> IValidator : <<requires>>
+}
+
+package "Delivery Plane (Distribution Channel)" #F0ECFF {
+  component [Desired State Publisher] as PublisherComp
+  component [Publication Event Bus] as BrokerComp
+  
+  PublisherComp -up- IDistribution
+  BrokerComp -down- IPubTopic
+  PublisherComp ..> IPubTopic : <<publishes>>
+}
+
+package "Data Plane (Stateless Horizontally Scalable Runtime Node)" #E9F8ED {
+  component [Protocol Adapter (REST / gRPC)] as AdapterComp
+  component [Snapshot Resolver] as ResolverComp
+  component [Local In-Memory Artifact Store] as LocalStoreComp
+  component [Graph Execution Engine] as EngineComp
+  component [Trace Capture Service] as TraceComp
+  
+  AdapterComp -up- IREST
+  AdapterComp -up- IGRPC
+  ResolverComp -left- IResolver
+  EngineComp -right- IExecutor
+  TraceComp -down- ITrace
+  
+  AdapterComp ..> IResolver : <<requires>>
+  AdapterComp ..> IExecutor : <<requires>>
+  ResolverComp ..> LocalStoreComp : <<queries>>
+  EngineComp ..> ITrace : <<async requires>>
+}
+
+package "Storage & Evidence Infrastructure" #FFF0ED {
+  database "Immutable Artifact Repository" as ArtifactStore
+  database "Hot Trace Store (30-90 days)" as HotTraceStore
+  database "Compliance Ledger (5-7 years)" as ComplianceStore
+  database "Control Plane State Store" as ControlDB
+  
+  ArtifactStore -up- IArtifactStore
+  ComplianceStore -up- IComplianceStore
+}
+
+' Cross-Plane Bindings
+GovComp ..> IDistribution : <<triggers rollout>>
+BuilderComp ..> IArtifactStore : <<stores immutable bytecode>>
+LocalStoreComp ..> IPubTopic : <<subscribes>>
+LocalStoreComp ..> IArtifactStore : <<downloads artifact>>
+AdminComp ..> ControlDB : <<persists>>
+GovComp ..> ControlDB : <<persists evidence>>
+TraceComp ..> HotTraceStore : <<persists trace>>
+TraceComp ..> IComplianceStore : <<persists compliance record>>
+
+note bottom of AdapterComp
+  **AC-04 Non-Functional Requirement:**
+  Normal evaluation path has NO synchronous Control Plane dependency.
+  Evaluation resolves atomic snapshots purely from LocalStoreComp in-memory.
+end note
+
+legend bottom
+  Conforms to AC-01 (Separation of Management, Delivery, and Execution planes).
+  AC-02 (Immutable artifacts) and AC-03 (Stateless, scalable runtime nodes).
+endlegend
+@enduml

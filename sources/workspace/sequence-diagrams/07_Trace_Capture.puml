@@ -1,0 +1,63 @@
+@startuml
+title RuleSphere - Protect and Persist Execution Evidence\nUC-24
+autonumber
+skinparam shadowing false
+skinparam sequenceLifeLineBorderColor #177E8D
+skinparam sequenceLifeLineBackgroundColor #EAF6F8
+
+participant EvaluationService as Runtime
+participant TraceCaptureService as Capture
+participant SensitiveDataProtector as Protect
+database "Hot Trace Store" as Hot
+database "Compliance Ledger" as Ledger
+participant "Operational Telemetry" as Ops
+
+Runtime ->> Capture: Capture execution tree, snapshot metadata and outcome
+activate Capture
+
+Capture -> Protect: Protect sensitive fields using bound schema metadata
+activate Protect
+Protect --> Capture: Masked / tokenized / hashed evidence
+deactivate Protect
+
+note over Capture,Protect
+  Protect intermediate values, final outcomes and error details
+  before persistence. No plaintext sensitive trace fields (SRS 11.1).
+end note
+
+par Full trace persistence
+  Capture -> Hot: Persist protected execution tree
+  activate Hot
+  Hot --> Capture: Persistence result
+  deactivate Hot
+else Long-term metadata persistence
+  Capture -> Ledger: Persist immutable ExecutionID, DecisionVersion, InputHash,\nprotected Output, MatchedNodeIDs, Timestamp, approval/release reference
+  activate Ledger
+  Ledger --> Capture: Persistence result
+  deactivate Ledger
+end
+
+alt Both writes succeed
+  Capture -> Ops: Record capture success
+  activate Ops
+  Ops --> Capture: Acknowledged
+  deactivate Ops
+else Persistence failure or backpressure
+  Capture -> Ops: Report affected execution, failure and degradation
+  activate Ops
+  Ops --> Capture: Acknowledged
+  deactivate Ops
+  Capture -> Capture: Apply operational failure / backpressure policy
+  note over Runtime,Capture
+    Never silently change the business decision outcome.
+    Delivery guarantees, retries and failure policy require ADR;
+    asynchronous arrows do not prescribe a broker or queue.
+  end note
+end
+deactivate Capture
+
+note over Hot,Ledger
+  Hot trace retention: configured 30-90 days.
+  Compliance metadata retention: configured 5-7 years (SRS 11).
+end note
+@enduml

@@ -1,0 +1,15 @@
+﻿Analysis ID,Name
+AUX-IAM-01,Resolve User Roles
+AUX-IAM-02,Evaluate Access Policy
+AUX-IAM-03,Authenticate Client
+AUX-AUT-01,Author Decision Logic
+AUX-AUT-02,View Decision Model
+AUX-GOV-01,View Version Changes
+AUX-PRG-01,Perform Canary Deployment
+AUX-PRG-02,Perform Shadow Deployment
+AUX-EXE-01,Evaluate Decision Expression
+AUX-EXE-02,Resolve Pinned Decision Version
+UC-X01,Authorize Operation
+UC-X02,Record Audit Event
+UC-X04,Resolve Decision Version
+AUX-X-01,State-Changing Operation

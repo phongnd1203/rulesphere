@@ -1,0 +1,172 @@
+[
+  {
+    "file": "01_Administration.drawio",
+    "page": "Administration",
+    "swimlanes": [
+      "Administrator / Authorized Owner",
+      "Control Plane / Access and Validation",
+      "Control Plane / Configuration"
+    ],
+    "actions": 16,
+    "connectors": 31,
+    "notes": 1,
+    "uml_degrees_valid": true,
+    "valid": true
+  },
+  {
+    "file": "02_Decision_Modeling.drawio",
+    "page": "Decision Modeling",
+    "swimlanes": [
+      "Decision Author",
+      "Control Plane",
+      "Sandbox"
+    ],
+    "actions": 18,
+    "connectors": 34,
+    "notes": 2,
+    "uml_degrees_valid": true,
+    "valid": true
+  },
+  {
+    "file": "03_Governance_and_Approval.drawio",
+    "page": "Governance and Approval",
+    "swimlanes": [
+      "Decision Author",
+      "Control Plane",
+      "Authorized Reviewer",
+      "Artifact Builder"
+    ],
+    "actions": 24,
+    "connectors": 46,
+    "notes": 3,
+    "uml_degrees_valid": true,
+    "valid": true
+  },
+  {
+    "file": "04_Shadow_and_Canary.drawio",
+    "page": "Rollout Configuration",
+    "swimlanes": [
+      "Release Manager",
+      "Control / Delivery Plane",
+      "Delivery Coordinator"
+    ],
+    "actions": 6,
+    "connectors": 10,
+    "notes": 1,
+    "uml_degrees_valid": true,
+    "valid": true
+  },
+  {
+    "file": "04_Shadow_and_Canary.drawio",
+    "page": "Production Evaluation and Shadow",
+    "swimlanes": [
+      "Consumer Application",
+      "Runtime Engine",
+      "Shadow Worker"
+    ],
+    "actions": 17,
+    "connectors": 35,
+    "notes": 1,
+    "uml_degrees_valid": true,
+    "valid": true
+  },
+  {
+    "file": "04_Shadow_and_Canary.drawio",
+    "page": "Diff Analysis Query",
+    "swimlanes": [
+      "Authorized User / Analyst",
+      "Control / Delivery Plane",
+      "Diff Analysis"
+    ],
+    "actions": 6,
+    "connectors": 10,
+    "notes": 1,
+    "uml_degrees_valid": true,
+    "valid": true
+  },
+  {
+    "file": "05_Deployment_and_Convergence.drawio",
+    "page": "Promotion or Rollback",
+    "swimlanes": [
+      "Release Manager",
+      "Control / Delivery Plane",
+      "Delivery State Coordinator"
+    ],
+    "actions": 7,
+    "connectors": 11,
+    "notes": 3,
+    "uml_degrees_valid": true,
+    "valid": true
+  },
+  {
+    "file": "05_Deployment_and_Convergence.drawio",
+    "page": "Fleet Synchronization",
+    "swimlanes": [
+      "Control / Delivery Plane",
+      "Runtime Node (Fleet)",
+      "Fleet Observability"
+    ],
+    "actions": 13,
+    "connectors": 23,
+    "notes": 3,
+    "uml_degrees_valid": true,
+    "valid": true
+  },
+  {
+    "file": "05_Deployment_and_Convergence.drawio",
+    "page": "Fleet Status Query",
+    "swimlanes": [
+      "Authorized Operator",
+      "Control / Delivery Plane",
+      "Fleet Observability"
+    ],
+    "actions": 6,
+    "connectors": 10,
+    "notes": 3,
+    "uml_degrees_valid": true,
+    "valid": true
+  },
+  {
+    "file": "06_Runtime_Evaluation.drawio",
+    "page": "Runtime Evaluation",
+    "swimlanes": [
+      "Consumer Application",
+      "Runtime Admission",
+      "Graph Executor",
+      "Runtime Response"
+    ],
+    "actions": 22,
+    "connectors": 49,
+    "notes": 1,
+    "uml_degrees_valid": true,
+    "valid": true
+  },
+  {
+    "file": "07_Trace_Capture.drawio",
+    "page": "Trace Capture",
+    "swimlanes": [
+      "Trace Capture",
+      "Hot Trace Writer",
+      "Compliance Writer"
+    ],
+    "actions": 13,
+    "connectors": 22,
+    "notes": 4,
+    "uml_degrees_valid": true,
+    "valid": true
+  },
+  {
+    "file": "08_Historical_Explain_and_Audit.drawio",
+    "page": "Historical Explain and Audit",
+    "swimlanes": [
+      "Authorized User / Auditor",
+      "Evidence Query Service",
+      "Evidence Query / Retrieval and Audit"
+    ],
+    "actions": 13,
+    "connectors": 28,
+    "notes": 1,
+    "uml_degrees_valid": true,
+    "valid": true
+  }
+]

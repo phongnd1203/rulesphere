@@ -1,0 +1,54 @@
+@startuml
+title RuleSphere - Communication Diagram\n06. REST / gRPC Evaluation | UC-21..24
+left to right direction
+skinparam shadowing false
+skinparam objectBackgroundColor #E9F8ED
+skinparam objectBorderColor #496477
+skinparam ArrowColor #496477
+skinparam nodesep 45
+skinparam ranksep 60
+object "client : ConsumerApplication" as Client <<actor>>
+object "api : REST/gRPC Adapter" as API <<boundary>>
+object "auth : AuthorizationService" as Auth <<service>>
+object "evaluation : EvaluationService" as Service <<coordinator>>
+object "resolver : SnapshotResolver" as Resolver <<service>>
+object "store : LocalArtifactStore" as Store <<entity>>
+object "schema : SchemaVersion" as Schema <<entity>>
+object "executor : GraphExecutor" as Executor <<service>>
+object "node : DecisionNode" as Node <<entity>>
+object "capture : TraceCaptureService" as Trace <<service>>
+Client --> API : 1: evaluate(input, credential, context, optional pin)
+API --> Auth : 1.1: authorize credential and Tenant/Workspace scope
+API --> Service : 1.2 [authorized]: evaluate(request)
+Service --> Resolver : 1.2.1: resolveEligible(request)
+Resolver --> Store : 1.2.1.1a [pinned]: get exact eligible version\n1.2.1.1b [unpinned]: get local Active / selected Canary
+Resolver --> Resolver : 1.2.1.2 [available]: bind atomic snapshot
+Service --> Schema : 1.2.2 [snapshot resolved]: validate input
+Service --> Executor : 1.2.3 [valid input]: execute(snapshot, input)
+Executor --> Node : 1.2.3.1 *[activated and execution healthy]: evaluate(context)
+Executor --> Executor : 1.2.3.2 *: record result / typed fallback / fail-fast
+Service --> Trace : 1.2.4 [auditable execution] <<async>>: capture result/error and tree
+API ..> Client : 1.3: result + executionId OR explicit error
+note bottom of Resolver
+Pin unavailable/ineligible => REST 412 or gRPC equivalent.
+No silent fallback to Active; stop this evaluation path.
+Unpinned unavailable => protocol-defined availability error.
+Canary routing is deterministic for fixed configuration.
+end note
+note bottom of Executor
+Loop 1.2.3.1-1.2.3.2 follows topological order.
+Skip inactive branches. Qualifying error + valid typed fallback:
+record fallback and continue; otherwise fail-fast.
+Input errors stop before graph execution.
+end note
+note bottom of Service
+No synchronous Control Plane dependency.
+One fixed graph/schema/dependency snapshot for the whole execution.
+Publication during execution cannot replace its snapshot.
+end note
+legend bottom
+  Nested numbers identify calls; a/b are mutually exclusive alternatives.
+  * denotes repetition; [condition] is a guard; <<async>> is an asynchronous send.
+  Routine returns omitted; ..> is the displayed response; errors stop dependent calls.
+endlegend
+@enduml

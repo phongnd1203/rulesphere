@@ -1,0 +1,191 @@
+[
+  {
+    "ID": "UC-01",
+    "Use Case": "Manage Tenant & Workspaces",
+    "Primary actor": "Enterprise Admin",
+    "Precondition": "Authenticated enterprise admin",
+    "Postcondition": "Tenant/workspace configuration updated."
+  },
+  {
+    "ID": "UC-02",
+    "Use Case": "Manage Membership & Roles",
+    "Primary actor": "Enterprise Admin",
+    "Precondition": "Tenant/workspace exists",
+    "Postcondition": "Scoped role assignments updated."
+  },
+  {
+    "ID": "UC-03",
+    "Use Case": "Manage API Credentials",
+    "Primary actor": "Enterprise Admin",
+    "Precondition": "Workspace exists",
+    "Postcondition": "Credential issued/revoked with scope."
+  },
+  {
+    "ID": "UC-04",
+    "Use Case": "Publish Shared Library Asset",
+    "Primary actor": "Authorized owner",
+    "Precondition": "Validated reusable asset",
+    "Postcondition": "Immutable version becomes available tenant-wide."
+  },
+  {
+    "ID": "UC-05",
+    "Use Case": "Create/Edit Decision",
+    "Primary actor": "Decision Author",
+    "Precondition": "Workspace author permission",
+    "Postcondition": "Draft Decision Version stored."
+  },
+  {
+    "ID": "UC-06",
+    "Use Case": "Model Decision Graph",
+    "Primary actor": "Decision Author",
+    "Precondition": "Draft exists",
+    "Postcondition": "Valid node/dependency model stored."
+  },
+  {
+    "ID": "UC-07",
+    "Use Case": "Define/Version Schema",
+    "Primary actor": "Decision Author",
+    "Precondition": "Draft/schema permission",
+    "Postcondition": "Schema Version stored."
+  },
+  {
+    "ID": "UC-08",
+    "Use Case": "Validate Graph & Contracts",
+    "Primary actor": "Decision Author",
+    "Precondition": "Draft graph/schema exists",
+    "Postcondition": "Validation result produced; cycles/breaking issues identified."
+  },
+  {
+    "ID": "UC-09",
+    "Use Case": "Sandbox Execute",
+    "Primary actor": "Decision Author",
+    "Precondition": "Executable draft is valid",
+    "Postcondition": "Simulation result and trace produced without production effect."
+  },
+  {
+    "ID": "UC-10",
+    "Use Case": "Submit Release",
+    "Primary actor": "Decision Author",
+    "Precondition": "Candidate passes required validation",
+    "Postcondition": "Release enters governance."
+  },
+  {
+    "ID": "UC-11",
+    "Use Case": "Calculate Risk Tier",
+    "Primary actor": "System",
+    "Precondition": "Release submitted",
+    "Postcondition": "Risk tier calculated from change scope, compatibility and 30-day traffic."
+  },
+  {
+    "ID": "UC-12",
+    "Use Case": "Approve/Reject Release",
+    "Primary actor": "Approver(s)",
+    "Precondition": "Required approval task exists",
+    "Postcondition": "Approval evidence recorded; quorum progresses or release rejected."
+  },
+  {
+    "ID": "UC-13",
+    "Use Case": "Overrule Risk Upward",
+    "Primary actor": "Approver",
+    "Precondition": "Calculated tier exists",
+    "Postcondition": "Tier increased; never decreased."
+  },
+  {
+    "ID": "UC-14",
+    "Use Case": "Build Executable Artifact",
+    "Primary actor": "System",
+    "Precondition": "Release satisfies governance",
+    "Postcondition": "Immutable artifact produced and integrity metadata recorded."
+  },
+  {
+    "ID": "UC-15",
+    "Use Case": "Shadow Deploy",
+    "Primary actor": "Approver/Release Manager",
+    "Precondition": "Approved artifact exists",
+    "Postcondition": "Candidate evaluates mirrored traffic without affecting response."
+  },
+  {
+    "ID": "UC-16",
+    "Use Case": "Analyze Shadow Diff",
+    "Primary actor": "Authorized user",
+    "Precondition": "Shadow data exists",
+    "Postcondition": "Outcome differences are queryable."
+  },
+  {
+    "ID": "UC-17",
+    "Use Case": "Canary Deploy",
+    "Primary actor": "Approver/Release Manager",
+    "Precondition": "Eligible candidate exists",
+    "Postcondition": "Sticky/cohort routing activates candidate for controlled traffic."
+  },
+  {
+    "ID": "UC-18",
+    "Use Case": "Promote Active",
+    "Primary actor": "Approver/Release Manager",
+    "Precondition": "Release meets policy",
+    "Postcondition": "Candidate becomes desired Active version."
+  },
+  {
+    "ID": "UC-19",
+    "Use Case": "Rollback",
+    "Primary actor": "Approver/Release Manager",
+    "Precondition": "Eligible prior version exists",
+    "Postcondition": "Desired Active pointer switches to prior immutable version."
+  },
+  {
+    "ID": "UC-20",
+    "Use Case": "Synchronize Runtime Fleet",
+    "Primary actor": "System",
+    "Precondition": "Publish/rollback event emitted",
+    "Postcondition": "Active nodes converge to desired artifact within SLA."
+  },
+  {
+    "ID": "UC-21",
+    "Use Case": "Evaluate Decision REST",
+    "Primary actor": "Consumer App",
+    "Precondition": "Valid credential + request contract",
+    "Postcondition": "Decision result returned."
+  },
+  {
+    "ID": "UC-22",
+    "Use Case": "Evaluate Decision gRPC",
+    "Primary actor": "Consumer App",
+    "Precondition": "Valid credential + request contract",
+    "Postcondition": "Decision result returned."
+  },
+  {
+    "ID": "UC-23",
+    "Use Case": "Evaluate Pinned Version",
+    "Primary actor": "Consumer App",
+    "Precondition": "Requested version supplied",
+    "Postcondition": "Exact version executes or 412 returned."
+  },
+  {
+    "ID": "UC-24",
+    "Use Case": "Capture Execution Trace",
+    "Primary actor": "System",
+    "Precondition": "Auditable execution occurs",
+    "Postcondition": "Masked trace/ledger evidence persisted asynchronously/safely."
+  },
+  {
+    "ID": "UC-25",
+    "Use Case": "Explain Historical Decision",
+    "Primary actor": "Authorized user",
+    "Precondition": "Execution retained",
+    "Postcondition": "Decision/version/tree evidence returned per authorization."
+  },
+  {
+    "ID": "UC-26",
+    "Use Case": "Inspect Audit Evidence",
+    "Primary actor": "Compliance/Security Auditor",
+    "Precondition": "Authorized scope",
+    "Postcondition": "Governance/deployment/security evidence displayed/exportable."
+  },
+  {
+    "ID": "UC-27",
+    "Use Case": "Observe Fleet Convergence",
+    "Primary actor": "Authorized operator/admin",
+    "Precondition": "Deployment in progress",
+    "Postcondition": "Per-fleet desired/loaded state visible."
+  }
+]

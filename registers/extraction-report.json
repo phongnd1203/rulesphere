@@ -1,0 +1,18 @@
+{
+  "workspace_files": 245,
+  "indexed_files": 245,
+  "counts": {
+    "business-outcomes": 5,
+    "goals": 10,
+    "actors": 8,
+    "core-use-cases": 27,
+    "functional-requirements": 64,
+    "nonfunctional-requirements": 14,
+    "architecture-constraints": 7,
+    "adr-backlog": 10
+  },
+  "sessions": 8,
+  "attachments": 6,
+  "diagram_sources": 84,
+  "errors": []
+}

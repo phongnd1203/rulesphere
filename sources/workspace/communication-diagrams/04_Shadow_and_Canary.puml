@@ -1,0 +1,52 @@
+@startuml
+title RuleSphere - Communication Diagram\n04. Shadow and Canary | UC-15..17
+left to right direction
+skinparam shadowing false
+skinparam objectBackgroundColor #F0ECFF
+skinparam objectBorderColor #496477
+skinparam ArrowColor #496477
+skinparam nodesep 45
+skinparam ranksep 60
+object "manager : ReleaseManager" as Manager <<actor>>
+object "client : ConsumerApplication" as Client <<actor>>
+object "api : ManagementAPI" as API <<boundary>>
+object "auth : AuthorizationService" as Auth
+object "deployment : Deployment" as Deployment
+object "distribution : DistributionService" as Distribution
+object "runtime : EvaluationService" as Runtime
+object "production : GraphExecutor" as Production
+object "shadow : GraphExecutor" as Shadow
+object "diffs : ShadowComparisonStore" as Diffs
+Manager --> API : 1: configure Shadow/Canary\n3: query differences
+API --> Auth : 1.1 / 3.1: authorize action and scope
+API --> Deployment : 1.2 [authorized]: verify eligibility; configure rollout
+Deployment --> Distribution : 1.2.1 [eligible]: distribute artifact and configuration
+Distribution --> Runtime : 1.2.1.1 <<async>>: deliver via local artifact management
+Client --> Runtime : 2: evaluate unpinned(input, subjectKey, claims)
+Runtime --> Auth : 2.1: authorize runtime credential and scope
+Runtime --> Runtime : 2.2 [authorized]: resolve eligible sticky/cohort snapshot
+Runtime --> Production : 2.3: execute selected Active or Canary snapshot\n2.5 [Shadow on and production used Canary]: evaluate Active baseline
+Runtime ..> Client : 2.4: production response
+Runtime --> Shadow : 2.6 [Shadow on] <<async>>: evaluate mirrored input
+Runtime --> Diffs : 2.7 [Shadow on] <<async>>: supply protected Active baseline
+Shadow --> Diffs : 2.6.1 <<async>>: supply protected Shadow outcome
+API --> Diffs : 3.2 [authorized]: read correlated Active/Shadow differences
+API ..> Manager : 1.3: rollout publication status\n3.3: scoped diff result / error
+note bottom of Runtime
+Artifact must be loaded/validated before serving (diagram 05).
+Runtime authorization and snapshot errors follow diagram 06.
+Shadow never changes the production response.
+Same subject + fixed rollout configuration => same cohort.
+end note
+note bottom of Diffs
+Correlate both outcomes before exposing a completed diff.
+Async branches may complete in either order.
+Active baseline for Canary coexistence and its scheduling
+are proposed design, not a new production response.
+end note
+legend bottom
+  Messages are ordered by numbers; nested numbers identify calls.
+  <<async>> labels asynchronous sends; routine returns are omitted.
+  [condition] guards a message; ..> is a displayed reply.
+endlegend
+@enduml

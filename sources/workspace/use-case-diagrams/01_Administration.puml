@@ -1,0 +1,92 @@
+@startuml
+left to right direction
+skinparam shadowing false
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Segoe UI
+skinparam defaultFontSize 13
+skinparam nodesep 35
+skinparam ranksep 50
+skinparam ArrowColor #527183
+skinparam actor {
+  BorderColor #274D64
+  FontColor #17354A
+  BackgroundColor #FFFFFF
+}
+skinparam usecase {
+  BorderColor #177E8D
+  BackgroundColor #EAF6F8
+  FontColor #143047
+}
+skinparam rectangle {
+  BorderColor #64748B
+  BackgroundColor #F8FAFC
+}
+skinparam note {
+  BorderColor #B99A48
+  BackgroundColor #FFF9E8
+  FontColor #594D2D
+}
+' UC-xx: official SRS catalog. Dxx.xx: derived decomposition, not a new SRS ID.
+' Fxx: feature from RuleSphere_Context_Diagram_Detailed.mmd.
+' Include: mandatory sub-behavior. Extend: conditional behavior at a named base.
+' Generalization: specialized actor/use case points to its general parent.
+
+' Sources: UC-01..04; FR-TEN-001..004; FR-SEC-001..003; NFR-AUD-001.
+actor "A05 - Enterprise Administrator" as A05
+
+rectangle "RuleSphere - Administration" as SYSTEM {
+  usecase "UC-01\nManage Tenant and Workspaces" as UC01 <<abstract>>
+  usecase "D01.01\nManage Tenant\n[F01]" as D0101
+  usecase "D01.02\nManage Workspace\n[F02]" as D0102
+
+  usecase "UC-02\nManage Membership and Roles" as UC02 <<abstract>>
+  usecase "D01.03\nManage Membership\n[F03]" as D0103
+  usecase "D01.04\nAssign Scoped Roles\n[F04]" as D0104
+
+  usecase "UC-03\nManage API Credentials" as UC03 <<abstract>>
+  usecase "D01.05\nIssue Scoped API Credential\n[F05]" as D0105
+  usecase "D01.06\nRevoke API Credential\n[F06]" as D0106
+
+  usecase "UC-04\nPublish Shared Library Asset\n[F07]" as UC04
+  usecase "D01.07\nCreate Immutable Library Version" as D0107
+  usecase "D01.08\nEnforce Tenant Library Scope" as D0108
+  usecase "D01.09\nRecord Credential Lifecycle Evidence" as D0109
+  usecase "D01.10\nRecord Administrative Audit Evidence" as D0110
+  usecase "D01.11\nAuthorize Tenant / Workspace Operation" as D0111
+
+  note as N01
+    Management variants specialize the catalog's aggregate goals.
+    Issuance and revocation are separate credential operations.
+    Includes on a parent are inherited by its specializations.
+  end note
+  note as N04
+    Library publication requires authorized asset-owner rights.
+    The reusable asset must already be validated.
+    Cross-tenant sharing and direct cross-workspace references are prohibited.
+  end note
+}
+
+A05 -- UC01
+A05 -- UC02
+A05 -- UC03
+A05 -- UC04 : authorized asset owner
+D0101 --|> UC01
+D0102 --|> UC01
+D0103 --|> UC02
+D0104 --|> UC02
+D0105 --|> UC03
+D0106 --|> UC03
+UC01 ..> D0111 : <<include>>
+UC02 ..> D0111 : <<include>>
+UC03 ..> D0111 : <<include>>
+UC04 ..> D0111 : <<include>>
+UC01 ..> D0110 : <<include>>
+UC02 ..> D0110 : <<include>>
+UC03 ..> D0109 : <<include>>
+UC04 ..> D0107 : <<include>>
+UC04 ..> D0108 : <<include>>
+UC04 ..> D0110 : <<include>>
+N01 .. UC03
+N04 .. UC04
+
+@enduml

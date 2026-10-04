@@ -1,0 +1,166 @@
+﻿Module file,Source UC,UML relation,Target UC,Extension point / condition
+A_Identity_Access_Management,IAM-01,include,IAM-03,
+A_Identity_Access_Management,IAM-04,include,AUX-IAM-01,
+A_Identity_Access_Management,IAM-04,include,AUX-IAM-02,
+A_Identity_Access_Management,IAM-06,extend,IAM-05,role mapping: assign requested
+A_Identity_Access_Management,IAM-07,extend,IAM-05,role mapping: revoke requested
+A_Identity_Access_Management,IAM-08,include,IAM-04,
+A_Identity_Access_Management,IAM-10,include,AUX-IAM-03,
+B_Decision_Project_Asset_Management,DAM-02,generalization,DAM-01,
+B_Decision_Project_Asset_Management,DAM-04,generalization,DAM-01,
+B_Decision_Project_Asset_Management,DAM-05,generalization,DAM-01,
+B_Decision_Project_Asset_Management,DAM-01,include,UC-X01,
+B_Decision_Project_Asset_Management,DAM-07,extend,DAM-06,search results: metadata inspection requested
+C_Decision_Modeling_Rule_Authoring,AUT-02,generalization,AUT-01,
+C_Decision_Modeling_Rule_Authoring,AUT-03,generalization,AUT-01,
+C_Decision_Modeling_Rule_Authoring,AUT-01,include,AUX-AUT-01,
+C_Decision_Modeling_Rule_Authoring,AUT-01,include,AUT-12,
+C_Decision_Modeling_Rule_Authoring,AUT-01,include,VAL-01,
+C_Decision_Modeling_Rule_Authoring,AUT-01,include,UC-X01,
+C_Decision_Modeling_Rule_Authoring,AUT-05,generalization,AUX-AUT-01,
+C_Decision_Modeling_Rule_Authoring,AUT-07,generalization,AUX-AUT-01,
+C_Decision_Modeling_Rule_Authoring,AUT-09,generalization,AUX-AUT-01,
+C_Decision_Modeling_Rule_Authoring,AUT-03,include,AUT-13,
+C_Decision_Modeling_Rule_Authoring,AUT-05,include,AUT-12,
+C_Decision_Modeling_Rule_Authoring,AUT-10,extend,AUT-05,rule definition: priority configuration requested
+C_Decision_Modeling_Rule_Authoring,AUT-11,extend,AUT-06,rule editing: enable/disable requested
+C_Decision_Modeling_Rule_Authoring,AUT-04,extend,AUX-AUT-02,model inspection: clone requested
+D_Data_Contract_Management,DCM-01,include,DCM-02,
+D_Data_Contract_Management,DCM-01,include,DCM-03,
+D_Data_Contract_Management,DCM-02,include,DCM-04,
+D_Data_Contract_Management,DCM-05,extend,DCM-02,input schema: additional constraints specified
+D_Data_Contract_Management,DCM-03,include,DCM-04,
+D_Data_Contract_Management,DCM-05,extend,DCM-03,output schema: additional constraints specified
+D_Data_Contract_Management,DCM-07,include,DCM-06,
+D_Data_Contract_Management,DCM-09,extend,DCM-08,contract inspection: export requested
+E_Validation_Testing,VAL-01,include,VAL-02,
+E_Validation_Testing,VAL-01,include,VAL-03,
+E_Validation_Testing,VAL-01,include,VAL-04,
+E_Validation_Testing,VAL-05,extend,VAL-01,validation options: conflict analysis enabled
+E_Validation_Testing,VAL-06,extend,VAL-01,validation options: redundancy analysis enabled
+E_Validation_Testing,TST-02,generalization,TST-01,
+E_Validation_Testing,TST-03,include,VAL-01,
+E_Validation_Testing,TST-04,include,TST-03,
+E_Validation_Testing,TST-06,include,TST-05,
+E_Validation_Testing,TST-07,include,TST-04,
+E_Validation_Testing,TST-08,include,VAL-01,
+E_Validation_Testing,TST-08,include,TST-04,
+F_Version_Change_Management,VER-02,generalization,VER-01,
+F_Version_Change_Management,VER-06,generalization,VER-01,
+F_Version_Change_Management,VER-02,include,VAL-01,
+F_Version_Change_Management,VER-06,include,TST-08,
+F_Version_Change_Management,VER-06,include,VAL-01,
+F_Version_Change_Management,VER-05,extend,VER-03,history inspection: authorized Author requests draft restore
+F_Version_Change_Management,VER-04,include,VER-03,
+G_Review_Approval_Governance,GOV-01,include,VAL-01,
+G_Review_Approval_Governance,GOV-01,include,VER-02,
+G_Review_Approval_Governance,GOV-01,include,UC-X01,
+G_Review_Approval_Governance,GOV-02,include,AUX-GOV-01,
+G_Review_Approval_Governance,GOV-03,extend,GOV-02,review outcome: approve selected
+G_Review_Approval_Governance,GOV-04,extend,GOV-02,review outcome: reject selected
+G_Review_Approval_Governance,GOV-05,extend,GOV-02,review outcome: rework selected
+G_Review_Approval_Governance,GOV-03,include,GOV-09,
+G_Review_Approval_Governance,GOV-03,include,UC-X01,
+G_Review_Approval_Governance,GOV-03,include,UC-X02,
+G_Review_Approval_Governance,GOV-06,extend,GOV-07,review status: review pending and cancellation requested
+H_Build_Artifact_Management,ART-01,include,ART-02,
+H_Build_Artifact_Management,ART-01,include,ART-03,
+H_Build_Artifact_Management,ART-01,include,ART-04,
+H_Build_Artifact_Management,ART-01,include,VAL-01,
+H_Build_Artifact_Management,ART-05,include,ART-01,
+H_Build_Artifact_Management,ART-05,include,ART-07,
+H_Build_Artifact_Management,ART-05,include,VAL-01,
+H_Build_Artifact_Management,ART-05,include,UC-X01,
+H_Build_Artifact_Management,ART-08,include,VER-08,
+I_Environment_Deployment_Management,DEP-02,generalization,DEP-01,
+I_Environment_Deployment_Management,DEP-03,generalization,DEP-01,
+I_Environment_Deployment_Management,DEP-04,generalization,DEP-01,
+I_Environment_Deployment_Management,DEP-05,include,DEP-12,
+I_Environment_Deployment_Management,DEP-05,include,ART-07,
+I_Environment_Deployment_Management,DEP-05,include,DEP-13,
+I_Environment_Deployment_Management,DEP-05,include,DEP-14,
+I_Environment_Deployment_Management,DEP-05,include,UC-X01,
+I_Environment_Deployment_Management,DEP-07,extend,DEP-05,rollout recovery: failure or authorized reversal within deployment lifecycle
+I_Environment_Deployment_Management,DEP-08,generalization,DEP-05,
+I_Environment_Deployment_Management,DEP-06,include,DEP-05,
+I_Environment_Deployment_Management,DEP-15,extend,DEP-14,convergence verification: drift inspection enabled
+I_Environment_Deployment_Management,DEP-16,extend,DEP-15,drift detected: reconciliation authorized
+I_Environment_Deployment_Management,DEP-09,extend,DEP-10,deployment status: cancellable operation and cancel requested
+J_Progressive_Delivery,AUX-PRG-01,generalization,PRG-01,
+J_Progressive_Delivery,AUX-PRG-02,generalization,PRG-01,
+J_Progressive_Delivery,AUX-PRG-01,include,PRG-02,
+J_Progressive_Delivery,AUX-PRG-01,include,DEP-05,
+J_Progressive_Delivery,PRG-03,extend,AUX-PRG-01,canary running: allocation change requested
+J_Progressive_Delivery,PRG-04,extend,AUX-PRG-01,canary running: promotion criteria satisfied
+J_Progressive_Delivery,PRG-05,extend,AUX-PRG-01,canary running: abort requested
+J_Progressive_Delivery,AUX-PRG-02,include,PRG-06,
+J_Progressive_Delivery,AUX-PRG-02,include,DEP-05,
+J_Progressive_Delivery,PRG-09,extend,AUX-PRG-02,shadow running: stop requested
+J_Progressive_Delivery,PRG-08,include,PRG-07,
+J_Progressive_Delivery,PRG-07,extend,EXE-01,evaluation dispatch: shadow enabled and request eligible
+K_Decision_Execution,EXE-01,include,EXE-02,
+K_Decision_Execution,EXE-01,include,EXE-03,
+K_Decision_Execution,EXE-01,include,EXE-05,
+K_Decision_Execution,EXE-01,include,EXE-08,
+K_Decision_Execution,EXE-01,include,UC-X04,
+K_Decision_Execution,EXE-09,extend,EXE-01,response enrichment: metadata requested or response policy requires it
+K_Decision_Execution,EXE-10,extend,EXE-01,request validation: request invalid
+K_Decision_Execution,EXE-11,extend,EXE-01,evaluation: evaluation failed
+K_Decision_Execution,EXP-01,extend,EXE-01,response enrichment: explanation requested and permitted
+K_Decision_Execution,EXE-06,generalization,EXE-05,
+K_Decision_Execution,EXE-07,generalization,EXE-05,
+K_Decision_Execution,AUX-EXE-01,generalization,EXE-05,
+K_Decision_Execution,EXE-12,generalization,EXE-01,
+K_Decision_Execution,EXE-12,include,AUX-EXE-02,
+K_Decision_Execution,EXE-02,include,IAM-10,
+K_Decision_Execution,EXE-04,generalization,UC-X04,
+K_Decision_Execution,AUX-EXE-02,generalization,UC-X04,
+L_Explainability_Decision_Trace,EXP-01,include,EXP-02,
+L_Explainability_Decision_Trace,EXP-01,include,UC-X04,
+L_Explainability_Decision_Trace,EXP-02,include,EXP-07,
+L_Explainability_Decision_Trace,EXP-03,extend,EXP-02,explanation evidence: matched rules requested
+L_Explainability_Decision_Trace,EXP-04,extend,EXP-02,explanation evidence: trace requested
+L_Explainability_Decision_Trace,EXP-05,extend,EXP-02,explanation evidence: input values requested
+L_Explainability_Decision_Trace,EXP-06,extend,EXP-02,explanation evidence: output derivation requested
+M_Simulation_Impact_Analysis,SIM-02,generalization,SIM-01,
+M_Simulation_Impact_Analysis,SIM-01,include,UC-X04,
+M_Simulation_Impact_Analysis,SIM-03,include,SIM-01,
+M_Simulation_Impact_Analysis,SIM-05,include,SIM-06,
+M_Simulation_Impact_Analysis,SIM-07,include,SIM-01,
+N_Runtime_Operations_Observability,OPS-01,include,OPS-02,
+N_Runtime_Operations_Observability,OPS-01,include,OPS-03,
+N_Runtime_Operations_Observability,OPS-11,extend,OPS-01,runtime monitoring: alert condition detected
+N_Runtime_Operations_Observability,OPS-03,include,OPS-04,
+N_Runtime_Operations_Observability,OPS-03,include,OPS-05,
+N_Runtime_Operations_Observability,OPS-03,include,OPS-06,
+N_Runtime_Operations_Observability,OPS-10,include,OPS-08,
+N_Runtime_Operations_Observability,OPS-10,include,OPS-09,
+O_Audit_Compliance,AUD-02,extend,AUD-01,audit inspection: search/filter requested
+O_Audit_Compliance,AUD-06,include,AUD-07,
+O_Audit_Compliance,AUD-06,include,AUD-08,
+O_Audit_Compliance,AUD-06,include,UC-X04,
+O_Audit_Compliance,AUD-03,include,AUD-01,
+O_Audit_Compliance,AUD-04,include,AUD-01,
+O_Audit_Compliance,AUD-05,include,AUD-01,
+O_Audit_Compliance,AUD-09,include,UC-X02,
+P_Automation_CI_CD_Integration,CICD-01,include,VAL-01,
+P_Automation_CI_CD_Integration,CICD-02,include,TST-04,
+P_Automation_CI_CD_Integration,CICD-03,include,ART-01,
+P_Automation_CI_CD_Integration,CICD-04,include,ART-05,
+P_Automation_CI_CD_Integration,CICD-05,include,DEP-05,
+P_Automation_CI_CD_Integration,CICD-06,include,DEP-10,
+P_Automation_CI_CD_Integration,CICD-07,include,TST-05,
+Q_Platform_Administration,ADM-01,include,ADM-02,
+Q_Platform_Administration,ADM-01,include,UC-X01,
+Q_Platform_Administration,ADM-03,extend,ADM-02,policy configuration: execution limits selected
+Q_Platform_Administration,ADM-04,extend,ADM-02,policy configuration: retention selected
+Q_Platform_Administration,ADM-05,extend,ADM-02,policy configuration: audit selected
+Q_Platform_Administration,ADM-06,extend,ADM-02,policy configuration: deployment selected
+Q_Platform_Administration,ADM-08,generalization,ADM-07,
+Q_Platform_Administration,ADM-09,generalization,ADM-07,
+Q_Platform_Administration,ADM-10,generalization,ADM-07,
+02_Cross_Cutting,UC-X01,include,IAM-04,
+02_Cross_Cutting,AUX-X-01,include,UC-X01,
+02_Cross_Cutting,AUX-X-01,include,UC-X02,
+02_Cross_Cutting,EXE-04,generalization,UC-X04,
+02_Cross_Cutting,AUX-EXE-02,generalization,UC-X04,

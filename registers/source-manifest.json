@@ -1,0 +1,1585 @@
+[
+  {
+    "source": "activity-diagrams/01_Administration.drawio",
+    "bytes": 28957,
+    "sha256": "bc6d3e60423414e16742a6b0a0b409dac4b420886cd02a706b03b702065cb8e0",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/activity-diagrams/01_Administration.drawio"
+  },
+  {
+    "source": "activity-diagrams/01_Administration.puml",
+    "bytes": 1528,
+    "sha256": "75d18b280e1e281fe7542d66da6b2876aff8e13bdfab1fab1bd76ec53d723555",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/activity-diagrams/01_Administration.puml"
+  },
+  {
+    "source": "activity-diagrams/02_Decision_Modeling.drawio",
+    "bytes": 33674,
+    "sha256": "b5599eb9b118d456ba2120d5401be982bd584f421645dbf512a4d809bfbe7366",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/activity-diagrams/02_Decision_Modeling.drawio"
+  },
+  {
+    "source": "activity-diagrams/02_Decision_Modeling.puml",
+    "bytes": 1860,
+    "sha256": "39c5ce4c7e487df1af511e57fa8bb2b6595c184dd300054e13294bd7bf566b70",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/activity-diagrams/02_Decision_Modeling.puml"
+  },
+  {
+    "source": "activity-diagrams/03_Governance_and_Approval.drawio",
+    "bytes": 44003,
+    "sha256": "2ba157f25211feb63b1b4ff3a9fa3bc5d39901f3a0fd75e6f4eaf1826becc536",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/activity-diagrams/03_Governance_and_Approval.drawio"
+  },
+  {
+    "source": "activity-diagrams/03_Governance_and_Approval.puml",
+    "bytes": 2572,
+    "sha256": "021edd1a07da44737b20db12b7acc8aa4b5de4dac868b6451780749e56280427",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/activity-diagrams/03_Governance_and_Approval.puml"
+  },
+  {
+    "source": "activity-diagrams/04_Shadow_and_Canary.drawio",
+    "bytes": 56423,
+    "sha256": "267f72df879c02ca7ca75945902fe7bbf88ee7cb4c7ebd27fc835ef7343d438c",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/activity-diagrams/04_Shadow_and_Canary.drawio"
+  },
+  {
+    "source": "activity-diagrams/04_Shadow_and_Canary.png",
+    "bytes": 31935,
+    "sha256": "dec077b680da3df2f0acd734dc7aa60b6c72876baed88ec5b4857d91c9379f93",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "activity-diagrams/04_Shadow_and_Canary.puml",
+    "bytes": 2947,
+    "sha256": "60dbb7d178414f90cdce709c3e62188c4c3ca0952e3ee7c4717da0b970de927e",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/activity-diagrams/04_Shadow_and_Canary.puml"
+  },
+  {
+    "source": "activity-diagrams/05_Deployment_and_Convergence.drawio",
+    "bytes": 49473,
+    "sha256": "ccc8b0b798e2754d0777c43d6405850e2781fc1a3a6e3ced4cbb9beca3c02f77",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/activity-diagrams/05_Deployment_and_Convergence.drawio"
+  },
+  {
+    "source": "activity-diagrams/05_Deployment_and_Convergence.puml",
+    "bytes": 2900,
+    "sha256": "4c215c9075a262fc6be16546a20dbe9532eeb01b3322f595787dbe6e86efd87d",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/activity-diagrams/05_Deployment_and_Convergence.puml"
+  },
+  {
+    "source": "activity-diagrams/06_Runtime_Evaluation.drawio",
+    "bytes": 46532,
+    "sha256": "35463898ed5a9e3c819c86b3279bbf4ac70fbc0b265828f33830d5ebb85e82e0",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/activity-diagrams/06_Runtime_Evaluation.drawio"
+  },
+  {
+    "source": "activity-diagrams/06_Runtime_Evaluation.puml",
+    "bytes": 2419,
+    "sha256": "5c351609435d6642342df3b7b0fb4761b924bc32aa18ada5c686ddd4dd349d4c",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/activity-diagrams/06_Runtime_Evaluation.puml"
+  },
+  {
+    "source": "activity-diagrams/07_Trace_Capture.drawio",
+    "bytes": 23578,
+    "sha256": "762ca2cc313dfdff424fee813ce7384435d43412fdd604a9d691b5b91861fc2b",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/activity-diagrams/07_Trace_Capture.drawio"
+  },
+  {
+    "source": "activity-diagrams/07_Trace_Capture.puml",
+    "bytes": 1650,
+    "sha256": "d4b28f15cb85c25e72fc2626d41cd8c235ffef75425784cd03693fd72105e1d7",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/activity-diagrams/07_Trace_Capture.puml"
+  },
+  {
+    "source": "activity-diagrams/08_Historical_Explain_and_Audit.drawio",
+    "bytes": 27063,
+    "sha256": "ac2478dcd56d8de898867f6b28c4f6c55cbfa615cb71e8b7802dd6b2481d8c2b",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/activity-diagrams/08_Historical_Explain_and_Audit.drawio"
+  },
+  {
+    "source": "activity-diagrams/08_Historical_Explain_and_Audit.puml",
+    "bytes": 1591,
+    "sha256": "3f83c5913ee9db3c61ef33635470a16e20ed22b8c267d002b66fdffdf3c0941a",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/activity-diagrams/08_Historical_Explain_and_Audit.puml"
+  },
+  {
+    "source": "activity-diagrams/activity-model.json",
+    "bytes": 61875,
+    "sha256": "8844082d72984a0e2dd7a434ef2663b3cd5b94ca8a3cc0c4c6102605b3bb08bd",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/activity-diagrams/activity-model.json"
+  },
+  {
+    "source": "activity-diagrams/generate.py",
+    "bytes": 21359,
+    "sha256": "377dd422564eb53755049ee4bf9312abdb6daf172381f347e1b5f7a4dd631563",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/activity-diagrams/generate.py"
+  },
+  {
+    "source": "activity-diagrams/previews/01_Administration.png",
+    "bytes": 420558,
+    "sha256": "6a4ba20545e6c7291de79b7e7e3ccf8ea97b5c0e107dc0b7b4a0907f6b6b7cec",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "activity-diagrams/previews/01_Administration.svg",
+    "bytes": 21695,
+    "sha256": "80b8a325f8a17feaab1171316b2bea654c76dd6af53ee5660794463489977765",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "activity-diagrams/previews/02_Decision_Modeling.png",
+    "bytes": 514576,
+    "sha256": "b659d02642f3906015f9d025db25032a5f7ffb3eb1205303ae70c6d01fc69a1e",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "activity-diagrams/previews/02_Decision_Modeling.svg",
+    "bytes": 27506,
+    "sha256": "77e2f65ec29096df5628436ffdfbf5310c6d360fe2439c3a161f6cf9eefe8f2e",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "activity-diagrams/previews/03_Governance_and_Approval.png",
+    "bytes": 699745,
+    "sha256": "c310323a6ba7a1fa4c34573b4edddb4843acb1f7efc797e4ec3c763206669eec",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "activity-diagrams/previews/03_Governance_and_Approval.svg",
+    "bytes": 34279,
+    "sha256": "981ced848c289f4f01ec5004bbcbd5874cc0ad16c8dc4e8ec8a1bd0961ccf3a1",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "activity-diagrams/previews/04_Shadow_and_Canary.png",
+    "bytes": 720431,
+    "sha256": "f2efff609cb231bdcb105e4e2eeeaec33b33266cc44adbb940fd6c7a916996cf",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "activity-diagrams/previews/04_Shadow_and_Canary.svg",
+    "bytes": 39132,
+    "sha256": "25ecc69c6efa6ccfc2d5ebd975db6d5ab368daf1d11d1a15761970abd61ae6e7",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "activity-diagrams/previews/04_Shadow_and_Canary_01.png",
+    "bytes": 227296,
+    "sha256": "628a530002bdb0f3a0828c9b8937d8add9a64156056db7b8bb428462ed438bb3",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "activity-diagrams/previews/04_Shadow_and_Canary_02.png",
+    "bytes": 531423,
+    "sha256": "2c2b30c8bc70b5530b3133a0d889c35230ecfc9891aaaa3ceacbf3a1139cf30c",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "activity-diagrams/previews/04_Shadow_and_Canary_03.png",
+    "bytes": 203726,
+    "sha256": "059814b291a50fc52c4be951da734565508ad4712bc24b15886faa0bcf29d6a7",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "activity-diagrams/previews/05_Deployment_and_Convergence.png",
+    "bytes": 625681,
+    "sha256": "9835d9d437dcef0e53a1b4eac337007b2fd1126bb42315166b69dfe5045cc0dc",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "activity-diagrams/previews/05_Deployment_and_Convergence.svg",
+    "bytes": 31948,
+    "sha256": "2cd00ea7ba2959906121bdd0b8f76a13fb3d9737e4f95f40967d2be4ddb3f2d2",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "activity-diagrams/previews/05_Deployment_and_Convergence_01.png",
+    "bytes": 290718,
+    "sha256": "6c4df9210c0e93208204edfe4b6262682cc1ef54745f02b4ffa775abf94b7102",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "activity-diagrams/previews/05_Deployment_and_Convergence_02.png",
+    "bytes": 394858,
+    "sha256": "5cbf46c3fed6da2d9a270c5d28b59d9b42b81ebfe8362862ad684deebd5bb080",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "activity-diagrams/previews/05_Deployment_and_Convergence_03.png",
+    "bytes": 260748,
+    "sha256": "55486279e77c030398575d2bc9ff7bf415f204aa4d49cc74a45cf3352114ec7d",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "activity-diagrams/previews/06_Runtime_Evaluation.png",
+    "bytes": 728517,
+    "sha256": "22cd6b2a3ab09b9ae6c3219df15196f5f30ead9ce8f9e1c3713efb2fc7965930",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "activity-diagrams/previews/06_Runtime_Evaluation.svg",
+    "bytes": 35453,
+    "sha256": "e9fab4dd9588e40e4109e0cfe73462c001caa104edd1f154b62db9c2766baa23",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "activity-diagrams/previews/07_Trace_Capture.png",
+    "bytes": 400101,
+    "sha256": "e01e46de5d2d31884a4a42cc6933f914a9c63744965623f90702882a74e51772",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "activity-diagrams/previews/07_Trace_Capture.svg",
+    "bytes": 17275,
+    "sha256": "07f726463a5b71bbc698aed1d9f39a00ddb96f69e90f26458766976d7b130170",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "activity-diagrams/previews/08_Historical_Explain_and_Audit.png",
+    "bytes": 448344,
+    "sha256": "03eece47a41ef2f6557ce88bf52ca57607312e89fcd8862929c633c457061243",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "activity-diagrams/previews/08_Historical_Explain_and_Audit.svg",
+    "bytes": 21052,
+    "sha256": "c4d94c80bac19daa66d697845060e13e34b0914cb9f52b304367475fbd0a34a6",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "activity-diagrams/README.md",
+    "bytes": 2484,
+    "sha256": "15401cc24948d8b5344e541f050d0f091c77227baacc2cf161482dc69ce22da0",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/activity-diagrams/README.md"
+  },
+  {
+    "source": "activity-diagrams/render-validation.json",
+    "bytes": 2010,
+    "sha256": "7193dfe6dd0697391dcff4bae9d0dbdd264627ed1155d1692dba6495b76ad41c",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/activity-diagrams/render-validation.json"
+  },
+  {
+    "source": "activity-diagrams/render.py",
+    "bytes": 1540,
+    "sha256": "7420f34ff0cc785f5d18d481fb1c48a9056aa1b4f7eea53ebc9dcdeb45f75b58",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/activity-diagrams/render.py"
+  },
+  {
+    "source": "activity-diagrams/validation.json",
+    "bytes": 3970,
+    "sha256": "ab9c864808d25fa19cbd1a5d606929767dee37bea164fa8182be09f7a7e5681e",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/activity-diagrams/validation.json"
+  },
+  {
+    "source": "class-diagrams/00_Conceptual_Entity_Model.puml",
+    "bytes": 6230,
+    "sha256": "38286b4a812781595c4123f55658fdcceb1e9b481027787d8a495f4a1bdc599c",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/class-diagrams/00_Conceptual_Entity_Model.puml"
+  },
+  {
+    "source": "class-diagrams/00_Overview.puml",
+    "bytes": 2607,
+    "sha256": "4a4a10812fb460458aadc101428d6b8d323e1f3360731097c63a118d15c8dc44",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/class-diagrams/00_Overview.puml"
+  },
+  {
+    "source": "class-diagrams/00_System_Context.puml",
+    "bytes": 3447,
+    "sha256": "918be3b322f60f8599aea45c5f230aff0a02e163b1d34a68470592f1f654c793",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/class-diagrams/00_System_Context.puml"
+  },
+  {
+    "source": "class-diagrams/01_Administration.puml",
+    "bytes": 2251,
+    "sha256": "359ef53cb593aea2455cb9d347f90c5ed574e2ec3037e1196193a6ecf94a5bfd",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/class-diagrams/01_Administration.puml"
+  },
+  {
+    "source": "class-diagrams/02_Decision_Modeling.puml",
+    "bytes": 3342,
+    "sha256": "126b8f48962068dd8fe6c2a4ddf91b184f5394abd49a061982b7c542d4a5d1da",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/class-diagrams/02_Decision_Modeling.puml"
+  },
+  {
+    "source": "class-diagrams/03_Governance_and_Approval.puml",
+    "bytes": 2997,
+    "sha256": "0697e69bf962629cc01c1d705a5a024045f6ff8da33c364e2a2f4d1dcfc044b6",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/class-diagrams/03_Governance_and_Approval.puml"
+  },
+  {
+    "source": "class-diagrams/04_Deployment_and_Distribution.puml",
+    "bytes": 2873,
+    "sha256": "2b050f93ee6936d48c5fa73c48cc2068831558881ebf0f7e845b91362af5dd45",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/class-diagrams/04_Deployment_and_Distribution.puml"
+  },
+  {
+    "source": "class-diagrams/05_Runtime_and_Integration.puml",
+    "bytes": 3142,
+    "sha256": "abaf20e5b079beb9136db92fe2806f76627f941da65e9222f5cb0f18cd2ec770",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/class-diagrams/05_Runtime_and_Integration.puml"
+  },
+  {
+    "source": "class-diagrams/06_Audit_and_Observability.puml",
+    "bytes": 3446,
+    "sha256": "4b9ac9bf78c2ed92e0edcf731651ea3b7617e378cc71f0219d7d0664b9c452b6",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/class-diagrams/06_Audit_and_Observability.puml"
+  },
+  {
+    "source": "class-diagrams/previews/00_Conceptual_Entity_Model.png",
+    "bytes": 305152,
+    "sha256": "21a6c23b52164ca2b2451ee41b1f2e5707a90f2920cab276398a99882f6b57d7",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "class-diagrams/previews/00_Conceptual_Entity_Model.svg",
+    "bytes": 100007,
+    "sha256": "4db0a768e56402b3491194025bef42e3a9af0b9046f08520ff518929491a9bd1",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "class-diagrams/previews/00_Overview.png",
+    "bytes": 128909,
+    "sha256": "559cad2b87d5ae108968427f1bf7e04532dab0e95f00a709e008f51accef5bb2",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "class-diagrams/previews/00_Overview.svg",
+    "bytes": 65207,
+    "sha256": "e0ebecd8a31b8deb7451202c8d9377dc666f906370728b433460c437f8fe5d57",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "class-diagrams/previews/00_System_Context.png",
+    "bytes": 132096,
+    "sha256": "60df4da0457a684d8fe429d0d82ff620f0e809bb05278b2762c8ff1e3cf8d697",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "class-diagrams/previews/00_System_Context.svg",
+    "bytes": 36285,
+    "sha256": "e1eac2a9a520e9fa0ccb1160597b676518bb2edfc3813d77120f73f42278a045",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "class-diagrams/previews/01_Administration.png",
+    "bytes": 114570,
+    "sha256": "320fbb5d8bc16909d81e8c9f68bb53d933ecee12e50c565f72b71a20dc364bac",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "class-diagrams/previews/01_Administration.svg",
+    "bytes": 41346,
+    "sha256": "37c2fdbb5b89263e22fb9cec0e3e521d5f23e4238b70f4087b79a440d3ad867c",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "class-diagrams/previews/02_Decision_Modeling.png",
+    "bytes": 164057,
+    "sha256": "5bf3db486f7b60d7ae89a8ae312d9ad6dea459d328f86ed937eca06ddde9cc22",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "class-diagrams/previews/02_Decision_Modeling.svg",
+    "bytes": 62454,
+    "sha256": "289281a8813e97ace963735ad4a388f69f058b9c6f5bde05cf548bb752d9cf6d",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "class-diagrams/previews/03_Governance_and_Approval.png",
+    "bytes": 191495,
+    "sha256": "94c5aa1cf052630a5ea80134311aacbe4f9fabdd61a7dd4cbfafb2cf1f04199a",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "class-diagrams/previews/03_Governance_and_Approval.svg",
+    "bytes": 46282,
+    "sha256": "9fb6aba5004665f50c064c34df646dedbb784d1ab11cc9fa4e5ba1abe1c86f32",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "class-diagrams/previews/04_Deployment_and_Distribution.png",
+    "bytes": 146542,
+    "sha256": "fcd5fa1bb45d0dc24eabb707fa03aaa3521ab6fe88658f312a7a3feb1960e28e",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "class-diagrams/previews/04_Deployment_and_Distribution.svg",
+    "bytes": 44034,
+    "sha256": "7a7b82f068243edd7dbfcf3bf05b6ad82a1efe05e74197257e038899e1484a57",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "class-diagrams/previews/05_Runtime_and_Integration.png",
+    "bytes": 144025,
+    "sha256": "b90712b127db4a704236f1d8455751f869dc29f93b3ebae89ad173ab97db8d52",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "class-diagrams/previews/05_Runtime_and_Integration.svg",
+    "bytes": 51573,
+    "sha256": "bb6385b18bbe9f1068a4b8c1620d7b3466471672d404428b8f85731e93be02d1",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "class-diagrams/previews/06_Audit_and_Observability.png",
+    "bytes": 171611,
+    "sha256": "b4c9c3750623f918b61e1cab9492e38b2d8260a24cba7cdd6905d8bf081dfc97",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "class-diagrams/previews/06_Audit_and_Observability.svg",
+    "bytes": 51060,
+    "sha256": "bd009587d07693eaf48393318d85fae4e57d3fae289c5919afd630a0dfc065bf",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "class-diagrams/README.md",
+    "bytes": 6470,
+    "sha256": "4a71ffa7df694198dc86300869c5f2acf50bb4b18fcbd1f686e1c8177827e5f2",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/class-diagrams/README.md"
+  },
+  {
+    "source": "communication-diagrams/00_Integrated_Communication.puml",
+    "bytes": 3309,
+    "sha256": "f0c0efb7411317211b8af2a3e5ed3b39afe613b1417d05a1252a99a7c24204ef",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/communication-diagrams/00_Integrated_Communication.puml"
+  },
+  {
+    "source": "communication-diagrams/01_Administration.puml",
+    "bytes": 1640,
+    "sha256": "bfcf443884b637786ff7dcef22aaf186aa4fe8422f8c0d82283921cfa596929b",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/communication-diagrams/01_Administration.puml"
+  },
+  {
+    "source": "communication-diagrams/02_Decision_Modeling.puml",
+    "bytes": 1988,
+    "sha256": "55fbaa7cf2b2501ee7b76a7cf2a23213e4a15f5bdfe70030f740c04ffdc49a9a",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/communication-diagrams/02_Decision_Modeling.puml"
+  },
+  {
+    "source": "communication-diagrams/03_Governance_and_Approval.puml",
+    "bytes": 2577,
+    "sha256": "4e4b2bb88b7998fe686fe8fe6c99cdc25cf12829473bf9759d50203012c58f25",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/communication-diagrams/03_Governance_and_Approval.puml"
+  },
+  {
+    "source": "communication-diagrams/04_Shadow_and_Canary.puml",
+    "bytes": 2660,
+    "sha256": "139c60e3324043ceb8e32ee08d61f112e35f86bb3f02ea2a5aeb42de8849167c",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/communication-diagrams/04_Shadow_and_Canary.puml"
+  },
+  {
+    "source": "communication-diagrams/05_Deployment_and_Convergence.puml",
+    "bytes": 2328,
+    "sha256": "6d84c71bcd653cda5a5cd7646a1c5a9812866abce8c47ad10a4115a6b4acd899",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/communication-diagrams/05_Deployment_and_Convergence.puml"
+  },
+  {
+    "source": "communication-diagrams/06_Runtime_Evaluation.puml",
+    "bytes": 2720,
+    "sha256": "ba38d6709d0962306a259cb2c3fa1c85dae95191c8a6aa72610f85fcd59764a2",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/communication-diagrams/06_Runtime_Evaluation.puml"
+  },
+  {
+    "source": "communication-diagrams/07_Trace_Capture.puml",
+    "bytes": 1940,
+    "sha256": "b54813163b96198e95150a8b034cd0ed0309e814b41613117e5571dd0ff693e0",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/communication-diagrams/07_Trace_Capture.puml"
+  },
+  {
+    "source": "communication-diagrams/08_Historical_Explain_and_Audit.puml",
+    "bytes": 1784,
+    "sha256": "b918241e3e093095eb5f6f343b4a828ea471e74f2eb636720afe9a1c5912a028",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/communication-diagrams/08_Historical_Explain_and_Audit.puml"
+  },
+  {
+    "source": "communication-diagrams/previews/00_Integrated_Communication.png",
+    "bytes": 127362,
+    "sha256": "d85af123782d92c72dc657e6c370eccc47b34dc0ac15184a2b81c38dc6935e3c",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "communication-diagrams/previews/00_Integrated_Communication.svg",
+    "bytes": 27267,
+    "sha256": "26d542430ede1838447f9748ca12a8a100e22cdfe9a0531fd8759ea2b815de8b",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "communication-diagrams/previews/01_Administration.png",
+    "bytes": 72771,
+    "sha256": "ed03e4440b8a132f0103e1c591563b258f9dc2cc329c65afe5b2b06456db7c72",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "communication-diagrams/previews/01_Administration.svg",
+    "bytes": 11638,
+    "sha256": "f1dc3692087fca1c66dcd299ad21db041800a807d59e0daceafff3bfa12b8e52",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "communication-diagrams/previews/02_Decision_Modeling.png",
+    "bytes": 101250,
+    "sha256": "de47dfba4bfc0a83eb1d895a5c73849be46f8a2231ce88823faa672d8f78a9c1",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "communication-diagrams/previews/02_Decision_Modeling.svg",
+    "bytes": 14532,
+    "sha256": "8eb00b052c82f9b6b0a63770c7fce242a3456737f5933881777a50b801e0a87c",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "communication-diagrams/previews/03_Governance_and_Approval.png",
+    "bytes": 134931,
+    "sha256": "8c1ed3d39e9df6385e75d8be0b1bb325dcf005d33b05c470d87c0d0d30b834d5",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "communication-diagrams/previews/03_Governance_and_Approval.svg",
+    "bytes": 19576,
+    "sha256": "4caeed9eedea7a66a944383c9db201700193f68ba725161841a399905e9b074d",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "communication-diagrams/previews/04_Shadow_and_Canary.png",
+    "bytes": 153788,
+    "sha256": "d2b98e364727135d970f210920454e3c89dad2c69e39791c06fcda0afb3f9cea",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "communication-diagrams/previews/04_Shadow_and_Canary.svg",
+    "bytes": 20017,
+    "sha256": "93a23ad643f11cb52fd95e406b9e23d035b815b43ff79c02293cc485368baece",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "communication-diagrams/previews/05_Deployment_and_Convergence.png",
+    "bytes": 115121,
+    "sha256": "6183db9d891d9e1d9bcc98be181df0eb6163c19014c56c3757a278fd043ac330",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "communication-diagrams/previews/05_Deployment_and_Convergence.svg",
+    "bytes": 16938,
+    "sha256": "a62254ae74db2449ae4d31836f04c14917c2b5dc1fc8a9995442f07d350d0892",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "communication-diagrams/previews/06_Runtime_Evaluation.png",
+    "bytes": 134416,
+    "sha256": "b2901780cd6b1e35e7d349b66574f400268be3ae161d50f63fc5b271e792d5fe",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "communication-diagrams/previews/06_Runtime_Evaluation.svg",
+    "bytes": 19798,
+    "sha256": "e79a19452dad783d613a533823dff8d81ac8d724dc7530b6fd51d17f2bcc12a4",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "communication-diagrams/previews/07_Trace_Capture.png",
+    "bytes": 80731,
+    "sha256": "c913c20c2dae701847ce2d83422b603869499f5449b23194c4dac3463338a0f4",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "communication-diagrams/previews/07_Trace_Capture.svg",
+    "bytes": 11975,
+    "sha256": "bd4eea64613b307d9220f5d49fc6dd4d6348429a244cb8d8e31ef365fd4d1092",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "communication-diagrams/previews/08_Historical_Explain_and_Audit.png",
+    "bytes": 86608,
+    "sha256": "9c7b59d8fe3bbcbcb2891ab44e672761d79a7defc0a44308bb7e6e4e7d67fc10",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "communication-diagrams/previews/08_Historical_Explain_and_Audit.svg",
+    "bytes": 12569,
+    "sha256": "da008d42490785ee806487ea3300cd845f09292ae01a93562727f7d8e62fb898",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "communication-diagrams/README.md",
+    "bytes": 5956,
+    "sha256": "2044d8ccd71361dd46c34a823a2494067703d80e6e01237a454d3797a655cfcf",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/communication-diagrams/README.md"
+  },
+  {
+    "source": "component-diagrams/01_RuleSphere_Components.png",
+    "bytes": 55282,
+    "sha256": "ab4512708d08bd471fea394a3ff2dbee70970e98861e642d09e42a68473a50f0",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "component-diagrams/01_RuleSphere_Components.puml",
+    "bytes": 3598,
+    "sha256": "9afbef4d1e18cc025138e732a816d9d8a287e546953f50a35e8f5ec7293bc364",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/component-diagrams/01_RuleSphere_Components.puml"
+  },
+  {
+    "source": "component-diagrams/previews/01_RuleSphere_Components.png",
+    "bytes": 162724,
+    "sha256": "036e7ee02b5428e755ca2ad3e0fb7aa06d6f602273c2ab3d805322fe6864a9f1",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "component-diagrams/previews/01_RuleSphere_Components.svg",
+    "bytes": 35171,
+    "sha256": "1e202b5b7506035e32a75e7c6acd28aeb8384bfe29ce39675d4f85b7c483c0de",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "concurrent-task-diagrams/01_Concurrent_Task_Architecture.puml",
+    "bytes": 4046,
+    "sha256": "a4f6c0400ab35d4a372b8630ccc6d2a931feacc85550e801cd93609c4b92dd79",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/concurrent-task-diagrams/01_Concurrent_Task_Architecture.puml"
+  },
+  {
+    "source": "concurrent-task-diagrams/previews/01_Concurrent_Task_Architecture.png",
+    "bytes": 191768,
+    "sha256": "095752c45634ef420aa8718532dc94fee7c85544be59940e214c4a6b554c6942",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "concurrent-task-diagrams/previews/01_Concurrent_Task_Architecture.svg",
+    "bytes": 55570,
+    "sha256": "33518d4fdd4ca7d96b185120b49f59388f7cf44d1ee35effa9b0ca166048baf7",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "deployment-diagrams/01_RuleSphere_Deployment.puml",
+    "bytes": 3814,
+    "sha256": "e13019a789422b3fea3428cac28874b8e6cdb55fe2088babe3bd23e376c1f7f0",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/deployment-diagrams/01_RuleSphere_Deployment.puml"
+  },
+  {
+    "source": "deployment-diagrams/previews/01_RuleSphere_Deployment.png",
+    "bytes": 251428,
+    "sha256": "bc6f97f2b61330b46475eeb31e6d1a1cb8ce725155c0211397826b0724e234e0",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "deployment-diagrams/previews/01_RuleSphere_Deployment.svg",
+    "bytes": 43246,
+    "sha256": "303eade5fa2f6689642378b584c000a6b367a9d5d770b9a8e0917ccb23bf6769",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "dfd-diagrams/.$RuleSphere_Context_Yourdon_DeMarco.drawio.bkp",
+    "bytes": 73694,
+    "sha256": "4604eef972d1ad6ea588973b2a6a9d524788e203bdc13017fd9829476cd21152",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/dfd-diagrams/.$RuleSphere_Context_Yourdon_DeMarco.drawio.bkp"
+  },
+  {
+    "source": "dfd-diagrams/RuleSphere_Context_Yourdon_DeMarco.drawio",
+    "bytes": 66693,
+    "sha256": "e15ccd05b293d3bef8235cd5e8926e8fe7c17b55226438341d96356e4df2bb41",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/dfd-diagrams/RuleSphere_Context_Yourdon_DeMarco.drawio"
+  },
+  {
+    "source": "diagram-review/ACTOR_STEREOTYPE_DICTIONARY.md",
+    "bytes": 6398,
+    "sha256": "46d4b1e303da994408f840ed375ddadf63b5fdc0b2fc88fa15b48818f440ae8e",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/diagram-review/ACTOR_STEREOTYPE_DICTIONARY.md"
+  },
+  {
+    "source": "diagram-review/COMET_UML_Audit.md",
+    "bytes": 30875,
+    "sha256": "ae1e0434a63aec28b31386958dc229f3f46b7bb103bab63e7980abf8d297aece",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/diagram-review/COMET_UML_Audit.md"
+  },
+  {
+    "source": "diagram-review/inventory.json",
+    "bytes": 18042,
+    "sha256": "caab9336fa1bd775c6d3db78413cd5a97b1eaeedc71e64153710c049eeec695a",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/diagram-review/inventory.json"
+  },
+  {
+    "source": "diagram-review/uc-traceability.csv",
+    "bytes": 8887,
+    "sha256": "9b7920235c7eb79bf2ce8b30c5aa047d470fe0b01e21c84cfaf01219f0de696c",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/diagram-review/uc-traceability.csv"
+  },
+  {
+    "source": "package-diagrams/01_RuleSphere_Packages.puml",
+    "bytes": 3087,
+    "sha256": "c23335028c5cb986cb6a8590b919b43ee6ca4e6b6ca3b0f3f7303ca91d09d5a9",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/package-diagrams/01_RuleSphere_Packages.puml"
+  },
+  {
+    "source": "package-diagrams/previews/01_RuleSphere_Packages.png",
+    "bytes": 151934,
+    "sha256": "02c8f4eecab388f0efa5a26404a8e4925d29fe04e99b5f21c3cb5dee0bf360f5",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "package-diagrams/previews/01_RuleSphere_Packages.svg",
+    "bytes": 84601,
+    "sha256": "c08a25102281b6a4278b9d7bee5ed45268dcacc3676d1508904fd9da687408c9",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "package-diagrams/README.md",
+    "bytes": 5432,
+    "sha256": "f440bf1aa60fe4608d4fa75902be329014159c56e99180c4fb7707196c624d9d",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/package-diagrams/README.md"
+  },
+  {
+    "source": "RuleSphere_Context_Diagram_By_Function.md",
+    "bytes": 3782,
+    "sha256": "10ae0cc383140d924c3feea189bf1c2798d53ba3ba6348839ebfd6229dc3a962",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/RuleSphere_Context_Diagram_By_Function.md"
+  },
+  {
+    "source": "RuleSphere_Context_Diagram_Detailed.mmd",
+    "bytes": 6846,
+    "sha256": "8e3d08da2d7e29b334e505be14cb39fe8fbc751127822af17d6e4c09a3c296ec",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/RuleSphere_Context_Diagram_Detailed.mmd"
+  },
+  {
+    "source": "RuleSphere_SRS_v1.0_Final.docx",
+    "bytes": 57076,
+    "sha256": "bf9931cd15fe5898b364a300e759cb085a5be7c9a762ca881b0da46273b930c4",
+    "treatment": "DOCX text and tables extracted",
+    "extracted": "sources/srs-full.md"
+  },
+  {
+    "source": "sequence-diagrams/01_Administration.puml",
+    "bytes": 2166,
+    "sha256": "324f0d39f5cd2bf0fb64026231c39fd7b1de17fddf0b8b109e24c38b11ff5a65",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/sequence-diagrams/01_Administration.puml"
+  },
+  {
+    "source": "sequence-diagrams/02_Decision_Modeling.puml",
+    "bytes": 2930,
+    "sha256": "83c8844a6e75d7dda1accd717604ff8fa04808b59e3c1ea69d9b242ad09187fd",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/sequence-diagrams/02_Decision_Modeling.puml"
+  },
+  {
+    "source": "sequence-diagrams/03_Governance_and_Approval.puml",
+    "bytes": 4428,
+    "sha256": "586672fd0a5d1531fa6616db36ddc31367093fefad1810b6231e15501ab942a6",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/sequence-diagrams/03_Governance_and_Approval.puml"
+  },
+  {
+    "source": "sequence-diagrams/04_Shadow_and_Canary.png",
+    "bytes": 35672,
+    "sha256": "d41bb6a3723b272502fa9c2f58f40db2e29ed5c9b5393e7dae78151e439067c1",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "sequence-diagrams/04_Shadow_and_Canary.puml",
+    "bytes": 3733,
+    "sha256": "bafb6b9962d12e7df6dfa5a5599674ee5596f3a670843ddedd16dc4e720eafbe",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/sequence-diagrams/04_Shadow_and_Canary.puml"
+  },
+  {
+    "source": "sequence-diagrams/05_Deployment_and_Convergence.puml",
+    "bytes": 3266,
+    "sha256": "2efa01b62203ad229d8e80d4844212206865e6bb16b2da3743a96a2e07faa274",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/sequence-diagrams/05_Deployment_and_Convergence.puml"
+  },
+  {
+    "source": "sequence-diagrams/06_Runtime_Evaluation.puml",
+    "bytes": 3920,
+    "sha256": "a2a7987606d63804af98e56a1794c75c386f192a8183ebe7e14096519fbdd570",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/sequence-diagrams/06_Runtime_Evaluation.puml"
+  },
+  {
+    "source": "sequence-diagrams/07_Trace_Capture.puml",
+    "bytes": 2074,
+    "sha256": "b6c51d8d6a3baf27f6d498af36a9ed66e82b270bd5b2e97049525714c0110059",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/sequence-diagrams/07_Trace_Capture.puml"
+  },
+  {
+    "source": "sequence-diagrams/08_Historical_Explain_and_Audit.puml",
+    "bytes": 2225,
+    "sha256": "04bfa1c6641ed7ea5fe069b91ea9758f60d011c95c4fe069e8a74c1102c01506",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/sequence-diagrams/08_Historical_Explain_and_Audit.puml"
+  },
+  {
+    "source": "sequence-diagrams/previews/01_Administration.png",
+    "bytes": 97605,
+    "sha256": "54f39816f465869ef9f4fd31769526d3c78a0ef0cff783ae18d247ed78c0527d",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "sequence-diagrams/previews/01_Administration.svg",
+    "bytes": 24837,
+    "sha256": "32979b77df15502c9ebce435c41531c3e9381714409aff04c928a32a959431a9",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "sequence-diagrams/previews/02_Decision_Modeling.png",
+    "bytes": 122376,
+    "sha256": "2e0c49d7352324a95666453be822015ad2ad1e042eb109179e57cb66b262e61a",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "sequence-diagrams/previews/02_Decision_Modeling.svg",
+    "bytes": 31341,
+    "sha256": "b3f3c42b1c11937a2e5d45f6f3c4639be0457b93010e310cf8ea657910ae89f6",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "sequence-diagrams/previews/03_Governance_and_Approval.png",
+    "bytes": 212612,
+    "sha256": "e5c7694eb4dc731743c0acbfd5fa3e9f2ba7163b61b563a86d64e19deaf26752",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "sequence-diagrams/previews/03_Governance_and_Approval.svg",
+    "bytes": 49834,
+    "sha256": "219774bed51704d58f0bf3a30123ba025e46ca6f1fee1a4dc74ee2cf0508d04b",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "sequence-diagrams/previews/04_Shadow_and_Canary.png",
+    "bytes": 167687,
+    "sha256": "63b59f0528854247f75e482b8083cebc182f47c95a9a4ffcc9971d548ad6857b",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "sequence-diagrams/previews/04_Shadow_and_Canary.svg",
+    "bytes": 39121,
+    "sha256": "46ed4086d43517f735618566b37fcbfe4283b0cc3382a3caaa9b8224439c75ac",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "sequence-diagrams/previews/05_Deployment_and_Convergence.png",
+    "bytes": 150521,
+    "sha256": "51d0d503168daeb4f764305d0a39f0b014be3635c000a7f052ee2b91f2f92c05",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "sequence-diagrams/previews/05_Deployment_and_Convergence.svg",
+    "bytes": 35821,
+    "sha256": "84a05f4706d138c1f92049f4b8c67d8827c1209e695020ad94fef3b04c73c057",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "sequence-diagrams/previews/06_Runtime_Evaluation.png",
+    "bytes": 191003,
+    "sha256": "6b6bcdf08b3045eb20783d09a19b2a2cc69836123ee3fb8295b8617d084b30cb",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "sequence-diagrams/previews/06_Runtime_Evaluation.svg",
+    "bytes": 42785,
+    "sha256": "cda378afdf390108ccfc9be8257deeb5297a135c0ed39f3a30d83725a89c9c6b",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "sequence-diagrams/previews/07_Trace_Capture.png",
+    "bytes": 79156,
+    "sha256": "cbf04e79971f4909971b8dcd26f16f1d563e8f34ef3de6dbb90d3353cc7bd579",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "sequence-diagrams/previews/07_Trace_Capture.svg",
+    "bytes": 19892,
+    "sha256": "af596c3a0eedd8d6843d84997a98c022a4ee0f009a5f4f806cc976450cae6bab",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "sequence-diagrams/previews/08_Historical_Explain_and_Audit.png",
+    "bytes": 98082,
+    "sha256": "469bb73a1c121489a1ace110a8ecebd3838cb6a7015a9023ec04c3b8aacd7108",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "sequence-diagrams/previews/08_Historical_Explain_and_Audit.svg",
+    "bytes": 24522,
+    "sha256": "fc2b704aa9e6e419339675cb8a566aeae131ff2ecbdb91fcb19f892b18d9ec30",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "sequence-diagrams/README.md",
+    "bytes": 5887,
+    "sha256": "23e0b5e597ed4a9745ea95d1b51f79d67f8c4e8c7f450e7c02843f33c1f9dba1",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/sequence-diagrams/README.md"
+  },
+  {
+    "source": "srs_text.txt",
+    "bytes": 35671,
+    "sha256": "c9d1ba44a29a9d94ca991966f8923aa2167acc4db2405da01d8683ca0c60b632",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/srs_text.txt"
+  },
+  {
+    "source": "state-diagrams/01_Decision_Draft.puml",
+    "bytes": 2832,
+    "sha256": "3cede3170c65ca06a50cddcfa09e7530094432fc9ea27ffc0d0a693772e212ca",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/state-diagrams/01_Decision_Draft.puml"
+  },
+  {
+    "source": "state-diagrams/01_Decision_Draft.svg",
+    "bytes": 18453,
+    "sha256": "7c12558f90fc6380fe2476459bb03003e81b293a74a483d7aec3b7d2c5288f86",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "state-diagrams/02_Release_Approval.puml",
+    "bytes": 3847,
+    "sha256": "c12a1e5ace6d5501687c00ceb81f4977de23b648defbc927d4893a20c148fdcb",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/state-diagrams/02_Release_Approval.puml"
+  },
+  {
+    "source": "state-diagrams/02_Release_Approval.svg",
+    "bytes": 26810,
+    "sha256": "0268ab4b2f9b4b2a160330939e16c334b491cf3968d2b9570322b0a5d2ce1588",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "state-diagrams/03_Deployment.puml",
+    "bytes": 4287,
+    "sha256": "6b62475abd73f57db0248e069e74d33bceeca6331837675a4714ee2ebd50fa84",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/state-diagrams/03_Deployment.puml"
+  },
+  {
+    "source": "state-diagrams/03_Deployment.svg",
+    "bytes": 26509,
+    "sha256": "2f4aa6853aceeb8d75d4aa7a51051a54be661b24041749ba9bb942743e7dfae2",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "state-diagrams/04_Runtime_Convergence.puml",
+    "bytes": 3560,
+    "sha256": "c21223fbf2be7fd33bf904d2c32df58ca447c938ab157d4141bde6ec50be55a6",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/state-diagrams/04_Runtime_Convergence.puml"
+  },
+  {
+    "source": "state-diagrams/04_Runtime_Convergence.svg",
+    "bytes": 21139,
+    "sha256": "ecf9ef82fc00d5f44fe52255e36486385e276e009fc3eb10b7f67d5ab7321ff9",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "state-diagrams/05_Runtime_Request.puml",
+    "bytes": 4346,
+    "sha256": "db0d6f6e4a32b2f2d23e9d6a7ac1470c20b9764e59bd0258347fe9ce92c2c468",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/state-diagrams/05_Runtime_Request.puml"
+  },
+  {
+    "source": "state-diagrams/05_Runtime_Request.svg",
+    "bytes": 31308,
+    "sha256": "8a990b9462901aeb3f1b0c6f357ca2e6f42eb7dbb0295cdc0ef3c183f0d9f8a6",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "state-diagrams/previews/01_Decision_Draft.png",
+    "bytes": 123112,
+    "sha256": "e71485d78d3c374d68a4b100631a69dd7014894d8f63408421b878edd7af6336",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "state-diagrams/previews/01_Decision_Draft.svg",
+    "bytes": 18453,
+    "sha256": "7c12558f90fc6380fe2476459bb03003e81b293a74a483d7aec3b7d2c5288f86",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "state-diagrams/previews/02_Release_Approval.png",
+    "bytes": 165203,
+    "sha256": "23b5e780d7d57816ef4d95899b4c8de702959de783368e2e953b4f9d72b709c4",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "state-diagrams/previews/02_Release_Approval.svg",
+    "bytes": 26810,
+    "sha256": "0268ab4b2f9b4b2a160330939e16c334b491cf3968d2b9570322b0a5d2ce1588",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "state-diagrams/previews/03_Deployment.png",
+    "bytes": 168693,
+    "sha256": "489215214a8fc1039698565ebea7572892c94adda74c81afb5762030d59fb23a",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "state-diagrams/previews/03_Deployment.svg",
+    "bytes": 26509,
+    "sha256": "2f4aa6853aceeb8d75d4aa7a51051a54be661b24041749ba9bb942743e7dfae2",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "state-diagrams/previews/04_Runtime_Convergence.png",
+    "bytes": 165603,
+    "sha256": "f04a85116f8199f507c3ba2b6bed1086fd58253034ff738da870ed01914a4704",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "state-diagrams/previews/04_Runtime_Convergence.svg",
+    "bytes": 21139,
+    "sha256": "ecf9ef82fc00d5f44fe52255e36486385e276e009fc3eb10b7f67d5ab7321ff9",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "state-diagrams/previews/05_Runtime_Request.png",
+    "bytes": 243009,
+    "sha256": "81b45a1f11c1f25120752e1910ac037d0a7b6e69dabdea144d836cf853801011",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "state-diagrams/previews/05_Runtime_Request.svg",
+    "bytes": 31308,
+    "sha256": "8a990b9462901aeb3f1b0c6f357ca2e6f42eb7dbb0295cdc0ef3c183f0d9f8a6",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "state-diagrams/README.md",
+    "bytes": 4580,
+    "sha256": "9d6ff183c7ce0b0c886641c80e33bd4d3a791e9806dd9429d6c190c407f10f87",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/state-diagrams/README.md"
+  },
+  {
+    "source": "use-case-diagrams/01_Administration.puml",
+    "bytes": 2885,
+    "sha256": "4b9e98bab780367c88cbb34fab318bbfc05fdb2bef52cfe07bea0b1e548ef30e",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/01_Administration.puml"
+  },
+  {
+    "source": "use-case-diagrams/02_Decision_Modeling.puml",
+    "bytes": 4053,
+    "sha256": "b377c183e7a887f6d919843dd2fa79acfa09bb89e686bef1578d13950988d94d",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/02_Decision_Modeling.puml"
+  },
+  {
+    "source": "use-case-diagrams/03_Governance_and_Approval.puml",
+    "bytes": 3654,
+    "sha256": "39870da5453a3a2d5418b9e0231d3e4df237a6ac56fbce8fd50206489b7a318a",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/03_Governance_and_Approval.puml"
+  },
+  {
+    "source": "use-case-diagrams/04_Deployment_and_Distribution.puml",
+    "bytes": 3463,
+    "sha256": "824e7048cf9b09611a93e44e635cf739ab1fca59baa8c418306cb1178a0ca3f1",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/04_Deployment_and_Distribution.puml"
+  },
+  {
+    "source": "use-case-diagrams/05_Runtime_and_Integration.puml",
+    "bytes": 4960,
+    "sha256": "4776d4c88c7443b74060a39f37bfde5b93e2d528f2d3c1c59d7e8c874fff03b6",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/05_Runtime_and_Integration.puml"
+  },
+  {
+    "source": "use-case-diagrams/06_Audit_and_Observability.puml",
+    "bytes": 3106,
+    "sha256": "0371200e65130c5e93f43ffc473bc935cc957e2aae1381e3376a04b0644b9fda",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/06_Audit_and_Observability.puml"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/00_System_Overview.drawio",
+    "bytes": 31615,
+    "sha256": "64344089b4138329980685a8439d0c40ce8dc24d6d35c9274fef1d905e5b66a8",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/00_System_Overview.drawio"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/01_Actor_Model.drawio",
+    "bytes": 9787,
+    "sha256": "8901ed07be945e06610f55b2e721ca57da5ceafe0b268e901a231cf498e4f0b5",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/01_Actor_Model.drawio"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/02_Cross_Cutting.drawio",
+    "bytes": 8081,
+    "sha256": "3de0cffce539b8c092a862910dd0e8bf78cb793418382e66aa5e7b02155bece3",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/02_Cross_Cutting.drawio"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/A_Identity_Access_Management.drawio",
+    "bytes": 18334,
+    "sha256": "fc5a4a3390aca8b03baeed050fee68f8d5af231f69bd7c52a10314e61556f8d7",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/A_Identity_Access_Management.drawio"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/B_Decision_Project_Asset_Management.drawio",
+    "bytes": 13664,
+    "sha256": "8838e3a01d43389e966c53393df26eaa58c149fbc39bfbb5cf5b89a8f29cc765",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/B_Decision_Project_Asset_Management.drawio"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/C_Decision_Modeling_Rule_Authoring.drawio",
+    "bytes": 21096,
+    "sha256": "3477677287cc4e1a24547fead9921dead0fa30bc3140eb3af2aa3435e6517d73",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/C_Decision_Modeling_Rule_Authoring.drawio"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/catalog-traceability.csv",
+    "bytes": 19644,
+    "sha256": "4dfa73fc446f673f739357a5ea3c0b8bfd7d621c99ac49c8ddbf61c55dc210de",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/catalog-traceability.csv"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/catalog_model.py",
+    "bytes": 20919,
+    "sha256": "a32d9ca688e07104e76aea80f6a0c5fe36712a7d6af2c9bd655799af9bfb92be",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/catalog_model.py"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/D_Data_Contract_Management.drawio",
+    "bytes": 12787,
+    "sha256": "0dba028375175535c991fe881fdc2195079959b119eab3d7bbfd0b4b371962e7",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/D_Data_Contract_Management.drawio"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/E_Validation_Testing.drawio",
+    "bytes": 19121,
+    "sha256": "83f8e99a06c7c6daa36d0b33338ad94b2cdd76e6a26b8c028568db869283d84f",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/E_Validation_Testing.drawio"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/F_Version_Change_Management.drawio",
+    "bytes": 14169,
+    "sha256": "d76b32a6dad93c8bd87e522a9cc9ad597d965c7216283c6f2632b57009b67632",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/F_Version_Change_Management.drawio"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/G_Review_Approval_Governance.drawio",
+    "bytes": 17213,
+    "sha256": "d98454dc099ffec61f8d75175c8b84a2130ae1285ebd15bb7e701b17632ee583",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/G_Review_Approval_Governance.drawio"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/generate.py",
+    "bytes": 10403,
+    "sha256": "561cce2fddeecc5edf634878046d0b0b578dffe3cd081c30b5da59d617621592",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/generate.py"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/H_Build_Artifact_Management.drawio",
+    "bytes": 18319,
+    "sha256": "c94c97854d9bc1e75c74d69b283ba0d74de94079bda5744df303d1461d81857b",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/H_Build_Artifact_Management.drawio"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/I_Environment_Deployment_Management.drawio",
+    "bytes": 21286,
+    "sha256": "993e0e5e5cc5b3215f2c15fc08fd178900d7364641abc320554d17f4ea254e3e",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/I_Environment_Deployment_Management.drawio"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/J_Progressive_Delivery.drawio",
+    "bytes": 16748,
+    "sha256": "d5b55b75dc3b89573503df90354d4597a78c026a0e57c8ff29c2857de9ab8d42",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/J_Progressive_Delivery.drawio"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/K_Decision_Execution.drawio",
+    "bytes": 21043,
+    "sha256": "428d8cb9b467addee2c922e94dbb7f724b9332f8ff7fc86edbc201898463096e",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/K_Decision_Execution.drawio"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/L_Explainability_Decision_Trace.drawio",
+    "bytes": 15829,
+    "sha256": "24eae65e05a6353076c36de4425aa4f45471fea4dd52f16c26af766f49e54e0a",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/L_Explainability_Decision_Trace.drawio"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/M_Simulation_Impact_Analysis.drawio",
+    "bytes": 11360,
+    "sha256": "44de20ed4c7d17fba802a01ec6e2bf156f3c9e8e28b1781ef8f3e5a39972b697",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/M_Simulation_Impact_Analysis.drawio"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/module-notes.md",
+    "bytes": 8095,
+    "sha256": "3af35a0689965cbf1b50c91a036df62fddc5bfab0bc3361b7a083c1fe41df74c",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/module-notes.md"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/N_Runtime_Operations_Observability.drawio",
+    "bytes": 14457,
+    "sha256": "9d373ed361a5a8765800497a6a6775d7430d5e24589860daf961d93830660027",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/N_Runtime_Operations_Observability.drawio"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/O_Audit_Compliance.drawio",
+    "bytes": 16649,
+    "sha256": "2d4bbbbfbc9aff542e4cc17ea2a5cdc81011f8ce7b86abc127a0d2338e1f76a5",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/O_Audit_Compliance.drawio"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/P_Automation_CI_CD_Integration.drawio",
+    "bytes": 16745,
+    "sha256": "dc1608602859dee9498c486286324d8375454906e85851f03e25537cf1eac4b0",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/P_Automation_CI_CD_Integration.drawio"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/previews/00_System_Overview.png",
+    "bytes": 869098,
+    "sha256": "5bd52aadd87eea3068bfb9b5a1948726463f512cce4cbc624cf195bd8982d1e7",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/previews/01_Actor_Model.png",
+    "bytes": 200351,
+    "sha256": "67f22421ff774ed60cdd400a17248216c0502e1120b93cd4d0a2d37cd5becf9b",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/previews/02_Cross_Cutting.png",
+    "bytes": 211851,
+    "sha256": "2ae1664998805b4808ab3274850837e2340df42e20e1fb26a870401fc5f25ed2",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/previews/A_Identity_Access_Management.png",
+    "bytes": 385877,
+    "sha256": "d68eb4ac9b880215f9aeb2af113b0334875fe25f5973fb30a4e4b55a7e88a32d",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/previews/B_Decision_Project_Asset_Management.png",
+    "bytes": 333742,
+    "sha256": "508599b10e0d30209c0c99cfa7107a0bee77ebbe4de46768f0b3401d3a493700",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/previews/C_Decision_Modeling_Rule_Authoring.png",
+    "bytes": 490590,
+    "sha256": "d05e5ff0ad8ca1f1255f6f5469289a892cc3eedea9128ad438b89d3f8ccc54ce",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/previews/D_Data_Contract_Management.png",
+    "bytes": 269394,
+    "sha256": "5f56a0531bc92ba05a89bf64d09e8738bdc4ba2a7af4985a03636e7dc882bb3d",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/previews/E_Validation_Testing.png",
+    "bytes": 424411,
+    "sha256": "c77d71e9df2aebfabab7719d2d9629432e9a6d09b9ba71d4e3e4fb4902bdb3f6",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/previews/F_Version_Change_Management.png",
+    "bytes": 290977,
+    "sha256": "a99bd0513be689e6205067f757de278326e5bd20cc0eff9b3edf6c650dc12757",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/previews/G_Review_Approval_Governance.png",
+    "bytes": 391908,
+    "sha256": "826d698208aa2d23270544937658d0a2c45ff75958697af259dcd82afdb53ab9",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/previews/H_Build_Artifact_Management.png",
+    "bytes": 371656,
+    "sha256": "7cacf634ec0d0dbae2da4ce4b143c4067259e6ea3404860264a1b2a8e9b0c283",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/previews/I_Environment_Deployment_Management.png",
+    "bytes": 488456,
+    "sha256": "d6e31cb16daee7fe9d1b3ea4ebb05c30ffedb34b0a8d509d480cea0731416498",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/previews/J_Progressive_Delivery.png",
+    "bytes": 381383,
+    "sha256": "cbc85dd29521d50fd667bb430b2d0a38ad2f50c6f8c25d27e1ff7b5afb8e99e9",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/previews/K_Decision_Execution.png",
+    "bytes": 490283,
+    "sha256": "9deeb3a8b266ceaa7fe2c7519e7546c21de06bc1ced50d03bb598430855e43c4",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/previews/L_Explainability_Decision_Trace.png",
+    "bytes": 351336,
+    "sha256": "bafc5007868168fff83c9146e545d3b1a62d65686ab292be6b527ae4ec33d3e7",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/previews/M_Simulation_Impact_Analysis.png",
+    "bytes": 262403,
+    "sha256": "f19e1759ab77afda4d6d5e1e76f47e8e3805990e0848cd85670bf3760eb575cd",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/previews/N_Runtime_Operations_Observability.png",
+    "bytes": 320833,
+    "sha256": "022ff76ba344bbbbd2f940c84a6526745091a0a21481fb91fa4f3e5cfa2bb433",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/previews/O_Audit_Compliance.png",
+    "bytes": 355430,
+    "sha256": "b130f98f56e7e7927f39190e6827dacb7986bc5109bf336d61504b39e20eadd9",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/previews/P_Automation_CI_CD_Integration.png",
+    "bytes": 385853,
+    "sha256": "8f7aa994b30db5f8f060181f7d863f9a1a0a200c2320d92ff1be83235776a335",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/previews/Q_Platform_Administration.png",
+    "bytes": 359790,
+    "sha256": "56f7f47330e53887222fad663c6995a47537d00dac3607df75ba6f53f40a445a",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/Q_Platform_Administration.drawio",
+    "bytes": 14856,
+    "sha256": "627d63ba9ac29d561d180c9c6a14741a509a631da48ccf6f1a4f4db621ae3d07",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/Q_Platform_Administration.drawio"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/README.md",
+    "bytes": 11373,
+    "sha256": "53de3ce170c1c6317c402638786a8c218bbf94ae127df1536251fde156d8705a",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/README.md"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/relationships.csv",
+    "bytes": 10589,
+    "sha256": "5bfcb56cedb9f1fced167ca6a72acea1de855bfb18c78416e01517f23f9176c4",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/relationships.csv"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/render-validation.json",
+    "bytes": 2995,
+    "sha256": "14c974d12a2f2574b88fb101a7756563def2453b39965e7b7f843467b6864f9b",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/render-validation.json"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/render.py",
+    "bytes": 1499,
+    "sha256": "8af293852979cdc2b605ece726bf0887566c5ea46d062b59c2151c9773520ae5",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/render.py"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/routing-validation.json",
+    "bytes": 4395,
+    "sha256": "53ac2ce8154abf23397733726ddb41d509911382a02785c51f7615adc0655cb8",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/routing-validation.json"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/routing.py",
+    "bytes": 8363,
+    "sha256": "95883ce8b626e22a19bfee568ba56239ac879f772075cc25b8c2644ee3c7358d",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/routing.py"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/size-validation.json",
+    "bytes": 3478,
+    "sha256": "03357463dce84e5e0a7ff57780c8fed6050ba8711d7d4d771f1000de4973e9a1",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/size-validation.json"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/source-catalog.md",
+    "bytes": 32346,
+    "sha256": "3416ef9c9d2fcd77c0c8ed6dc3c836bcdab46cbe2e8ee5351f6dbd76a96edda0",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/source-catalog.md"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/supporting-use-cases.csv",
+    "bytes": 502,
+    "sha256": "b651ce300a6636a9ef181764ee2eaac2582972a3b1d0b0677764f9f71c24e9d8",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/supporting-use-cases.csv"
+  },
+  {
+    "source": "use-case-diagrams/drawio-catalog/validation.json",
+    "bytes": 1188,
+    "sha256": "1826644a952aead65b9de3342c1e03e4d027a3dbf8773563af8f64fbfcc4bb97",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/drawio-catalog/validation.json"
+  },
+  {
+    "source": "use-case-diagrams/previews/01_Administration.png",
+    "bytes": 143551,
+    "sha256": "8d41ffdbee1de61f847c8e0faa6972d5296ab44bb98721185a405e1c61e30d50",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "use-case-diagrams/previews/01_Administration.svg",
+    "bytes": 21342,
+    "sha256": "48e9cb4b15e01504d55bd48a42b87d6e425e1bde3555542cbf2569d4ab30fc62",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "use-case-diagrams/previews/02_Decision_Modeling.png",
+    "bytes": 278961,
+    "sha256": "8f6e1144708f53e2005281f394c6c342e3f61b46b959162768c59499781fe76c",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "use-case-diagrams/previews/02_Decision_Modeling.svg",
+    "bytes": 31162,
+    "sha256": "6611029d1feac20916b2829da485042c8d17e0ba346dad760ff7bfae88a1597f",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "use-case-diagrams/previews/03_Governance_and_Approval.png",
+    "bytes": 237305,
+    "sha256": "c481564b7907aa2ccdc7ab81819bf69a5c71764da0ac755a22110563561f534a",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "use-case-diagrams/previews/03_Governance_and_Approval.svg",
+    "bytes": 28468,
+    "sha256": "b006aec620fc4e7f7286871e9eb3e9ea04d15e3bdb45723b236bc16f4dd3e9ac",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "use-case-diagrams/previews/04_Deployment_and_Distribution.png",
+    "bytes": 181822,
+    "sha256": "30f020b0fd728d7199710b3e22fec7e60fb99af8abe4f8f9e1a8d03fcdac11fc",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "use-case-diagrams/previews/04_Deployment_and_Distribution.svg",
+    "bytes": 25250,
+    "sha256": "cb8b52a75dbaac90217e886bfe75ef277e2537641588747feb46879bde5a5601",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "use-case-diagrams/previews/05_Runtime_and_Integration.png",
+    "bytes": 279551,
+    "sha256": "42355f6ae1463b38dbbb8fef9c151b06ba03977eaec1f5dcf3481ed747c5133a",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "use-case-diagrams/previews/05_Runtime_and_Integration.svg",
+    "bytes": 35861,
+    "sha256": "3acf3582212ca07232ad7b39efb06c8ed946664d1b91fbac150d0d75c0cb77a2",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "use-case-diagrams/previews/06_Audit_and_Observability.png",
+    "bytes": 164270,
+    "sha256": "39bc3a8820a4c0b85b41767ffb8df046a6a274c904a9a5c6f799aaeaff15bcfc",
+    "treatment": "Rendered image indexed; original retained, no OCR or visual verification"
+  },
+  {
+    "source": "use-case-diagrams/previews/06_Audit_and_Observability.svg",
+    "bytes": 23682,
+    "sha256": "a12f8ae42e2c1495ae605825fd25ae26da36ac78cb52245576b3260c7fd38d48",
+    "treatment": "SVG text extracted to diagram-content.json; original retained"
+  },
+  {
+    "source": "use-case-diagrams/README.md",
+    "bytes": 847,
+    "sha256": "f23d73a042e4fa32201cfb5ef49cc5a5f79a87c028e3cc6a8f26d4ad9c0671b1",
+    "treatment": "Verbatim source snapshot",
+    "extracted": "sources/workspace/use-case-diagrams/README.md"
+  }
+]

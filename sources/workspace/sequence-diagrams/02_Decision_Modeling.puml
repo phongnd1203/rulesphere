@@ -1,0 +1,112 @@
+@startuml
+title RuleSphere - Author, Validate and Sandbox\nUC-05..09
+autonumber
+skinparam shadowing false
+skinparam sequenceLifeLineBorderColor #177E8D
+skinparam sequenceLifeLineBackgroundColor #EAF6F8
+
+actor "Decision Author" as Author
+boundary "Management API" as API
+participant AuthorizationService as Auth
+participant DecisionVersion as Draft
+participant DecisionValidator as Validator
+participant SandboxService as Sandbox
+participant GraphExecutor as Executor
+
+Author -> API: Create/edit Decision graph and schema
+activate API
+
+API -> Auth: authorize(author, edit, workspace)
+activate Auth
+Auth --> API: Access decision
+deactivate Auth
+
+break Unauthorized
+  API --> Author: Access denied
+end
+
+API -> Draft: Store draft graph, schema versions and library pins
+activate Draft
+note right of Draft
+  Editing a frozen version creates a new draft.
+  Nodes: Table, Tree, Scripted Expression, Rule Set.
+end note
+Draft --> API: Draft revision
+deactivate Draft
+
+API --> Author: Draft saved
+deactivate API
+
+' F-08: Authorization check before reading revision / running validation
+Author -> API: Validate draft revision
+activate API
+
+API -> Auth: authorize(author, validate, workspace)
+activate Auth
+Auth --> API: Access decision
+deactivate Auth
+
+break Unauthorized validation access
+  API --> Author: Access denied
+end
+
+API -> Validator: validateDAG(), validateDependencyScope(),\ncheck contracts and schema compatibility
+activate Validator
+
+Validator -> Draft: Read graph, schemas, exact references
+activate Draft
+Draft --> Validator: Revision contents
+deactivate Draft
+
+Validator --> API: Issues, validity, breaking-change status
+deactivate Validator
+
+API --> Author: Validation result
+deactivate API
+
+note over Validator
+  Cycles and invalid references block build/publication.
+  Breaking changes contribute to risk; not automatically forbidden.
+end note
+
+opt UC-09: Author requests sandbox run
+  Author -> API: Execute draft with test input
+  activate API
+  
+  API -> Auth: authorize(author, sandbox, workspace)
+  activate Auth
+  Auth --> API: Access decision
+  deactivate Auth
+  
+  break Unauthorized sandbox access
+    API --> Author: Access denied
+  end
+  
+  API -> Sandbox: execute(draft revision, input)
+  activate Sandbox
+  
+  Sandbox -> Validator: Check current revision and input contract
+  activate Validator
+  Validator --> Sandbox: Validation result
+  deactivate Validator
+  
+  alt Invalid draft or input
+    Sandbox --> API: Validation errors
+  else Valid executable draft
+    Sandbox -> Executor: Execute fixed draft snapshot in sandbox
+    activate Executor
+    Executor --> Sandbox: Result / attributable error and trace
+    deactivate Executor
+    Sandbox --> API: Simulation result and protected trace
+  end
+  deactivate Sandbox
+  
+  API --> Author: Sandbox result
+  deactivate API
+end
+
+note over Sandbox,Executor
+  Sandbox has no production effect.
+  Node execution semantics follow diagram 06.
+end note
+@enduml

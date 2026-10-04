@@ -1,0 +1,111 @@
+@startuml
+left to right direction
+skinparam shadowing false
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Segoe UI
+skinparam defaultFontSize 13
+skinparam nodesep 35
+skinparam ranksep 50
+skinparam ArrowColor #527183
+skinparam actor {
+  BorderColor #274D64
+  FontColor #17354A
+  BackgroundColor #FFFFFF
+}
+skinparam usecase {
+  BorderColor #177E8D
+  BackgroundColor #EAF6F8
+  FontColor #143047
+}
+skinparam rectangle {
+  BorderColor #64748B
+  BackgroundColor #F8FAFC
+}
+skinparam note {
+  BorderColor #B99A48
+  BackgroundColor #FFF9E8
+  FontColor #594D2D
+}
+' UC-xx: official SRS catalog. Dxx.xx: derived decomposition, not a new SRS ID.
+' Fxx: feature from RuleSphere_Context_Diagram_Detailed.mmd.
+' Include: mandatory sub-behavior. Extend: conditional behavior at a named base.
+' Generalization: specialized actor/use case points to its general parent.
+
+' Sources: UC-10..14; FR-GOV-001..009; FR-REL-001..002.
+actor "A01 - Decision Author" as A01
+actor "Authorized Approver" as AP <<abstract>>
+actor "A02 - Domain Approver / Decision Owner" as A02
+actor "A03 - Workspace Owner" as A03
+actor "A04 - Compliance Officer" as A04
+
+rectangle "RuleSphere - Governance and Approval" as SYSTEM {
+  usecase "UC-10\nSubmit Release\n[F19]" as UC10
+  usecase "UC-11\nCalculate Risk Tier" as UC11
+  usecase "D03.01\nDetermine Required Approval Policy" as D0301
+  usecase "D03.02\nAssess Change Scope" as D0302
+  usecase "D03.03\nAssess Schema Breaking Changes" as D0303
+  usecase "D03.04\nAnalyze Previous 30-Day Traffic" as D0304
+
+  usecase "UC-12\nApprove / Reject Release" as UC12 <<abstract>>
+  usecase "D03.05\nEnforce Maker Exclusion" as D0305
+  usecase "D03.06\nRecord Immutable Approval / Rejection Evidence" as D0306
+  usecase "D03.07\nEvaluate Approval Stage and Quorum" as D0307
+  usecase "D03.08\nRecord Domain Review Decision\n[F20]" as D0308
+  usecase "D03.09\nRecord Workspace Review Decision\n[F21]" as D0309
+  usecase "D03.10\nRecord Compliance Review Decision\n[F22]" as D0310
+
+  usecase "UC-13\nOverrule Risk Upward\n[F23]" as UC13
+  usecase "UC-14\nBuild Executable Artifact" as UC14
+  usecase "D03.11\nVerify Governance Satisfied" as D0311
+  usecase "D03.12\nFreeze Exact Graph, Schema and Dependency Versions" as D0312
+  usecase "D03.13\nRecord Artifact Integrity / Version Metadata" as D0313
+
+  note as N12
+    Review variants share decision recording and maker exclusion.
+    Tier 1: one Domain Approver.
+    Tier 2: Domain Peer Review, then Workspace Owner.
+    Tier 3: Domain Owner AND Compliance Officer.
+    Actor generalization shares approver capabilities;
+    assigned stage, scope and permission still constrain each operation.
+  end note
+  note as N13
+    Extension point: risk assessment during review.
+    An authorized approver may increase an existing calculated tier.
+    The tier cannot be decreased.
+  end note
+  note as N14
+    Automatic internal behavior after governance is satisfied.
+    A rejected or incomplete approval never triggers artifact build.
+  end note
+}
+
+A02 --|> AP
+A03 --|> AP
+A04 --|> AP
+A01 -- UC10
+AP -- UC12
+AP -- UC13 : risk-override permission
+A02 -- D0308
+A03 -- D0309
+A04 -- D0310
+D0308 --|> UC12
+D0309 --|> UC12
+D0310 --|> UC12
+UC10 ..> UC11 : <<include>>
+UC10 ..> D0301 : <<include>>
+UC11 ..> D0302 : <<include>>
+UC11 ..> D0303 : <<include>>
+UC11 ..> D0304 : <<include>>
+UC12 ..> D0305 : <<include>>
+UC12 ..> D0306 : <<include>>
+UC12 ..> D0307 : <<include>>
+UC13 ..> UC12 : <<extend>>\n[authorized upward override during review]
+UC13 ..> D0301 : <<include>>
+UC14 ..> D0311 : <<include>>
+UC14 ..> D0312 : <<include>>
+UC14 ..> D0313 : <<include>>
+N12 .. UC12
+N13 .. UC13
+N14 .. UC14
+
+@enduml

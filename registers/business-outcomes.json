@@ -1,0 +1,27 @@
+[
+  {
+    "ID": "BO-01",
+    "Outcome": "Reduce decision change lead time",
+    "Intent": "Business policy changes shall not require consumer application redeployment."
+  },
+  {
+    "ID": "BO-02",
+    "Outcome": "Increase business autonomy",
+    "Intent": "Domain experts can model, validate and test decisions using governed tooling."
+  },
+  {
+    "ID": "BO-03",
+    "Outcome": "Reduce operational blast radius",
+    "Intent": "Risk-based approval, shadow/canary and rollback control production change."
+  },
+  {
+    "ID": "BO-04",
+    "Outcome": "Provide auditability",
+    "Intent": "Historical decisions can be reconstructed from immutable version and execution evidence."
+  },
+  {
+    "ID": "BO-05",
+    "Outcome": "Enterprise runtime viability",
+    "Intent": "Distributed Data Plane meets latency, throughput, availability and convergence guardrails."
+  }
+]

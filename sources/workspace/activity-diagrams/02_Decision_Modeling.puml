@@ -1,0 +1,66 @@
+@startuml
+title RuleSphere - Activity Diagram\n02. Author, Validate and Sandbox | UC-05..09
+skinparam shadowing false
+skinparam activityBackgroundColor #EDF5FF
+skinparam activityBorderColor #496477
+|Decision Author|
+start
+:Create or open a Decision draft;
+|Control Plane|
+:Authorize author within Workspace;
+if (Authorized?) then (yes)
+else (no)
+  :Return access error;
+  stop
+endif
+if (Selected version is frozen?) then (yes)
+  :Create a new mutable draft;
+endif
+|Decision Author|
+:Edit nodes, dependencies, schema versions,\nsensitivity metadata and library pins;
+|Control Plane|
+:Check scope and save draft revision;
+|Decision Author|
+:Request validation;
+|Control Plane|
+:Recheck authorization and load exact revision;
+if (Authorized?) then (yes)
+else (no)
+  :Return access error;
+  stop
+endif
+:Check DAG, reference scope, contracts\nand schema compatibility;
+:Return validity, issues and breaking-change status;
+if (Required validation passed?) then (yes)
+else (no)
+  :Keep draft non-publishable; report issues;
+  note right
+Author may edit and validate again in a later request.
+Breaking changes contribute to risk; they are not
+automatically invalid under every compatibility policy.
+end note
+  stop
+endif
+|Decision Author|
+if (Run optional sandbox?) then (yes)
+  :Provide test input and request sandbox run;
+  |Control Plane|
+  :Recheck permission, current revision\nand test input contract;
+  if (Authorized and executable?) then (yes)
+    |Sandbox|
+    :Execute fixed draft snapshot using DAG semantics;
+    :Produce result / attributable error\nand protected execution trace;
+    note right
+Node execution semantics: diagram 06.
+No effect on production traffic or deployment.
+end note
+    |Decision Author|
+    :Inspect simulation outcome;
+  else (no)
+    |Control Plane|
+    :Return access / validation errors;
+  endif
+else (no)
+endif
+stop
+@enduml

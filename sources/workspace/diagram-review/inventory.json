@@ -1,0 +1,609 @@
+{
+  "baseline": "Local diagram sources at review time; no diagram sources modified",
+  "puml_count": 43,
+  "counts_by_folder": {
+    "activity-diagrams": 8,
+    "class-diagrams": 7,
+    "communication-diagrams": 8,
+    "package-diagrams": 1,
+    "sequence-diagrams": 8,
+    "state-diagrams": 5,
+    "use-case-diagrams": 6
+  },
+  "use_case_declarations": [
+    {
+      "id": "UC-01",
+      "path": "use-case-diagrams/01_Administration.puml",
+      "line": 38
+    },
+    {
+      "id": "UC-02",
+      "path": "use-case-diagrams/01_Administration.puml",
+      "line": 42
+    },
+    {
+      "id": "UC-03",
+      "path": "use-case-diagrams/01_Administration.puml",
+      "line": 46
+    },
+    {
+      "id": "UC-04",
+      "path": "use-case-diagrams/01_Administration.puml",
+      "line": 50
+    },
+    {
+      "id": "UC-05",
+      "path": "use-case-diagrams/02_Decision_Modeling.puml",
+      "line": 38
+    },
+    {
+      "id": "UC-06",
+      "path": "use-case-diagrams/02_Decision_Modeling.puml",
+      "line": 42
+    },
+    {
+      "id": "UC-07",
+      "path": "use-case-diagrams/02_Decision_Modeling.puml",
+      "line": 53
+    },
+    {
+      "id": "UC-08",
+      "path": "use-case-diagrams/02_Decision_Modeling.puml",
+      "line": 57
+    },
+    {
+      "id": "UC-09",
+      "path": "use-case-diagrams/02_Decision_Modeling.puml",
+      "line": 62
+    },
+    {
+      "id": "UC-10",
+      "path": "use-case-diagrams/03_Governance_and_Approval.puml",
+      "line": 42
+    },
+    {
+      "id": "UC-11",
+      "path": "use-case-diagrams/03_Governance_and_Approval.puml",
+      "line": 43
+    },
+    {
+      "id": "UC-12",
+      "path": "use-case-diagrams/03_Governance_and_Approval.puml",
+      "line": 49
+    },
+    {
+      "id": "UC-13",
+      "path": "use-case-diagrams/03_Governance_and_Approval.puml",
+      "line": 57
+    },
+    {
+      "id": "UC-14",
+      "path": "use-case-diagrams/03_Governance_and_Approval.puml",
+      "line": 58
+    },
+    {
+      "id": "UC-15",
+      "path": "use-case-diagrams/04_Deployment_and_Distribution.puml",
+      "line": 41
+    },
+    {
+      "id": "UC-16",
+      "path": "use-case-diagrams/04_Deployment_and_Distribution.puml",
+      "line": 44
+    },
+    {
+      "id": "UC-17",
+      "path": "use-case-diagrams/04_Deployment_and_Distribution.puml",
+      "line": 47
+    },
+    {
+      "id": "UC-18",
+      "path": "use-case-diagrams/04_Deployment_and_Distribution.puml",
+      "line": 53
+    },
+    {
+      "id": "UC-19",
+      "path": "use-case-diagrams/04_Deployment_and_Distribution.puml",
+      "line": 54
+    },
+    {
+      "id": "UC-20",
+      "path": "use-case-diagrams/04_Deployment_and_Distribution.puml",
+      "line": 59
+    },
+    {
+      "id": "UC-21",
+      "path": "use-case-diagrams/05_Runtime_and_Integration.puml",
+      "line": 41
+    },
+    {
+      "id": "UC-22",
+      "path": "use-case-diagrams/05_Runtime_and_Integration.puml",
+      "line": 42
+    },
+    {
+      "id": "UC-23",
+      "path": "use-case-diagrams/05_Runtime_and_Integration.puml",
+      "line": 43
+    },
+    {
+      "id": "UC-24",
+      "path": "use-case-diagrams/05_Runtime_and_Integration.puml",
+      "line": 58
+    },
+    {
+      "id": "UC-25",
+      "path": "use-case-diagrams/06_Audit_and_Observability.puml",
+      "line": 43
+    },
+    {
+      "id": "UC-26",
+      "path": "use-case-diagrams/06_Audit_and_Observability.puml",
+      "line": 49
+    },
+    {
+      "id": "UC-27",
+      "path": "use-case-diagrams/06_Audit_and_Observability.puml",
+      "line": 55
+    }
+  ],
+  "syntax_check": {
+    "tool": "PlantUML -checkonly",
+    "exit_code": 0,
+    "files": 43,
+    "meaning": "Parse/render syntax only; not UML/COMET semantic validation"
+  },
+  "files": [
+    {
+      "path": "activity-diagrams/01_Administration.puml",
+      "sha256": "75d18b280e1e281fe7542d66da6b2876aff8e13bdfab1fab1bd76ec53d723555",
+      "lines": 51,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": []
+    },
+    {
+      "path": "activity-diagrams/02_Decision_Modeling.puml",
+      "sha256": "39c5ce4c7e487df1af511e57fa8bb2b6595c184dd300054e13294bd7bf566b70",
+      "lines": 66,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": []
+    },
+    {
+      "path": "activity-diagrams/03_Governance_and_Approval.puml",
+      "sha256": "021edd1a07da44737b20db12b7acc8aa4b5de4dac868b6451780749e56280427",
+      "lines": 75,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": []
+    },
+    {
+      "path": "activity-diagrams/04_Shadow_and_Canary.puml",
+      "sha256": "c36dce5d61a7aa399ab71ee632c62bde9b0e427df7c38e61f9039d99721d8612",
+      "lines": 79,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": []
+    },
+    {
+      "path": "activity-diagrams/05_Deployment_and_Convergence.puml",
+      "sha256": "d6c5fd91031eeeee732ae77ac563579e43ecf0eadb9253ce1725a5e733a7d1dc",
+      "lines": 62,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": []
+    },
+    {
+      "path": "activity-diagrams/06_Runtime_Evaluation.puml",
+      "sha256": "5c351609435d6642342df3b7b0fb4761b924bc32aa18ada5c686ddd4dd349d4c",
+      "lines": 73,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": []
+    },
+    {
+      "path": "activity-diagrams/07_Trace_Capture.puml",
+      "sha256": "d4b28f15cb85c25e72fc2626d41cd8c235ffef75425784cd03693fd72105e1d7",
+      "lines": 49,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": []
+    },
+    {
+      "path": "activity-diagrams/08_Historical_Explain_and_Audit.puml",
+      "sha256": "3f83c5913ee9db3c61ef33635470a16e20ed22b8c267d002b66fdffdf3c0941a",
+      "lines": 44,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": []
+    },
+    {
+      "path": "class-diagrams/00_Overview.puml",
+      "sha256": "4a4a10812fb460458aadc101428d6b8d323e1f3360731097c63a118d15c8dc44",
+      "lines": 79,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": []
+    },
+    {
+      "path": "class-diagrams/01_Administration.puml",
+      "sha256": "359ef53cb593aea2455cb9d347f90c5ed574e2ec3037e1196193a6ecf94a5bfd",
+      "lines": 88,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": [
+        "immutable",
+        "service",
+        "value object"
+      ]
+    },
+    {
+      "path": "class-diagrams/02_Decision_Modeling.puml",
+      "sha256": "126b8f48962068dd8fe6c2a4ddf91b184f5394abd49a061982b7c542d4a5d1da",
+      "lines": 118,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": [
+        "external",
+        "service",
+        "value object"
+      ]
+    },
+    {
+      "path": "class-diagrams/03_Governance_and_Approval.puml",
+      "sha256": "0697e69bf962629cc01c1d705a5a024045f6ff8da33c364e2a2f4d1dcfc044b6",
+      "lines": 103,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": [
+        "external",
+        "immutable",
+        "service"
+      ]
+    },
+    {
+      "path": "class-diagrams/04_Deployment_and_Distribution.puml",
+      "sha256": "2b050f93ee6936d48c5fa73c48cc2068831558881ebf0f7e845b91362af5dd45",
+      "lines": 99,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": [
+        "external",
+        "immutable",
+        "service"
+      ]
+    },
+    {
+      "path": "class-diagrams/05_Runtime_and_Integration.puml",
+      "sha256": "abaf20e5b079beb9136db92fe2806f76627f941da65e9222f5cb0f18cd2ec770",
+      "lines": 99,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": [
+        "DTO",
+        "boundary",
+        "external",
+        "immutable",
+        "service"
+      ]
+    },
+    {
+      "path": "class-diagrams/06_Audit_and_Observability.puml",
+      "sha256": "4b9ac9bf78c2ed92e0edcf731651ea3b7617e378cc71f0219d7d0664b9c452b6",
+      "lines": 107,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": [
+        "external",
+        "immutable",
+        "read model",
+        "service"
+      ]
+    },
+    {
+      "path": "communication-diagrams/01_Administration.puml",
+      "sha256": "bfcf443884b637786ff7dcef22aaf186aa4fe8422f8c0d82283921cfa596929b",
+      "lines": 35,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": [
+        "actor",
+        "boundary"
+      ]
+    },
+    {
+      "path": "communication-diagrams/02_Decision_Modeling.puml",
+      "sha256": "55fbaa7cf2b2501ee7b76a7cf2a23213e4a15f5bdfe70030f740c04ffdc49a9a",
+      "lines": 42,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": [
+        "actor",
+        "boundary"
+      ]
+    },
+    {
+      "path": "communication-diagrams/03_Governance_and_Approval.puml",
+      "sha256": "4e4b2bb88b7998fe686fe8fe6c99cdc25cf12829473bf9759d50203012c58f25",
+      "lines": 54,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": [
+        "actor",
+        "boundary"
+      ]
+    },
+    {
+      "path": "communication-diagrams/04_Shadow_and_Canary.puml",
+      "sha256": "139c60e3324043ceb8e32ee08d61f112e35f86bb3f02ea2a5aeb42de8849167c",
+      "lines": 52,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": [
+        "actor",
+        "async",
+        "boundary"
+      ]
+    },
+    {
+      "path": "communication-diagrams/05_Deployment_and_Convergence.puml",
+      "sha256": "6d84c71bcd653cda5a5cd7646a1c5a9812866abce8c47ad10a4115a6b4acd899",
+      "lines": 47,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": [
+        "actor",
+        "async",
+        "boundary"
+      ]
+    },
+    {
+      "path": "communication-diagrams/06_Runtime_Evaluation.puml",
+      "sha256": "0295347755291658af785f37c9aeb2f4c570f33c0385ad2b3625893aa9ed3a5c",
+      "lines": 54,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": [
+        "actor",
+        "async",
+        "boundary"
+      ]
+    },
+    {
+      "path": "communication-diagrams/07_Trace_Capture.puml",
+      "sha256": "b54813163b96198e95150a8b034cd0ed0309e814b41613117e5571dd0ff693e0",
+      "lines": 43,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": [
+        "async",
+        "parallel"
+      ]
+    },
+    {
+      "path": "communication-diagrams/08_Historical_Explain_and_Audit.puml",
+      "sha256": "b918241e3e093095eb5f6f343b4a828ea471e74f2eb636720afe9a1c5912a028",
+      "lines": 37,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": [
+        "actor",
+        "boundary"
+      ]
+    },
+    {
+      "path": "package-diagrams/01_RuleSphere_Packages.puml",
+      "sha256": "c817039049090b391237cf7006473e56ab58d9667c23d7e287b9b4335e5a6b79",
+      "lines": 73,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": []
+    },
+    {
+      "path": "sequence-diagrams/01_Administration.puml",
+      "sha256": "f3059155ebf7519c55810817c8bc04f229081967bb4a388b18eb019e93efcef2",
+      "lines": 41,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": []
+    },
+    {
+      "path": "sequence-diagrams/02_Decision_Modeling.puml",
+      "sha256": "e98bb924ab99377ee7253f0568a395a60f5170f78c472a3a76dd0cbc3e62ab48",
+      "lines": 58,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": []
+    },
+    {
+      "path": "sequence-diagrams/03_Governance_and_Approval.puml",
+      "sha256": "6e7dad6fe34a160d587be1544e38289eb2dfffee2f8708f1300c0b237700fd8d",
+      "lines": 88,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": []
+    },
+    {
+      "path": "sequence-diagrams/04_Shadow_and_Canary.puml",
+      "sha256": "7fe62342fd37ed03fe2b81c45d14664a83303e0195fcbb9d04a35f8d558fcec4",
+      "lines": 76,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": []
+    },
+    {
+      "path": "sequence-diagrams/05_Deployment_and_Convergence.puml",
+      "sha256": "32f85bc34179b1ee695af193c4d76b33d114a375241c07ccd7e9fec150bd7798",
+      "lines": 63,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": []
+    },
+    {
+      "path": "sequence-diagrams/06_Runtime_Evaluation.puml",
+      "sha256": "a3f139b06ee4a7f2bd4acc08876d803ae32d6b9b87d97d90723455ed1118c058",
+      "lines": 77,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": []
+    },
+    {
+      "path": "sequence-diagrams/07_Trace_Capture.puml",
+      "sha256": "fbd669ed95bd135fbb0bd5be6ec266c8eed944d154a5c19da018815f7de8bf9a",
+      "lines": 40,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": []
+    },
+    {
+      "path": "sequence-diagrams/08_Historical_Explain_and_Audit.puml",
+      "sha256": "dbb78c03e628bbf57282de2147994c5327c4878bc024c77e705d54115c31bc62",
+      "lines": 41,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": []
+    },
+    {
+      "path": "state-diagrams/01_Decision_Draft.puml",
+      "sha256": "b9bbb8ccc3c973ce716078115478c02201ae2823ae37a0f8e38d44eb13dbf995",
+      "lines": 54,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [
+        {
+          "line": 18,
+          "text": "[*] --> Editing : createDecision / assign draft revision"
+        }
+      ],
+      "declared_stereotypes": []
+    },
+    {
+      "path": "state-diagrams/02_Release_Approval.puml",
+      "sha256": "eb4f8b93e6889841193fded2f0f25274ab7064c8f2406086cff0abb2e7ba2f03",
+      "lines": 70,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [
+        {
+          "line": 33,
+          "text": "[*] --> Calculate : submitRelease [authorized author]\\n/ identify candidate revision"
+        }
+      ],
+      "declared_stereotypes": [
+        "choice"
+      ]
+    },
+    {
+      "path": "state-diagrams/03_Deployment.puml",
+      "sha256": "9312500bb9a2e99b7a06081370926a91ee83baade1250642e34ada49a5543a6b",
+      "lines": 52,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [
+        {
+          "line": 16,
+          "text": "[*] --> Ready : artifactReady [immutable; governance satisfied]"
+        }
+      ],
+      "declared_stereotypes": []
+    },
+    {
+      "path": "state-diagrams/04_Runtime_Convergence.puml",
+      "sha256": "797de99b7883346376ceab00f618283d0e22db35d21458b50eb51487fb0dd28f",
+      "lines": 50,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [
+        {
+          "line": 23,
+          "text": "[*] --> Compare : activeNodeObserved"
+        }
+      ],
+      "declared_stereotypes": [
+        "choice"
+      ]
+    },
+    {
+      "path": "state-diagrams/05_Runtime_Request.puml",
+      "sha256": "d0e6944c2c81bedcd582ef646ba2bdabca2f54ca186b57c3ff7f08181fa1bbad",
+      "lines": 80,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [
+        {
+          "line": 36,
+          "text": "[*] --> Auth : receiveRequest [REST or gRPC]"
+        }
+      ],
+      "declared_stereotypes": [
+        "choice"
+      ]
+    },
+    {
+      "path": "use-case-diagrams/01_Administration.puml",
+      "sha256": "fa352ab26245703f59b9f621beba90baec49e5dcc45dbf367225f632eef2c328",
+      "lines": 92,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": [
+        "abstract",
+        "include"
+      ]
+    },
+    {
+      "path": "use-case-diagrams/02_Decision_Modeling.puml",
+      "sha256": "3d942d07e65aa7bd7ccc6ed0805312c6df6b1243044f181ac48d96d8c0537ed4",
+      "lines": 104,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": [
+        "abstract",
+        "extend",
+        "include"
+      ]
+    },
+    {
+      "path": "use-case-diagrams/03_Governance_and_Approval.puml",
+      "sha256": "a422628aea8f3be7ddbb6ec7b13ed9d6cd933b6d23f41041f1901e60fec4b8d7",
+      "lines": 111,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": [
+        "abstract",
+        "extend",
+        "include"
+      ]
+    },
+    {
+      "path": "use-case-diagrams/04_Deployment_and_Distribution.puml",
+      "sha256": "cebe67d02ec2688836def7a51da7e00ab5338f4192650bcff91a7af7410f225f",
+      "lines": 104,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": [
+        "abstract",
+        "include"
+      ]
+    },
+    {
+      "path": "use-case-diagrams/05_Runtime_and_Integration.puml",
+      "sha256": "43d0c57ca873ad13b100ec89b3db5456b0fc0fd7b78f0e4d76da09e53b8b5251",
+      "lines": 112,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": [
+        "abstract",
+        "extend",
+        "include"
+      ]
+    },
+    {
+      "path": "use-case-diagrams/06_Audit_and_Observability.puml",
+      "sha256": "06454a9486eb14476533b7658e3acde489d87d80ba882160f5189fb648902bfe",
+      "lines": 97,
+      "activation_commands": 0,
+      "initial_transitions_with_labels": [],
+      "declared_stereotypes": [
+        "abstract",
+        "extend",
+        "include"
+      ]
+    }
+  ]
+}

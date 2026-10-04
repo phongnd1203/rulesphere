@@ -1,0 +1,99 @@
+@startuml
+title RuleSphere - 05. Runtime and Integration\nUC-21..23 | FR-RUN-*, FR-DM-004..007, NFR-INT-001
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam classBackgroundColor #EAF6F8
+skinparam classBorderColor #177E8D
+hide empty members
+class ExecutableArtifact <<external>>
+class RolloutPolicy <<external>>
+class AuthorizationService <<external>>
+class EvaluationRequest <<DTO>> {
+  +decisionId: UUID
+  +input: Value
+  +subjectKey: String [0..1]
+  +claims: Map
+  +pinnedVersion: String [0..1]
+}
+class EvaluationResponse <<DTO>> {
+  +executionId: UUID
+  +result: Value
+  +decisionVersion: String
+}
+interface EvaluationAPI {
+  +evaluate(request: EvaluationRequest): EvaluationResponse
+}
+class RestEvaluationAdapter <<boundary>> {
+  +evaluate(request): EvaluationResponse
+}
+class GrpcEvaluationAdapter <<boundary>> {
+  +evaluate(request): EvaluationResponse
+}
+class EvaluationService <<service>> {
+  +evaluate(request): EvaluationResponse
+}
+class SnapshotResolver <<service>> {
+  +resolveEligible(request): AtomicSnapshot
+}
+class LocalArtifactStore {
+  +getExact(version): ExecutableArtifact
+  +getLoadedActive(decisionId): ExecutableArtifact
+}
+class AtomicSnapshot <<immutable>> {
+  -snapshotId: UUID
+  -decisionVersionId: UUID
+  -schemaVersions: Map
+  -dependencyVersions: Map
+}
+class Execution {
+  -executionId: UUID
+  -startedAt: DateTime
+  -completedAt: DateTime [0..1]
+  -status: String
+  +complete(result)
+  +fail(error)
+}
+class GraphExecutor <<service>> {
+  +execute(snapshot, input): Value
+  +evaluateNode(node, context): Value
+}
+class ApiContract {
+  -contractVersion: String
+  -protocol: REST_or_gRPC
+  -definition: String
+}
+class ContractDiscovery <<service>> {
+  +getContract(protocol, version): ApiContract
+}
+EvaluationAPI <|.. RestEvaluationAdapter
+EvaluationAPI <|.. GrpcEvaluationAdapter
+RestEvaluationAdapter ..> EvaluationService
+GrpcEvaluationAdapter ..> EvaluationService
+EvaluationAPI ..> EvaluationRequest
+EvaluationAPI ..> EvaluationResponse
+EvaluationService ..> AuthorizationService
+EvaluationService ..> SnapshotResolver
+EvaluationService ..> GraphExecutor
+EvaluationService ..> Execution : creates
+SnapshotResolver ..> LocalArtifactStore
+SnapshotResolver ..> RolloutPolicy
+SnapshotResolver ..> AtomicSnapshot : resolves
+LocalArtifactStore "1" o-- "0..*" ExecutableArtifact : locally loaded
+AtomicSnapshot "0..*" --> "1..*" ExecutableArtifact : fixed artifact set
+Execution "0..*" --> "1" AtomicSnapshot
+GraphExecutor ..> AtomicSnapshot
+ContractDiscovery ..> ApiContract
+note bottom of SnapshotResolver
+  Pin: exact eligible loaded version or precondition failure.
+  REST: HTTP 412; gRPC: documented equivalent.
+  Unpinned: node-local loaded Active, subject to configured Canary.
+  No synchronous Control Plane dependency.
+end note
+note bottom of GraphExecutor
+  Validate input against snapshot schema before evaluation.
+  One synchronous context; deterministic topological execution.
+  Skip inactive branches; fail-fast unless eligible typed fallback.
+  Publication during execution cannot replace its snapshot.
+  Runtime holds no client-session/long-running process state.
+end note
+@enduml

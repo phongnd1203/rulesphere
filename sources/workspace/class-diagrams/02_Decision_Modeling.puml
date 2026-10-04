@@ -1,0 +1,118 @@
+@startuml
+title RuleSphere - 02. Decision Modeling and Testing\nUC-05..09 | FR-DM-*, FR-SCH-*, FR-TEN-004
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam classBackgroundColor #EAF6F8
+skinparam classBorderColor #177E8D
+hide empty members
+class Workspace <<external>>
+class SharedLibraryVersion <<external>>
+class Decision {
+  -decisionId: UUID
+  -name: String
+  +createDraft(): DecisionVersion
+}
+class DecisionVersion {
+  -versionId: UUID
+  -version: String
+  -revision: Integer
+  -frozen: Boolean
+  +editGraph(graph: DecisionGraph)
+  +freeze()
+}
+class DecisionGraph {
+  -graphId: UUID
+  +topologicalOrder(): List<DecisionNode>
+}
+abstract class DecisionNode {
+  -nodeId: UUID
+  -name: String
+  +evaluate(context): Value
+}
+class DecisionTable {
+  -rows: List<TableRow>
+}
+class DecisionTree {
+  -branches: TreeDefinition
+}
+class ScriptedExpression {
+  -expression: String
+}
+class RuleSet {
+  -rules: List<RuleDefinition>
+}
+class NodeDependency {
+  -activationCondition: Expression [0..1]
+}
+class TypedFallback <<value object>> {
+  -dataType: String
+  -defaultValue: Value
+  +isCompatible(): Boolean
+}
+class SchemaVersion {
+  -schemaId: UUID
+  -version: String
+  +validate(payload): ValidationResult
+}
+class SchemaField {
+  -name: String
+  -dataType: String
+  -required: Boolean
+  -isSensitive: Boolean
+}
+class LibraryReference <<value object>> {
+  -assetKey: String
+  -pinnedVersion: String
+}
+class ValidationResult {
+  -revision: Integer
+  -valid: Boolean
+  -issues: List<String>
+  -breakingChanges: Boolean
+}
+class DecisionValidator <<service>> {
+  +validateDAG(version): ValidationResult
+  +checkCompatibility(oldSchema, newSchema, policy): ValidationResult
+  +validateDependencyScope(version): ValidationResult
+}
+class SandboxService <<service>> {
+  +execute(validDraft, input): SimulationResult
+}
+class SimulationResult {
+  -output: Value
+  -trace: ExecutionTraceTree
+}
+Workspace "1" -- "0..*" Decision : owns
+Workspace "1" -- "0..*" SchemaVersion : owns
+Decision "1" *-- "1..*" DecisionVersion
+DecisionVersion "1" *-- "1" DecisionGraph
+DecisionVersion "0..*" --> "1" SchemaVersion : inputSchema
+DecisionVersion "0..*" --> "1" SchemaVersion : outputSchema
+SchemaVersion "1" *-- "1..*" SchemaField
+DecisionGraph "1" *-- "1..*" DecisionNode
+DecisionGraph "1" *-- "0..*" NodeDependency
+NodeDependency "0..*" --> "1" DecisionNode : source
+NodeDependency "0..*" --> "1" DecisionNode : target
+DecisionNode <|-- DecisionTable
+DecisionNode <|-- DecisionTree
+DecisionNode <|-- ScriptedExpression
+DecisionNode <|-- RuleSet
+DecisionNode "1" *-- "0..1" TypedFallback
+DecisionVersion "1" *-- "0..*" LibraryReference
+LibraryReference "0..*" --> "1" SharedLibraryVersion : exact version
+DecisionValidator ..> DecisionVersion
+DecisionValidator ..> ValidationResult
+SandboxService ..> DecisionVersion
+SandboxService ..> SimulationResult
+note bottom of DecisionVersion
+  Mutable only while draft; immutable once approved/published.
+  Editing a frozen version creates a new draft.
+  Schemas stay in the Decision's Workspace;
+  reusable external assets resolve through pinned Tenant libraries.
+end note
+note bottom of NodeDependency
+  Source and target belong to the same graph. Cycles prohibited.
+  TableRow, TreeDefinition, RuleDefinition and Expression
+  are notation placeholders; internal rule syntax needs an ADR.
+end note
+@enduml

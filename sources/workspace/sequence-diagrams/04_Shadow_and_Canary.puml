@@ -1,0 +1,128 @@
+@startuml
+title RuleSphere - Shadow and Canary Rollout\nUC-15..17
+autonumber
+skinparam shadowing false
+skinparam sequenceLifeLineBorderColor #177E8D
+skinparam sequenceLifeLineBackgroundColor #EAF6F8
+
+actor "Release Manager" as Manager
+actor "Consumer Application" as Client
+boundary "Management API" as API
+participant AuthorizationService as Auth
+participant Deployment
+participant DistributionService as Distribution
+participant "Runtime / RolloutPolicy" as Runtime
+participant "Production GraphExecutor" as Production
+participant "Shadow GraphExecutor" as Shadow
+database "Protected ShadowComparison" as Diffs
+
+' Phase 1: Configure Rollout
+Manager -> API: Configure Shadow and/or Canary(candidate, policy)
+activate API
+
+API -> Auth: authorize(manager, rollout, scope)
+activate Auth
+Auth --> API: Access decision
+deactivate Auth
+
+break Unauthorized
+  API --> Manager: Access denied
+end
+
+API -> Deployment: Check approved artifact and rollout eligibility
+activate Deployment
+
+break Candidate ineligible
+  Deployment --> API: Reject rollout
+  API --> Manager: Policy error
+end
+
+Deployment -> Distribution: Distribute artifact and rollout configuration
+activate Distribution
+
+ref over Distribution,Runtime
+  Load and validate before serving; see diagram 05
+end ref
+
+Distribution --> Deployment: Configuration publication status
+deactivate Distribution
+
+Deployment --> API: Rollout configured
+deactivate Deployment
+
+API --> Manager: Rollout status
+deactivate API
+
+' Phase 2: Production Request with Canary Routing
+Client -> Runtime: Unpinned evaluation(input, subjectKey, claims)
+activate Runtime
+
+ref over Client,Runtime
+  Authorize scope and resolve eligible snapshot; see diagram 06
+end ref
+
+Runtime -> Runtime: Apply sticky percentage / configured cohort policy
+note right of Runtime
+  Fixed rollout configuration + same subject key
+  must produce the same cohort assignment.
+  Hash algorithm and cohort precedence require ADR.
+end note
+
+alt Selected for Canary
+  Runtime -> Production: Execute eligible loaded candidate snapshot
+  activate Production
+  Production --> Runtime: Candidate outcome + execution ID
+  deactivate Production
+else Selected for Active
+  Runtime -> Production: Execute loaded Active snapshot
+  activate Production
+  Production --> Runtime: Active outcome + execution ID
+  deactivate Production
+end
+
+Runtime --> Client: Production response
+deactivate Runtime
+
+' Phase 3: Asynchronous Shadow Processing
+opt Shadow enabled for mirrored input
+  opt Production request used Canary
+    Runtime -> Production: Evaluate fixed Active baseline on mirrored input
+    activate Production
+    Production --> Runtime: Active baseline outcome (comparison only)
+    deactivate Production
+  end
+  Runtime ->> Shadow: Execute approved Shadow snapshot with mirrored input
+  activate Shadow
+  Shadow -> Shadow: Evaluate independently
+  Runtime ->> Diffs: Supply correlated protected Active baseline outcome
+  Shadow ->> Diffs: Capture protected Active/Shadow outcome comparison
+  deactivate Shadow
+  note over Runtime,Diffs
+    Shadow never alters the production response.
+    With Canary coexistence, compare to Active; evaluate an
+    Active baseline separately when production used Canary.
+    Scheduling and comparison correlation are design decisions.
+  end note
+end
+
+' Phase 4: Query Diff Analysis
+Manager -> API: Query Shadow differences
+activate API
+
+API -> Auth: authorize(manager, view differences, scope)
+activate Auth
+Auth --> API: Access decision
+deactivate Auth
+
+alt Authorized
+  API -> Diffs: Read scoped protected comparisons
+  activate Diffs
+  Diffs --> API: Outcome differences
+  deactivate Diffs
+  API --> Manager: Diff analysis
+else Unauthorized
+  API --> Manager: Access denied
+end
+deactivate API
+
+@enduml

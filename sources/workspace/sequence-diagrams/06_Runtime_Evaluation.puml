@@ -1,0 +1,120 @@
+@startuml
+title RuleSphere - REST / gRPC Decision Evaluation\nUC-21..24
+autonumber
+skinparam shadowing false
+skinparam sequenceLifeLineBorderColor #177E8D
+skinparam sequenceLifeLineBackgroundColor #EAF6F8
+
+actor "Consumer Application" as Client
+boundary "REST / gRPC Adapter" as API
+participant AuthorizationService as Auth
+participant EvaluationService as Service
+participant SnapshotResolver as Resolver
+database LocalArtifactStore as Store
+participant SchemaVersion as Schema
+participant GraphExecutor as Executor
+participant DecisionNode as Node
+participant TraceCaptureService as Trace
+
+Client -> API: evaluate(input, credential, subjectKey, claims, optional version)
+activate API
+
+API -> Auth: Validate credential and Tenant/Workspace scope
+activate Auth
+Auth --> API: Access decision
+deactivate Auth
+
+break Invalid credential or denied scope
+  API --> Client: Protocol-appropriate authentication / access error
+end
+
+API -> Service: evaluate(request)
+activate Service
+
+Service -> Resolver: resolveEligible(request)
+activate Resolver
+
+alt Exact version pin supplied
+  Resolver -> Store: getExact(requested version)
+  activate Store
+  Store --> Resolver: Pinned artifact or not found
+  deactivate Store
+else Unpinned request
+  Resolver -> Resolver: Apply configured sticky Canary/cohort selection
+  Resolver -> Store: Get selected candidate or node-local loaded Active
+  activate Store
+  Store --> Resolver: Selected artifact
+  deactivate Store
+end
+
+break Pinned version unavailable / ineligible
+  Resolver --> Service: Precondition failure; no fallback to Active
+  Service --> API: Exact version cannot execute
+  API --> Client: REST 412 / documented gRPC precondition error
+end
+
+break No eligible snapshot for unpinned request
+  Resolver --> Service: Runtime availability error
+  Service --> API: Evaluation unavailable
+  API --> Client: Protocol-defined error
+end
+
+Resolver -> Resolver: Fix graph, schemas, dependency and library versions
+Resolver --> Service: AtomicSnapshot
+deactivate Resolver
+
+' F-09: Dedicated SchemaVersion lifeline for input contract validation
+Service -> Schema: validate(input)
+activate Schema
+Schema --> Service: Contract validation result
+deactivate Schema
+
+break Invalid input contract
+  Service --> API: Contract error before evaluation
+  API --> Client: Protocol-appropriate client error
+end
+
+Service -> Executor: execute(snapshot, input, executionId)
+activate Executor
+
+loop Nodes in deterministic topological order while execution is healthy
+  alt Branch not activated
+    Executor -> Executor: Skip inactive branch
+  else Activated node
+    ' F-09: Dedicated DecisionNode lifeline for node evaluation
+    Executor -> Node: evaluate(context)
+    activate Node
+    Node --> Executor: Node result or attributable error
+    deactivate Node
+    alt Successful node
+      Executor -> Executor: Record result, matched node and activated branches
+    else Qualifying error with configured valid typed fallback
+      Executor -> Executor: Use fallback; record fallback use in trace
+    else Error without eligible fallback
+      Executor -> Executor: Mark failed; stop evaluating remaining nodes
+    end
+  end
+end
+
+Executor --> Service: Result / failure and execution trace tree
+deactivate Executor
+
+' F-07: Async trace dispatch does not block production response
+Service ->> Trace: Capture auditable execution safely (diagram 07)
+
+alt Execution succeeded
+  Service --> API: Result, executionId and authorized version metadata
+  API --> Client: Successful evaluation response
+else Execution failed
+  Service --> API: Attributable execution error
+  API --> Client: Protocol-defined execution error
+end
+deactivate Service
+deactivate API
+
+note over Auth,Store
+  Normal evaluation has no synchronous Control Plane dependency (AC-04).
+  Loaded eligible artifacts remain usable during Control Plane outage.
+  Mid-request publication never changes the bound snapshot (SRS 10.1).
+end note
+@enduml

@@ -1,0 +1,1920 @@
+[
+  {
+    "name": "01_Administration",
+    "title": "RuleSphere - Activity Diagram — 01. Administration | UC-01..04",
+    "items": [
+      {
+        "kind": "start",
+        "text": "",
+        "owner": "Administrator / Authorized Owner"
+      },
+      {
+        "kind": "action",
+        "text": "Choose administrative operation",
+        "owner": "Administrator / Authorized Owner"
+      },
+      {
+        "kind": "action",
+        "text": "Provide target scope and data",
+        "owner": "Administrator / Authorized Owner"
+      },
+      {
+        "kind": "action",
+        "text": "Authenticate and check action permissions\nwithin Tenant / Workspace",
+        "owner": "Control Plane / Access and Validation"
+      },
+      {
+        "kind": "if",
+        "text": "Authorized scope?",
+        "owner": "Control Plane / Access and Validation",
+        "branches": [
+          {
+            "label": "yes",
+            "items": []
+          },
+          {
+            "label": "no",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Return access error",
+                "owner": "Control Plane / Access and Validation"
+              },
+              {
+                "kind": "stop",
+                "text": "",
+                "owner": "Control Plane / Access and Validation"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "switch",
+        "text": "Operation",
+        "owner": "Control Plane / Access and Validation",
+        "branches": [
+          {
+            "label": "Tenant / Workspace",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Validate ownership and configuration",
+                "owner": "Control Plane / Access and Validation"
+              }
+            ]
+          },
+          {
+            "label": "Membership / Roles",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Validate scoped membership and role assignment",
+                "owner": "Control Plane / Access and Validation"
+              }
+            ]
+          },
+          {
+            "label": "API Credential",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Validate issuance or revocation request\nand permitted credential scope",
+                "owner": "Control Plane / Access and Validation"
+              }
+            ]
+          },
+          {
+            "label": "Shared Library",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Validate reusable asset and Tenant ownership",
+                "owner": "Control Plane / Access and Validation"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "if",
+        "text": "Request valid?",
+        "owner": "Control Plane / Access and Validation",
+        "branches": [
+          {
+            "label": "yes",
+            "items": []
+          },
+          {
+            "label": "no",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Return validation errors without applying change",
+                "owner": "Control Plane / Access and Validation"
+              },
+              {
+                "kind": "stop",
+                "text": "",
+                "owner": "Control Plane / Access and Validation"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "switch",
+        "text": "Operation",
+        "owner": "Control Plane / Access and Validation",
+        "branches": [
+          {
+            "label": "Tenant / Workspace",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Store Tenant / Workspace configuration",
+                "owner": "Control Plane / Configuration"
+              }
+            ]
+          },
+          {
+            "label": "Membership / Roles",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Update scoped role assignments",
+                "owner": "Control Plane / Configuration"
+              }
+            ]
+          },
+          {
+            "label": "API Credential",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Issue scoped credential or revoke credential",
+                "owner": "Control Plane / Configuration"
+              }
+            ]
+          },
+          {
+            "label": "Shared Library",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Publish exact immutable Shared Library version",
+                "owner": "Control Plane / Configuration"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "action",
+        "text": "Record immutable attributable audit evidence",
+        "owner": "Control Plane / Configuration"
+      },
+      {
+        "kind": "action",
+        "text": "Return operation result",
+        "owner": "Control Plane / Configuration"
+      },
+      {
+        "kind": "action",
+        "text": "View configuration / credential / library result",
+        "owner": "Administrator / Authorized Owner"
+      },
+      {
+        "kind": "stop",
+        "text": "",
+        "owner": "Administrator / Authorized Owner",
+        "notes": [
+          1
+        ]
+      }
+    ],
+    "notes": [
+      "Cross-workspace reuse requires an exact Tenant Shared Library version.\nNo direct cross-workspace or cross-tenant references."
+    ]
+  },
+  {
+    "name": "02_Decision_Modeling",
+    "title": "RuleSphere - Activity Diagram — 02. Author, Validate and Sandbox | UC-05..09",
+    "items": [
+      {
+        "kind": "start",
+        "text": "",
+        "owner": "Decision Author"
+      },
+      {
+        "kind": "action",
+        "text": "Create or open a Decision draft",
+        "owner": "Decision Author"
+      },
+      {
+        "kind": "action",
+        "text": "Authorize author within Workspace",
+        "owner": "Control Plane"
+      },
+      {
+        "kind": "if",
+        "text": "Authorized?",
+        "owner": "Control Plane",
+        "branches": [
+          {
+            "label": "yes",
+            "items": []
+          },
+          {
+            "label": "no",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Return access error",
+                "owner": "Control Plane"
+              },
+              {
+                "kind": "stop",
+                "text": "",
+                "owner": "Control Plane"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "if",
+        "text": "Selected version is frozen?",
+        "owner": "Control Plane",
+        "branches": [
+          {
+            "label": "yes",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Create a new mutable draft",
+                "owner": "Control Plane"
+              }
+            ]
+          },
+          {
+            "label": "no",
+            "items": []
+          }
+        ]
+      },
+      {
+        "kind": "action",
+        "text": "Edit nodes, dependencies, schema versions,\nsensitivity metadata and library pins",
+        "owner": "Decision Author"
+      },
+      {
+        "kind": "action",
+        "text": "Check scope and save draft revision",
+        "owner": "Control Plane"
+      },
+      {
+        "kind": "action",
+        "text": "Request validation",
+        "owner": "Decision Author"
+      },
+      {
+        "kind": "action",
+        "text": "Recheck authorization and load exact revision",
+        "owner": "Control Plane"
+      },
+      {
+        "kind": "if",
+        "text": "Authorized?",
+        "owner": "Control Plane",
+        "branches": [
+          {
+            "label": "yes",
+            "items": []
+          },
+          {
+            "label": "no",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Return access error",
+                "owner": "Control Plane"
+              },
+              {
+                "kind": "stop",
+                "text": "",
+                "owner": "Control Plane"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "action",
+        "text": "Check DAG, reference scope, contracts\nand schema compatibility",
+        "owner": "Control Plane"
+      },
+      {
+        "kind": "action",
+        "text": "Return validity, issues and breaking-change status",
+        "owner": "Control Plane"
+      },
+      {
+        "kind": "if",
+        "text": "Required validation passed?",
+        "owner": "Control Plane",
+        "branches": [
+          {
+            "label": "yes",
+            "items": []
+          },
+          {
+            "label": "no",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Keep draft non-publishable; report issues",
+                "owner": "Control Plane",
+                "notes": [
+                  1
+                ]
+              },
+              {
+                "kind": "stop",
+                "text": "",
+                "owner": "Control Plane"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "if",
+        "text": "Run optional sandbox?",
+        "owner": "Decision Author",
+        "branches": [
+          {
+            "label": "yes",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Provide test input and request sandbox run",
+                "owner": "Decision Author"
+              },
+              {
+                "kind": "action",
+                "text": "Recheck permission, current revision\nand test input contract",
+                "owner": "Control Plane"
+              },
+              {
+                "kind": "if",
+                "text": "Authorized and executable?",
+                "owner": "Control Plane",
+                "branches": [
+                  {
+                    "label": "yes",
+                    "items": [
+                      {
+                        "kind": "action",
+                        "text": "Execute fixed draft snapshot using DAG semantics",
+                        "owner": "Sandbox",
+                        "calls": "06 / Runtime Evaluation"
+                      },
+                      {
+                        "kind": "action",
+                        "text": "Produce result / attributable error\nand protected execution trace",
+                        "owner": "Sandbox",
+                        "notes": [
+                          2
+                        ]
+                      },
+                      {
+                        "kind": "action",
+                        "text": "Inspect simulation outcome",
+                        "owner": "Decision Author"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "no",
+                    "items": [
+                      {
+                        "kind": "action",
+                        "text": "Return access / validation errors",
+                        "owner": "Control Plane"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "label": "no",
+            "items": []
+          }
+        ]
+      },
+      {
+        "kind": "stop",
+        "text": "",
+        "owner": "Control Plane"
+      }
+    ],
+    "notes": [
+      "Author may edit and validate again in a later request.\nBreaking changes contribute to risk; they are not\nautomatically invalid under every compatibility policy.",
+      "Node execution semantics: diagram 06.\nNo effect on production traffic or deployment."
+    ]
+  },
+  {
+    "name": "03_Governance_and_Approval",
+    "title": "RuleSphere - Activity Diagram — 03. Governance and Artifact Build | UC-10..14",
+    "items": [
+      {
+        "kind": "start",
+        "text": "",
+        "owner": "Decision Author"
+      },
+      {
+        "kind": "action",
+        "text": "Submit exact candidate revision",
+        "owner": "Decision Author"
+      },
+      {
+        "kind": "action",
+        "text": "Authorize submit and validate candidate revision",
+        "owner": "Control Plane"
+      },
+      {
+        "kind": "if",
+        "text": "Authorized and required validation passed?",
+        "owner": "Control Plane",
+        "branches": [
+          {
+            "label": "yes",
+            "items": []
+          },
+          {
+            "label": "no",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Return errors; do not enter review",
+                "owner": "Control Plane"
+              },
+              {
+                "kind": "stop",
+                "text": "",
+                "owner": "Control Plane"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "action",
+        "text": "Calculate risk from change scope,\nschema compatibility and previous 30-day traffic",
+        "owner": "Control Plane"
+      },
+      {
+        "kind": "action",
+        "text": "Bind candidate revision and policy; enter In Review",
+        "owner": "Control Plane"
+      },
+      {
+        "kind": "action",
+        "text": "Derive required stages / quorum",
+        "owner": "Control Plane",
+        "notes": [
+          1
+        ]
+      },
+      {
+        "kind": "while",
+        "text": "Governance still pending?",
+        "owner": "Control Plane",
+        "yes": "yes",
+        "items": [
+          {
+            "kind": "action",
+            "text": "Submit approve / reject / upward override command",
+            "owner": "Authorized Reviewer"
+          },
+          {
+            "kind": "action",
+            "text": "Check current scope, role, maker exclusion,\nstage and candidate revision",
+            "owner": "Control Plane"
+          },
+          {
+            "kind": "if",
+            "text": "Reviewer and command eligible?",
+            "owner": "Control Plane",
+            "branches": [
+              {
+                "label": "yes",
+                "items": [
+                  {
+                    "kind": "switch",
+                    "text": "Command",
+                    "owner": "Control Plane",
+                    "branches": [
+                      {
+                        "label": "Increase tier",
+                        "items": [
+                          {
+                            "kind": "if",
+                            "text": "New tier is higher?",
+                            "owner": "Control Plane",
+                            "branches": [
+                              {
+                                "label": "yes",
+                                "items": [
+                                  {
+                                    "kind": "action",
+                                    "text": "Record immutable override evidence",
+                                    "owner": "Control Plane"
+                                  },
+                                  {
+                                    "kind": "action",
+                                    "text": "Increase tier and re-evaluate required approvals",
+                                    "owner": "Control Plane",
+                                    "notes": [
+                                      2
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "label": "no",
+                                "items": [
+                                  {
+                                    "kind": "action",
+                                    "text": "Reject same/lower-tier override",
+                                    "owner": "Control Plane"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "label": "Reject",
+                        "items": [
+                          {
+                            "kind": "action",
+                            "text": "Append immutable rejection evidence",
+                            "owner": "Control Plane"
+                          },
+                          {
+                            "kind": "action",
+                            "text": "Return candidate to Draft",
+                            "owner": "Control Plane"
+                          },
+                          {
+                            "kind": "stop",
+                            "text": "",
+                            "owner": "Control Plane"
+                          }
+                        ]
+                      },
+                      {
+                        "label": "Approve",
+                        "items": [
+                          {
+                            "kind": "action",
+                            "text": "Append immutable approval evidence\nfor the reviewed revision",
+                            "owner": "Control Plane"
+                          },
+                          {
+                            "kind": "action",
+                            "text": "Evaluate current stages / quorum",
+                            "owner": "Control Plane"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "label": "no",
+                "items": [
+                  {
+                    "kind": "action",
+                    "text": "Reject command without counting approval",
+                    "owner": "Control Plane"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "action",
+            "text": "Expose current review status",
+            "owner": "Control Plane"
+          }
+        ],
+        "no": "no"
+      },
+      {
+        "kind": "action",
+        "text": "Mark Approved and freeze Decision Version",
+        "owner": "Control Plane"
+      },
+      {
+        "kind": "action",
+        "text": "Verify governed revision and required validation",
+        "owner": "Artifact Builder"
+      },
+      {
+        "kind": "if",
+        "text": "Build preconditions satisfied?",
+        "owner": "Artifact Builder",
+        "branches": [
+          {
+            "label": "yes",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Build artifact binding exact graph, schemas,\ndependencies and Shared Library versions",
+                "owner": "Artifact Builder"
+              },
+              {
+                "kind": "if",
+                "text": "Build succeeded?",
+                "owner": "Artifact Builder",
+                "branches": [
+                  {
+                    "label": "yes",
+                    "items": [
+                      {
+                        "kind": "action",
+                        "text": "Store immutable artifact, manifest and integrity metadata",
+                        "owner": "Artifact Builder"
+                      },
+                      {
+                        "kind": "action",
+                        "text": "Expose artifact as eligible for delivery",
+                        "owner": "Artifact Builder"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "no",
+                    "items": [
+                      {
+                        "kind": "action",
+                        "text": "Report observable build failure; no deliverable artifact",
+                        "owner": "Artifact Builder"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "label": "no",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Block build and report precondition failure",
+                "owner": "Artifact Builder"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "stop",
+        "text": "",
+        "owner": "Artifact Builder"
+      }
+    ],
+    "notes": [
+      "Tier 1: one Domain Approver.\nTier 2: Domain Peer THEN Workspace Owner.\nTier 3: Domain Owner AND Compliance Officer.\nMaker is excluded from every approval role.",
+      "Reuse of prior approvals needs explicit policy.\nAn edited revision cannot inherit approval implicitly.",
+      "Human review commands are separate requests over time, not an open HTTP call.\nApproved does not mean Active. This activity describes governance, not a BPM engine."
+    ]
+  },
+  {
+    "name": "04_Shadow_and_Canary",
+    "title": "RuleSphere - Activity Diagram — 04. Shadow and Canary Rollout | UC-15..17",
+    "items": [
+      {
+        "kind": "start",
+        "text": "",
+        "owner": "Release Manager"
+      },
+      {
+        "kind": "action",
+        "text": "Configure Shadow and/or Canary settings for candidate",
+        "owner": "Release Manager"
+      },
+      {
+        "kind": "action",
+        "text": "Authorize rollout command and verify candidate eligibility",
+        "owner": "Control / Delivery Plane"
+      },
+      {
+        "kind": "if",
+        "text": "Authorized and eligible?",
+        "owner": "Control / Delivery Plane",
+        "branches": [
+          {
+            "label": "yes",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Distribute artifact and rollout configuration",
+                "owner": "Delivery Coordinator"
+              },
+              {
+                "kind": "action",
+                "text": "Notify active Runtime nodes (see Activity 05)",
+                "owner": "Delivery Coordinator",
+                "calls": "05 / Fleet Synchronization"
+              },
+              {
+                "kind": "action",
+                "text": "Return rollout confirmation",
+                "owner": "Control / Delivery Plane"
+              }
+            ]
+          },
+          {
+            "label": "no",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Return access / release policy error",
+                "owner": "Control / Delivery Plane"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "stop",
+        "text": "",
+        "owner": "Control / Delivery Plane"
+      },
+      {
+        "kind": "start",
+        "text": "",
+        "owner": "Consumer Application"
+      },
+      {
+        "kind": "action",
+        "text": "Submit unpinned production evaluation request",
+        "owner": "Consumer Application"
+      },
+      {
+        "kind": "action",
+        "text": "Authorize runtime scope and resolve routing context",
+        "owner": "Runtime Engine"
+      },
+      {
+        "kind": "if",
+        "text": "Request admitted?",
+        "owner": "Runtime Engine",
+        "branches": [
+          {
+            "label": "yes",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Apply deterministic sticky percentage / cohort policy",
+                "owner": "Runtime Engine"
+              },
+              {
+                "kind": "if",
+                "text": "Selected for Canary?",
+                "owner": "Runtime Engine",
+                "branches": [
+                  {
+                    "label": "yes",
+                    "items": [
+                      {
+                        "kind": "action",
+                        "text": "Bind eligible loaded Canary snapshot",
+                        "owner": "Runtime Engine"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "no",
+                    "items": [
+                      {
+                        "kind": "action",
+                        "text": "Bind node-local loaded Active snapshot",
+                        "owner": "Runtime Engine"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "if",
+                "text": "Bound snapshot available?",
+                "owner": "Runtime Engine",
+                "branches": [
+                  {
+                    "label": "yes",
+                    "items": [
+                      {
+                        "kind": "action",
+                        "text": "Validate input and evaluate selected snapshot (see Diagram 06)",
+                        "owner": "Runtime Engine",
+                        "calls": "06 / Runtime Evaluation"
+                      },
+                      {
+                        "kind": "action",
+                        "text": "Return production response to consumer",
+                        "owner": "Runtime Engine"
+                      },
+                      {
+                        "kind": "action",
+                        "text": "Receive production decision",
+                        "owner": "Consumer Application"
+                      },
+                      {
+                        "kind": "if",
+                        "text": "Shadow enabled and mirrored traffic eligible?",
+                        "owner": "Runtime Engine",
+                        "branches": [
+                          {
+                            "label": "yes",
+                            "items": [
+                              {
+                                "kind": "action",
+                                "text": "Dispatch async mirrored request",
+                                "owner": "Runtime Engine"
+                              },
+                              {
+                                "kind": "if",
+                                "text": "Production request executed Canary?",
+                                "owner": "Shadow Worker",
+                                "branches": [
+                                  {
+                                    "label": "yes",
+                                    "items": [
+                                      {
+                                        "kind": "action",
+                                        "text": "Evaluate Active snapshot on mirrored input for baseline",
+                                        "owner": "Shadow Worker"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "label": "no",
+                                    "items": [
+                                      {
+                                        "kind": "action",
+                                        "text": "Use captured Active outcome as baseline",
+                                        "owner": "Shadow Worker"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "action",
+                                "text": "Evaluate approved Shadow snapshot on mirrored input",
+                                "owner": "Shadow Worker"
+                              },
+                              {
+                                "kind": "action",
+                                "text": "Protect sensitive fields (mask/tokenize)",
+                                "owner": "Shadow Worker"
+                              },
+                              {
+                                "kind": "if",
+                                "text": "Both outcomes valid and protection succeeded?",
+                                "owner": "Shadow Worker",
+                                "branches": [
+                                  {
+                                    "label": "yes",
+                                    "items": [
+                                      {
+                                        "kind": "action",
+                                        "text": "Persist correlated protected Active/Shadow diff",
+                                        "owner": "Shadow Worker"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "label": "no",
+                                    "items": [
+                                      {
+                                        "kind": "action",
+                                        "text": "Record comparison error without impacting production",
+                                        "owner": "Shadow Worker"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "stop",
+                                "text": "",
+                                "owner": "Shadow Worker"
+                              }
+                            ]
+                          },
+                          {
+                            "label": "no",
+                            "items": []
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "label": "no",
+                    "items": [
+                      {
+                        "kind": "action",
+                        "text": "Return explicit runtime availability error",
+                        "owner": "Runtime Engine"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "label": "no",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Return protocol-appropriate error",
+                "owner": "Runtime Engine"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "stop",
+        "text": "",
+        "owner": "Runtime Engine"
+      },
+      {
+        "kind": "start",
+        "text": "",
+        "owner": "Authorized User / Analyst"
+      },
+      {
+        "kind": "action",
+        "text": "Submit query for Shadow comparison diffs",
+        "owner": "Authorized User / Analyst"
+      },
+      {
+        "kind": "action",
+        "text": "Authorize query scope",
+        "owner": "Control / Delivery Plane"
+      },
+      {
+        "kind": "if",
+        "text": "Authorized?",
+        "owner": "Control / Delivery Plane",
+        "branches": [
+          {
+            "label": "yes",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Fetch protected diff records from store",
+                "owner": "Diff Analysis"
+              },
+              {
+                "kind": "action",
+                "text": "Assemble divergence metrics and node reports",
+                "owner": "Diff Analysis"
+              },
+              {
+                "kind": "action",
+                "text": "Return diff analysis report",
+                "owner": "Diff Analysis"
+              }
+            ]
+          },
+          {
+            "label": "no",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Return access denied error",
+                "owner": "Control / Delivery Plane"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "stop",
+        "text": "",
+        "owner": "Control / Delivery Plane"
+      }
+    ],
+    "notes": [
+      "F-14 Resolution: Rollout configuration, production evaluation, and diff querying are decoupled.\nShadow processing is dispatched asynchronously without blocking or mutating the production response.\nCanary uses deterministic sticky hash or approved cohort routing."
+    ]
+  },
+  {
+    "name": "05_Deployment_and_Convergence",
+    "title": "RuleSphere - Activity Diagram — 05. Promote, Rollback and Convergence | UC-18..20, UC-27",
+    "items": [
+      {
+        "kind": "start",
+        "text": "",
+        "owner": "Release Manager"
+      },
+      {
+        "kind": "action",
+        "text": "Request promote candidate or rollback to prior version",
+        "owner": "Release Manager"
+      },
+      {
+        "kind": "action",
+        "text": "Authorize operation and verify target eligibility",
+        "owner": "Control / Delivery Plane"
+      },
+      {
+        "kind": "if",
+        "text": "Authorized and policy satisfied?",
+        "owner": "Control / Delivery Plane",
+        "branches": [
+          {
+            "label": "yes",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Switch desired Active pointer to target artifact",
+                "owner": "Delivery State Coordinator",
+                "notes": [
+                  1
+                ]
+              },
+              {
+                "kind": "action",
+                "text": "Record actor, from/to version, timestamp and reason",
+                "owner": "Delivery State Coordinator"
+              },
+              {
+                "kind": "action",
+                "text": "Emit desired-state publication event",
+                "owner": "Delivery State Coordinator"
+              },
+              {
+                "kind": "action",
+                "text": "Acknowledge desired-state update to Release Manager",
+                "owner": "Delivery State Coordinator"
+              }
+            ]
+          },
+          {
+            "label": "no",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Return access / policy error",
+                "owner": "Control / Delivery Plane"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "stop",
+        "text": "",
+        "owner": "Control / Delivery Plane"
+      },
+      {
+        "kind": "start",
+        "text": "",
+        "owner": "Control / Delivery Plane"
+      },
+      {
+        "kind": "action",
+        "text": "Broadcast desired-state change event to Runtime fleet",
+        "owner": "Control / Delivery Plane"
+      },
+      {
+        "kind": "fork",
+        "text": "",
+        "owner": "Control / Delivery Plane",
+        "branches": [
+          {
+            "label": "",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Receive desired-state event independently",
+                "owner": "Runtime Node (Fleet)",
+                "notes": [
+                  2
+                ]
+              },
+              {
+                "kind": "action",
+                "text": "Fetch exact immutable artifact and dependency references",
+                "owner": "Runtime Node (Fleet)"
+              },
+              {
+                "kind": "action",
+                "text": "Verify checksum integrity and contract compatibility",
+                "owner": "Runtime Node (Fleet)"
+              },
+              {
+                "kind": "if",
+                "text": "Integrity and validation pass?",
+                "owner": "Runtime Node (Fleet)",
+                "branches": [
+                  {
+                    "label": "yes",
+                    "items": [
+                      {
+                        "kind": "action",
+                        "text": "Load artifact into memory",
+                        "owner": "Runtime Node (Fleet)"
+                      },
+                      {
+                        "kind": "action",
+                        "text": "Mark snapshot eligible for new incoming requests",
+                        "owner": "Runtime Node (Fleet)"
+                      },
+                      {
+                        "kind": "action",
+                        "text": "Report loaded version, generation and healthy status",
+                        "owner": "Runtime Node (Fleet)"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "no",
+                    "items": [
+                      {
+                        "kind": "action",
+                        "text": "Reject failed artifact",
+                        "owner": "Runtime Node (Fleet)"
+                      },
+                      {
+                        "kind": "action",
+                        "text": "Retain previously loaded valid artifact (FR-DIST-004)",
+                        "owner": "Runtime Node (Fleet)"
+                      },
+                      {
+                        "kind": "action",
+                        "text": "Continue serving while emitting error alert",
+                        "owner": "Runtime Node (Fleet)"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "label": "",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Track desired vs loaded status from all active nodes",
+                "owner": "Fleet Observability"
+              },
+              {
+                "kind": "if",
+                "text": "100% of active nodes eligible within <=2.0s?",
+                "owner": "Fleet Observability",
+                "branches": [
+                  {
+                    "label": "yes",
+                    "items": [
+                      {
+                        "kind": "action",
+                        "text": "Mark fleet state as CONVERGED (NFR-CONS-001)",
+                        "owner": "Fleet Observability"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "no",
+                    "items": [
+                      {
+                        "kind": "action",
+                        "text": "Expose convergence lag and alert SLA breach",
+                        "owner": "Fleet Observability"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "stop",
+        "text": "",
+        "owner": "Fleet Observability"
+      },
+      {
+        "kind": "start",
+        "text": "",
+        "owner": "Authorized Operator"
+      },
+      {
+        "kind": "action",
+        "text": "Request current fleet convergence status",
+        "owner": "Authorized Operator"
+      },
+      {
+        "kind": "action",
+        "text": "Authorize observation scope",
+        "owner": "Control / Delivery Plane"
+      },
+      {
+        "kind": "if",
+        "text": "Authorized?",
+        "owner": "Control / Delivery Plane",
+        "branches": [
+          {
+            "label": "yes",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Query Fleet Observability collector",
+                "owner": "Fleet Observability"
+              },
+              {
+                "kind": "action",
+                "text": "Return node-by-node desired/loaded versions, lag, and errors",
+                "owner": "Control / Delivery Plane"
+              },
+              {
+                "kind": "action",
+                "text": "Inspect fleet convergence dashboard",
+                "owner": "Authorized Operator"
+              }
+            ]
+          },
+          {
+            "label": "no",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Return access denied error",
+                "owner": "Control / Delivery Plane"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "stop",
+        "text": "",
+        "owner": "Control / Delivery Plane"
+      }
+    ],
+    "notes": [
+      "Rollback reuses an eligible prior immutable artifact.\nNo cloning or rebuild needed.",
+      "Concurrent execution across all active fleet nodes.\nZero-restart in-memory load without interrupting in-flight requests.",
+      "F-14 Resolution: Decoupled into Promotion/Rollback, Fleet Synchronization, and Operator Query.\nFleet nodes synchronize concurrently with zero restart. Failed nodes retain valid loaded artifacts (FR-DIST-004).\nSLA is <=2.0s from event emission to 100% active nodes loaded and eligible (NFR-CONS-001)."
+    ]
+  },
+  {
+    "name": "06_Runtime_Evaluation",
+    "title": "RuleSphere - Activity Diagram — 06. REST / gRPC Evaluation | UC-21..24",
+    "items": [
+      {
+        "kind": "start",
+        "text": "",
+        "owner": "Consumer Application"
+      },
+      {
+        "kind": "action",
+        "text": "Send input, credential, routing context\nand optional version pin",
+        "owner": "Consumer Application"
+      },
+      {
+        "kind": "action",
+        "text": "Validate credential and Tenant/Workspace access",
+        "owner": "Runtime Admission"
+      },
+      {
+        "kind": "if",
+        "text": "Authorized?",
+        "owner": "Runtime Admission",
+        "branches": [
+          {
+            "label": "yes",
+            "items": []
+          },
+          {
+            "label": "no",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Return authentication / access error",
+                "owner": "Runtime Admission"
+              },
+              {
+                "kind": "stop",
+                "text": "",
+                "owner": "Runtime Admission"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "if",
+        "text": "Exact version pin supplied?",
+        "owner": "Runtime Admission",
+        "branches": [
+          {
+            "label": "yes",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Find exact eligible version in local artifact store",
+                "owner": "Runtime Admission"
+              },
+              {
+                "kind": "if",
+                "text": "Pinned version available and eligible?",
+                "owner": "Runtime Admission",
+                "branches": [
+                  {
+                    "label": "yes",
+                    "items": []
+                  },
+                  {
+                    "label": "no",
+                    "items": [
+                      {
+                        "kind": "action",
+                        "text": "Return REST 412 or documented gRPC\nprecondition error; no fallback to Active",
+                        "owner": "Runtime Admission"
+                      },
+                      {
+                        "kind": "stop",
+                        "text": "",
+                        "owner": "Runtime Admission"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "label": "no",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Resolve configured sticky Canary / cohort selection\nor latest eligible node-local Active",
+                "owner": "Runtime Admission"
+              },
+              {
+                "kind": "if",
+                "text": "Selected snapshot available?",
+                "owner": "Runtime Admission",
+                "branches": [
+                  {
+                    "label": "yes",
+                    "items": []
+                  },
+                  {
+                    "label": "no",
+                    "items": [
+                      {
+                        "kind": "action",
+                        "text": "Return protocol-defined availability error",
+                        "owner": "Runtime Admission"
+                      },
+                      {
+                        "kind": "stop",
+                        "text": "",
+                        "owner": "Runtime Admission"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "action",
+        "text": "Bind graph, schemas, dependencies and libraries\nas one atomic snapshot",
+        "owner": "Runtime Admission"
+      },
+      {
+        "kind": "action",
+        "text": "Validate input against bound schema",
+        "owner": "Runtime Admission"
+      },
+      {
+        "kind": "if",
+        "text": "Input contract valid?",
+        "owner": "Runtime Admission",
+        "branches": [
+          {
+            "label": "yes",
+            "items": []
+          },
+          {
+            "label": "no",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Return client contract error before evaluation",
+                "owner": "Runtime Admission"
+              },
+              {
+                "kind": "stop",
+                "text": "",
+                "owner": "Runtime Admission"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "action",
+        "text": "Create execution context and trace; set healthy",
+        "owner": "Graph Executor"
+      },
+      {
+        "kind": "while",
+        "text": "More nodes and execution healthy?",
+        "owner": "Graph Executor",
+        "yes": "yes",
+        "items": [
+          {
+            "kind": "action",
+            "text": "Select next node in topological order",
+            "owner": "Graph Executor"
+          },
+          {
+            "kind": "if",
+            "text": "Branch activated?",
+            "owner": "Graph Executor",
+            "branches": [
+              {
+                "label": "yes",
+                "items": [
+                  {
+                    "kind": "action",
+                    "text": "Evaluate node in fixed execution context",
+                    "owner": "Graph Executor"
+                  },
+                  {
+                    "kind": "if",
+                    "text": "Node succeeded?",
+                    "owner": "Graph Executor",
+                    "branches": [
+                      {
+                        "label": "yes",
+                        "items": [
+                          {
+                            "kind": "action",
+                            "text": "Record result, matched node and activated branches",
+                            "owner": "Graph Executor"
+                          }
+                        ]
+                      },
+                      {
+                        "label": "no",
+                        "items": [
+                          {
+                            "kind": "if",
+                            "text": "Qualifying error and valid typed fallback configured?",
+                            "owner": "Graph Executor",
+                            "branches": [
+                              {
+                                "label": "yes",
+                                "items": [
+                                  {
+                                    "kind": "action",
+                                    "text": "Use fallback and record fallback use",
+                                    "owner": "Graph Executor"
+                                  }
+                                ]
+                              },
+                              {
+                                "label": "no",
+                                "items": [
+                                  {
+                                    "kind": "action",
+                                    "text": "Record attributable error and mark failed",
+                                    "owner": "Graph Executor"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "label": "no",
+                "items": [
+                  {
+                    "kind": "action",
+                    "text": "Skip inactive branch",
+                    "owner": "Graph Executor"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "no": "no"
+      },
+      {
+        "kind": "action",
+        "text": "Finalize execution outcome and trace tree",
+        "owner": "Graph Executor"
+      },
+      {
+        "kind": "action",
+        "text": "Dispatch safe asynchronous evidence capture\n(details in diagram 07)",
+        "owner": "Runtime Response",
+        "calls": "07 / Trace Capture"
+      },
+      {
+        "kind": "if",
+        "text": "Execution succeeded?",
+        "owner": "Runtime Response",
+        "branches": [
+          {
+            "label": "yes",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Return result, executionId\nand authorized version metadata",
+                "owner": "Runtime Response"
+              }
+            ]
+          },
+          {
+            "label": "no",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Return attributable protocol-defined execution error",
+                "owner": "Runtime Response"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "action",
+        "text": "Receive response",
+        "owner": "Consumer Application"
+      },
+      {
+        "kind": "stop",
+        "text": "",
+        "owner": "Consumer Application"
+      }
+    ],
+    "notes": [
+      "Normal evaluation has no synchronous Control Plane dependency.\nMid-request publication never replaces the bound atomic snapshot.\nTrace persistence does not block this flow; failures follow observable operational policy."
+    ]
+  },
+  {
+    "name": "07_Trace_Capture",
+    "title": "RuleSphere - Activity Diagram — 07. Protected Execution Evidence | UC-24",
+    "items": [
+      {
+        "kind": "start",
+        "text": "",
+        "owner": "Trace Capture"
+      },
+      {
+        "kind": "action",
+        "text": "Receive asynchronous auditable execution evidence",
+        "owner": "Trace Capture"
+      },
+      {
+        "kind": "action",
+        "text": "Identify sensitive fields using bound schema metadata",
+        "owner": "Trace Capture"
+      },
+      {
+        "kind": "action",
+        "text": "Mask, tokenize or hash sensitive values\nincluding intermediate outcomes, output and errors",
+        "owner": "Trace Capture"
+      },
+      {
+        "kind": "if",
+        "text": "Protection succeeded?",
+        "owner": "Trace Capture",
+        "branches": [
+          {
+            "label": "yes",
+            "items": []
+          },
+          {
+            "label": "no",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Block unprotected persistence",
+                "owner": "Trace Capture"
+              },
+              {
+                "kind": "action",
+                "text": "Report capture degradation and apply failure policy",
+                "owner": "Trace Capture"
+              },
+              {
+                "kind": "stop",
+                "text": "",
+                "owner": "Trace Capture"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "fork",
+        "text": "",
+        "owner": "Trace Capture",
+        "branches": [
+          {
+            "label": "",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Attempt to persist full protected trace tree",
+                "owner": "Hot Trace Writer"
+              },
+              {
+                "kind": "action",
+                "text": "Collect hot-store success / failure / timeout",
+                "owner": "Hot Trace Writer",
+                "notes": [
+                  1
+                ]
+              }
+            ]
+          },
+          {
+            "label": "",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Build immutable compliance metadata",
+                "owner": "Compliance Writer",
+                "notes": [
+                  2
+                ]
+              },
+              {
+                "kind": "action",
+                "text": "Attempt to persist compliance metadata",
+                "owner": "Compliance Writer"
+              },
+              {
+                "kind": "action",
+                "text": "Collect ledger success / failure / timeout",
+                "owner": "Compliance Writer",
+                "notes": [
+                  3
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "if",
+        "text": "Both persistence attempts succeeded?",
+        "owner": "Trace Capture",
+        "branches": [
+          {
+            "label": "yes",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Record capture success",
+                "owner": "Trace Capture"
+              }
+            ]
+          },
+          {
+            "label": "no",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Report affected execution, failed store and degradation",
+                "owner": "Trace Capture"
+              },
+              {
+                "kind": "action",
+                "text": "Apply operational retry / backpressure policy",
+                "owner": "Trace Capture"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "stop",
+        "text": "",
+        "owner": "Trace Capture"
+      }
+    ],
+    "notes": [
+      "Hot trace retention: configured 30-90 days.",
+      "ExecutionID, DecisionVersion, InputHash,\nprotected Output, MatchedNodeIDs, Timestamp,\napproval/release evidence reference.",
+      "Ledger retention: configured 5-7 years.",
+      "This activity runs independently of the consumer response; its join only joins capture tasks.\nPersistence failure must not silently change the business decision outcome.\nRetry, timeouts, reliable delivery and backpressure details require ADR.\nNever store plaintext sensitive fields in execution traces."
+    ]
+  },
+  {
+    "name": "08_Historical_Explain_and_Audit",
+    "title": "RuleSphere - Activity Diagram — 08. Historical Explanation and Audit | UC-25..26",
+    "items": [
+      {
+        "kind": "start",
+        "text": "",
+        "owner": "Authorized User / Auditor"
+      },
+      {
+        "kind": "action",
+        "text": "Request explanation by ExecutionID\nor audit inspection by filter",
+        "owner": "Authorized User / Auditor"
+      },
+      {
+        "kind": "action",
+        "text": "Authenticate and authorize action within Tenant/Workspace",
+        "owner": "Evidence Query Service"
+      },
+      {
+        "kind": "if",
+        "text": "Authorized?",
+        "owner": "Evidence Query Service",
+        "branches": [
+          {
+            "label": "yes",
+            "items": []
+          },
+          {
+            "label": "no",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Return access error without disclosing evidence",
+                "owner": "Evidence Query Service"
+              },
+              {
+                "kind": "stop",
+                "text": "",
+                "owner": "Evidence Query Service"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "if",
+        "text": "Historical explanation requested?",
+        "owner": "Evidence Query Service",
+        "branches": [
+          {
+            "label": "yes",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Read scoped retained hot trace\nand compliance metadata",
+                "owner": "Evidence Query / Retrieval and Audit"
+              },
+              {
+                "kind": "if",
+                "text": "Full trace retained?",
+                "owner": "Evidence Query Service",
+                "branches": [
+                  {
+                    "label": "yes",
+                    "items": [
+                      {
+                        "kind": "action",
+                        "text": "Include protected node, branch and outcome details",
+                        "owner": "Evidence Query Service"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "no",
+                    "items": [
+                      {
+                        "kind": "action",
+                        "text": "Mark full trace unavailable",
+                        "owner": "Evidence Query Service"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "if",
+                "text": "Accessible approval/release reference exists?",
+                "owner": "Evidence Query Service",
+                "branches": [
+                  {
+                    "label": "yes",
+                    "items": [
+                      {
+                        "kind": "action",
+                        "text": "Read referenced evidence within authorized scope",
+                        "owner": "Evidence Query / Retrieval and Audit"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "no",
+                    "items": []
+                  }
+                ]
+              },
+              {
+                "kind": "action",
+                "text": "Assemble available execution, version\nand release evidence",
+                "owner": "Evidence Query Service"
+              }
+            ]
+          },
+          {
+            "label": "audit inspection",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Read scoped governance, deployment\nand security audit records",
+                "owner": "Evidence Query / Retrieval and Audit"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "action",
+        "text": "Record attributable evidence-access audit event",
+        "owner": "Evidence Query / Retrieval and Audit"
+      },
+      {
+        "kind": "if",
+        "text": "Requested evidence available?",
+        "owner": "Evidence Query Service",
+        "branches": [
+          {
+            "label": "yes",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Return protected evidence with retention limitations",
+                "owner": "Evidence Query Service"
+              }
+            ]
+          },
+          {
+            "label": "no",
+            "items": [
+              {
+                "kind": "action",
+                "text": "Return explicit not-found / no-retained-evidence result",
+                "owner": "Evidence Query Service"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "action",
+        "text": "View explanation / audit records or authorized export",
+        "owner": "Authorized User / Auditor"
+      },
+      {
+        "kind": "stop",
+        "text": "",
+        "owner": "Authorized User / Auditor"
+      }
+    ],
+    "notes": [
+      "Full trace may expire before compliance metadata.\nReturn only retained evidence; never invent missing intermediate decisions.\nQueries and referenced evidence must remain within authorized scope."
+    ]
+  }
+]

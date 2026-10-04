@@ -1,0 +1,103 @@
+@startuml
+title RuleSphere - 03. Governance and Approval\nUC-10..14 | FR-GOV-*, FR-REL-001..002
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam classBackgroundColor #EAF6F8
+skinparam classBorderColor #177E8D
+hide empty members
+class User <<external>>
+class DecisionVersion <<external>>
+class Release {
+  -releaseId: UUID
+  -candidateRevision: Integer
+  -governanceStatus: GovernanceStatus
+  -effectiveTier: Integer
+  +submit()
+  +recordReview(actor, outcome, reason)
+  +overruleRiskUpward(newTier: Integer)
+  +isGovernanceSatisfied(): Boolean
+}
+enum GovernanceStatus {
+  Draft
+  InReview
+  Approved
+}
+class GovernancePolicy {
+  -policyId: UUID
+  -version: String
+  -riskRules: Expression
+  +calculateRisk(change, breaking, traffic): Integer
+  +requiredStages(tier): List<ApprovalStage>
+}
+class RiskAssessment {
+  -assessedAt: DateTime
+  -changeScope: String
+  -schemaBreaking: Boolean
+  -previous30DayTraffic: Long
+  -calculatedTier: Integer
+}
+class RiskOverride <<immutable>> {
+  -fromTier: Integer
+  -toTier: Integer
+  -reason: String
+  -timestamp: DateTime
+}
+class ApprovalStage {
+  -stageId: UUID
+  -sequence: Integer
+  -requiredRole: String
+  -requiredCount: Integer
+}
+class ApprovalEvidence <<immutable>> {
+  -evidenceId: UUID
+  -reviewedRevision: Integer
+  -outcome: ApproveOrReject
+  -timestamp: DateTime
+  -reason: String [0..1]
+}
+class ArtifactBuilder <<service>> {
+  +build(approvedRelease): ExecutableArtifact
+}
+class ExecutableArtifact <<immutable>> {
+  -artifactId: UUID
+  -integrityHash: String
+  -builtAt: DateTime
+  -payload: Binary
+}
+class ArtifactManifest <<immutable>> {
+  -decisionVersionId: UUID
+  -graphId: UUID
+  -inputSchemaVersion: String
+  -outputSchemaVersion: String
+  -dependencyVersions: Map
+  -sharedLibraryVersions: Map
+}
+Release "0..*" --> "1" User : maker
+Release "0..*" --> "1" DecisionVersion : candidate
+Release "0..*" --> "1" GovernancePolicy : exact policy version
+Release "1" *-- "0..*" RiskAssessment
+Release "1" *-- "0..*" RiskOverride
+RiskOverride "0..*" --> "1" User : overriddenBy
+Release "1" *-- "0..*" ApprovalStage
+ApprovalStage "1" *-- "0..*" ApprovalEvidence
+ApprovalEvidence "0..*" --> "1" User : reviewer
+Release "1" -- "0..1" ExecutableArtifact : approved build
+ExecutableArtifact "1" *-- "1" ArtifactManifest
+ExecutableArtifact "0..*" --> "1" DecisionVersion : exact frozen version
+ArtifactBuilder ..> Release
+ArtifactBuilder ..> ExecutableArtifact
+note bottom of Release
+  Maker cannot approve in any role.
+  Tier 1: one Domain Approver.
+  Tier 2: Domain Peer, then Workspace Owner.
+  Tier 3: Domain Owner AND Compliance Officer.
+  Override can only increase risk; re-evaluate required approvals.
+  Rejection returns candidate to Draft (SRS 9.1).
+  Evidence stays immutable and identifies the reviewed revision.
+end note
+note bottom of ArtifactBuilder
+  Requires valid DAG/contracts and satisfied governance.
+  Build binds exact graph, schema and dependency versions.
+  Approved does not mean Active.
+end note
+@enduml

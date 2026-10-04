@@ -1,0 +1,109 @@
+@startuml
+left to right direction
+skinparam shadowing false
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Segoe UI
+skinparam defaultFontSize 13
+skinparam nodesep 35
+skinparam ranksep 50
+skinparam ArrowColor #527183
+skinparam actor {
+  BorderColor #274D64
+  FontColor #17354A
+  BackgroundColor #FFFFFF
+}
+skinparam usecase {
+  BorderColor #177E8D
+  BackgroundColor #EAF6F8
+  FontColor #143047
+}
+skinparam rectangle {
+  BorderColor #64748B
+  BackgroundColor #F8FAFC
+}
+skinparam note {
+  BorderColor #B99A48
+  BackgroundColor #FFF9E8
+  FontColor #594D2D
+}
+' UC-xx: official SRS catalog. Dxx.xx: derived decomposition, not a new SRS ID.
+' Fxx: feature from RuleSphere_Context_Diagram_Detailed.mmd.
+' Include: mandatory sub-behavior. Extend: conditional behavior at a named base.
+' Generalization: specialized actor/use case points to its general parent.
+
+' Sources: UC-05..09; FR-DM-001..003,007..008; FR-SCH-001..003; FR-TEN-004.
+actor "A01 - Decision Author / Domain Expert" as A01
+
+rectangle "RuleSphere - Decision Modeling and Testing" as SYSTEM {
+  usecase "UC-05\nCreate / Edit Decision\n[F08]" as UC05 <<abstract>>
+  usecase "D02.01\nCreate Decision Draft" as D0201
+  usecase "D02.02\nEdit Decision Draft" as D0202
+
+  ' F-16: Declared extension points in base use case
+  usecase "UC-06\nModel Decision Graph\n[F09]\n--\nextension points:\n  node_modeling\n  dependency_configuration\n  library_reference" as UC06
+  
+  usecase "D02.03\nModel Decision Node\n--\nextension points:\n  fallback_configuration" as D0203 <<abstract>>
+  usecase "D02.04\nModel Decision Table\n[F10]" as D0204
+  usecase "D02.05\nModel Decision Tree\n[F11]" as D0205
+  usecase "D02.06\nModel Scripted Expression\n[F12]" as D0206
+  usecase "D02.07\nModel Rule Set\n[F13]" as D0207
+  usecase "D02.08\nConfigure Node Dependencies" as D0208
+  usecase "D02.09\nConfigure Typed Node Fallback\n[F14]" as D0209
+  usecase "D02.10\nReference Shared Library Asset" as D0210
+  usecase "D02.11\nPin Shared Library Version" as D0211
+
+  usecase "UC-07\nDefine / Version Schema\n[F15]" as UC07
+  usecase "D02.12\nDefine Input / Output Fields\nand Type / Requiredness Metadata\n--\nextension points:\n  sensitivity_configuration" as D0212
+  usecase "D02.13\nConfigure Field Sensitivity" as D0213
+
+  usecase "UC-08\nValidate Graph and Contracts" as UC08
+  usecase "D02.14\nValidate DAG / Detect Cycles\n[F16]" as D0214
+  usecase "D02.15\nCheck Schema Compatibility\n[F17]" as D0215
+  usecase "D02.16\nValidate Dependency Scope" as D0216
+
+  usecase "UC-09\nSandbox Execute\n[F18]" as UC09
+  usecase "D02.17\nEvaluate Valid Draft in Sandbox" as D0217
+  usecase "D02.18\nProduce Simulation Result and Trace" as D0218
+
+  note as N06
+    F-16 Extension Point Mapping:
+    - UC-06 owns: node_modeling, dependency_configuration, library_reference.
+    - D02.03 owns: fallback_configuration.
+    - D02.12 owns: sensitivity_configuration.
+  end note
+  note as N09
+    Sandbox execution requires a valid executable draft.
+    A draft edit does not automatically imply full validation.
+    Schema changes are checked against configured compatibility rules.
+  end note
+}
+
+A01 -- UC05
+A01 -- UC06
+A01 -- UC07
+A01 -- UC08
+A01 -- UC09
+D0201 --|> UC05
+D0202 --|> UC05
+D0204 --|> D0203
+D0205 --|> D0203
+D0206 --|> D0203
+D0207 --|> D0203
+
+' F-16: Explicit extension point mapping on extend relationships
+D0203 ..> UC06 : <<extend>>\n(point: node_modeling)\n[node added or edited]
+D0208 ..> UC06 : <<extend>>\n(point: dependency_configuration)\n[dependency links changed]
+D0209 ..> D0203 : <<extend>>\n(point: fallback_configuration)\n[eligible node and fallback requested]
+D0210 ..> UC06 : <<extend>>\n(point: library_reference)\n[shared-library reference requested]
+D0210 ..> D0211 : <<include>>
+UC07 ..> D0212 : <<include>>
+D0213 ..> D0212 : <<extend>>\n(point: sensitivity_configuration)\n[sensitivity metadata edited]
+UC08 ..> D0214 : <<include>>
+UC08 ..> D0215 : <<include>>
+UC08 ..> D0216 : <<include>>
+UC09 ..> D0217 : <<include>>
+UC09 ..> D0218 : <<include>>
+N06 .. UC06
+N09 .. UC09
+
+@enduml

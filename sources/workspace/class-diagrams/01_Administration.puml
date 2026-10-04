@@ -1,0 +1,88 @@
+@startuml
+title RuleSphere - 01. Administration\nUC-01..04 | FR-TEN-*, FR-SEC-*
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam classBackgroundColor #EAF6F8
+skinparam classBorderColor #177E8D
+hide empty members
+class Tenant {
+  -tenantId: UUID
+  -name: String
+  +createWorkspace(name: String): Workspace
+}
+class Workspace {
+  -workspaceId: UUID
+  -name: String
+}
+class User {
+  -userId: UUID
+  -displayName: String
+}
+class Membership {
+  -membershipId: UUID
+  -active: Boolean
+  +assignRole(role: Role, scope: AccessScope)
+}
+class RoleAssignment {
+  -assignmentId: UUID
+}
+class Role {
+  -roleId: UUID
+  -name: String
+}
+class Permission {
+  -resource: String
+  -action: String
+}
+class AccessScope <<value object>> {
+  -tenantId: UUID
+  -workspaceId: UUID [0..1]
+  +contains(resource): Boolean
+}
+class ApiCredential {
+  -credentialId: UUID
+  -secretVerifier: String
+  -issuedAt: DateTime
+  -revokedAt: DateTime [0..1]
+  +revoke()
+  +isValid(): Boolean
+}
+class SharedLibrary {
+  -libraryId: UUID
+  -name: String
+  +publish(validatedAsset): SharedLibraryVersion
+}
+class SharedLibraryVersion <<immutable>> {
+  -versionId: UUID
+  -version: String
+  -assetContent: Binary
+  -integrityHash: String
+}
+class AuthorizationService <<service>> {
+  +authorize(principal, action, resource): Boolean
+}
+Tenant "1" *-- "0..*" Workspace
+Tenant "1" *-- "0..*" User : isolated identity
+User "1" -- "0..*" Membership
+Membership "1" *-- "0..*" RoleAssignment
+RoleAssignment "0..*" --> "1" Role
+RoleAssignment "1" *-- "1" AccessScope
+Role "0..*" -- "0..*" Permission
+Tenant "1" *-- "0..*" Role
+Tenant "1" *-- "0..*" ApiCredential
+ApiCredential "1" *-- "1" AccessScope
+Tenant "1" *-- "0..*" SharedLibrary
+SharedLibrary "1" *-- "1..*" SharedLibraryVersion
+AuthorizationService ..> Membership
+AuthorizationService ..> ApiCredential
+AuthorizationService ..> Permission
+note bottom of AccessScope
+  Scope is one Tenant, optionally one of its Workspaces.
+  Memberships, roles and credentials stay within that Tenant.
+  Actor names represent roles, not subclasses of User.
+end note
+note bottom of SharedLibraryVersion
+  Cross-workspace reuse only via exact immutable library versions
+  within the same Tenant. No direct cross-tenant sharing.
+end note
+@enduml

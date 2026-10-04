@@ -1,0 +1,107 @@
+@startuml
+title RuleSphere - Package Diagram\nSubsystem Structuring & Class Ownership (F-19, AC-01)
+top to bottom direction
+skinparam shadowing false
+skinparam packageStyle folder
+skinparam defaultFontName Segoe UI
+skinparam defaultFontSize 12
+skinparam ArrowColor #496477
+skinparam packageBorderColor #496477
+skinparam nodesep 30
+skinparam ranksep 50
+hide empty members
+
+package "Control Plane (Decision Management Subsystem)" as Control #EDF5FF {
+  package "Administration" as Admin #DCEBFA {
+    class Tenant
+    class Workspace
+    class User
+    class SharedLibraryVersion
+  }
+  package "Decision Modeling" as Modeling #DCEBFA {
+    class Decision
+    class DecisionVersion
+    class DecisionGraph
+    class DecisionValidator
+  }
+  package "Governance and Approval" as Governance #DCEBFA {
+    class Release
+    class GovernancePolicy
+    class ApprovalEvidence
+    class ArtifactBuilder
+  }
+  package "Evidence Queries" as Queries #DCEBFA {
+    class EvidenceQueryService
+  }
+}
+
+package "Delivery Plane (Distribution Subsystem)" as Delivery #F0ECFF {
+  package "Deployment Management" as Deployment #E6DFFA {
+    class Deployment
+    class DesiredActiveState
+  }
+  package "Artifact Distribution" as Distribution #E6DFFA {
+    class DistributionService
+    class DesiredStatePublisher
+  }
+}
+
+package "Data Plane (Stateless Execution Subsystem)" as Data #E9F8ED {
+  package "Runtime API and Execution" as Runtime #D6F0DF {
+    class RuntimeAdapter
+    class EvaluationService
+    class GraphExecutor
+  }
+  package "Local Artifact Management" as Local #D6F0DF {
+    class LocalArtifactStore
+    class SnapshotResolver
+    class AtomicSnapshot
+  }
+}
+
+package "Shared Modules" as Shared #FFF6DF {
+  package "Security and Scope" as Security #FFF0C2 {
+    class AuthorizationService
+  }
+  package "Versioned Contracts" as Contracts #FFF0C2 {
+    class SchemaVersion
+    class SchemaField
+  }
+  package "Audit and Observability" as Audit #FFF0C2 {
+    class ExecutionTraceTree
+    class ComplianceRecord
+    class FleetConvergenceView
+  }
+}
+
+' Inter-package Subsystem Dependencies
+Modeling ..> Admin : library pins
+Governance ..> Modeling : validated revision
+Deployment ..> Governance : approved artifact
+Deployment ..> Distribution : publish desired state
+Runtime ..> Local : local snapshot
+Queries ..> Audit : trace & compliance records
+
+Control ..> Security : management auth
+Delivery ..> Security : release auth
+Data ..> Security : runtime token auth
+
+Control ..> Contracts : validate & version
+Delivery ..> Contracts : publish schema
+Data ..> Contracts : evaluate against schema
+
+Control ..> Audit : admin audit logs
+Delivery ..> Audit : release audit logs
+Data ..> Audit : async trace persistence
+
+note right of Data
+  **Subsystem Invariant (AC-04):**
+  Data Plane does NOT depend synchronously on Control Plane.
+  Resolves all executions via Local Artifact Management.
+end note
+
+legend bottom
+  F-19 Subsystem Structuring: Maps domain classes to logical packages across the 3 AC-01 planes.
+  Dashed arrows (..>) denote compile-time/logical package dependencies.
+endlegend
+@enduml

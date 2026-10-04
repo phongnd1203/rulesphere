@@ -1,0 +1,107 @@
+@startuml
+title RuleSphere - 06. Audit and Observability\nUC-24..27 | FR-AUD-*, FR-DIST-003, NFR-OBS-001
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam classBackgroundColor #EAF6F8
+skinparam classBorderColor #177E8D
+hide empty members
+class Execution <<external>>
+class Release <<external>>
+class RuntimeNode <<external>>
+class DesiredActiveState <<external>>
+class LoadedArtifact <<external>>
+class ExecutionTraceTree {
+  -executionId: UUID
+  -decisionVersionId: UUID
+  -schemaVersions: Map
+  -protectedFinalOutcome: Value
+  -capturedAt: DateTime
+}
+class TraceNode {
+  -traceNodeId: UUID
+  -decisionNodeId: UUID
+  -branchActivated: Boolean
+  -matched: Boolean
+  -fallbackUsed: Boolean
+  -protectedIntermediateOutcome: Value
+  -error: String [0..1]
+}
+class ComplianceRecord <<immutable>> {
+  -executionId: UUID
+  -decisionVersionId: UUID
+  -inputHash: String
+  -protectedOutput: Value
+  -matchedNodeIds: List<UUID>
+  -timestamp: DateTime
+  -approvalReleaseEvidenceRef: String
+}
+class AuditEvent <<immutable>> {
+  -eventId: UUID
+  -tenantId: UUID
+  -workspaceId: UUID [0..1]
+  -actorId: String
+  -category: Governance_Deployment_Security
+  -action: String
+  -resourceRef: String
+  -fromVersion: String [0..1]
+  -toVersion: String [0..1]
+  -timestamp: DateTime
+  -reason: String [0..1]
+}
+class RetentionPolicy {
+  -hotTraceDays: Integer
+  -ledgerYears: Integer
+  +validate(): Boolean
+}
+class SensitiveDataProtector <<service>> {
+  +protect(value, schema): Value
+}
+class TraceCaptureService <<service>> {
+  +capture(execution)
+  +reportPersistenceFailure(error)
+}
+class EvidenceQueryService <<service>> {
+  +explain(executionId, principal): Evidence
+  +inspectAudit(filter, principal): List<AuditEvent>
+}
+class FleetConvergenceView <<read model>> {
+  -observedAt: DateTime
+  -desiredVersion: String
+  -loadedVersion: String
+  -converged: Boolean
+  -lagMs: Long
+  -loadError: String [0..1]
+}
+Execution "1" -- "0..1" ExecutionTraceTree : retained hot trace
+Execution "1" -- "0..1" ComplianceRecord : retained ledger
+ExecutionTraceTree "1" *-- "1..*" TraceNode
+TraceNode "0..1" -- "0..*" TraceNode : parent / children
+ComplianceRecord "0..*" --> "1" Release : evidence reference
+TraceCaptureService ..> Execution
+TraceCaptureService ..> SensitiveDataProtector
+TraceCaptureService ..> ExecutionTraceTree
+TraceCaptureService ..> ComplianceRecord
+TraceCaptureService ..> RetentionPolicy
+EvidenceQueryService ..> ExecutionTraceTree
+EvidenceQueryService ..> ComplianceRecord
+EvidenceQueryService ..> AuditEvent
+FleetConvergenceView "0..*" --> "1" RuntimeNode
+FleetConvergenceView "0..*" --> "1" DesiredActiveState
+FleetConvergenceView "0..*" --> "0..1" LoadedArtifact : observed active
+note bottom of ExecutionTraceTree
+  One root; acyclic parent/child links within the same trace.
+  Full tree retained 30-90 days, per configured policy.
+  Decision DAG and execution trace tree are different structures.
+end note
+note bottom of ComplianceRecord
+  Immutable metadata retained 5-7 years, per policy.
+  Trace/ledger associations are not composition: evidence
+  survives the short-lived runtime Execution object.
+end note
+note bottom of TraceCaptureService
+  Protect sensitive fields before persistence, including outcomes.
+  Capture asynchronously/safely; persistence failures observable.
+  Never silently change the business result on capture failure.
+  Evidence queries require scope checks and produce audit events.
+end note
+@enduml

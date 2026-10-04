@@ -1,0 +1,122 @@
+%%{init: {"theme": "base", "flowchart": {"curve": "basis", "htmlLabels": true, "nodeSpacing": 45, "rankSpacing": 160}, "themeVariables": {"fontFamily": "Segoe UI, Arial, sans-serif", "fontSize": "13px"}}}%%
+flowchart LR
+
+    A01["Decision Author / Domain Expert"]
+    A02["Domain Approver / Decision Owner"]
+    A03["Workspace Owner"]
+    A04["Compliance Officer"]
+    A05["Enterprise Administrator"]
+    A06["Security Auditor"]
+    A07["Application Developer / Integrator"]
+    A08["Consumer Application"]
+
+    RS0(("0<br/>RuleSphere"))
+
+    %% =========================================================================
+    %% A01: Decision Author / Domain Expert
+    %% =========================================================================
+    %% [F08-F15] Decision & Schema Modeling
+    A01 -->|"[F08-F15] Decision models, logic nodes, schemas & fallback rules"| RS0
+    RS0 -->|"[F08-F15] Saved decision versions, drafts & schema definitions"| A01
+
+    %% [F16-F17] Validation & Compatibility Verification
+    A01 -->|"[F16-F17] DAG cycle & schema compatibility validation requests"| RS0
+    RS0 -->|"[F16-F17] DAG verification reports & schema mismatch diagnostics"| A01
+
+    %% [F18] Sandbox Execution & Simulation
+    A01 -->|"[F18] Test cases & sandbox simulation input payloads"| RS0
+    RS0 -->|"[F18] Simulation execution traces & node evaluation results"| A01
+
+    %% [F19] Release Candidate Submission & Risk Calculation
+    A01 -->|"[F19] Release candidate submissions & change metadata"| RS0
+    RS0 -->|"[F19] Calculated risk tiers & release submission receipts"| A01
+
+    %% =========================================================================
+    %% A02: Domain Approver / Decision Owner
+    %% =========================================================================
+    %% [F20, F23] Domain Governance & Risk Override
+    RS0 -->|"[F20, F23] Domain review packages, risk tiers & AST visual diffs"| A02
+    A02 -->|"[F20, F23] Domain approval/rejection decisions & upward risk tier overrides"| RS0
+    RS0 -->|"[F20, F23] Approval progress status & audit confirmations"| A02
+
+    %% [F24-F27] Safe Rollout Management (Shadow & Canary)
+    A02 -->|"[F24-F27] Shadow rollout configs, canary percentages & cohort rules"| RS0
+    RS0 -->|"[F24-F27] Shadow diff comparison reports & live canary distribution telemetry"| A02
+
+    %% [F28-F29] Lifecycle Operations (Promotion & Rollback)
+    A02 -->|"[F28-F29] Promote-to-Active commands & instant rollback triggers"| RS0
+    RS0 -->|"[F28-F29] Active release switch confirmations & deployment state notices"| A02
+
+    %% =========================================================================
+    %% A03: Workspace Owner
+    %% =========================================================================
+    %% [F21] Workspace Governance
+    RS0 -->|"[F21] Tier-2+ workspace approval tasks & release evidence dossiers"| A03
+    A03 -->|"[F21] Workspace approval or rejection decisions"| RS0
+    RS0 -->|"[F21] Workspace approval confirmations & pipeline advancement"| A03
+
+    %% =========================================================================
+    %% A04: Compliance Officer
+    %% =========================================================================
+    %% [F22] Compliance Governance
+    RS0 -->|"[F22] Tier-3 compliance review packages & regulatory risk justifications"| A04
+    A04 -->|"[F22] Compliance approval or rejection decisions"| RS0
+    RS0 -->|"[F22] Compliance sign-off confirmations & governance records"| A04
+
+    %% [F35-F36] Explainability & Historical Audit
+    A04 -->|"[F35-F36] Historical decision audit queries & compliance inspection requests"| RS0
+    RS0 -->|"[F35-F36] Immutable audit evidence, masked execution traces & rule trees"| A04
+
+    %% =========================================================================
+    %% A05: Enterprise Administrator
+    %% =========================================================================
+    %% [F01-F02] Tenant & Workspace Administration
+    A05 -->|"[F01-F02] Tenant/workspace provisioning settings, quotas & policies"| RS0
+    RS0 -->|"[F01-F02] Tenant & workspace status & configuration confirmations"| A05
+
+    %% [F03-F04] Membership & Scoped Roles
+    A05 -->|"[F03-F04] User memberships, workspace bindings & scoped RBAC roles"| RS0
+    RS0 -->|"[F03-F04] Membership rosters & updated role assignment profiles"| A05
+
+    %% [F05-F06] API Credential Management
+    A05 -->|"[F05-F06] API credential issuance requests & revocation commands"| RS0
+    RS0 -->|"[F05-F06] Issued scoped API credentials & revocation audit notices"| A05
+
+    %% [F07] Shared Library Assets
+    A05 -->|"[F07] Shared library asset packages & reusable rule definitions"| RS0
+    RS0 -->|"[F07] Immutable published library versions & tenant library catalog"| A05
+
+    %% [F30] Fleet Convergence Monitoring
+    A05 -->|"[F30] Fleet convergence queries & sync trigger requests"| RS0
+    RS0 -->|"[F30] Runtime node convergence states & loaded artifact version reports"| A05
+
+    %% =========================================================================
+    %% A06: Security Auditor
+    %% =========================================================================
+    %% [F37-F38] Security & Access Audit
+    A06 -->|"[F37-F38] Access log queries, credential lifecycle & security audit requests"| RS0
+    RS0 -->|"[F37-F38] Scoped administrative audit logs, auth events & credential evidence"| A06
+
+    %% =========================================================================
+    %% A07: Application Developer / Integrator
+    %% =========================================================================
+    %% [F34] API Contract Discovery
+    A07 -->|"[F34] Versioned API contract discovery requests (REST / gRPC)"| RS0
+    RS0 -->|"[F34] Versioned OpenAPI specifications & Protobuf schema contracts"| A07
+
+    %% =========================================================================
+    %% A08: Consumer Application
+    %% =========================================================================
+    %% [F31-F32] Runtime Decision Evaluation
+    A08 -->|"[F31-F32] Decision evaluation requests (payloads, context & correlation IDs)"| RS0
+    RS0 -->|"[F31-F32] Decision evaluation results, execution reference IDs & status"| A08
+
+    %% [F33] Sticky Cohort, Version Pinning & Error Responses
+    A08 -->|"[F33] Version pinning tags, sticky cohort keys & fallback evaluation requests"| RS0
+    RS0 -->|"[F33] Pinned/cohort outputs or contract error responses (e.g., 412 Precondition Failed)"| A08
+
+    classDef external fill:#ffffff,stroke:#274d64,stroke-width:2px,color:#17354a;
+    classDef system fill:#eaf6f8,stroke:#177e8d,stroke-width:3px,color:#143047;
+    class A01,A02,A03,A04,A05,A06,A07,A08 external;
+    class RS0 system;
+    linkStyle default stroke:#527183,stroke-width:1.5px;

@@ -1,0 +1,73 @@
+@startuml
+title RuleSphere - Explain Historical Decisions and Inspect Audit\nUC-25..26
+autonumber
+skinparam shadowing false
+skinparam sequenceLifeLineBorderColor #177E8D
+skinparam sequenceLifeLineBackgroundColor #EAF6F8
+
+actor "Authorized User / Compliance or Security Auditor" as User
+boundary "Management API" as API
+participant AuthorizationService as Auth
+participant EvidenceQueryService as Query
+database "Hot Trace Store" as Hot
+database "Compliance Ledger" as Ledger
+database "Governance / Deployment / Security Audit" as Audit
+
+User -> API: Explain(executionId) / InspectAudit(filter)
+activate API
+
+API -> Auth: authorize(principal, evidence action, scope)
+activate Auth
+Auth --> API: Access decision
+deactivate Auth
+
+break Unauthorized scope
+  API --> User: Access denied without disclosing evidence
+end
+
+API -> Query: Query within authorized Tenant/Workspace
+activate Query
+
+alt UC-25: Explain historical decision
+  Query -> Hot: Find retained protected tree by scoped ExecutionID
+  activate Hot
+  Hot --> Query: Tree or not retained / not found
+  deactivate Hot
+  
+  Query -> Ledger: Find scoped execution metadata
+  activate Ledger
+  Ledger --> Query: Metadata and approval/release reference or not found
+  deactivate Ledger
+  
+  opt Accessible approval/release evidence reference exists
+    Query -> Audit: Read referenced evidence within authorized scope
+    activate Audit
+    Audit --> Query: Governance / release evidence
+    deactivate Audit
+  end
+  
+  Query -> Query: Assemble available version, node, outcome and evidence details
+  note right of Query
+    After hot-trace expiry, return retained metadata
+    with explicit full-tree unavailability.
+    Never invent missing intermediate decisions.
+  end note
+else UC-26: Inspect audit evidence
+  Query -> Audit: Read scoped governance / deployment / security records
+  activate Audit
+  Audit --> Query: Immutable attributable records
+  deactivate Audit
+end
+
+Query -> Audit: Record evidence access actor, scope, query and timestamp
+activate Audit
+Audit --> Query: Logged
+deactivate Audit
+
+Query --> API: Authorized protected evidence / explicit unavailable result
+deactivate Query
+
+API --> User: Explanation / audit view or export
+deactivate API
+
+@enduml

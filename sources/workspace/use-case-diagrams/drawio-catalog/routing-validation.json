@@ -1,0 +1,182 @@
+{
+  "A_Identity_Access_Management": {
+    "edges": 14,
+    "straight": 11,
+    "bent": 3,
+    "overlapping_segments": 0,
+    "node_intersections": 0,
+    "label_node_overlaps": 0,
+    "label_label_overlaps": 0
+  },
+  "B_Decision_Project_Asset_Management": {
+    "edges": 12,
+    "straight": 10,
+    "bent": 2,
+    "overlapping_segments": 0,
+    "node_intersections": 0,
+    "label_node_overlaps": 0,
+    "label_label_overlaps": 0
+  },
+  "C_Decision_Modeling_Rule_Authoring": {
+    "edges": 20,
+    "straight": 18,
+    "bent": 2,
+    "overlapping_segments": 0,
+    "node_intersections": 0,
+    "label_node_overlaps": 0,
+    "label_label_overlaps": 0
+  },
+  "D_Data_Contract_Management": {
+    "edges": 11,
+    "straight": 11,
+    "bent": 0,
+    "overlapping_segments": 0,
+    "node_intersections": 0,
+    "label_node_overlaps": 0,
+    "label_label_overlaps": 0
+  },
+  "E_Validation_Testing": {
+    "edges": 19,
+    "straight": 17,
+    "bent": 2,
+    "overlapping_segments": 0,
+    "node_intersections": 0,
+    "label_node_overlaps": 0,
+    "label_label_overlaps": 0
+  },
+  "F_Version_Change_Management": {
+    "edges": 13,
+    "straight": 12,
+    "bent": 1,
+    "overlapping_segments": 0,
+    "node_intersections": 0,
+    "label_node_overlaps": 0,
+    "label_label_overlaps": 0
+  },
+  "G_Review_Approval_Governance": {
+    "edges": 15,
+    "straight": 13,
+    "bent": 2,
+    "overlapping_segments": 0,
+    "node_intersections": 0,
+    "label_node_overlaps": 0,
+    "label_label_overlaps": 0
+  },
+  "H_Build_Artifact_Management": {
+    "edges": 17,
+    "straight": 17,
+    "bent": 0,
+    "overlapping_segments": 0,
+    "node_intersections": 0,
+    "label_node_overlaps": 0,
+    "label_label_overlaps": 0
+  },
+  "I_Environment_Deployment_Management": {
+    "edges": 21,
+    "straight": 20,
+    "bent": 1,
+    "overlapping_segments": 0,
+    "node_intersections": 0,
+    "label_node_overlaps": 0,
+    "label_label_overlaps": 0
+  },
+  "J_Progressive_Delivery": {
+    "edges": 15,
+    "straight": 15,
+    "bent": 0,
+    "overlapping_segments": 0,
+    "node_intersections": 0,
+    "label_node_overlaps": 0,
+    "label_label_overlaps": 0
+  },
+  "K_Decision_Execution": {
+    "edges": 19,
+    "straight": 15,
+    "bent": 4,
+    "overlapping_segments": 0,
+    "node_intersections": 0,
+    "label_node_overlaps": 0,
+    "label_label_overlaps": 0
+  },
+  "L_Explainability_Decision_Trace": {
+    "edges": 15,
+    "straight": 12,
+    "bent": 3,
+    "overlapping_segments": 0,
+    "node_intersections": 0,
+    "label_node_overlaps": 0,
+    "label_label_overlaps": 0
+  },
+  "M_Simulation_Impact_Analysis": {
+    "edges": 10,
+    "straight": 9,
+    "bent": 1,
+    "overlapping_segments": 0,
+    "node_intersections": 0,
+    "label_node_overlaps": 0,
+    "label_label_overlaps": 0
+  },
+  "N_Runtime_Operations_Observability": {
+    "edges": 12,
+    "straight": 12,
+    "bent": 0,
+    "overlapping_segments": 0,
+    "node_intersections": 0,
+    "label_node_overlaps": 0,
+    "label_label_overlaps": 0
+  },
+  "O_Audit_Compliance": {
+    "edges": 15,
+    "straight": 13,
+    "bent": 2,
+    "overlapping_segments": 0,
+    "node_intersections": 0,
+    "label_node_overlaps": 0,
+    "label_label_overlaps": 0
+  },
+  "P_Automation_CI_CD_Integration": {
+    "edges": 15,
+    "straight": 11,
+    "bent": 4,
+    "overlapping_segments": 0,
+    "node_intersections": 0,
+    "label_node_overlaps": 0,
+    "label_label_overlaps": 0
+  },
+  "Q_Platform_Administration": {
+    "edges": 13,
+    "straight": 13,
+    "bent": 0,
+    "overlapping_segments": 0,
+    "node_intersections": 0,
+    "label_node_overlaps": 0,
+    "label_label_overlaps": 0
+  },
+  "02_Cross_Cutting": {
+    "edges": 5,
+    "straight": 5,
+    "bent": 0,
+    "overlapping_segments": 0,
+    "node_intersections": 0,
+    "label_node_overlaps": 0,
+    "label_label_overlaps": 0
+  },
+  "01_Actor_Model": {
+    "edges": 9,
+    "straight": 9,
+    "bent": 0,
+    "overlapping_segments": 0,
+    "node_intersections": 0,
+    "label_node_overlaps": 0,
+    "label_label_overlaps": 0
+  },
+  "00_System_Overview": {
+    "edges": 30,
+    "straight": 19,
+    "bent": 11,
+    "overlapping_segments": 0,
+    "node_intersections": 0,
+    "label_node_overlaps": 0,
+    "label_label_overlaps": 0
+  }
+}

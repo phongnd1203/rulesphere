@@ -1,0 +1,73 @@
+@startuml
+title RuleSphere - Activity Diagram\n06. REST / gRPC Evaluation | UC-21..24
+skinparam shadowing false
+skinparam activityBackgroundColor #E9F8ED
+skinparam activityBorderColor #496477
+|Consumer Application|
+start
+:Send input, credential, routing context\nand optional version pin;
+|Runtime Admission|
+:Validate credential and Tenant/Workspace access;
+if (Authorized?) then (yes)
+else (no)
+  :Return authentication / access error;
+  stop
+endif
+if (Exact version pin supplied?) then (yes)
+  :Find exact eligible version in local artifact store;
+  if (Pinned version available and eligible?) then (yes)
+  else (no)
+    :Return REST 412 or documented gRPC\nprecondition error; no fallback to Active;
+    stop
+  endif
+else (no)
+  :Resolve configured sticky Canary / cohort selection\nor latest eligible node-local Active;
+  if (Selected snapshot available?) then (yes)
+  else (no)
+    :Return protocol-defined availability error;
+    stop
+  endif
+endif
+:Bind graph, schemas, dependencies and libraries\nas one atomic snapshot;
+:Validate input against bound schema;
+if (Input contract valid?) then (yes)
+else (no)
+  :Return client contract error before evaluation;
+  stop
+endif
+|Graph Executor|
+:Create execution context and trace; set healthy;
+while (More nodes and execution healthy?) is (yes)
+  :Select next node in topological order;
+  if (Branch activated?) then (yes)
+    :Evaluate node in fixed execution context;
+    if (Node succeeded?) then (yes)
+      :Record result, matched node and activated branches;
+    else (no)
+      if (Qualifying error and valid typed fallback configured?) then (yes)
+        :Use fallback and record fallback use;
+      else (no)
+        :Record attributable error and mark failed;
+      endif
+    endif
+  else (no)
+    :Skip inactive branch;
+  endif
+endwhile (no)
+:Finalize execution outcome and trace tree;
+|Runtime Response|
+:Dispatch safe asynchronous evidence capture\n(details in diagram 07);
+if (Execution succeeded?) then (yes)
+  :Return result, executionId\nand authorized version metadata;
+else (no)
+  :Return attributable protocol-defined execution error;
+endif
+|Consumer Application|
+:Receive response;
+stop
+legend bottom
+  Normal evaluation has no synchronous Control Plane dependency.
+  Mid-request publication never replaces the bound atomic snapshot.
+  Trace persistence does not block this flow; failures follow observable operational policy.
+endlegend
+@enduml

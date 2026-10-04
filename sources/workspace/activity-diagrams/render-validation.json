@@ -1,0 +1,74 @@
+[
+  {
+    "source": "01_Administration.drawio",
+    "page": "Administration",
+    "preview": "01_Administration.png",
+    "bytes": 420558
+  },
+  {
+    "source": "02_Decision_Modeling.drawio",
+    "page": "Decision Modeling",
+    "preview": "02_Decision_Modeling.png",
+    "bytes": 514576
+  },
+  {
+    "source": "03_Governance_and_Approval.drawio",
+    "page": "Governance and Approval",
+    "preview": "03_Governance_and_Approval.png",
+    "bytes": 699745
+  },
+  {
+    "source": "04_Shadow_and_Canary.drawio",
+    "page": "Rollout Configuration",
+    "preview": "04_Shadow_and_Canary_01.png",
+    "bytes": 227296
+  },
+  {
+    "source": "04_Shadow_and_Canary.drawio",
+    "page": "Production Evaluation and Shadow",
+    "preview": "04_Shadow_and_Canary_02.png",
+    "bytes": 531423
+  },
+  {
+    "source": "04_Shadow_and_Canary.drawio",
+    "page": "Diff Analysis Query",
+    "preview": "04_Shadow_and_Canary_03.png",
+    "bytes": 203726
+  },
+  {
+    "source": "05_Deployment_and_Convergence.drawio",
+    "page": "Promotion or Rollback",
+    "preview": "05_Deployment_and_Convergence_01.png",
+    "bytes": 290718
+  },
+  {
+    "source": "05_Deployment_and_Convergence.drawio",
+    "page": "Fleet Synchronization",
+    "preview": "05_Deployment_and_Convergence_02.png",
+    "bytes": 394858
+  },
+  {
+    "source": "05_Deployment_and_Convergence.drawio",
+    "page": "Fleet Status Query",
+    "preview": "05_Deployment_and_Convergence_03.png",
+    "bytes": 260748
+  },
+  {
+    "source": "06_Runtime_Evaluation.drawio",
+    "page": "Runtime Evaluation",
+    "preview": "06_Runtime_Evaluation.png",
+    "bytes": 728517
+  },
+  {
+    "source": "07_Trace_Capture.drawio",
+    "page": "Trace Capture",
+    "preview": "07_Trace_Capture.png",
+    "bytes": 400101
+  },
+  {
+    "source": "08_Historical_Explain_and_Audit.drawio",
+    "page": "Historical Explain and Audit",
+    "preview": "08_Historical_Explain_and_Audit.png",
+    "bytes": 448344
+  }
+]

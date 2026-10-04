@@ -1,0 +1,16 @@
+# SRS source section
+
+Source: `RuleSphere_SRS_v1.0_Final.docx`. Requirements retain their original status; extraction is not a new approval.
+
+## 13. Architecture Constraints
+
+| ID | Constraint |
+| --- | --- |
+| AC-01 | Responsibilities shall be separated into Decision Management (Control Plane), Decision Delivery/Distribution, and Decision Execution (Data Plane). |
+| AC-02 | Published runtime artifacts shall be immutable. |
+| AC-03 | Production Runtime nodes shall be horizontally scalable and stateless with respect to client sessions/long-running process state. |
+| AC-04 | Runtime shall use local/in-memory access to eligible artifacts on the critical execution path; Control Plane must not be a synchronous dependency for normal evaluation. |
+| AC-05 | Artifact synchronization shall be event/desired-state driven or use an equivalent mechanism that satisfies <=2s convergence and no-restart delivery. |
+| AC-06 | Decision composition shall remain synchronous deterministic DAG-based decision orchestration and shall not expand into BPM/long-running workflow orchestration. |
+| AC-07 | Technology choices such as Kafka, Redis, CQRS, a DMN engine, database product, reverse proxy or cache product require ADR justification and are not fixed by this SRS. |
+

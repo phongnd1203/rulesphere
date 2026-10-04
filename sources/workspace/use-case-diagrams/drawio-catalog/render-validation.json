@@ -1,0 +1,122 @@
+[
+  {
+    "source": "00_System_Overview.drawio",
+    "output": "00_System_Overview.png",
+    "ok": true,
+    "bytes": 869098
+  },
+  {
+    "source": "01_Actor_Model.drawio",
+    "output": "01_Actor_Model.png",
+    "ok": true,
+    "bytes": 200351
+  },
+  {
+    "source": "02_Cross_Cutting.drawio",
+    "output": "02_Cross_Cutting.png",
+    "ok": true,
+    "bytes": 211851
+  },
+  {
+    "source": "A_Identity_Access_Management.drawio",
+    "output": "A_Identity_Access_Management.png",
+    "ok": true,
+    "bytes": 385877
+  },
+  {
+    "source": "B_Decision_Project_Asset_Management.drawio",
+    "output": "B_Decision_Project_Asset_Management.png",
+    "ok": true,
+    "bytes": 333742
+  },
+  {
+    "source": "C_Decision_Modeling_Rule_Authoring.drawio",
+    "output": "C_Decision_Modeling_Rule_Authoring.png",
+    "ok": true,
+    "bytes": 490590
+  },
+  {
+    "source": "D_Data_Contract_Management.drawio",
+    "output": "D_Data_Contract_Management.png",
+    "ok": true,
+    "bytes": 269394
+  },
+  {
+    "source": "E_Validation_Testing.drawio",
+    "output": "E_Validation_Testing.png",
+    "ok": true,
+    "bytes": 424411
+  },
+  {
+    "source": "F_Version_Change_Management.drawio",
+    "output": "F_Version_Change_Management.png",
+    "ok": true,
+    "bytes": 290977
+  },
+  {
+    "source": "G_Review_Approval_Governance.drawio",
+    "output": "G_Review_Approval_Governance.png",
+    "ok": true,
+    "bytes": 391908
+  },
+  {
+    "source": "H_Build_Artifact_Management.drawio",
+    "output": "H_Build_Artifact_Management.png",
+    "ok": true,
+    "bytes": 371656
+  },
+  {
+    "source": "I_Environment_Deployment_Management.drawio",
+    "output": "I_Environment_Deployment_Management.png",
+    "ok": true,
+    "bytes": 488456
+  },
+  {
+    "source": "J_Progressive_Delivery.drawio",
+    "output": "J_Progressive_Delivery.png",
+    "ok": true,
+    "bytes": 381383
+  },
+  {
+    "source": "K_Decision_Execution.drawio",
+    "output": "K_Decision_Execution.png",
+    "ok": true,
+    "bytes": 490283
+  },
+  {
+    "source": "L_Explainability_Decision_Trace.drawio",
+    "output": "L_Explainability_Decision_Trace.png",
+    "ok": true,
+    "bytes": 351336
+  },
+  {
+    "source": "M_Simulation_Impact_Analysis.drawio",
+    "output": "M_Simulation_Impact_Analysis.png",
+    "ok": true,
+    "bytes": 262403
+  },
+  {
+    "source": "N_Runtime_Operations_Observability.drawio",
+    "output": "N_Runtime_Operations_Observability.png",
+    "ok": true,
+    "bytes": 320833
+  },
+  {
+    "source": "O_Audit_Compliance.drawio",
+    "output": "O_Audit_Compliance.png",
+    "ok": true,
+    "bytes": 355430
+  },
+  {
+    "source": "P_Automation_CI_CD_Integration.drawio",
+    "output": "P_Automation_CI_CD_Integration.png",
+    "ok": true,
+    "bytes": 385853
+  },
+  {
+    "source": "Q_Platform_Administration.drawio",
+    "output": "Q_Platform_Administration.png",
+    "ok": true,
+    "bytes": 359790
+  }
+]

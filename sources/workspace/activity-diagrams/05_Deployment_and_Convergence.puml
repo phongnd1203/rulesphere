@@ -1,0 +1,88 @@
+@startuml
+title RuleSphere - Activity Diagram\n05. Promote, Rollback and Convergence | UC-18..20, UC-27
+skinparam shadowing false
+skinparam activityBackgroundColor #F0ECFF
+skinparam activityBorderColor #496477
+
+|Release Manager|
+|Control / Delivery Plane|
+|Runtime Node (Fleet)|
+|Fleet Observability|
+|Authorized Operator|
+
+' Activity 1: Promotion or Rollback Trigger
+|Release Manager|
+start
+:Request promote candidate or rollback to prior version;
+|Control / Delivery Plane|
+:Authorize operation and verify target eligibility;
+if (Authorized and policy satisfied?) then (yes)
+  :Switch desired Active pointer to target artifact;
+  note right
+    Rollback reuses an eligible prior immutable artifact.
+    No cloning or rebuild needed.
+  end note
+  :Record actor, from/to version, timestamp and reason;
+  :Emit desired-state publication event;
+  :Acknowledge desired-state update to Release Manager;
+else (no)
+  :Return access / policy error;
+endif
+stop
+
+' Activity 2: Concurrent Fleet Synchronization & Observability
+|Control / Delivery Plane|
+start
+:Broadcast desired-state change event to Runtime fleet;
+fork
+  |Runtime Node (Fleet)|
+  :Active Runtime nodes independently receive event;
+  note right
+    Concurrent execution across all active fleet nodes.
+    Zero-restart in-memory load without interrupting in-flight requests.
+  end note
+  :Fetch exact immutable artifact and dependency references;
+  :Verify checksum integrity and contract compatibility;
+  if (Integrity and validation pass?) then (yes)
+    :Load artifact into memory;
+    :Mark snapshot eligible for new incoming requests;
+    :Report loaded version, generation and healthy status;
+  else (no)
+    :Reject failed artifact;
+    :Retain previously loaded valid artifact (FR-DIST-004);
+    :Continue serving while emitting error alert;
+  endif
+fork again
+  |Fleet Observability|
+  :Track desired vs loaded status from all active nodes;
+  if (100% of active nodes eligible within <=2.0s?) then (yes)
+    :Mark fleet state as CONVERGED (NFR-CONS-001);
+  else (no)
+    :Expose convergence lag and alert SLA breach;
+  endif
+end fork
+stop
+
+' Activity 3: Independent Fleet Observation Query
+|Authorized Operator|
+start
+:Request current fleet convergence status;
+|Control / Delivery Plane|
+:Authorize observation scope;
+if (Authorized?) then (yes)
+  :Query Fleet Observability collector;
+  :Return node-by-node desired/loaded versions, lag, and errors;
+  |Authorized Operator|
+  :Inspect fleet convergence dashboard;
+else (no)
+  |Control / Delivery Plane|
+  :Return access denied error;
+endif
+stop
+
+legend bottom
+  F-14 Resolution: Decoupled into Promotion/Rollback, Fleet Synchronization, and Operator Query.
+  Fleet nodes synchronize concurrently with zero restart. Failed nodes retain valid loaded artifacts (FR-DIST-004).
+  SLA is <=2.0s from event emission to 100% active nodes loaded and eligible (NFR-CONS-001).
+endlegend
+@enduml

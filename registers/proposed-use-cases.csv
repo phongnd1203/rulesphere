@@ -1,0 +1,178 @@
+﻿Catalog ID,Use case,Catalog actor,Status,Diagram files
+IAM-01,Sign In,Platform User,Proposed baseline,A_Identity_Access_Management.drawio
+IAM-02,Sign Out,Platform User,Proposed baseline,A_Identity_Access_Management.drawio
+IAM-03,Authenticate User,Identity Provider / IAM,Proposed baseline,A_Identity_Access_Management.drawio
+IAM-04,Authorize Access,Platform User,Proposed baseline,A_Identity_Access_Management.drawio; 02_Cross_Cutting.drawio
+IAM-05,Manage Role Mappings,Platform Administrator,Proposed baseline,A_Identity_Access_Management.drawio
+IAM-06,Assign Platform Roles,Platform Administrator,Proposed baseline,A_Identity_Access_Management.drawio
+IAM-07,Revoke Platform Roles,Platform Administrator,Proposed baseline,A_Identity_Access_Management.drawio
+IAM-08,Manage Project Access,Platform Administrator,Proposed baseline,A_Identity_Access_Management.drawio
+IAM-09,Manage Service / Client Identity,Platform Administrator,Proposed baseline,A_Identity_Access_Management.drawio
+IAM-10,Validate Client Credential,Decision Consumer / Client Application,Proposed baseline,A_Identity_Access_Management.drawio; K_Decision_Execution.drawio
+DAM-01,Manage Decision Project,Rule / Decision Author,Proposed baseline,B_Decision_Project_Asset_Management.drawio
+DAM-02,Create Decision Project,Rule / Decision Author,Proposed baseline,B_Decision_Project_Asset_Management.drawio
+DAM-03,View Decision Project,Platform User,Proposed baseline,B_Decision_Project_Asset_Management.drawio
+DAM-04,Update Decision Project,Rule / Decision Author,Proposed baseline,B_Decision_Project_Asset_Management.drawio
+DAM-05,Archive Decision Project,Platform Administrator,Proposed baseline,B_Decision_Project_Asset_Management.drawio
+DAM-06,Search Decision Assets,Platform User,Proposed baseline,B_Decision_Project_Asset_Management.drawio
+DAM-07,View Asset Metadata,Platform User,Proposed baseline,B_Decision_Project_Asset_Management.drawio
+DAM-08,Manage Asset Metadata,Rule / Decision Author,Proposed baseline,B_Decision_Project_Asset_Management.drawio
+DAM-09,View Asset Dependencies,Rule / Decision Author,Proposed baseline,B_Decision_Project_Asset_Management.drawio
+AUT-01,Author Decision Model,Rule / Decision Author,Proposed baseline,C_Decision_Modeling_Rule_Authoring.drawio
+AUT-02,Create Decision Model,Rule / Decision Author,Proposed baseline,C_Decision_Modeling_Rule_Authoring.drawio
+AUT-03,Edit Decision Model,Rule / Decision Author,Proposed baseline,C_Decision_Modeling_Rule_Authoring.drawio
+AUT-04,Clone Decision Model,Rule / Decision Author,Proposed baseline,C_Decision_Modeling_Rule_Authoring.drawio
+AUT-05,Define Business Rule,Rule / Decision Author,Proposed baseline,C_Decision_Modeling_Rule_Authoring.drawio
+AUT-06,Edit Business Rule,Rule / Decision Author,Proposed baseline,C_Decision_Modeling_Rule_Authoring.drawio
+AUT-07,Define Decision Table,Rule / Decision Author,Proposed baseline,C_Decision_Modeling_Rule_Authoring.drawio
+AUT-08,Edit Decision Table,Rule / Decision Author,Proposed baseline,C_Decision_Modeling_Rule_Authoring.drawio
+AUT-09,Define Decision Expression,Rule / Decision Author,Proposed baseline,C_Decision_Modeling_Rule_Authoring.drawio
+AUT-10,Configure Rule Priority,Rule / Decision Author,Proposed baseline,C_Decision_Modeling_Rule_Authoring.drawio
+AUT-11,Enable / Disable Rule,Rule / Decision Author,Proposed baseline,C_Decision_Modeling_Rule_Authoring.drawio
+AUT-12,Define Rule Metadata,Rule / Decision Author,Proposed baseline,C_Decision_Modeling_Rule_Authoring.drawio
+AUT-13,View Rule Dependencies,Rule / Decision Author,Proposed baseline,C_Decision_Modeling_Rule_Authoring.drawio
+AUT-14,Compare Decision Versions,Rule / Decision Author,Proposed baseline,C_Decision_Modeling_Rule_Authoring.drawio
+AUT-15,Delete Draft Asset,Rule / Decision Author,Proposed baseline,C_Decision_Modeling_Rule_Authoring.drawio
+DCM-01,Manage Decision Contract,Rule / Decision Author,Proposed baseline,D_Data_Contract_Management.drawio
+DCM-02,Define Input Contract,Rule / Decision Author,Proposed baseline,D_Data_Contract_Management.drawio
+DCM-03,Define Output Contract,Rule / Decision Author,Proposed baseline,D_Data_Contract_Management.drawio
+DCM-04,Define Data Types,Rule / Decision Author,Proposed baseline,D_Data_Contract_Management.drawio
+DCM-05,Define Validation Constraints,Rule / Decision Author,Proposed baseline,D_Data_Contract_Management.drawio
+DCM-06,Validate Decision Contract,Rule / Decision Author,Proposed baseline,D_Data_Contract_Management.drawio
+DCM-07,Validate Contract Compatibility,Rule / Decision Author,Proposed baseline,D_Data_Contract_Management.drawio
+DCM-08,View Decision Contract,Decision Consumer / Client Application,Proposed baseline,D_Data_Contract_Management.drawio
+DCM-09,Export Decision Contract,Decision Consumer / Client Application,Proposed baseline,D_Data_Contract_Management.drawio
+VAL-01,Validate Decision,Rule / Decision Author,Proposed baseline,C_Decision_Modeling_Rule_Authoring.drawio; E_Validation_Testing.drawio; F_Version_Change_Management.drawio; G_Review_Approval_Governance.drawio; H_Build_Artifact_Management.drawio; P_Automation_CI_CD_Integration.drawio
+VAL-02,Validate Rule Syntax,Rule / Decision Author,Proposed baseline,E_Validation_Testing.drawio
+VAL-03,Validate Decision Structure,Rule / Decision Author,Proposed baseline,E_Validation_Testing.drawio
+VAL-04,Validate References,Rule / Decision Author,Proposed baseline,E_Validation_Testing.drawio
+VAL-05,Detect Rule Conflicts,Rule / Decision Author,Proposed baseline,E_Validation_Testing.drawio
+VAL-06,Detect Redundant / Unreachable Rules,Rule / Decision Author,Proposed baseline,E_Validation_Testing.drawio
+TST-01,Manage Test Cases,Rule / Decision Author,Proposed baseline,E_Validation_Testing.drawio
+TST-02,Create Test Case,Rule / Decision Author,Proposed baseline,E_Validation_Testing.drawio
+TST-03,Execute Decision Test,Rule / Decision Author,Proposed baseline,E_Validation_Testing.drawio
+TST-04,Execute Test Suite,Rule / Decision Author,Proposed baseline,E_Validation_Testing.drawio; P_Automation_CI_CD_Integration.drawio
+TST-05,View Test Result,Rule / Decision Author,Proposed baseline,E_Validation_Testing.drawio; P_Automation_CI_CD_Integration.drawio
+TST-06,Compare Expected vs Actual Result,Rule / Decision Author,Proposed baseline,E_Validation_Testing.drawio
+TST-07,Run Regression Test,Rule / Decision Author,Proposed baseline,E_Validation_Testing.drawio
+TST-08,Validate Release Candidate,Reviewer / Approver,Proposed baseline,E_Validation_Testing.drawio; F_Version_Change_Management.drawio
+VER-01,Manage Decision Version,Rule / Decision Author,Proposed baseline,F_Version_Change_Management.drawio
+VER-02,Create Decision Version,Rule / Decision Author,Proposed baseline,F_Version_Change_Management.drawio; G_Review_Approval_Governance.drawio
+VER-03,View Version History,Platform User,Proposed baseline,F_Version_Change_Management.drawio
+VER-04,Compare Versions,Rule / Decision Author,Proposed baseline,F_Version_Change_Management.drawio
+VER-05,Restore Draft Version,Rule / Decision Author,Proposed baseline,F_Version_Change_Management.drawio
+VER-06,Create Release Version,Rule / Decision Author,Proposed baseline,F_Version_Change_Management.drawio
+VER-07,Deprecate Decision Version,Platform Administrator,Proposed baseline,F_Version_Change_Management.drawio
+VER-08,View Version Lineage,Platform User,Proposed baseline,F_Version_Change_Management.drawio; H_Build_Artifact_Management.drawio
+GOV-01,Submit Change for Review,Rule / Decision Author,Proposed baseline,G_Review_Approval_Governance.drawio
+GOV-02,Review Decision Change,Reviewer / Approver,Proposed baseline,G_Review_Approval_Governance.drawio
+GOV-03,Approve Decision Change,Reviewer / Approver,Proposed baseline,G_Review_Approval_Governance.drawio
+GOV-04,Reject Decision Change,Reviewer / Approver,Proposed baseline,G_Review_Approval_Governance.drawio
+GOV-05,Request Rework,Reviewer / Approver,Proposed baseline,G_Review_Approval_Governance.drawio
+GOV-06,Cancel Review Request,Rule / Decision Author,Proposed baseline,G_Review_Approval_Governance.drawio
+GOV-07,View Review Status,Rule / Decision Author,Proposed baseline,G_Review_Approval_Governance.drawio
+GOV-08,View Approval History,Reviewer / Approver,Proposed baseline,G_Review_Approval_Governance.drawio
+GOV-09,Enforce Approval Policy,Platform Administrator,Proposed baseline,G_Review_Approval_Governance.drawio
+ART-01,Build Decision Artifact,Rule / Decision Author / CI/CD,Proposed baseline,H_Build_Artifact_Management.drawio; P_Automation_CI_CD_Integration.drawio
+ART-02,Validate Build Inputs,RuleSphere,Proposed baseline,H_Build_Artifact_Management.drawio
+ART-03,Package Decision Artifact,RuleSphere,Proposed baseline,H_Build_Artifact_Management.drawio
+ART-04,Generate Artifact Metadata,RuleSphere,Proposed baseline,H_Build_Artifact_Management.drawio
+ART-05,Publish Decision Artifact,Rule / Decision Author / CI/CD,Proposed baseline,H_Build_Artifact_Management.drawio; P_Automation_CI_CD_Integration.drawio
+ART-06,View Published Artifact,Platform User,Proposed baseline,H_Build_Artifact_Management.drawio
+ART-07,Verify Artifact Integrity,Operations / SRE,Proposed baseline,H_Build_Artifact_Management.drawio; I_Environment_Deployment_Management.drawio
+ART-08,View Artifact Provenance,Reviewer / Approver,Proposed baseline,H_Build_Artifact_Management.drawio
+ART-09,Deprecate Artifact,Platform Administrator,Proposed baseline,H_Build_Artifact_Management.drawio
+DEP-01,Manage Runtime Environment,Platform Administrator,Proposed baseline,I_Environment_Deployment_Management.drawio
+DEP-02,Create Environment,Platform Administrator,Proposed baseline,I_Environment_Deployment_Management.drawio
+DEP-03,Configure Environment,Platform Administrator,Proposed baseline,I_Environment_Deployment_Management.drawio
+DEP-04,Configure Deployment Policy,Platform Administrator,Proposed baseline,I_Environment_Deployment_Management.drawio
+DEP-05,Deploy Decision,Operations / SRE,Proposed baseline,I_Environment_Deployment_Management.drawio; J_Progressive_Delivery.drawio; P_Automation_CI_CD_Integration.drawio
+DEP-06,Promote Decision,Operations / SRE,Proposed baseline,I_Environment_Deployment_Management.drawio
+DEP-07,Roll Back Deployment,Operations / SRE,Proposed baseline,I_Environment_Deployment_Management.drawio
+DEP-08,Redeploy Decision,Operations / SRE,Proposed baseline,I_Environment_Deployment_Management.drawio
+DEP-09,Cancel Deployment,Operations / SRE,Proposed baseline,I_Environment_Deployment_Management.drawio
+DEP-10,View Deployment Status,Operations / SRE,Proposed baseline,I_Environment_Deployment_Management.drawio; P_Automation_CI_CD_Integration.drawio
+DEP-11,View Deployment History,Operations / SRE,Proposed baseline,I_Environment_Deployment_Management.drawio
+DEP-12,Validate Deployment,RuleSphere,Proposed baseline,I_Environment_Deployment_Management.drawio
+DEP-13,Distribute Artifact to Runtime,RuleSphere,Proposed baseline,I_Environment_Deployment_Management.drawio
+DEP-14,Verify Runtime Convergence,Operations / SRE,Proposed baseline,I_Environment_Deployment_Management.drawio
+DEP-15,Detect Version Drift,Operations / SRE,Proposed baseline,I_Environment_Deployment_Management.drawio
+DEP-16,Reconcile Runtime State,Operations / SRE,Proposed baseline,I_Environment_Deployment_Management.drawio
+PRG-01,Perform Progressive Deployment,Operations / SRE,Proposed baseline,J_Progressive_Delivery.drawio
+PRG-02,Configure Canary Deployment,Operations / SRE,Proposed baseline,J_Progressive_Delivery.drawio
+PRG-03,Adjust Canary Allocation,Operations / SRE,Proposed baseline,J_Progressive_Delivery.drawio
+PRG-04,Promote Canary Version,Operations / SRE,Proposed baseline,J_Progressive_Delivery.drawio
+PRG-05,Abort Canary Deployment,Operations / SRE,Proposed baseline,J_Progressive_Delivery.drawio
+PRG-06,Configure Shadow Deployment,Operations / SRE,Proposed baseline,J_Progressive_Delivery.drawio
+PRG-07,Execute Shadow Evaluation,Decision Consumer / Client Application,Proposed baseline,J_Progressive_Delivery.drawio
+PRG-08,Compare Shadow Results,Operations / SRE,Proposed baseline,J_Progressive_Delivery.drawio
+PRG-09,Stop Shadow Deployment,Operations / SRE,Proposed baseline,J_Progressive_Delivery.drawio
+EXE-01,Execute Decision,Decision Consumer / Client Application,Proposed baseline,J_Progressive_Delivery.drawio; K_Decision_Execution.drawio
+EXE-02,Authenticate Decision Request,Identity Provider / IAM,Proposed baseline,K_Decision_Execution.drawio
+EXE-03,Validate Decision Request,Decision Consumer / Client Application,Proposed baseline,K_Decision_Execution.drawio
+EXE-04,Resolve Active Decision Version,RuleSphere,Proposed baseline,K_Decision_Execution.drawio; 02_Cross_Cutting.drawio
+EXE-05,Evaluate Decision Logic,RuleSphere,Proposed baseline,K_Decision_Execution.drawio
+EXE-06,Evaluate Business Rules,RuleSphere,Proposed baseline,K_Decision_Execution.drawio
+EXE-07,Evaluate Decision Table,RuleSphere,Proposed baseline,K_Decision_Execution.drawio
+EXE-08,Produce Decision Result,RuleSphere,Proposed baseline,K_Decision_Execution.drawio
+EXE-09,Return Execution Metadata,Decision Consumer / Client Application,Proposed baseline,K_Decision_Execution.drawio
+EXE-10,Handle Invalid Request,Decision Consumer / Client Application,Proposed baseline,K_Decision_Execution.drawio
+EXE-11,Handle Evaluation Failure,Decision Consumer / Client Application,Proposed baseline,K_Decision_Execution.drawio
+EXE-12,Execute Specific Decision Version,Decision Consumer / Client Application,Proposed baseline,K_Decision_Execution.drawio
+EXP-01,Request Decision Explanation,Decision Consumer / Client Application,Proposed baseline,K_Decision_Execution.drawio; L_Explainability_Decision_Trace.drawio
+EXP-02,Generate Decision Explanation,RuleSphere,Proposed baseline,L_Explainability_Decision_Trace.drawio
+EXP-03,View Matched Rules,Rule / Decision Author,Proposed baseline,L_Explainability_Decision_Trace.drawio
+EXP-04,View Evaluation Trace,Rule / Decision Author / Operations,Proposed baseline,L_Explainability_Decision_Trace.drawio
+EXP-05,View Input Values Used,Rule / Decision Author,Proposed baseline,L_Explainability_Decision_Trace.drawio
+EXP-06,View Output Derivation,Rule / Decision Author,Proposed baseline,L_Explainability_Decision_Trace.drawio
+EXP-07,View Executed Decision Version,Platform User,Proposed baseline,L_Explainability_Decision_Trace.drawio
+EXP-08,Retrieve Execution Trace,Operations / SRE,Proposed baseline,L_Explainability_Decision_Trace.drawio
+SIM-01,Simulate Decision,Rule / Decision Author,Proposed baseline,M_Simulation_Impact_Analysis.drawio
+SIM-02,Simulate Draft Version,Rule / Decision Author,Proposed baseline,M_Simulation_Impact_Analysis.drawio
+SIM-03,Compare Decision Outputs,Rule / Decision Author,Proposed baseline,M_Simulation_Impact_Analysis.drawio
+SIM-04,Compare Decision Versions,Rule / Decision Author,Proposed baseline,M_Simulation_Impact_Analysis.drawio
+SIM-05,Analyze Rule Change Impact,Rule / Decision Author,Proposed baseline,M_Simulation_Impact_Analysis.drawio
+SIM-06,Identify Dependent Decisions,Rule / Decision Author,Proposed baseline,M_Simulation_Impact_Analysis.drawio
+SIM-07,Evaluate Decision against Dataset,Rule / Decision Author,Proposed baseline,M_Simulation_Impact_Analysis.drawio
+OPS-01,Monitor Decision Runtime,Operations / SRE,Proposed baseline,N_Runtime_Operations_Observability.drawio
+OPS-02,View Runtime Health,Operations / SRE,Proposed baseline,N_Runtime_Operations_Observability.drawio
+OPS-03,View Decision Metrics,Operations / SRE,Proposed baseline,N_Runtime_Operations_Observability.drawio
+OPS-04,View Request Volume,Operations / SRE,Proposed baseline,N_Runtime_Operations_Observability.drawio
+OPS-05,View Decision Latency,Operations / SRE,Proposed baseline,N_Runtime_Operations_Observability.drawio
+OPS-06,View Error Rate,Operations / SRE,Proposed baseline,N_Runtime_Operations_Observability.drawio
+OPS-07,View Runtime Version,Operations / SRE,Proposed baseline,N_Runtime_Operations_Observability.drawio
+OPS-08,View Runtime Logs,Operations / SRE,Proposed baseline,N_Runtime_Operations_Observability.drawio
+OPS-09,View Runtime Traces,Operations / SRE,Proposed baseline,N_Runtime_Operations_Observability.drawio
+OPS-10,Diagnose Execution Failure,Operations / SRE,Proposed baseline,N_Runtime_Operations_Observability.drawio
+OPS-11,Receive Runtime Alert,Operations / SRE,Proposed baseline,N_Runtime_Operations_Observability.drawio
+OPS-12,Export Telemetry,Observability Platform,Proposed baseline,N_Runtime_Operations_Observability.drawio
+AUD-01,View Audit Trail,Reviewer / Approver,Proposed baseline,O_Audit_Compliance.drawio
+AUD-02,Search Audit Events,Reviewer / Approver,Proposed baseline,O_Audit_Compliance.drawio
+AUD-03,View Rule Change History,Reviewer / Approver,Proposed baseline,O_Audit_Compliance.drawio
+AUD-04,View Approval History,Reviewer / Approver,Proposed baseline,O_Audit_Compliance.drawio
+AUD-05,View Deployment History,Operations / SRE,Proposed baseline,O_Audit_Compliance.drawio
+AUD-06,Trace Decision Provenance,Reviewer / Approver,Proposed baseline,O_Audit_Compliance.drawio
+AUD-07,Trace Decision to Rule Version,Reviewer / Approver,Proposed baseline,O_Audit_Compliance.drawio
+AUD-08,Trace Rule Version to Deployment,Reviewer / Approver,Proposed baseline,O_Audit_Compliance.drawio
+AUD-09,Export Audit Events,Audit / SIEM,Proposed baseline,O_Audit_Compliance.drawio
+AUD-10,Configure Audit Policy,Platform Administrator,Proposed baseline,O_Audit_Compliance.drawio
+CICD-01,Validate Decision via API,CI/CD & Automation,Proposed baseline,P_Automation_CI_CD_Integration.drawio
+CICD-02,Execute Tests via API,CI/CD & Automation,Proposed baseline,P_Automation_CI_CD_Integration.drawio
+CICD-03,Build Artifact via API,CI/CD & Automation,Proposed baseline,P_Automation_CI_CD_Integration.drawio
+CICD-04,Publish Artifact via API,CI/CD & Automation,Proposed baseline,P_Automation_CI_CD_Integration.drawio
+CICD-05,Trigger Deployment,CI/CD & Automation,Proposed baseline,P_Automation_CI_CD_Integration.drawio
+CICD-06,Query Deployment Status,CI/CD & Automation,Proposed baseline,P_Automation_CI_CD_Integration.drawio
+CICD-07,Retrieve Test Result,CI/CD & Automation,Proposed baseline,P_Automation_CI_CD_Integration.drawio
+CICD-08,Retrieve Validation Result,CI/CD & Automation,Proposed baseline,P_Automation_CI_CD_Integration.drawio
+ADM-01,Manage Platform Configuration,Platform Administrator,Proposed baseline,Q_Platform_Administration.drawio
+ADM-02,Configure Platform Policies,Platform Administrator,Proposed baseline,Q_Platform_Administration.drawio
+ADM-03,Configure Execution Limits,Platform Administrator,Proposed baseline,Q_Platform_Administration.drawio
+ADM-04,Configure Retention Policy,Platform Administrator,Proposed baseline,Q_Platform_Administration.drawio
+ADM-05,Configure Audit Policy,Platform Administrator,Proposed baseline,Q_Platform_Administration.drawio
+ADM-06,Configure Deployment Policy,Platform Administrator,Proposed baseline,Q_Platform_Administration.drawio
+ADM-07,Manage Runtime Nodes,Platform Administrator,Proposed baseline,Q_Platform_Administration.drawio
+ADM-08,Register Runtime Node,Platform Administrator,Proposed baseline,Q_Platform_Administration.drawio
+ADM-09,Deregister Runtime Node,Platform Administrator,Proposed baseline,Q_Platform_Administration.drawio
+ADM-10,View Runtime Node Status,Platform Administrator,Proposed baseline,Q_Platform_Administration.drawio
+ADM-11,View Platform Health,Platform Administrator,Proposed baseline,Q_Platform_Administration.drawio
+ADM-12,View Platform Usage,Platform Administrator,Proposed baseline,Q_Platform_Administration.drawio

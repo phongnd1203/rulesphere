@@ -1,0 +1,72 @@
+[
+  {
+    "ID": "NFR-PERF-001",
+    "Category": "Performance",
+    "Requirement": "gRPC Data Plane latency shall achieve p95 < 10 ms and p99 < 25 ms for Decision Graph <=10 nodes and payload <=10 KB under the approved benchmark profile."
+  },
+  {
+    "ID": "NFR-PERF-002",
+    "Category": "Performance",
+    "Requirement": "REST Data Plane latency shall achieve p95 < 25 ms and p99 < 50 ms for Decision Graph <=10 nodes and payload <=10 KB under the approved benchmark profile."
+  },
+  {
+    "ID": "NFR-PERF-003",
+    "Category": "Throughput",
+    "Requirement": "A Runtime node shall sustain >=2,000 RPS on baseline hardware of 4 vCPU and 8 GB RAM under the benchmark workload."
+  },
+  {
+    "ID": "NFR-CONS-001",
+    "Category": "Consistency",
+    "Requirement": "100% of active Runtime nodes shall converge to the desired published/rollback artifact within <=2 seconds measured from publication event emission."
+  },
+  {
+    "ID": "NFR-AVAIL-001",
+    "Category": "Availability",
+    "Requirement": "The production Data Plane shall target 99.99% availability, measured independently of Control Plane uptime."
+  },
+  {
+    "ID": "NFR-TRACE-001",
+    "Category": "Performance",
+    "Requirement": "Enabling Full Trace Tree capture shall add <=10% latency penalty under the defined benchmark workload."
+  },
+  {
+    "ID": "NFR-REL-001",
+    "Category": "Fault tolerance",
+    "Requirement": "Control Plane unavailability or Control-to-Data network partition shall not stop Data Plane execution using already-loaded eligible artifacts."
+  },
+  {
+    "ID": "NFR-REL-002",
+    "Category": "Consistency",
+    "Requirement": "No execution may mix Decision/dependency versions from different snapshots."
+  },
+  {
+    "ID": "NFR-SEC-001",
+    "Category": "Isolation",
+    "Requirement": "Cross-tenant data/access leakage shall be prohibited across management, runtime and audit paths."
+  },
+  {
+    "ID": "NFR-SEC-002",
+    "Category": "Data protection",
+    "Requirement": "Sensitive trace fields shall not be persisted in plaintext."
+  },
+  {
+    "ID": "NFR-AUD-001",
+    "Category": "Auditability",
+    "Requirement": "Governance, release, rollback and security-sensitive administrative actions shall produce immutable attributable audit evidence."
+  },
+  {
+    "ID": "NFR-OBS-001",
+    "Category": "Observability",
+    "Requirement": "The platform shall expose sufficient telemetry to identify runtime health, artifact load failures, convergence lag and trace-persistence failures."
+  },
+  {
+    "ID": "NFR-SCALE-001",
+    "Category": "Scalability",
+    "Requirement": "The Data Plane architecture shall support horizontal scaling by adding stateless Runtime nodes without changing Decision semantics."
+  },
+  {
+    "ID": "NFR-INT-001",
+    "Category": "Interoperability",
+    "Requirement": "REST and gRPC contracts shall be versioned and documented so consumer integrations can evolve under controlled compatibility rules."
+  }
+]

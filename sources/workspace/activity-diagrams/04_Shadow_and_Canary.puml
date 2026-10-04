@@ -1,0 +1,94 @@
+@startuml
+title RuleSphere - Activity Diagram\n04. Shadow and Canary Rollout | UC-15..17
+skinparam shadowing false
+skinparam activityBackgroundColor #F0ECFF
+skinparam activityBorderColor #496477
+
+|Release Manager|
+|Control / Delivery Plane|
+|Consumer Application|
+|Runtime Engine|
+|Shadow Worker|
+|Authorized User / Analyst|
+
+' Activity 1: Rollout Configuration
+|Release Manager|
+start
+:Configure Shadow and/or Canary settings for candidate;
+|Control / Delivery Plane|
+:Authorize rollout command and verify candidate eligibility;
+if (Authorized and eligible?) then (yes)
+  :Distribute artifact and rollout configuration;
+  :Notify active Runtime nodes (see Activity 05);
+  :Return rollout confirmation;
+else (no)
+  :Return access / release policy error;
+endif
+stop
+
+' Activity 2: Production Request & Asynchronous Shadow Execution
+|Consumer Application|
+start
+:Submit unpinned production evaluation request;
+|Runtime Engine|
+:Authorize runtime scope and resolve routing context;
+if (Request admitted?) then (yes)
+  :Apply deterministic sticky percentage / cohort policy;
+  if (Selected for Canary?) then (yes)
+    :Bind eligible loaded Canary snapshot;
+  else (no)
+    :Bind node-local loaded Active snapshot;
+  endif
+  if (Bound snapshot available?) then (yes)
+    :Validate input and evaluate selected snapshot (see Diagram 06);
+    :Return production response to consumer;
+    |Consumer Application|
+    :Receive production decision;
+    |Runtime Engine|
+    if (Shadow enabled and mirrored traffic eligible?) then (yes)
+      :Dispatch async mirrored request;
+      |Shadow Worker|
+      if (Production request executed Canary?) then (yes)
+        :Evaluate Active snapshot on mirrored input for baseline;
+      else (no)
+        :Use captured Active outcome as baseline;
+      endif
+      :Evaluate approved Shadow snapshot on mirrored input;
+      :Protect sensitive fields (mask/tokenize);
+      if (Both outcomes valid and protection succeeded?) then (yes)
+        :Persist correlated protected Active/Shadow diff;
+      else (no)
+        :Record comparison error without impacting production;
+      endif
+      stop
+    else (no)
+    endif
+  else (no)
+    :Return explicit runtime availability error;
+  endif
+else (no)
+  :Return protocol-appropriate error;
+endif
+stop
+
+' Activity 3: Query Diff Analysis
+|Authorized User / Analyst|
+start
+:Submit query for Shadow comparison diffs;
+|Control / Delivery Plane|
+:Authorize query scope;
+if (Authorized?) then (yes)
+  :Fetch protected diff records from store;
+  :Assemble divergence metrics and node reports;
+  :Return diff analysis report;
+else (no)
+  :Return access denied error;
+endif
+stop
+
+legend bottom
+  F-14 Resolution: Rollout configuration, production evaluation, and diff querying are decoupled.
+  Shadow processing is dispatched asynchronously without blocking or mutating the production response.
+  Canary uses deterministic sticky hash or approved cohort routing.
+endlegend
+@enduml

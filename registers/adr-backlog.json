@@ -1,0 +1,52 @@
+[
+  {
+    "ADR Candidate": "ADR-001",
+    "Decision to make": "Executable decision representation / DMN adoption level",
+    "Primary drivers": "G3, performance, interoperability"
+  },
+  {
+    "ADR Candidate": "ADR-002",
+    "Decision to make": "Distribution backbone: Kafka vs Redis-class mechanism vs alternative",
+    "Primary drivers": "<=2s convergence, availability, operations"
+  },
+  {
+    "ADR Candidate": "ADR-003",
+    "Decision to make": "Runtime artifact cache and eviction strategy",
+    "Primary drivers": "latency, pinning, rollback eligibility"
+  },
+  {
+    "ADR Candidate": "ADR-004",
+    "Decision to make": "Control Plane persistence/CQRS boundaries",
+    "Primary drivers": "auditability, scale, consistency"
+  },
+  {
+    "ADR Candidate": "ADR-005",
+    "Decision to make": "Trace ingestion and hot/cold storage architecture",
+    "Primary drivers": "<=10% overhead, retention, compliance"
+  },
+  {
+    "ADR Candidate": "ADR-006",
+    "Decision to make": "Tenant isolation physical model",
+    "Primary drivers": "security, cost, scalability"
+  },
+  {
+    "ADR Candidate": "ADR-007",
+    "Decision to make": "Canary stable hash algorithm and cohort expression model",
+    "Primary drivers": "determinism, interoperability"
+  },
+  {
+    "ADR Candidate": "ADR-008",
+    "Decision to make": "Schema compatibility model and registry implementation",
+    "Primary drivers": "G8, integration safety"
+  },
+  {
+    "ADR Candidate": "ADR-009",
+    "Decision to make": "Identity federation and enterprise authentication",
+    "Primary drivers": "G7, enterprise integration"
+  },
+  {
+    "ADR Candidate": "ADR-010",
+    "Decision to make": "Data Plane HA topology and SLO measurement",
+    "Primary drivers": "99.99%, fault tolerance"
+  }
+]

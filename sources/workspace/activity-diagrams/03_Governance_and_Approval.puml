@@ -1,0 +1,75 @@
+@startuml
+title RuleSphere - Activity Diagram\n03. Governance and Artifact Build | UC-10..14
+skinparam shadowing false
+skinparam activityBackgroundColor #FFF6DF
+skinparam activityBorderColor #496477
+|Decision Author|
+start
+:Submit exact candidate revision;
+|Control Plane|
+:Authorize submit and validate candidate revision;
+if (Authorized and required validation passed?) then (yes)
+else (no)
+  :Return errors; do not enter review;
+  stop
+endif
+:Calculate risk from change scope,\nschema compatibility and previous 30-day traffic;
+:Bind candidate revision and policy; enter In Review;
+:Derive required stages / quorum;
+note right
+Tier 1: one Domain Approver.
+Tier 2: Domain Peer THEN Workspace Owner.
+Tier 3: Domain Owner AND Compliance Officer.
+Maker is excluded from every approval role.
+end note
+while (Governance still pending?) is (yes)
+  |Authorized Reviewer|
+  :Submit approve / reject / upward override command;
+  |Control Plane|
+  :Check current scope, role, maker exclusion,\nstage and candidate revision;
+  if (Reviewer and command eligible?) then (yes)
+    switch (Command)
+    case (Increase tier)
+      if (New tier is higher?) then (yes)
+        :Record immutable override evidence;
+        :Increase tier and re-evaluate required approvals;
+        note right
+Reuse of prior approvals needs explicit policy.
+An edited revision cannot inherit approval implicitly.
+end note
+      else (no)
+        :Reject same/lower-tier override;
+      endif
+    case (Reject)
+      :Append immutable rejection evidence;
+      :Return candidate to Draft;
+      stop
+    case (Approve)
+      :Append immutable approval evidence\nfor the reviewed revision;
+      :Evaluate current stages / quorum;
+    endswitch
+  else (no)
+    :Reject command without counting approval;
+  endif
+  :Expose current review status;
+endwhile (no)
+:Mark Approved and freeze Decision Version;
+|Artifact Builder|
+:Verify governed revision and required validation;
+if (Build preconditions satisfied?) then (yes)
+  :Build artifact binding exact graph, schemas,\ndependencies and Shared Library versions;
+  if (Build succeeded?) then (yes)
+    :Store immutable artifact, manifest and integrity metadata;
+    :Expose artifact as eligible for delivery;
+  else (no)
+    :Report observable build failure; no deliverable artifact;
+  endif
+else (no)
+  :Block build and report precondition failure;
+endif
+stop
+legend bottom
+  Human review commands are separate requests over time, not an open HTTP call.
+  Approved does not mean Active. This activity describes governance, not a BPM engine.
+endlegend
+@enduml

@@ -1,0 +1,120 @@
+@startuml
+title RuleSphere - Decision Evaluation Request (UC-21..24)
+hide empty description
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam stateBackgroundColor #EAF6F8
+skinparam stateBorderColor #177E8D
+skinparam ArrowColor #527183
+
+' Classifier: RuntimeEvaluationRequest (COMET State-Dependent Object)
+' Target: Single request lifecycle in Data Plane (SRS 10.1, 10.2, 10.3, 11.1, AC-04)
+
+state "Checking caller and scope" as Auth {
+  Auth : entry / authenticateAndAuthorizeScope()
+}
+
+state "Resolving Atomic Snapshot at Admission" as Resolve {
+  Resolve : entry / resolveCandidateSnapshot()
+}
+
+state Pin <<choice>>
+state "Checking exact pinned version" as Pinned
+state "Resolving cohort / sticky routing" as Routing
+
+state "Snapshot Bound at Admission" as BoundSnapshot {
+  BoundSnapshot : entry / bindImmutableSnapshot(graph, schemas, dependencies, libraries)
+}
+
+state "Checking selected input contract" as Contract {
+  Contract : entry / validateInputAgainstSnapshotSchema()
+}
+
+state "Executing decision graph" as Execution {
+  state "Evaluating Node" as Node
+  state "Applying typed fallback" as Fallback
+  state Next <<choice>>
+  
+  [*] --> Node
+  ' F-11: Explicit short-circuit skip for inactive branch
+  Node --> Next : skipInactive [branch not activated] / recordBranchSkipped()
+  Node --> Next : nodeSucceeded [branch activated] / captureNodeOutcome()
+  Node --> Fallback : nodeFailed [eligible typed fallback configured]
+  Fallback --> Next : fallbackApplied / captureFallbackEvidence()
+  Next --> Node : [more nodes in topological order] / selectNextNode()
+}
+
+state "Execution succeeded" as Success {
+  Success : entry / assembleSuccessResponse()
+}
+
+state "Execution failed" as Failure {
+  Failure : entry / assembleErrorResponse()
+}
+
+state "Returning evaluation outcome" as Response {
+  Response : entry / sendResponse(executionId, payload)
+}
+
+state "Access denied" as Denied
+state "Pinned-version precondition failed" as PinFailed
+state "Contract rejected" as BadInput
+state "No eligible runtime version" as NoVersion
+
+' F-04: Initial transition has no trigger or guard per UML 2.5.1
+[*] --> Auth : / initEvaluationRequest()
+
+Auth --> Denied : accessCheckFailed / return401or403()
+Auth --> Resolve : accessCheckPassed
+
+Resolve --> Pin
+Pin --> Pinned : [exact pin supplied]
+Pin --> Routing : [unpinned request]
+
+Pinned --> PinFailed : versionChecked [unavailable or ineligible]\n/ return412PreconditionFailed()
+Pinned --> BoundSnapshot : versionChecked [available and eligible]
+
+Routing --> BoundSnapshot : routingResolved [eligible version available]\n/ applyStickyCanaryOrCohort()
+Routing --> NoVersion : routingFailed [no eligible version loaded]
+
+' F-11: Atomic snapshot binding occurs before contract validation
+BoundSnapshot --> Contract : snapshotFixed / assignExecutionID()
+
+Contract --> BadInput : contractChecked [invalid input]\n/ return400ClientError()
+Contract --> Execution : contractChecked [valid input]
+
+Next --> Success : [all active nodes processed]
+Node --> Failure : nodeFailed [no eligible typed fallback]\n/ retainAttributableError()
+Fallback --> Failure : fallbackFailed / retainExecutionError()
+
+' F-07: Response does NOT wait for trace persistence; dispatches async handoff
+Success --> Response : / dispatchAsyncTraceHandoff(executionId, traceTree)
+Failure --> Response : / dispatchAsyncTraceHandoff(executionId, errorTree)
+
+Response --> [*] : responseSent
+Denied --> [*] : errorSent
+PinFailed --> [*] : preconditionErrorSent
+BadInput --> [*] : contractErrorSent
+NoVersion --> [*] : availabilityErrorSent
+
+note right of BoundSnapshot
+  **SRS 10.1 Atomic Snapshot Invariant:**
+  Resolved at request admission. All graph nodes, schemas,
+  dependencies and Shared Library versions are strictly bound.
+  Mid-request publication events NEVER alter the executing snapshot.
+end note
+
+note right of Response
+  **F-07 Async Trace Handoff:**
+  Production response is returned immediately to client
+  with executionId. Trace masking and persistence
+  proceed asynchronously via worker task (diagram 07),
+  protecting request latency.
+end note
+
+legend bottom
+  Transition: event [guard] / effect | entry / action
+  Classifier: RuntimeEvaluationRequest (COMET State-Dependent Object)
+  Complies with UML 2.5.1, SRS 10.1 (Atomic Snapshot), 10.2 (Pin 412), and async trace handoff.
+endlegend
+@enduml

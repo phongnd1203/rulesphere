@@ -1,0 +1,81 @@
+@startuml
+title RuleSphere - Decision Draft Lifecycle (UC-05..09)
+hide empty description
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam stateBackgroundColor #EAF6F8
+skinparam stateBorderColor #177E8D
+skinparam ArrowColor #527183
+
+' Classifier: DecisionVersion (COMET State Dependent Control)
+' Target Object: DecisionVersion instance within a Workspace
+
+state "Editing draft" as Editing {
+  Editing : entry / markDraftMutable()
+  Editing : editGraph / save nodes and dependencies
+  Editing : editSchema / version input and output contracts
+  Editing : configureFallback / save typed fallback
+}
+
+state "Validating graph and contracts" as Validating {
+  Validating : entry / runDAGValidation(); runContractCheck()
+}
+
+state "Validation failed" as Invalid {
+  Invalid : entry / recordValidationErrors()
+}
+
+state "Validated draft" as Valid {
+  Valid : entry / bindValidationStamp(currentRevision)
+  Valid : submitRelease [authorized] / create release candidate (diagram 02)
+}
+
+state "Running sandbox" as Sandbox {
+  Sandbox : entry / executeDraftSnapshot()
+}
+
+state "Sandbox completed" as Tested {
+  Tested : entry / recordSimulationSuccess()
+  Tested : submitRelease [authorized] / create release candidate (diagram 02)
+}
+
+state "Sandbox failed" as TestFailed {
+  TestFailed : entry / recordSimulationDiagnostics()
+}
+
+' F-04: Initial pseudo-state transition has no trigger or guard per UML 2.5.1
+[*] --> Editing : / initDraftRevision()
+
+Editing --> Validating : validate
+Validating --> Invalid : validationCompleted [errors detected]\n/ expose cycles and contract errors
+Validating --> Valid : validationCompleted [all checks pass]
+Invalid --> Editing : edit / invalidatePreviousValidation()
+Invalid --> Validating : revalidate
+Valid --> Editing : edit / invalidatePreviousValidation()
+Valid --> Sandbox : executeSandbox [executable draft valid]
+Sandbox --> Tested : executionSucceeded / return result and trace
+Sandbox --> TestFailed : executionFailed / return diagnostics
+TestFailed --> Sandbox : retry [same valid revision]
+TestFailed --> Editing : edit / invalidatePreviousValidation()
+Tested --> Sandbox : executeSandbox [new test input]
+Tested --> Editing : edit / invalidatePreviousValidation()
+
+note right of Editing
+  Nodes: Decision Table, Decision Tree,
+  Scripted Expression, Rule Set.
+  The draft and release candidate are separate objects.
+  Submitting does not terminate the draft lifecycle.
+end note
+
+note bottom of Valid
+  Validation tracks a specific draft revision.
+  Sandbox success is an authoring aid; submitting release
+  can occur from Validated or Tested state.
+end note
+
+legend bottom
+  Transition: event [guard] / effect | entry / action
+  Classifier: DecisionVersion (COMET State-Dependent Object)
+  Conforms to UML 2.5.1 initial transition semantics (OMG UMLR-803).
+endlegend
+@enduml

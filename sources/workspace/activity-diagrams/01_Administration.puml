@@ -1,0 +1,51 @@
+@startuml
+title RuleSphere - Activity Diagram\n01. Administration | UC-01..04
+skinparam shadowing false
+skinparam activityBackgroundColor #EDF5FF
+skinparam activityBorderColor #496477
+|Administrator / Authorized Owner|
+start
+:Choose administrative operation;
+:Provide target scope and data;
+|Control Plane|
+:Authenticate and check action permissions\nwithin Tenant / Workspace;
+if (Authorized scope?) then (yes)
+else (no)
+  :Return access error;
+  stop
+endif
+switch (Operation)
+case (Tenant / Workspace)
+  :Validate ownership and configuration;
+case (Membership / Roles)
+  :Validate scoped membership and role assignment;
+case (API Credential)
+  :Validate issuance or revocation request\nand permitted credential scope;
+case (Shared Library)
+  :Validate reusable asset and Tenant ownership;
+endswitch
+if (Request valid?) then (yes)
+else (no)
+  :Return validation errors without applying change;
+  stop
+endif
+switch (Operation)
+case (Tenant / Workspace)
+  :Store Tenant / Workspace configuration;
+case (Membership / Roles)
+  :Update scoped role assignments;
+case (API Credential)
+  :Issue scoped credential or revoke credential;
+case (Shared Library)
+  :Publish exact immutable Shared Library version;
+endswitch
+:Record immutable attributable audit evidence;
+:Return operation result;
+|Administrator / Authorized Owner|
+:View configuration / credential / library result;
+stop
+note right
+Cross-workspace reuse requires an exact Tenant Shared Library version.
+No direct cross-workspace or cross-tenant references.
+end note
+@enduml
